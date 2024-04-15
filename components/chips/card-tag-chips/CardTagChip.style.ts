@@ -11,9 +11,6 @@ const CardTagChipStyle = styled.span<CardTagChipStyleProps>`
   border-radius: 0.4rem;
 
   @media screen and (max-width: 767px) {
-    width: 3rem;
-    height: 2rem;
-
     font-size: 1rem;
   }
 `;
