@@ -6,7 +6,7 @@ const ColorChipStyle = styled.div`
   border-radius: 50%;
   background-color: var(${({ color }) => color});
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     width: 2.8rem;
     height: 2.8rem;
   }
