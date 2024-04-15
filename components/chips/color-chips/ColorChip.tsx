@@ -1,15 +1,28 @@
+import Image from 'next/image';
 import ColorChipStyle from './ColorChip.style';
+import { useState } from 'react';
 
-const CHIP_COLORS = [
-  '--color-green_7AC555',
-  '--color-purple_760DDE',
-  '--color-orange_FFA500',
-  '--color-blue_76A6EA',
-  '--color-pink_E876EA',
-];
+interface ColorChipsType {
+  color: string;
+  index: number;
+  selectedColorIndex: number;
+  setSelectedColorIndex: (index: number) => void;
+}
 
-const ColorChip = () => {
-  return CHIP_COLORS.map((color, index) => <ColorChipStyle key={index} color={color} />);
+const ColorChip = ({ color, index, selectedColorIndex, setSelectedColorIndex }: ColorChipsType) => {
+  const handleOnColorClick = () => {
+    setSelectedColorIndex(index);
+  };
+
+  return (
+    <>
+      <ColorChipStyle color={color} onClick={handleOnColorClick}>
+        {selectedColorIndex === index && (
+          <Image className='check-image' src='/assets/chips/check.svg' alt='체크 이미지' width={24} height={24} />
+        )}
+      </ColorChipStyle>
+    </>
+  );
 };
 
 export default ColorChip;
