@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 interface CardTagChipStyleProps {
-  tagColor: string; // tagColor prop을 정의
+  tagColor: string;
+  tagTextColor: string;
 }
 
-const CardTagChipStyle = styled.span<CardTagChipStyleProps>`
-  gap: 0.6rem;
+const CardTagChipStyle = styled.li<CardTagChipStyleProps>`
   padding: 0.4rem 0.6rem;
   background-color: ${({ tagColor }) => tagColor};
   border-radius: 0.4rem;
+  list-style: none;
+  color: ${({ tagTextColor }) => tagTextColor};
 
   @media screen and (max-width: 767px) {
     font-size: 1rem;
