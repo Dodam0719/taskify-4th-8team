@@ -22,9 +22,9 @@ const Modal = () => {
   return (
     <>
       {isModalOpen && <ModalAlert message='비밀번호가 일치하지 않습니다.' onClose={handleCloseModal} />}
-      <ModalButton text='입력' size='addSmall' variant='comment' onClick={handleCommentClick} />
-      <ModalButton text='취소' size='large' variant='cancel' onClick={handleCancelClick} />
-      <ModalButton text='확인' size='small' variant='confirm' onClick={handleConfirmClick} />
+      <ModalButton text='입력' variant='comment' onClick={handleCommentClick} />
+      <ModalButton text='취소' variant='cancel' onClick={handleCancelClick} />
+      <ModalButton text='확인' variant='confirm' onClick={handleConfirmClick} />
     </>
   );
 };

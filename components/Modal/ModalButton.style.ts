@@ -41,7 +41,7 @@ export const variantStyles = {
   `,
 };
 
-export const ButtonModal = styled.button<{ size: 'addSmall' | 'addLarge' | 'small' | 'large'; variant: 'comment' | 'cancel' | 'confirm' }>`
+export const ButtonModal = styled.button<{ variant: 'comment' | 'cancel' | 'confirm' }>`
   display: flex;
   align-items: center;
   justify-content: center;

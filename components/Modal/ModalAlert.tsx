@@ -14,7 +14,7 @@ const ModalAlert: React.FC<ModalAlertProps> = ({ message, onClose }) => {
           <p>{message}</p>
         </ModalAlertContent>
         <ModalAlertFooter>
-          <ModalButton text='확인' size='large' variant='confirm' onClick={onClose} />
+          <ModalButton text='확인' variant='confirm' onClick={onClose} />
         </ModalAlertFooter>
       </ModalWrapper>
     </ModalOverlay>
