@@ -49,6 +49,10 @@ export const ButtonModal = styled.button<{ size: 'addSmall' | 'addLarge' | 'smal
   font-weight: 500;
   cursor: pointer;
 
-  ${({ size }) => sizeStyles[size]}
+  ${({ variant }) => (variant === 'comment' ? sizeStyles.addLarge : sizeStyles.large)}
   ${({ variant }) => variantStyles[variant]}
+
+  @media (max-width: 767px) {
+    ${({ variant }) => (variant === 'comment' ? sizeStyles.addSmall : sizeStyles.small)}
+  }
 `;
