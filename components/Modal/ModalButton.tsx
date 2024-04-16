@@ -1,4 +1,4 @@
-import { ButtonModal } from './ModalButton.style';
+import * as S from './ModalButton.style';
 
 interface ModalButtonProps {
   text: string;
@@ -8,9 +8,9 @@ interface ModalButtonProps {
 
 const ModalButton: React.FC<ModalButtonProps> = ({ text, onClick, variant = 'confirm' }) => {
   return (
-    <ButtonModal variant={variant} onClick={onClick}>
+    <S.ButtonModal variant={variant} onClick={onClick}>
       {text}
-    </ButtonModal>
+    </S.ButtonModal>
   );
 };
 

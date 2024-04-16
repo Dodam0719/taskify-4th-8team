@@ -1,4 +1,4 @@
-import { ModalOverlay, ModalWrapper, ModalAlertContent, ModalAlertFooter } from './ModalAlert.style';
+import * as S from './ModalAlert.style';
 import ModalButton from './ModalButton';
 
 interface ModalAlertProps {
@@ -8,16 +8,16 @@ interface ModalAlertProps {
 
 const ModalAlert: React.FC<ModalAlertProps> = ({ message, onClose }) => {
   return (
-    <ModalOverlay>
-      <ModalWrapper>
-        <ModalAlertContent>
+    <S.ModalOverlay>
+      <S.ModalWrapper>
+        <S.ModalAlertContent>
           <p>{message}</p>
-        </ModalAlertContent>
-        <ModalAlertFooter>
+        </S.ModalAlertContent>
+        <S.ModalAlertFooter>
           <ModalButton text='확인' variant='confirm' onClick={onClose} />
-        </ModalAlertFooter>
-      </ModalWrapper>
-    </ModalOverlay>
+        </S.ModalAlertFooter>
+      </S.ModalWrapper>
+    </S.ModalOverlay>
   );
 };
 
