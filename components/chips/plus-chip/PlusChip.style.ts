@@ -6,7 +6,7 @@ export const PlusChipStyle = styled.div`
   align-items: center;
   width: 2.2rem;
   height: 2.2rem;
-  background-color: var(--color-violet_8);
+  background-color: var(--violet_100);
   display: flex;
   border-radius: 0.4rem;
 
