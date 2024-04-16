@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ModalAlert from './ModalAlert';
 import ModalButton from './ModalButton';
+import ModalInputComment from './ModalInputComment';
 
 const handleCommentClick = () => {
   console.log('Comment button clicked');
@@ -21,10 +22,11 @@ const Modal = () => {
   };
   return (
     <>
-      {isModalOpen && <ModalAlert message='비밀번호가 일치하지 않습니다.' onClose={handleCloseModal} />}
+      {/* {isModalOpen && <ModalAlert message='비밀번호가 일치하지 않습니다.' onClose={handleCloseModal} />} */}
       <ModalButton text='입력' variant='comment' onClick={handleCommentClick} />
       <ModalButton text='취소' variant='cancel' onClick={handleCancelClick} />
       <ModalButton text='확인' variant='confirm' onClick={handleConfirmClick} />
+      <ModalInputComment />
     </>
   );
 };
