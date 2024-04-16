@@ -14,6 +14,8 @@ export const CardTagChipStyle = styled.li<CardTagChipStyleProps>`
   color: ${({ tagTextColor }) => tagTextColor};
 
   @media screen and (max-width: 767px) {
-    font-size: 1rem;
+    .tag {
+      font-size: 1rem;
+    }
   }
 `;
