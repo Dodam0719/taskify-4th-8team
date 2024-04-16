@@ -1,4 +1,4 @@
-import ProgressChipStyle from './ProgressChip.style';
+import * as S from './ProgressChip.style';
 
 interface ProgressChipType {
   children: string;
@@ -7,10 +7,10 @@ interface ProgressChipType {
 const ProgressChip = ({ children }: ProgressChipType) => {
   return (
     <div>
-      <ProgressChipStyle className='font-12-medium'>
+      <S.ProgressChipStyle className='font-12-regular'>
         <div className='point' />
         {children}
-      </ProgressChipStyle>
+      </S.ProgressChipStyle>
     </div>
   );
 };

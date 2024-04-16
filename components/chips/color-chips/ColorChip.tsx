@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import ColorChipStyle from './ColorChip.style';
-import { useState } from 'react';
+import * as S from './ColorChip.style';
 
 interface ColorChipsType {
   color: string;
@@ -16,11 +15,11 @@ const ColorChip = ({ color, index, selectedColorIndex, setSelectedColorIndex }: 
 
   return (
     <>
-      <ColorChipStyle color={color} onClick={handleOnColorClick}>
+      <S.ColorChipStyle color={color} onClick={handleOnColorClick}>
         {selectedColorIndex === index && (
           <Image className='check-image' src='/assets/chips/check.svg' alt='체크 이미지' width={24} height={24} />
         )}
-      </ColorChipStyle>
+      </S.ColorChipStyle>
     </>
   );
 };

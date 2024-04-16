@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ColorChip from './ColorChip';
-import ColorChipsStyle from './ColorChips.style';
+import * as S from './ColorChips.style';
 
 const CHIP_COLORS = [
   '--color-green_7AC555',
@@ -14,7 +14,7 @@ const ColorChips = () => {
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
 
   return (
-    <ColorChipsStyle>
+    <S.ColorChipsStyle>
       {CHIP_COLORS.map((color: string, index) => (
         <ColorChip
           key={index}
@@ -24,7 +24,7 @@ const ColorChips = () => {
           setSelectedColorIndex={setSelectedColorIndex}
         />
       ))}
-    </ColorChipsStyle>
+    </S.ColorChipsStyle>
   );
 };
 

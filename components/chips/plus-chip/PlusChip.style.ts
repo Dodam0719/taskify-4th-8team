@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const PlusChipStyle = styled.div`
+export const PlusChipStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,5 +20,3 @@ const PlusChipStyle = styled.div`
     }
   }
 `;
-
-export default PlusChipStyle;

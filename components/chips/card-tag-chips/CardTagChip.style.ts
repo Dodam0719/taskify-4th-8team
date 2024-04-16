@@ -5,7 +5,7 @@ interface CardTagChipStyleProps {
   tagTextColor: string;
 }
 
-const CardTagChipStyle = styled.li<CardTagChipStyleProps>`
+export const CardTagChipStyle = styled.li<CardTagChipStyleProps>`
   padding: 0.4rem 0.6rem;
   background-color: ${({ tagColor }) => tagColor};
   border-radius: 0.4rem;
@@ -16,5 +16,3 @@ const CardTagChipStyle = styled.li<CardTagChipStyleProps>`
     font-size: 1rem;
   }
 `;
-
-export default CardTagChipStyle;

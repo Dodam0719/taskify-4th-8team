@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const NumberChipStyle = styled.span`
+export const NumberChipStyle = styled.span`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -12,5 +12,3 @@ const NumberChipStyle = styled.span`
   min-width: 2rem;
   min-height: 2rem;
 `;
-
-export default NumberChipStyle;

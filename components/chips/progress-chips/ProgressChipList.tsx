@@ -1,15 +1,15 @@
 import ProgressChip from './ProgressChip';
-import ProgressChipListStyle from './ProgressChipList.style';
+import * as S from './ProgressChipList.style';
 
 const PROGRESS_STATE = ['To Do', 'On Progress', 'Done'];
 
 const ProgressChipList = () => {
   return (
-    <ProgressChipListStyle>
+    <S.ProgressChipListStyle>
       {PROGRESS_STATE.map((progress, i) => (
         <ProgressChip key={i}>{progress}</ProgressChip>
       ))}
-    </ProgressChipListStyle>
+    </S.ProgressChipListStyle>
   );
 };
 

@@ -1,4 +1,4 @@
-import CardTagChipStyle from './CardTagChip.style';
+import * as S from './CardTagChip.style';
 
 interface CardTagChipProps {
   tagColor: string;
@@ -8,9 +8,9 @@ interface CardTagChipProps {
 
 const CardTagChip = ({ tagColor, tagTextColor, children }: CardTagChipProps) => {
   return (
-    <CardTagChipStyle className='font-12-regular' tagColor={tagColor} tagTextColor={tagTextColor}>
+    <S.CardTagChipStyle className='font-12-regular' tagColor={tagColor} tagTextColor={tagTextColor}>
       {children}
-    </CardTagChipStyle>
+    </S.CardTagChipStyle>
   );
 };
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ProgressChipStyle = styled.li`
+export const ProgressChipStyle = styled.li`
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -22,5 +22,3 @@ const ProgressChipStyle = styled.li`
     font-size: 1rem;
   }
 `;
-
-export default ProgressChipStyle;

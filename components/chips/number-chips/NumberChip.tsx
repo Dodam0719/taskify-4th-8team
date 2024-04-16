@@ -1,11 +1,11 @@
-import NumberChipStyle from './NumberChip.style';
+import * as S from './NumberChip.style';
 
 interface NumberChipType {
   children: number | string;
 }
 
 const NumberChip = ({ children }: NumberChipType) => {
-  return <NumberChipStyle className='font-12-medium'>{children}</NumberChipStyle>;
+  return <S.NumberChipStyle className='font-12-medium'>{children}</S.NumberChipStyle>;
 };
 
 export default NumberChip;
