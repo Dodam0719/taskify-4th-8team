@@ -21,21 +21,21 @@ export const sizeStyles = {
 
 export const variantStyles = {
   comment: css`
-    color: var(--violet-violet_5534DA, #5534da);
-    background: var(--white-white_FFFFFF, #fff);
+    color: var(--violet_000, #5534da);
+    background: var(--white_100, #fff);
     border-radius: 0.4rem;
-    border: 1px solid var(--gray-gray_D9D9D9, #d9d9d9);
+    border: 1px solid var(--gray_060, #d9d9d9);
     font-size: 1.2rem;
   `,
   cancel: css`
-    color: var(--gray-gray_787486, #787486);
-    background: var(--white-white_FFFFFF, #fff);
+    color: var(--gray_000, #787486);
+    background: var(--white_100, #fff);
     border-radius: 0.8rem;
-    border: 1px solid var(--gray-gray_D9D9D9, #d9d9d9);
+    border: 1px solid var(--gray_060, #d9d9d9);
   `,
   confirm: css`
-    color: var(--white-white_FFFFFF, #fff);
-    background: var(--violet-violet_5534DA, #5534da);
+    color: var(--white_100, #fff);
+    background: var(--violet_000, #5534da);
     border-radius: 0.8rem;
     border: none;
   `,

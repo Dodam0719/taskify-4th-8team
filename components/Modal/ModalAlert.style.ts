@@ -14,7 +14,7 @@ export const ModalWrapper = styled.div`
   width: 54rem;
   height: 25rem;
   border-radius: 0.8rem;
-  background: var(--white-white_FFFFFF, #fff);
+  background: var(--white_100, #fff);
 
   @media (max-width: 767px) {
     min-width: 375px;
@@ -29,7 +29,7 @@ export const ModalAlertContent = styled.div`
   justify-content: center;
   margin: 10.8rem auto 4.5rem;
   p {
-    color: var(--black-black_333236, #333236);
+    color: var(--black_050, #333236);
     font-size: 1.8rem;
     font-weight: 500;
   }
