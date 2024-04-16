@@ -50,7 +50,7 @@ export const CardStyle = styled.section`
 
     .card-image {
       width: 9.1rem;
-      height: 100%;
+      height: auto;
     }
 
     .container {
@@ -78,11 +78,12 @@ export const CardStyle = styled.section`
   }
 
   @media screen and (max-width: 767px) {
+    width: 100%;
     padding: 1.2rem;
 
     .card-image {
       width: 100%;
-      height: 15.2rem;
+      height: 100%;
     }
 
     .card-title {
