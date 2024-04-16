@@ -6,6 +6,7 @@ interface CardTagChipStyleProps {
 }
 
 export const CardTagChipStyle = styled.li<CardTagChipStyleProps>`
+  height: 2.2rem;
   padding: 0.4rem 0.6rem;
   background-color: ${({ tagColor }) => tagColor};
   border-radius: 0.4rem;
