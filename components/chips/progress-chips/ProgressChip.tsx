@@ -9,7 +9,7 @@ const ProgressChip = ({ children }: ProgressChipType) => {
     <div>
       <S.ProgressChipStyle className='font-12-regular'>
         <div className='point' />
-        {children}
+        <span className='text'>{children}</span>
       </S.ProgressChipStyle>
     </div>
   );
