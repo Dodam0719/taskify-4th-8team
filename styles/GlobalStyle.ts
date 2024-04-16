@@ -1,36 +1,31 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     
   :root {
-    --color-white_FFFFFF: #FFFFFF;
+    --white_100: #FFFFFF;
 
-    --color-black-000000: #000000;
-    --color-black-171717: #171717;
-    --color-black_333236: #333236;
-    --color-black_4B4B4B: #4B4B4B;
+    --black_000: #000000;
+    --black_025: #171717;
+    --black_050: #333236;
+    --black_100: #4B4B4B;
 
-    --color-gray_787486: #787486;
-    --color-gray_9FA6B2: #9FA6B2;
-    --color-gray_D9D9D9: #D9D9D9;
-    --color-gray_EEEEEE: #EEEEEE;
-    --color-gray_FAFAFA: #FAFAFA;
+    --gray_000: #787486;
+    --gray_020: #9FA6B2;
+    --gray_060: #D9D9D9;
+    --gray_080: #EEEEEE;
+    --gray_100: #FAFAFA;
 
-    --color-violet_5534DA: #5534DA;
-    --color-violet_8: #F1EFFD; 
+    --violet_000: #5534DA;
+    --violet_100: #F1EFFD; 
 
-    --color-red_D6173A: #D6173A; /* error */
-    
-    --color-green_7AC555: #7AC555;
-    --color-purple_760DDE: #760DDE;
-    --color-orange_FFA500: #FFA500;
-    --color-blue_76A6EA: #76A5EA;
-    --color-pink_E876EA: #E876EA ;
+    --red_100: #D6173A; /* error */
 
-    /* --color-white: #FFF;
-    --color-black: #000;
-    --color-error: #DC3A3A;
-    --color-surface: #F6F8FF; */
+    --green_100: #7AC555;
+    --purple_100: #760DDE;
+    --orange_100: #FFA500;
+    --blue_100: #76A5EA;
+    --pink_100: #E876EA ;
   }
 
   *, 
