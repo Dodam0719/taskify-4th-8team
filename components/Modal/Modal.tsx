@@ -3,6 +3,7 @@ import ModalAlert from './ModalAlert';
 import ModalButton from './ModalButton';
 import ModalInputComment from './ModalInputComment';
 import ModalColumn from './ModalColumn';
+import ModalNewdash from './ModalNewdash';
 
 const handleCommentClick = () => {
   console.log('Comment button clicked');
@@ -49,7 +50,7 @@ const Modal = () => {
       {/* {isModalOpen && (
         <ModalColumn title='새 컬럼 생성' placeholder='새로운 프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
       )} */}
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <ModalColumn
           title='컬럼 관리'
           placeholder='Done'
@@ -57,6 +58,10 @@ const Modal = () => {
           onClose={handleCloseModal}
           onDelete={handleDelete}
         />
+      )} */}
+
+      {isModalOpen && (
+        <ModalNewdash title='새로운 대시보드' placeholder='뉴프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
       )}
     </>
   );
