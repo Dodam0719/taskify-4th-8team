@@ -35,6 +35,7 @@ export const SideMenuStyle = styled.aside`
   @media screen and (max-width: 767px) {
     width: 6.7rem;
     padding: 0;
+    padding-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
