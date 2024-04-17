@@ -7,10 +7,11 @@ interface ColumnFormProps {
   title: string;
   placeholder: string;
   onSubmit: (data: { name: string }) => void;
-  onClose?: () => void;
+  onClose: () => void;
+  onDelete?: () => void;
 }
 
-const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, onClose }) => {
+const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, onClose, onDelete }) => {
   const {
     register,
     handleSubmit,
@@ -45,8 +46,15 @@ const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, 
         <S.ModalColumnFormInput id='name' {...register('name', { required: true })} placeholder={placeholder} />
         {errors.name && <S.ModalColumnErrorMessage>{errors.name.message}</S.ModalColumnErrorMessage>}
         <S.ModalColumnFormButtonWrapper>
-          <ModalButton text='취소' variant='cancel' onClick={onClose} />
-          <ModalButton text='확인' variant='confirm' />
+          {title === '컬럼 관리' ? (
+            <S.ModalColumnFormDeleteText onClick={onDelete}>삭제하기</S.ModalColumnFormDeleteText>
+          ) : (
+            <S.PlaceholderText /> // PC에서는 공간을 유지하되 모바일에서는 렌더링하지 않음
+          )}
+          <S.ModalColumnFormButton>
+            <ModalButton text='취소' variant='cancel' onClick={onClose} />
+            <ModalButton text='확인' variant='confirm' />
+          </S.ModalColumnFormButton>
         </S.ModalColumnFormButtonWrapper>
       </S.ModalColumnForm>
     </S.ModalOverlay>

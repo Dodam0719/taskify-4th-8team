@@ -50,7 +50,7 @@ export const ModalColumnFormInput = styled.input`
   width: 100%;
   height: 4.8rem;
   padding: 1.5rem 1.6rem 1.4rem;
-  margin-top: 1rem;
+  margin: 1rem 0 2.8rem;
   border-radius: 0.6rem;
   border: 0.1rem solid var(--gray_060, #d9d9d9);
   background: var(--white_100, #fff);
@@ -58,23 +58,59 @@ export const ModalColumnFormInput = styled.input`
   ::placeholder {
     color: var(--black_050, #333236);
   }
+
+  @media (max-width: 767px) {
+    margin: 1rem 0 2.4rem;
+  }
 `;
 
 export const ModalColumnErrorMessage = styled.div`
   height: 1.7rem;
-  margin-top: 0.8rem;
+  margin: -2rem 0 2.8rem;
   color: var(--red_100, #d6173a);
   font-size: 1.4rem;
   font-weight: 400;
 `;
 
 export const ModalColumnFormButtonWrapper = styled.div`
+  min-height: 4.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media (max-width: 767px) {
+    min-height: 4.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+
+export const PlaceholderText = styled.div`
+  visibility: hidden;
+  flex-grow: 1;
+  height: 0;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+`;
+
+export const ModalColumnFormDeleteText = styled.span`
+  color: var(--gray_020, #9fa6b2);
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-decoration-line: underline;
+  margin-right: auto;
+  cursor: pointer;
+
+  @media (max-width: 767px) {
+    margin-bottom: 1.6rem;
+  }
+`;
+
+export const ModalColumnFormButton = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 1.2rem;
-  margin-top: 2.8rem;
-
-  @media (max-width: 767px) {
-    margin-top: 2.4rem;
-  }
 `;
