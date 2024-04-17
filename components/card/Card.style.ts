@@ -10,6 +10,8 @@ export const CardStyle = styled.section`
   border: 1px solid var(--gray_060);
   background: var(--white_100);
 
+  cursor: pointer;
+
   .card-image {
     margin-bottom: 1.2rem;
   }
