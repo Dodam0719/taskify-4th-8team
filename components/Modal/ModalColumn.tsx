@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import * as S from './ModalColumn.style';
 import ModalButton from './ModalButton';
+import ModalBackground from './ModalBackground';
 import { useState } from 'react';
 
 interface ColumnFormProps {
@@ -39,7 +40,7 @@ const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, 
   };
 
   return (
-    <S.ModalOverlay>
+    <ModalBackground onClose={onClose}>
       <S.ModalColumnForm onSubmit={handleSubmit(submitForm)}>
         <S.ModalColumnFormTitle>{title}</S.ModalColumnFormTitle>
         <S.ModalColumnFormLabel htmlFor='name'>이름</S.ModalColumnFormLabel>
@@ -57,7 +58,7 @@ const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, 
           </S.ModalColumnFormButton>
         </S.ModalColumnFormButtonWrapper>
       </S.ModalColumnForm>
-    </S.ModalOverlay>
+    </ModalBackground>
   );
 };
 

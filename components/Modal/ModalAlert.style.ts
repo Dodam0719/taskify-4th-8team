@@ -1,28 +1,5 @@
 import styled from 'styled-components';
 
-export const ModalOverlay = styled.div`
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-`;
-
-export const ModalWrapper = styled.div`
-  width: 54rem;
-  height: 25rem;
-  border-radius: 0.8rem;
-  background: var(--white_100, #fff);
-
-  @media (max-width: 767px) {
-    min-width: 37.5rem;
-    width: 32.7rem;
-    height: 22rem;
-  }
-`;
-
 export const ModalAlertContent = styled.div`
   display: flex;
   align-items: center;
@@ -35,7 +12,7 @@ export const ModalAlertContent = styled.div`
   }
 
   @media (max-width: 767px) {
-    min-width: 37.5rem;
+    width: 100%;
     margin: 8.1rem auto 5rem;
     p {
       font-size: 1.6rem;
@@ -47,7 +24,7 @@ export const ModalAlertFooter = styled.div`
   margin: 0 2.8rem 2.8rem 39.2rem;
 
   @media (max-width: 767px) {
-    min-width: 37.5rem;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: center;

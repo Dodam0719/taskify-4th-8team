@@ -1,15 +1,6 @@
 import styled from 'styled-components';
 import ModalButton from './ModalButton';
 
-export const ModalOverlay = styled.div`
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-`;
-
 export const ModalInputCommentForm = styled.form`
   width: 45rem;
   height: 13.9rem;

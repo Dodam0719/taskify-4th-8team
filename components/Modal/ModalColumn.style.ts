@@ -1,15 +1,5 @@
 import styled from 'styled-components';
 
-export const ModalOverlay = styled.div`
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-`;
-
 export const ModalColumnForm = styled.form`
   width: 54rem;
   min-height: 27.6rem;

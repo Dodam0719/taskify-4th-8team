@@ -44,7 +44,7 @@ const Modal = () => {
       <ModalButton text='입력' variant='comment' onClick={handleCommentClick} />
       <ModalButton text='취소' variant='cancel' onClick={handleCancelClick} />
       <ModalButton text='확인' variant='confirm' onClick={handleConfirmClick} />
-      <ModalInputComment />
+      {/* <ModalInputComment /> */}
 
       {/* {isModalOpen && (
         <ModalColumn title='새 컬럼 생성' placeholder='새로운 프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
