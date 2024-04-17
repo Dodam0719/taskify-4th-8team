@@ -22,10 +22,10 @@ export const ModalInputCommentForm = styled.form`
 
 export const ModalInputCommentLabel = styled.label`
   color: var(--black_050, #333236);
-  font-size: 16px;
+  font-size: 1.6rem;
 
   @media (max-width: 767px) {
-    font-size: 14px;
+    font-size: 1.4rem;
   }
 `;
 
@@ -39,8 +39,8 @@ export const InputContainer = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   color: var(--black_025, #171717);
-  border-radius: 6px;
-  border: 1px solid var(--gray_060, #d9d9d9);
+  border-radius: 0.6rem;
+  border: 0.1rem solid var(--gray_060, #d9d9d9);
   background: var(--white_100, #fff);
 
   ::placeholder {
@@ -62,13 +62,10 @@ export const ModalInputCommentInput = styled.input`
   width: 100%;
   border: none;
   outline: none;
-  font-size: 14px;
-
-  &:focus {
-  }
+  font-size: 1.4rem;
 
   @media (max-width: 767px) {
-    font-size: 12px;
+    font-size: 1.2rem;
   }
 `;
 

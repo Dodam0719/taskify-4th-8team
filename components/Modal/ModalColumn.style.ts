@@ -64,7 +64,7 @@ export const ModalColumnErrorMessage = styled.div`
   height: 1.7rem;
   margin-top: 0.8rem;
   color: var(--red_100, #d6173a);
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 400;
 `;
 

@@ -17,7 +17,7 @@ export const ModalWrapper = styled.div`
   background: var(--white_100, #fff);
 
   @media (max-width: 767px) {
-    min-width: 375px;
+    min-width: 37.5rem;
     width: 32.7rem;
     height: 22rem;
   }
@@ -35,7 +35,7 @@ export const ModalAlertContent = styled.div`
   }
 
   @media (max-width: 767px) {
-    min-width: 375px;
+    min-width: 37.5rem;
     margin: 8.1rem auto 5rem;
     p {
       font-size: 1.6rem;
@@ -47,7 +47,7 @@ export const ModalAlertFooter = styled.div`
   margin: 0 2.8rem 2.8rem 39.2rem;
 
   @media (max-width: 767px) {
-    min-width: 375px;
+    min-width: 37.5rem;
     margin: 0 auto;
     display: flex;
     justify-content: center;
