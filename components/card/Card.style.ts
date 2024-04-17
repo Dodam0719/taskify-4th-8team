@@ -53,6 +53,7 @@ export const CardStyle = styled.section`
     .card-image {
       width: 9.1rem;
       height: auto;
+      margin: 0;
     }
 
     .container {
