@@ -1,7 +1,9 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { device } from '../../styles/breakpoints';
 
-export const Header = styled.header``;
+export const Header = styled.header`
+  background-color: var(--black_000);
+`;
 export const HeaderWrapper = styled.div`
   width: 100%;
   max-width: 192rem;
@@ -12,25 +14,14 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  background-color: var(--black_000);
 
-  @media (max-width: 1280px) {
+  @media ${device.tablet} {
     padding: 0 2.4rem;
   }
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     height: 6rem;
     padding: 0 2rem;
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    background-color: var(--black_000);
-    left: 0;
-    top: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
   }
 `;
 export const ImageIcon = styled.img`

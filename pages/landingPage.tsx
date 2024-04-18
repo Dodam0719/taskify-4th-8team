@@ -36,7 +36,7 @@ function LandingPage() {
       </S.section>
       <S.section>
         <S.sectionWrapper3>
-          <h3>생산성을 높이는 다양한 설정 ⚡</h3>
+          <h3>생산성을 높이는 다양한 설정⚡</h3>
           <div>
             <S.sectionBox>
               <S.imageBox>
@@ -44,7 +44,7 @@ function LandingPage() {
               </S.imageBox>
               <S.textBox>
                 <h4>대시보드 설정</h4>
-                <p>대시보드 사진과 이름을 변경 할 수 있어요.</p>
+                <p>대시보드 사진과 이름을 변경할 수 있어요.</p>
               </S.textBox>
             </S.sectionBox>
             <S.sectionBox>
