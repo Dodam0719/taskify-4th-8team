@@ -4,6 +4,7 @@ import ModalButton from './ModalButton';
 import ModalInputComment from './ModalInputComment';
 import ModalColumn from './ModalColumn';
 import ModalNewdash from './ModalNewdash';
+import ModalInputTitle from './ModalInputTitle';
 
 const handleCommentClick = () => {
   console.log('Comment button clicked');
@@ -46,6 +47,7 @@ const Modal = () => {
       <ModalButton text='취소' variant='cancel' onClick={handleCancelClick} />
       <ModalButton text='확인' variant='confirm' onClick={handleConfirmClick} />
       {/* <ModalInputComment /> */}
+      <ModalInputTitle />
 
       {/* {isModalOpen && (
         <ModalColumn title='새 컬럼 생성' placeholder='새로운 프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
