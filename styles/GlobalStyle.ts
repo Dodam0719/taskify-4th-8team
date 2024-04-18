@@ -20,17 +20,13 @@ const GlobalStyle = createGlobalStyle`
     --violet_100: #F1EFFD; 
 
     --red_100: #D6173A; /* error */
-    
+
     --green_100: #7AC555;
     --purple_100: #760DDE;
     --orange_100: #FFA500;
     --blue_100: #76A5EA;
     --pink_100: #E876EA ;
 
-    /* --color-white: #FFF;
-    --color-black: #000;
-    --color-error: #DC3A3A;
-    --color-surface: #F6F8FF; */
   }
 
   *, 
