@@ -34,6 +34,14 @@ const FontStyle = createGlobalStyle`
   }
 
   @font-face {
+    font-family: "Montserrat";
+    src: url("/assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+  }
+
+  @font-face {
     font-family: "Noto Sans";
     src: url("/assets/fonts/NotoSansKR-Medium.ttf") format("truetype");
     font-style: normal;
@@ -188,6 +196,14 @@ const FontStyle = createGlobalStyle`
     font-size: 2.4rem;
     font-style: normal;
     font-weight: 700;
+    line-height: normal;
+  }
+
+  .font-Montserrat {
+    font-family: "Montserrat";
+    font-size: 1.6rem;;
+    font-style: normal;
+    font-weight: 600;
     line-height: normal;
   }
 `;
