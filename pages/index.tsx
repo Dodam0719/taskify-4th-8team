@@ -7,7 +7,7 @@ import Button from '../components/button/Button';
 export default function Home() {
   return (
     <>
-      <Button variant={'addDashboard'}>로그인</Button>
+      <Button variant={'dashboard'}>로그인</Button>
     </>
   );
 }
