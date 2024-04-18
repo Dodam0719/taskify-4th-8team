@@ -7,6 +7,7 @@ import ModalNewdash from './ModalNewdash';
 import ModalInputTitle from './ModalInputTitle';
 import ModalInputDeadline from './ModalInputDeadline';
 import ModalDeleteColumn from './ModalDeleteColumn';
+import ModalInputProgress from './ModalInputProgress';
 
 const handleCommentClick = () => {
   console.log('Comment button clicked');
@@ -51,6 +52,7 @@ const Modal = () => {
       {/* <ModalInputComment /> */}
       <ModalInputTitle />
       <ModalInputDeadline />
+      <ModalInputProgress />
 
       {/* {isModalOpen && (
         <ModalColumn title='새 컬럼 생성' placeholder='새로운 프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
