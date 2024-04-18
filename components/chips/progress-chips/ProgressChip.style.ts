@@ -19,6 +19,8 @@ export const ProgressChipStyle = styled.li`
   }
 
   @media screen and (max-width: 767px) {
-    font-size: 1rem;
+    .text {
+      font-size: 1rem;
+    }
   }
 `;
