@@ -6,6 +6,7 @@ import ModalColumn from './ModalColumn';
 import ModalNewdash from './ModalNewdash';
 import ModalInputTitle from './ModalInputTitle';
 import ModalInputDeadline from './ModalInputDeadline';
+import ModalDeleteColumn from './ModalDeleteColumn';
 
 const handleCommentClick = () => {
   console.log('Comment button clicked');
@@ -66,6 +67,7 @@ const Modal = () => {
       {/* {isModalOpen && (
         <ModalNewdash title='새로운 대시보드' placeholder='뉴프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
       )} */}
+      {isModalOpen && <ModalDeleteColumn message='컬럼의 모든 카드가 삭제됩니다.' onClose={handleCloseModal} />}
     </>
   );
 };
