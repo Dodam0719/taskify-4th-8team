@@ -14,7 +14,7 @@ const SideMenu = () => {
       </section>
       <section className='container'>
         <span className='font-12-bold text'>Dash Boards</span>
-        <Image src='/assets/icon/add-icon.svg' alt='로고 이미지' width={20} height={20} />
+        <Image src='/assets/icon/add-icon.svg' alt='추가 아이콘' width={20} height={20} />
       </section>
       <section className='list-container'>
         {COLOR.map((color, index) => (
