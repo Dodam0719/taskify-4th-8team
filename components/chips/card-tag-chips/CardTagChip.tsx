@@ -8,7 +8,7 @@ interface CardTagChipProps {
 
 const CardTagChip = ({ tagColor, tagTextColor, children }: CardTagChipProps) => {
   return (
-    <S.CardTagChip className='font-12-regular' tagColor={tagColor} tagTextColor={tagTextColor}>
+    <S.CardTagChip tagColor={tagColor} tagTextColor={tagTextColor}>
       <S.Tag>{children}</S.Tag>
     </S.CardTagChip>
   );
