@@ -1,7 +1,7 @@
 import Card from './Card';
 import CardHeader from './CardHeader';
-import { CardListStyle } from './CardList.style';
 import AddCardButton from './add-card-button/AddCardButton';
+import * as S from './CardList.style';
 
 interface CardListStyle {
   children: string;
@@ -9,13 +9,13 @@ interface CardListStyle {
 
 const CardList = ({ children }: CardListStyle) => {
   return (
-    <CardListStyle>
+    <S.CardList>
       <CardHeader>{children}</CardHeader>
-      <div className='card-container'>
+      <S.CardContainer>
         <AddCardButton />
         <Card />
-      </div>
-    </CardListStyle>
+      </S.CardContainer>
+    </S.CardList>
   );
 };
 
