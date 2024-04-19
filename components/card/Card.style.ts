@@ -6,7 +6,7 @@ export const Card = styled.section`
   width: 31.4rem;
   height: auto;
   padding: 2rem;
-  border-radius: 6px;
+  border-radius: 0.6rem;
   border: 1px solid var(--gray_060);
   background: var(--white_100);
   cursor: pointer;

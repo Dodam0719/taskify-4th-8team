@@ -22,7 +22,7 @@ export const TableHeaderStyle = styled.section`
 
     .arrow {
       padding: 1.2rem;
-      border-radius: 0px 4px 4px 0px;
+      border-radius: 0 0.4rem 0.4rem 0;
       border: 1px solid var(--gray_060);
       background: var(--white_100);
     }

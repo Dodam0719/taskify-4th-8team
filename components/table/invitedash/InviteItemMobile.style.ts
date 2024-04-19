@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const InviteItemMobileStyle = styled.article`
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 400;
 
   padding: 1.6rem;
