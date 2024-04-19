@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as S from './ModalInputProgress.style';
 import ProgressChip from '../chips/progress-chips/ProgressChip';
 import Image from 'next/image';
@@ -9,6 +9,20 @@ const ModalInputProgress = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(PROGRESS_STATE[0]);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
@@ -19,7 +33,7 @@ const ModalInputProgress = () => {
   };
 
   return (
-    <S.ModalInputProgressWrapper>
+    <S.ModalInputProgressWrapper ref={wrapperRef}>
       <p className='font-18-medium'>상태</p>
       <S.DropdownContainer onClick={toggleDropdown} isOpen={isOpen}>
         <S.DropdownHeader>
