@@ -34,7 +34,7 @@ const ModalInputProgress = () => {
 
   return (
     <S.ModalInputProgressWrapper ref={wrapperRef}>
-      <p className='font-18-medium'>상태</p>
+      <S.ModalInputProgressTitle>상태</S.ModalInputProgressTitle>
       <S.DropdownContainer onClick={toggleDropdown} isOpen={isOpen}>
         <S.DropdownHeader>
           <ProgressChip>{selected}</ProgressChip>

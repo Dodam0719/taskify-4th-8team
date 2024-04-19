@@ -8,6 +8,16 @@ export const ModalInputProgressWrapper = styled.div`
   gap: 1rem;
 `;
 
+export const ModalInputProgressTitle = styled.div`
+  color: var(--black_050, #333236);
+  font-size: 18px;
+  font-weight: 500;
+
+  @media (max-width: 767px) {
+    font-size: 1.6rem;
+  }
+`;
+
 export const DropdownContainer = styled.div<{ isOpen: boolean }>`
   position: relative;
   width: 21.7rem;
