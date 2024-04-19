@@ -12,7 +12,7 @@ export const AddCardButtonStyle = styled.a`
   background: var(--white-white_FFFFFF, #fff);
   cursor: pointer;
 
-  @media screen and (max-width: 1024px) and (min-width: 768px) {
+  @media screen and (max-width: 1280px) and (min-width: 768px) {
     width: 100%;
   }
 
