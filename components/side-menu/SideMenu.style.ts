@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const SideMenuStyle = styled.aside`
-  background-color: #fafafa; // 삭제 예정
-
   width: 30rem;
   height: 100vh;
   padding: 2rem 2.4rem;

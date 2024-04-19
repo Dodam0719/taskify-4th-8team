@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const TableStyle = styled.article`
-  background-color: #fafafa; // 삭제 예정
-
   width: 62rem;
   padding: 2.6rem 2.8rem 2rem;
   border-radius: 0.8rem;
