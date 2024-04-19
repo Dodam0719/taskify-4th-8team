@@ -5,7 +5,7 @@ interface NumberChipType {
 }
 
 const NumberChip = ({ children }: NumberChipType) => {
-  return <S.NumberChipStyle className='font-12-medium'>{children}</S.NumberChipStyle>;
+  return <S.NumberChipStyle>{children}</S.NumberChipStyle>;
 };
 
 export default NumberChip;
