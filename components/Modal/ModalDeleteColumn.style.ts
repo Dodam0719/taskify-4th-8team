@@ -22,7 +22,7 @@ export const ModalDeleteColumnContent = styled.div`
 
 export const ModalDeleteColumnFooter = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 1rem;
   margin: 0 2.8rem 2.8rem 26rem;
 
   @media (max-width: 767px) {

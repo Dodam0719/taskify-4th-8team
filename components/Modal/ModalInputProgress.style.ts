@@ -55,8 +55,8 @@ export const DropdownListItem = styled.li`
   }
 
   .check-image {
-    width: 22px;
-    height: 22px;
+    width: 2.2rem;
+    height: 2.2rem;
     margin-right: 0.8rem;
     display: flex;
     align-items: center;
