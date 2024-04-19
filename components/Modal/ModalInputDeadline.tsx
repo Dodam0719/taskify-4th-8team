@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import * as S from './ModalInputDeadline.style';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
@@ -13,6 +13,20 @@ const ModalInputDeadline: React.FC = () => {
   const [calendarVisible, setCalendarVisible] = useState(false);
   const [dateSelected, setDateSelected] = useState(false);
   const deadlineValue = watch('title');
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+        setCalendarVisible(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleDateChange = (value: Date | Date[]) => {
     const selectedDate = Array.isArray(value) ? value[0] : value;
@@ -28,15 +42,18 @@ const ModalInputDeadline: React.FC = () => {
     setDateSelected(true);
   };
 
+  const toggleCalendar = () => {
+    setCalendarVisible(!calendarVisible);
+  };
+
   return (
-    <S.ModalInputDeadlineWrapper>
+    <S.ModalInputDeadlineWrapper ref={wrapperRef}>
       <S.ModalInputTitleLabel htmlFor='title'>마감일</S.ModalInputTitleLabel>
       <S.ModalInputTitleInput
         {...register('title')}
         placeholder='날짜를 입력해 주세요'
-        onFocus={() => setCalendarVisible(true)}
         value={deadlineValue || ''}
-        onChange={() => {}}
+        onClick={toggleCalendar}
         dateSelected={dateSelected}
       />
       {calendarVisible && <Calendar onChange={handleDateChange} />}
