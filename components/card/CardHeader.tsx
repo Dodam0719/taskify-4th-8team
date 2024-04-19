@@ -11,21 +11,14 @@ const CardHeader = ({ children }: CardListStyle) => {
   const handleOnIconClick = () => {};
 
   return (
-    <S.CardHeaderStyle>
-      <div className='title-container'>
-        <div className='point' />
-        <span className='font-18-medium card-list-title'>{children}</span>
+    <S.CardHeader>
+      <S.TitleContainer>
+        <S.Point />
+        <S.CardListTitle>{children}</S.CardListTitle>
         <NumberChip>1</NumberChip>
-      </div>
-      <Image
-        className='settings-icon'
-        src='/assets/icon/settings-icon.svg'
-        alt='환경 설정 아이콘'
-        width={24}
-        height={24}
-        onClick={handleOnIconClick}
-      />
-    </S.CardHeaderStyle>
+      </S.TitleContainer>
+      <Image src='/assets/icon/settings-icon.svg' alt='환경 설정 아이콘' width={24} height={24} onClick={handleOnIconClick} />
+    </S.CardHeader>
   );
 };
 
