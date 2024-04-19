@@ -8,6 +8,7 @@ import ModalInputTitle from './ModalInputTitle';
 import ModalInputDeadline from './ModalInputDeadline';
 import ModalDeleteColumn from './ModalDeleteColumn';
 import ModalInputProgress from './ModalInputProgress';
+import ModalInputTag from './ModalInputTag';
 
 const handleCommentClick = () => {
   console.log('Comment button clicked');
@@ -46,13 +47,14 @@ const Modal = () => {
   return (
     <>
       {/* {isModalOpen && <ModalAlert message='비밀번호가 일치하지 않습니다.' onClose={handleCloseModal} />} */}
-      <ModalButton text='입력' variant='comment' onClick={handleCommentClick} />
+      {/* <ModalButton text='입력' variant='comment' onClick={handleCommentClick} />
       <ModalButton text='취소' variant='cancel' onClick={handleCancelClick} />
-      <ModalButton text='확인' variant='confirm' onClick={handleConfirmClick} />
-      {/* <ModalInputComment /> */}
+      <ModalButton text='확인' variant='confirm' onClick={handleConfirmClick} /> */}
+      <ModalInputComment />
       <ModalInputTitle />
       <ModalInputDeadline />
       <ModalInputProgress />
+      <ModalInputTag />
 
       {/* {isModalOpen && (
         <ModalColumn title='새 컬럼 생성' placeholder='새로운 프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
@@ -69,7 +71,7 @@ const Modal = () => {
       {/* {isModalOpen && (
         <ModalNewdash title='새로운 대시보드' placeholder='뉴프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
       )} */}
-      {isModalOpen && <ModalDeleteColumn message='컬럼의 모든 카드가 삭제됩니다.' onClose={handleCloseModal} />}
+      {/* {isModalOpen && <ModalDeleteColumn message='컬럼의 모든 카드가 삭제됩니다.' onClose={handleCloseModal} />} */}
     </>
   );
 };
