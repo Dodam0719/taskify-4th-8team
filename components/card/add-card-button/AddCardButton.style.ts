@@ -1,3 +1,4 @@
+import { device } from '@/styles/breakpoints';
 import styled from 'styled-components';
 
 export const AddCardButtonStyle = styled.a`
@@ -12,11 +13,11 @@ export const AddCardButtonStyle = styled.a`
   background: var(--white_100);
   cursor: pointer;
 
-  @media screen and (max-width: 1280px) and (min-width: 768px) {
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
     width: 100%;
   }
 
-  @media screen and (max-width: 767px) {
+  @media ${device.mobile} {
     width: 100%;
     height: 3.2rem;
   }

@@ -43,7 +43,7 @@ export const Profile = styled.div<TableHeaderType>`
 `;
 
 export const USER = styled.span`
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
   @media ${device.mobile} {
     font-size: 1.4rem;
