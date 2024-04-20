@@ -1,11 +1,5 @@
 import styled, { css } from 'styled-components';
 
-const socialIconSize = css``;
-
-const actionIconSize = css``;
-
-const shareIconSize = css``;
-
 export const Add = styled.div`
   background: url('/icons/Add.svg') no-repeat;
   width: 2rem;
@@ -88,4 +82,10 @@ export const Setting = styled.div`
   background: url('/icons/Setting.svg') no-repeat;
   width: 2rem;
   height: 2rem;
+`;
+
+export const Unsubcribe = styled.div`
+  background: url('/icons/Unsubscribe.svg') no-repeat;
+  width: 10rem;
+  height: 10rem;
 `;
