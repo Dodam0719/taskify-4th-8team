@@ -84,7 +84,7 @@ export const Setting = styled.div<{ $width: string; $height: string }>`
   height: ${({ $height }) => $height};
 `;
 
-export const Unsubcribe = styled.div<{ $width: string; $height: string }>`
+export const Unsubscribe = styled.div<{ $width: string; $height: string }>`
   background: url('/icons/Unsubscribe.svg') no-repeat;
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
