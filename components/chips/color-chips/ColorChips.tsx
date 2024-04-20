@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ColorChip from './ColorChip';
 import * as S from './ColorChips.style';
 
-const CHIP_COLORS = ['--green_100', '--purple_100', '--orange_100', '--blue_100', '--pink_100'];
+export const CHIP_COLORS = ['--green_100', '--purple_100', '--orange_100', '--blue_100', '--pink_100'];
 
 const ColorChips = () => {
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
