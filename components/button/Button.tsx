@@ -15,7 +15,8 @@ interface Props {
     | 'deleteDashboard'
     | 'pagenation'
     | 'addDashboard'
-    | 'dashboard';
+    | 'dashboard'
+    | 'icon';
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 

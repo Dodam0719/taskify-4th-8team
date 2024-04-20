@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
     --orange_100: #FFA500;
     --blue_100: #76A5EA;
     --pink_100: #E876EA ;
+
   }
 
   *, 
@@ -38,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
 
   html { 
       font-size: 62.5%;
-      font-family: "Pretend" 
+      font-family: "Pretendard" 
   }  
   
   a {

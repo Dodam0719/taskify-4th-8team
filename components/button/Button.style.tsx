@@ -20,6 +20,9 @@ export const BUTTON_COMPONENTS = {
     color: var(--white_100);
     white-space: nowrap;
 
+    font-size: 1.8rem;
+    font-weight: 500;
+
     @media ${device.mobile} {
       width: 35.1rem;
     }
@@ -38,6 +41,9 @@ export const BUTTON_COMPONENTS = {
     color: var(--white_100);
     white-space: nowrap;
 
+    font-size: 1.8rem;
+    font-weight: 500;
+
     @media ${device.mobile} {
       width: 35.1rem;
     }
@@ -55,6 +61,9 @@ export const BUTTON_COMPONENTS = {
     background-color: var(--violet_000);
     color: var(--white_100);
     white-space: nowrap;
+
+    font-size: 1.4rem;
+    font-weight: 500;
 
     @media ${device.tablet} {
       width: 7.2rem;
@@ -84,6 +93,9 @@ export const BUTTON_COMPONENTS = {
     color: var(--violet_000);
     white-space: nowrap;
 
+    font-size: 1.4rem;
+    font-weight: 500;
+
     @media ${device.tablet} {
       width: 7.2rem;
       height: 3rem;
@@ -112,6 +124,9 @@ export const BUTTON_COMPONENTS = {
     color: var(--violet_000);
     white-space: nowrap;
 
+    font-size: 1.4rem;
+    font-weight: 500;
+
     @media ${device.mobile} {
       width: 5.2rem;
       height: 2.8rem;
@@ -131,6 +146,10 @@ export const BUTTON_COMPONENTS = {
     border: 0.1rem solid var(--gray_060);
     background-color: var(--white_100);
     color: var(--black_050);
+    white-space: nowrap;
+
+    font-size: 1.8rem;
+    font-weight: 700;
 
     @media ${device.tablet} {
       width: 54.4rem;
@@ -155,6 +174,7 @@ export const BUTTON_COMPONENTS = {
     height: 4rem;
     border-radius: 0.6rem;
     border: 0.1rem solid var(--gray_060);
+    background-color: var(--white_100);
 
     @media ${device.tablet} {
       width: 54.4rem;
@@ -179,6 +199,10 @@ export const BUTTON_COMPONENTS = {
     border: 0.1rem solid var(--gray_060);
     background-color: var(--gray_100);
     color: var(--black_050);
+    white-space: nowrap;
+
+    font-size: 1.8rem;
+    font-weight: 500;
 
     @media ${device.mobile} {
       width: 28.4rem;
@@ -193,11 +217,11 @@ export const BUTTON_COMPONENTS = {
     display: flex;
     align-items: center;
     justify-content: center;
-    widht: 4rem;
+    width: 4rem;
     height: 4rem;
     border-radius: 0.4rem;
-    border: 0.1rem solid var(--gray_060)
-    background-color: var(--white_100)
+    border: 0.1rem solid var(--gray_060);
+    background-color: var(--white_100);
 
     @media ${device.mobile} {
       width: 3.6rem;
@@ -216,6 +240,10 @@ export const BUTTON_COMPONENTS = {
     border: 0.1rem solid var(--gray_060);
     background-color: var(--white_100);
     color: var(--black_050);
+    white-space: nowrap;
+
+    font-size: 1.6rem;
+    font-weight: 600;
 
     @media ${device.tablet} {
       width: 24.7rem;
@@ -240,6 +268,11 @@ export const BUTTON_COMPONENTS = {
     border: 0.1rem solid var(--gray_060);
     background-color: var(--white_100);
     color: var(--black_050);
+    white-space: nowrap;
+    gap: 1rem;
+
+    font-size: 1.6rem;
+    font-weight: 600;
 
     @media ${device.tablet} {
       width: 24.7rem;
@@ -251,5 +284,10 @@ export const BUTTON_COMPONENTS = {
       height: 5.8rem;
       font-size: 1.4rem;
     }
+  `,
+
+  icon: styled.button`
+    ${commonStyle};
+    background: none;
   `,
 };
