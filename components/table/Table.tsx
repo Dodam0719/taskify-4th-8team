@@ -12,7 +12,6 @@ const Table = ({ title, userList }: TableType) => {
   return (
     <S.Table>
       <TableHeader title={title} userList={userList} />
-      {title === '구성원'}
       <S.UserList>
         {USER_PROFILE_COLOR.map((user, i) => (
           <TableItem

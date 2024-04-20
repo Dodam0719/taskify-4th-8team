@@ -77,8 +77,18 @@ export const ArrowNextPage = styled(Image)`
 `;
 
 export const Button = styled.button`
-  width: 10.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  width: 10.5rem;
   height: 3.2rem;
+  background-color: var(--violet_000);
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--white_100);
   @media ${device.mobile} {
     display: none;
   }
@@ -92,11 +102,20 @@ export const ListTitleContainer = styled.div`
 
 export const MobileButton = styled.button`
   display: none;
-  width: 10.6rem;
-  height: 3.2rem;
 
   @media ${device.mobile} {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    width: 8.6rem;
+    height: 2.8rem;
+    background-color: var(--violet_000);
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--white_100);
   }
 `;
 
