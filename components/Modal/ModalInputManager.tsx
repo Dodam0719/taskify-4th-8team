@@ -52,6 +52,16 @@ const ModalInputManager = () => {
       <S.ModalInputManagerTitle>담당자</S.ModalInputManagerTitle>
       <S.DropdownContainer onClick={toggleDropdown} isOpen={isOpen}>
         <S.DropdownHeader>
+          {selectedMember && (
+            <Image
+              className='profile-image'
+              src={selectedMember.profileImageUrl}
+              alt='프로필 이미지'
+              width={26}
+              height={26}
+              style={{ marginRight: '8px', borderRadius: '100%' }}
+            />
+          )}
           <S.DropdownInput type='text' value={searchTerm} onChange={handleSearchChange} placeholder='이름을 입력해 주세요' />
           <Image src='/assets/icon/arrow_drop_down_fill.svg' alt='드롭다운 화살표' width={26} height={26} />
         </S.DropdownHeader>

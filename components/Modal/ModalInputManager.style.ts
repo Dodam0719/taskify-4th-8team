@@ -103,6 +103,7 @@ export const DropdownListItem = styled.li`
 
   .profile-image {
     margin-right: 0.6rem;
+    border-radius: 100%;
   }
 
   @media (max-width: 767px) {
