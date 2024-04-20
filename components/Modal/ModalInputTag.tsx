@@ -36,6 +36,14 @@ const ModalInputTag = () => {
       return;
     }
 
+    if (tags.some((tag) => tag.text.toLowerCase() === trimmedInput.toLowerCase())) {
+      setError('tagInput', {
+        type: 'manual',
+        message: '중복된 태그는 입력할 수 없습니다.',
+      });
+      return;
+    }
+
     if (tags.length >= 5) {
       // 태그가 5개 이상이면 에러 설정
       setError('tagInput', {
