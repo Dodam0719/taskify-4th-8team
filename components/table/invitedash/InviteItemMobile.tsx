@@ -1,3 +1,4 @@
+import Button from '@/components/button/Button';
 import { InviteItemType } from '../type';
 import * as S from './InviteItemMobile.style';
 
@@ -15,8 +16,8 @@ const InviteItemMobile = ({ name, inviter }: InviteItemType) => {
         </S.ContainerStyle>
       </S.NameLabelStyle>
       <S.ButtonContainerStyle>
-        <S.ButtonStyle>수락</S.ButtonStyle>
-        <S.ButtonStyle>거절</S.ButtonStyle>
+        <Button variant='accept'>수락</Button>
+        <Button variant='reject'>거절</Button>
       </S.ButtonContainerStyle>
     </S.InviteItemMobileStyle>
   );

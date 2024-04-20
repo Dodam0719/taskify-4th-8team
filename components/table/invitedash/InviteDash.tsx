@@ -1,3 +1,4 @@
+import { Search } from '@/components/Icons';
 import * as S from './InviteDash.style';
 import InviteItem from './InviteItem';
 import InviteItemMobile from './InviteItemMobile';
@@ -18,7 +19,7 @@ const InviteDash = () => {
         <S.TitleStyle>초대받은 대시보드</S.TitleStyle>
         <S.SearchFormStyle>
           <S.SearchInputStyle placeholder='검색' />
-          <S.SearchInputIconStyle src='/assets/icon/search-icon.svg' alt='찾기 아이콘' width={24} height={24} />
+          <Search />
         </S.SearchFormStyle>
       </S.InviteDashContainerStyle>
       <S.ListHeaderStyle>
