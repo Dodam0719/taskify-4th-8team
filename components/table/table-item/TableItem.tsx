@@ -1,3 +1,4 @@
+import Button from '@/components/button/Button';
 import { TableItemType } from '../type';
 import * as S from './TableItem.style';
 
@@ -12,8 +13,7 @@ const TableItem = ({ userProfileColor, userName, userFirstName, title, email }: 
       ) : (
         <S.USER>{email}</S.USER>
       )}
-      {/* 버튼 컴포넌트로 교체 */}
-      <S.DeleteButton>삭제</S.DeleteButton>
+      <Button variant='delete'>삭제</Button>
     </S.TableItem>
   );
 };
