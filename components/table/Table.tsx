@@ -14,10 +14,10 @@ const USER_EMAIL = ['codeitA@codeit.com', 'codeitB@codeit.com', 'codeitC@codeit.
 
 const Table = ({ title, userList }: TableType) => {
   return (
-    <S.TableStyle>
+    <S.Table>
       <TableHeader title={title} userList={userList} />
       {title === '구성원'}
-      <div className='user-list'>
+      <S.UserList>
         {USER_PROFILE_COLOR.map((user, i) => (
           <TableItem
             className='item'
@@ -28,8 +28,8 @@ const Table = ({ title, userList }: TableType) => {
             email={USER_EMAIL[i]}
           />
         ))}
-      </div>
-    </S.TableStyle>
+      </S.UserList>
+    </S.Table>
   );
 };
 
