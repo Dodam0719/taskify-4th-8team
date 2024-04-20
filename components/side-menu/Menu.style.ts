@@ -41,4 +41,7 @@ export const CrownIcon = styled(Image)`
     width: 1.5rem;
     height: 1.2rem;
   }
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
