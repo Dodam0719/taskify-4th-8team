@@ -6,11 +6,22 @@ interface ModalBackgroundProps {
   onClose: () => void;
   width?: string;
   height?: string;
+  tabletWidth?: string;
+  tabletHeight?: string;
   mobileWidth?: string;
   mobileHeight?: string;
 }
 
-const ModalBackground: React.FC<ModalBackgroundProps> = ({ children, onClose, width, height, mobileWidth, mobileHeight }) => {
+const ModalBackground: React.FC<ModalBackgroundProps> = ({
+  children,
+  onClose,
+  width,
+  height,
+  tabletWidth,
+  tabletHeight,
+  mobileWidth,
+  mobileHeight,
+}) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,7 +42,14 @@ const ModalBackground: React.FC<ModalBackgroundProps> = ({ children, onClose, wi
 
   return (
     <S.ModalOverlay>
-      <S.ModalWrapper ref={wrapperRef} width={width} height={height} mobileWidth={mobileWidth} mobileHeight={mobileHeight}>
+      <S.ModalWrapper
+        ref={wrapperRef}
+        width={width}
+        height={height}
+        tabletWidth={tabletWidth}
+        tabletHeight={tabletHeight}
+        mobileWidth={mobileWidth}
+        mobileHeight={mobileHeight}>
         {children}
       </S.ModalWrapper>
     </S.ModalOverlay>

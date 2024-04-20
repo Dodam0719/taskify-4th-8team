@@ -4,8 +4,6 @@ import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import '../styles/GlobalStyle';
 import '../styles/FontStyle';
-import CustomHeader from '@/components/Header/Header';
-import CustomFooter from '@/components/Footer/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -84,7 +82,6 @@ export default function Home() {
           </a>
         </div>
       </main>
-      <CustomFooter />
     </>
   );
 }

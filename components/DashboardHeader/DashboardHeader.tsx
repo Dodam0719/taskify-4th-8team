@@ -18,7 +18,7 @@ const PROFILE: ProfileItem[] = [
   { color: '--green_100', initials: 'Q' },
 ];
 
-function DashboardHeader() {
+const DashboardHeader = () => {
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
   const ProfileArrayLength: number | null = isTabletView
     ? PROFILE.length > 2
@@ -30,7 +30,7 @@ function DashboardHeader() {
 
   useEffect(() => {
     function handleResize() {
-      setIsTabletView(window.innerWidth < 1280);
+      setIsTabletView(innerWidth < 1280);
     }
 
     handleResize();
@@ -70,6 +70,6 @@ function DashboardHeader() {
       </S.ProfileWrapper>
     </S.DashboardHeader>
   );
-}
+};
 
 export default DashboardHeader;

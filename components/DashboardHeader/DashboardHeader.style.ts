@@ -118,6 +118,10 @@ export const TestProfile = styled.div`
     &[class*='profile-item-3'] {
       display: none;
     }
+    @media ${device.mobile} {
+      width: 3.4rem;
+      height: 3.4rem;
+    }
   }
 `;
 export const LastTestProfile = styled.div`
@@ -162,6 +166,10 @@ export const ProfileInitials = styled.text`
   text-align: center;
   color: var(--white_100);
   font-weight: 600;
+  @media ${device.mobile} {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
 `;
 export const ProfileName = styled.h2`
   font-size: 1.6rem;
