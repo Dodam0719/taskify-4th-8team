@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { device } from '@/styles/breakpoints';
 
-export const PlusChip = styled.div`
+export const PlusChipContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -9,7 +9,7 @@ const ColorChip = ({ color, index, selectedColorIndex, setSelectedColorIndex }: 
   return (
     <>
       <S.ColorChip color={color} onClick={handleOnColorClick}>
-        {selectedColorIndex === index && <S.CheckImage src='/assets/chips/check.svg' alt='체크 이미지' width={24} height={24} />}
+        {selectedColorIndex === index && <S.CheckImage src='/icons/Check.svg' alt='체크 이미지' width={24} height={24} />}
       </S.ColorChip>
     </>
   );
