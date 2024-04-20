@@ -1,3 +1,4 @@
+import { device } from '@/styles/breakpoints';
 import styled, { css } from 'styled-components';
 
 export const Add = styled.div`
@@ -72,10 +73,21 @@ export const Kebab = styled.div`
   height: 2.8rem;
 `;
 
-export const Serach = styled.div`
+export const Search = styled.div`
   background: url('/icons/Search.svg') no-repeat;
+  position: absolute;
+  top: 0.7rem;
+  left: 1.6rem;
+
   width: 2.4rem;
   height: 2.4rem;
+
+  @media ${device.mobile} {
+    width: 2.2rem;
+    height: 2.2rem;
+    top: 0.7rem;
+    left: 1.2rem;
+  }
 `;
 
 export const Setting = styled.div`
@@ -84,7 +96,7 @@ export const Setting = styled.div`
   height: 2rem;
 `;
 
-export const Unsubcribe = styled.div`
+export const Unsubscribe = styled.div`
   background: url('/icons/Unsubscribe.svg') no-repeat;
   width: 10rem;
   height: 10rem;
