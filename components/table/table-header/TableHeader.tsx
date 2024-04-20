@@ -8,23 +8,23 @@ interface TableHeaderType {
 
 const TableHeader = ({ title, userList }: TableHeaderType) => {
   return (
-    <S.TableHeaderStyle>
-      <div className='title-container'>
-        <span className='font-24-bold title'>{title}</span>
-        <div className='pagination-container'>
-          <span className='font-14-regular page-number'>1페이지 중 1</span>
-          <div className='pagination-arrow'>
-            <Image className='arrow arrow-back-page' src='/assets/table/arrow_forward.svg' alt='이전 페이지로' width={40} height={40} />
-            <Image className='arrow arrow-next-page' src='/assets/table/arrow_forward.svg' alt='다음 페이지로' width={40} height={40} />
+    <S.TableHeader>
+      <S.TitleContainer>
+        <S.Title>{title}</S.Title>
+        <S.PaginationContainer>
+          <S.PageNumber>1페이지 중 1</S.PageNumber>
+          <div>
+            <S.ArrowBackPage src='/assets/table/arrow_forward.svg' alt='이전 페이지로' width={40} height={40} />
+            <S.ArrowNextPage src='/assets/table/arrow_forward.svg' alt='다음 페이지로' width={40} height={40} />
           </div>
-          {!(title === '구성원') && <button className='button'>초대하기</button>}
-        </div>
-      </div>
-      <div className='list-title-container'>
-        <p className='font-16-regular list-name'>{userList}</p>
-        {!(title === '구성원') && <button className='button'>초대하기</button>}
-      </div>
-    </S.TableHeaderStyle>
+          {!(title === '구성원') && <S.Button>초대하기</S.Button>}
+        </S.PaginationContainer>
+      </S.TitleContainer>
+      <S.ListTitleContainer>
+        <S.ListName>{userList}</S.ListName>
+        {!(title === '구성원') && <S.MobileButton>초대하기</S.MobileButton>}
+      </S.ListTitleContainer>
+    </S.TableHeader>
   );
 };
 
