@@ -11,3 +11,12 @@ export interface TableType {
 export interface TableProfileType {
   userProfileColor: string;
 }
+
+export interface TableItemType {
+  userProfileColor: string;
+  userName: string;
+  userFirstName: string;
+  className: string;
+  title: string;
+  email: string;
+}

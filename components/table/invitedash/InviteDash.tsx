@@ -27,13 +27,13 @@ const InviteDash = () => {
         <S.ListHeaderItemStyle>수락 여부</S.ListHeaderItemStyle>
       </S.ListHeaderStyle>
       <S.ListStyle>
-        {INVITE_ITEM.map((item) => (
-          <InviteItem name={item[0]} inviter={item[1]} />
+        {INVITE_ITEM.map((item, i) => (
+          <InviteItem key={i} name={item[0]} inviter={item[1]} />
         ))}
       </S.ListStyle>
       <S.ListMobileStyle>
-        {INVITE_ITEM.map((item) => (
-          <InviteItemMobile name={item[0]} inviter={item[1]} />
+        {INVITE_ITEM.map((item, i) => (
+          <InviteItemMobile key={i} name={item[0]} inviter={item[1]} />
         ))}
       </S.ListMobileStyle>
     </S.InviteDashStyle>

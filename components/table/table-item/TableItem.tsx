@@ -1,15 +1,7 @@
+import { TableItemType } from '../type';
 import * as S from './TableItem.style';
 
-interface TableItemType {
-  userProfileColor: string;
-  userName: string;
-  userFirstName: string;
-  className: string;
-  title: string;
-  email: string;
-}
-
-const TableItem = ({ userProfileColor, userName, userFirstName, className, title, email }: TableItemType) => {
+const TableItem = ({ userProfileColor, userName, userFirstName, title, email }: TableItemType) => {
   return (
     <S.TableItem>
       {title === '구성원' ? (

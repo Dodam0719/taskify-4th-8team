@@ -5,7 +5,7 @@ import * as S from './Card.style';
 const Card = () => {
   return (
     <S.Card>
-      <S.CardImage src='/assets/card/card-image.png' alt='카드 이미지' width={272} height={160} />
+      <S.CardImage src='/assets/card/card-image.png' alt='카드 이미지' width={272} height={160} priority={true} />
       <S.Container>
         <S.CardTitle>새로운 일정 관리 Taskify</S.CardTitle>
         <S.InfoContainer>

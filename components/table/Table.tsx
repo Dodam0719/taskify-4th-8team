@@ -16,6 +16,7 @@ const Table = ({ title, userList }: TableType) => {
       <S.UserList>
         {USER_PROFILE_COLOR.map((user, i) => (
           <TableItem
+            key={i}
             className='item'
             userProfileColor={user}
             userName={USER_NAME[i]}
