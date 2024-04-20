@@ -1,12 +1,7 @@
+import { CardTagChipType } from '../type';
 import * as S from './CardTagChip.style';
 
-interface CardTagChipProps {
-  tagColor: string;
-  tagTextColor: string;
-  children?: string;
-}
-
-const CardTagChip = ({ tagColor, tagTextColor, children }: CardTagChipProps) => {
+const CardTagChip = ({ tagColor, tagTextColor, children }: CardTagChipType) => {
   return (
     <S.CardTagChip tagColor={tagColor} tagTextColor={tagTextColor}>
       <S.Tag>{children}</S.Tag>

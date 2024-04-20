@@ -2,10 +2,7 @@ import Card from './Card';
 import CardHeader from './CardHeader';
 import AddCardButton from './add-card-button/AddCardButton';
 import * as S from './CardList.style';
-
-interface CardListStyle {
-  children: string;
-}
+import { CardListStyle } from './type';
 
 const CardList = ({ children }: CardListStyle) => {
   return (

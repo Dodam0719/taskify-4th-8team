@@ -1,9 +1,6 @@
 import { device } from '@/styles/breakpoints';
 import styled from 'styled-components';
-
-interface TableHeaderType {
-  userProfileColor: string;
-}
+import { TableProfileType } from '../type';
 
 export const TableItem = styled.article`
   display: flex;
@@ -22,7 +19,7 @@ export const UserContainer = styled.section`
   }
 `;
 
-export const Profile = styled.div<TableHeaderType>`
+export const Profile = styled.div<TableProfileType>`
   display: flex;
   justify-content: center;
   align-items: center;

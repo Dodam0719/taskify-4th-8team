@@ -1,12 +1,7 @@
-import Image from 'next/image';
+import { TableType } from '../type';
 import * as S from './TableHeader.style';
 
-interface TableHeaderType {
-  title: string;
-  userList: string;
-}
-
-const TableHeader = ({ title, userList }: TableHeaderType) => {
+const TableHeader = ({ title, userList }: TableType) => {
   return (
     <S.TableHeader>
       <S.TitleContainer>

@@ -1,10 +1,5 @@
-import Image from 'next/image';
 import * as S from './Menu.style';
-
-interface MenuType {
-  color: string;
-  menuName: string;
-}
+import { MenuType } from './type';
 
 const Menu = ({ color, menuName }: MenuType) => {
   return (

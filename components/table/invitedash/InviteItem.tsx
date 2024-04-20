@@ -1,9 +1,5 @@
+import { InviteItemType } from '../type';
 import * as S from './InviteItem.style';
-
-interface InviteItemType {
-  name: string;
-  inviter: string;
-}
 
 const InviteItem = ({ name, inviter }: InviteItemType) => {
   return (

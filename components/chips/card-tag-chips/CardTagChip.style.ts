@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 import { device } from '@/styles/breakpoints';
+import { CardTagChipType } from '../type';
 
-interface CardTagChipStyleProps {
-  tagColor: string;
-  tagTextColor: string;
-}
-
-export const CardTagChip = styled.li<CardTagChipStyleProps>`
+export const CardTagChip = styled.li<CardTagChipType>`
   height: 2.2rem;
   padding: 0.4rem 0.6rem;
   background-color: ${({ tagColor }) => tagColor};

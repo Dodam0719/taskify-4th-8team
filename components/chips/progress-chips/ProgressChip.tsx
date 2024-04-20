@@ -1,8 +1,5 @@
+import { ProgressChipType } from '../type';
 import * as S from './ProgressChip.style';
-
-interface ProgressChipType {
-  children: string;
-}
 
 const ProgressChip = ({ children }: ProgressChipType) => {
   return (

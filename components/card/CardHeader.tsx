@@ -1,10 +1,7 @@
 import Image from 'next/image';
 import NumberChip from '../chips/number-chips/NumberChip';
 import * as S from './CardHeader.style';
-
-interface CardListStyle {
-  children: string;
-}
+import { CardListStyle } from './type';
 
 const CardHeader = ({ children }: CardListStyle) => {
   // settings Icon에 연결 할 이벤트 핸들러

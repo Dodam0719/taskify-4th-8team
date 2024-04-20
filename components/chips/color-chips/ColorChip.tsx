@@ -1,11 +1,5 @@
+import { ColorChipsType } from '../type';
 import * as S from './ColorChip.style';
-
-interface ColorChipsType {
-  color: string;
-  index: number;
-  selectedColorIndex: number;
-  setSelectedColorIndex: (index: number) => void;
-}
 
 const ColorChip = ({ color, index, selectedColorIndex, setSelectedColorIndex }: ColorChipsType) => {
   const handleOnColorClick = () => {
