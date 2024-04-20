@@ -1,6 +1,6 @@
 import * as S from './TableItem.style';
 
-interface TableHeaderType {
+interface TableItemType {
   userProfileColor: string;
   userName: string;
   userFirstName: string;
@@ -9,20 +9,20 @@ interface TableHeaderType {
   email: string;
 }
 
-const TableItem = ({ userProfileColor, userName, userFirstName, className, title, email }: TableHeaderType) => {
+const TableItem = ({ userProfileColor, userName, userFirstName, className, title, email }: TableItemType) => {
   return (
-    <S.TableSItemStyle className={className} userProfileColor={userProfileColor}>
+    <S.TableItem>
       {title === '구성원' ? (
-        <div className='user-container'>
-          <div className='font-Montserrat profile'>{userFirstName}</div>
-          <span className='font-16-regular user'>{userName}</span>
-        </div>
+        <S.UserContainer>
+          <S.Profile userProfileColor={userProfileColor}>{userFirstName}</S.Profile>
+          <S.USER>{userName}</S.USER>
+        </S.UserContainer>
       ) : (
-        <span className='font-16-regular user'>{email}</span>
+        <S.USER>{email}</S.USER>
       )}
       {/* 버튼 컴포넌트로 교체 */}
-      <button className='delete-button'>삭제</button>
-    </S.TableSItemStyle>
+      <S.DeleteButton>삭제</S.DeleteButton>
+    </S.TableItem>
   );
 };
 
