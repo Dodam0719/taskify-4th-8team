@@ -20,26 +20,36 @@ const PROFILE: ProfileItem[] = [
 
 const DashboardHeader = () => {
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
-  const ProfileArrayLength: number | null = isTabletView
-    ? PROFILE.length > 2
-      ? PROFILE.length - 2
-      : null
-    : PROFILE.length > 4
-      ? PROFILE.length - 4
-      : null;
+  const [additionalProfiles, setAdditionalProfiles] = useState<number>(0);
 
   useEffect(() => {
     function handleResize() {
-      setIsTabletView(innerWidth < 1280);
+      setIsTabletView(window.innerWidth < 1280);
     }
 
-    handleResize();
+    handleResize(); // 초기 실행
     window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    if (isTabletView) {
+      const additionalCount = PROFILE.length > 2 ? PROFILE.length - 2 : 0;
+      setAdditionalProfiles(additionalCount);
+    } else {
+      const additionalCount = PROFILE.length > 4 ? PROFILE.length - 4 : 0;
+      setAdditionalProfiles(additionalCount);
+    }
+  }, [isTabletView]);
+
+  if (typeof window !== 'undefined') {
+    console.log('뷰포트의 너비:', window.innerWidth);
+  } else {
+    console.log('서버 환경에서는 뷰포트의 너비를 확인할 수 없습니다.');
+  }
   return (
     <S.DashboardHeader>
       <S.RecipientName>내 대시보드</S.RecipientName>
@@ -57,10 +67,10 @@ const DashboardHeader = () => {
             {item.initials}
           </S.TestProfile>
         ))}
-        {ProfileArrayLength && (
+        {additionalProfiles && (
           <S.LastTestProfile>
             <span>+</span>
-            {ProfileArrayLength}
+            {additionalProfiles}
           </S.LastTestProfile>
         )}
       </S.ProfileTestWrapper>
