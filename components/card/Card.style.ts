@@ -93,6 +93,13 @@ export const CardDateContainer = styled.div`
   }
 `;
 
+export const CalendarImage = styled(Image)`
+  @media ${device.mobile} {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+`;
+
 export const CardDate = styled.span`
   font-size: 1.2rem;
   font-weight: 500;

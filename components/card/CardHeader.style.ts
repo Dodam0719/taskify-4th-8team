@@ -1,4 +1,5 @@
 import { device } from '@/styles/breakpoints';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export const CardHeader = styled.article`
@@ -28,5 +29,12 @@ export const CardListTitle = styled.span`
 
   @media ${device.mobile} {
     font-size: 1.6rem;
+  }
+`;
+
+export const SettingIcon = styled(Image)`
+  @media ${device.mobile} {
+    width: 2.2rem;
+    height: 2.2rem;
   }
 `;

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import CardTagChips from '../chips/card-tag-chips/CardTagChips';
 import * as S from './Card.style';
 
@@ -12,7 +11,7 @@ const Card = () => {
           <CardTagChips />
           <S.CardBottomContainer>
             <S.CardDateContainer>
-              <Image src='/assets/icon/calendar-today-icon.svg' alt='달력 아이콘' width={18} height={18} />
+              <S.CalendarImage src='/icons/Calendar.svg' alt='달력 아이콘' width={18} height={18} />
               <S.CardDate>2022.12.31</S.CardDate>
             </S.CardDateContainer>
             <S.CardProfileImage />

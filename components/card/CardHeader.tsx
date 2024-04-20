@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import NumberChip from '../chips/number-chips/NumberChip';
 import * as S from './CardHeader.style';
 import { CardListStyle } from './type';
@@ -14,7 +13,7 @@ const CardHeader = ({ children }: CardListStyle) => {
         <S.CardListTitle>{children}</S.CardListTitle>
         <NumberChip>1</NumberChip>
       </S.TitleContainer>
-      <Image src='/assets/icon/settings-icon.svg' alt='환경 설정 아이콘' width={24} height={24} onClick={handleOnIconClick} />
+      <S.SettingIcon src='/icons/Setting.svg' alt='환경 설정 아이콘' width={24} height={24} onClick={handleOnIconClick} />
     </S.CardHeader>
   );
 };
