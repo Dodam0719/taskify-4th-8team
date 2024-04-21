@@ -45,7 +45,7 @@ const ModalInputProgress = () => {
             {PROGRESS_STATE.map((state, index) => (
               <S.DropdownListItem key={index} onClick={() => handleSelect(state, index)}>
                 <span className='check-image'>
-                  {selectedIndex === index && <Image src='/assets/chips/check_fill.svg' alt='체크 이미지' width={22} height={22} />}
+                  {selectedIndex === index && <Image src='/assets/icon/check_fill.svg' alt='체크 이미지' width={22} height={22} />}
                 </span>
                 <ProgressChip>{state}</ProgressChip>
               </S.DropdownListItem>

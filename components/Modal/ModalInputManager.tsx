@@ -71,7 +71,7 @@ const ModalInputManager = () => {
               <S.DropdownListItem key={member.id} onClick={() => handleSelect(member)}>
                 <span className='check-image'>
                   {selectedMember && selectedMember.id === member.id && (
-                    <Image src='/assets/chips/check_fill.svg' alt='체크 이미지' width={22} height={22} />
+                    <Image src='/assets/icon/check_fill.svg' alt='체크 이미지' width={22} height={22} />
                   )}
                 </span>
                 <Image className='profile-image' src={member.profileImageUrl} alt='프로필 이미지' width={26} height={26} />
