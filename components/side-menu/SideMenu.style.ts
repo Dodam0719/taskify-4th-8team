@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 export const SideMenu = styled.aside`
-  width: 30rem;
+  min-width: 30rem;
   height: 100vh;
   padding: 2rem 2.4rem;
   border-right: 1px solid var(--gray_060);
@@ -15,7 +15,7 @@ export const SideMenu = styled.aside`
     width: 16rem;
   }
   @media ${device.mobile} {
-    width: 6.7rem;
+    min-width: 6.7rem;
     padding: 0;
     padding-top: 2rem;
     display: flex;
