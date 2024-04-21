@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { device } from '@/styles/breakpoints';
 
-const customBreakpoints = {
-  mobileFix: '554px',
-};
-
 export const ModalOverlay = styled.div`
   position: fixed;
   inset: 0;
@@ -34,9 +30,9 @@ export const ModalWrapper = styled.div<{
   }
 
   // 4.8rem는 양 옆의 마진, 55.4rem 이상에서는 줄어들지 않음
-  @media (max-width: ${customBreakpoints.mobileFix}) {
+  @media ${device.mobileResponsive} {
     width: calc(100% - 4.8rem);
-    max-width: 55.4rem;
+    max-width: 55.3rem;
     height: ${({ mobileHeight }) => mobileHeight};
   }
 
