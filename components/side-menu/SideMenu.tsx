@@ -14,7 +14,7 @@ const SideMenu = () => {
       </S.LogoContainer>
       <S.Container>
         <S.Text>Dash Boards</S.Text>
-        <Add />
+        <Add $width='2rem' $height='2rem' />
       </S.Container>
       <S.ListContainer>
         {COLOR.map((color, index) => (

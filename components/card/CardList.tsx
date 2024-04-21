@@ -10,7 +10,7 @@ const CardList = ({ children }: CardListStyle) => {
     <S.CardList>
       <CardHeader>{children}</CardHeader>
       <S.CardContainer>
-        <Button variant='addTodo'>
+        <Button variant='addTodo' $width='31.4rem' $height='4rem'>
           <PlusChip />
         </Button>
         <Card />
