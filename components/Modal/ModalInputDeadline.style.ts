@@ -37,8 +37,7 @@ export const ModalInputTitleInput = styled.input<ModalInputProps>`
   outline: none;
   font-size: 1.6rem;
 
-  background-image: url(${(props) =>
-    props.dateSelected ? '/assets/icon/calendar-today-icon-fill.svg' : '/assets/icon/calendar-today-icon.svg'});
+  background-image: url(${(props) => (props.dateSelected ? '/assets/icon/calendar-today-icon-fill.svg' : '/icons/Calendar.svg')});
   background-repeat: no-repeat;
   background-position: left 1.6rem center;
 
