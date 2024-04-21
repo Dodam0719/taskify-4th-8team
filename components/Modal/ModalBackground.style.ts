@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { device } from '../../styles/breakpoints';
 export const ModalOverlay = styled.div`
   position: fixed;
   inset: 0;
@@ -10,13 +10,25 @@ export const ModalOverlay = styled.div`
   z-index: 10;
 `;
 
-export const ModalWrapper = styled.div<{ width?: string; height?: string; mobileWidth?: string; mobileHeight?: string }>`
+export const ModalWrapper = styled.div<{
+  width?: string;
+  height?: string;
+  tabletWidth?: string;
+  tabletHeight?: string;
+  mobileWidth?: string;
+  mobileHeight?: string;
+}>`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   border-radius: 0.8rem;
   background: var(--white_100, #fff);
 
-  @media (max-width: 767px) {
+  @media ${device.tablet} {
+    width: ${({ tabletWidth }) => tabletWidth};
+    height: ${({ tabletHeight }) => tabletHeight};
+  }
+
+  @media ${device.mobile} {
     width: ${({ mobileWidth }) => mobileWidth};
     height: ${({ mobileHeight }) => mobileHeight};
   }
