@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { device } from '@/styles/breakpoints';
 
 export const sizeStyles = {
   addSmall: css`
@@ -52,7 +53,7 @@ export const ButtonModal = styled.button<{ variant: 'comment' | 'cancel' | 'conf
   ${({ variant }) => (variant === 'comment' ? sizeStyles.addLarge : sizeStyles.large)}
   ${({ variant }) => variantStyles[variant]}
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     ${({ variant }) => (variant === 'comment' ? sizeStyles.addSmall : sizeStyles.small)}
   }
 `;

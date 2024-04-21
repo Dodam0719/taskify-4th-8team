@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '@/styles/breakpoints';
 
 export const ModalInputTagWrapper = styled.div`
   width: 45rem;
@@ -7,7 +8,7 @@ export const ModalInputTagWrapper = styled.div`
   flex-direction: column;
   gap: 1rem;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     width: 28.7rem;
     height: 7.1rem;
   }
@@ -18,7 +19,7 @@ export const ModalInputTagLabel = styled.label`
   font-size: 1.8rem;
   font-weight: 500;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     font-size: 1.6rem;
   }
 `;
@@ -35,7 +36,7 @@ export const ModalInputTagContainer = styled.div`
   background: var(--white_100, #fff);
   overflow: hidden;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     min-width: 2.87rem;
     height: 4.2rem;
     padding: 1.2rem 1.6rem;
@@ -65,7 +66,7 @@ export const TagStyle = styled.span<{ color: string }>`
     opacity: 0.8;
   }
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     font-size: 1rem;
   }
 `;
@@ -86,7 +87,7 @@ export const ModalInputTagInput = styled.input`
     font-size: 1.6rem;
   }
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     height: 4.2rem;
     font-size: 1.4rem;
 

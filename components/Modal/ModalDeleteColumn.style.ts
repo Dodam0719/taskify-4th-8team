@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '@/styles/breakpoints';
 
 export const ModalDeleteColumnContent = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ export const ModalDeleteColumnContent = styled.div`
     font-weight: 500;
   }
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     width: 100%;
     margin: 8.1rem auto 5rem;
     p {
@@ -25,7 +26,7 @@ export const ModalDeleteColumnFooter = styled.div`
   gap: 1rem;
   margin: 0 2.8rem 2.8rem 26rem;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     width: 100%;
     margin: 0 auto;
     display: flex;

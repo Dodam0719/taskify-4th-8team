@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '@/styles/breakpoints';
 
 interface ModalInputProps {
   dateSelected: boolean;
@@ -11,7 +12,7 @@ export const ModalInputDeadlineWrapper = styled.div`
   flex-direction: column;
   gap: 1rem;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     width: 28.7rem;
     height: 7.1rem;
   }
@@ -22,7 +23,7 @@ export const ModalInputTitleLabel = styled.label`
   font-size: 1.8rem;
   font-weight: 500;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     font-size: 1.6rem;
   }
 `;
@@ -47,7 +48,7 @@ export const ModalInputTitleInput = styled.input<ModalInputProps>`
     font-size: 1.6rem;
   }
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     height: 4.2rem;
     padding: 1.2rem 1.6rem 1.2rem 4.6rem;
     font-size: 1.4rem;
