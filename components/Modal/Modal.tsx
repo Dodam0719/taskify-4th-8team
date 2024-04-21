@@ -10,6 +10,8 @@ import ModalDeleteColumn from './ModalDeleteColumn';
 import ModalInputProgress from './ModalInputProgress';
 import ModalInputTag from './ModalInputTag';
 import ModalInputManager from './ModalInputManager';
+import ModalNewTodo from './ModalNewTodo';
+import { ModalTool } from './ModalTools.style';
 
 const handleCommentClick = () => {
   console.log('Comment button clicked');
@@ -25,6 +27,10 @@ const handleConfirmClick = () => {
 
 const handleNewColumnSubmit = (data: { name: string }) => {
   // 새 컬럼 생성 로직 추가
+};
+
+const handleNewCardSubmit = (data: { name: string }) => {
+  // 할일 생성 생성 로직 추가
 };
 
 const handleColumnManageSubmit = (data: { name: string }) => {
@@ -51,12 +57,12 @@ const Modal = () => {
       {/* <ModalButton text='입력' variant='comment' onClick={handleCommentClick} />
       <ModalButton text='취소' variant='cancel' onClick={handleCancelClick} />
       <ModalButton text='확인' variant='confirm' onClick={handleConfirmClick} /> */}
-      <ModalInputComment />
-      <ModalInputTitle />
-      <ModalInputDeadline />
-      <ModalInputProgress />
+      {/* <ModalInputComment /> */}
+      {/* <ModalInputTitle /> */}
+      {/* <ModalInputDeadline /> */}
+      {/* <ModalInputProgress /> */}
       <ModalInputTag />
-      <ModalInputManager />
+      {/* <ModalInputManager /> */}
 
       {/* {isModalOpen && (
         <ModalColumn title='새 컬럼 생성' placeholder='새로운 프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
@@ -74,6 +80,7 @@ const Modal = () => {
         <ModalNewdash title='새로운 대시보드' placeholder='뉴프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
       )} */}
       {/* {isModalOpen && <ModalDeleteColumn message='컬럼의 모든 카드가 삭제됩니다.' onClose={handleCloseModal} />} */}
+      {isModalOpen && <ModalNewTodo onSubmit={handleNewCardSubmit} onClose={handleCloseModal} />}
     </>
   );
 };

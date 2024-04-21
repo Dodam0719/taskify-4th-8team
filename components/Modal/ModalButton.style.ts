@@ -42,7 +42,7 @@ export const variantStyles = {
   `,
 };
 
-export const ButtonModal = styled.button<{ variant: 'comment' | 'cancel' | 'confirm' }>`
+export const ButtonModal = styled.button<{ variant: 'comment' | 'cancel' | 'confirm'; fullWidth?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,5 +55,10 @@ export const ButtonModal = styled.button<{ variant: 'comment' | 'cancel' | 'conf
 
   @media ${device.mobile} {
     ${({ variant }) => (variant === 'comment' ? sizeStyles.addSmall : sizeStyles.small)}
+    ${({ fullWidth, variant }) => (fullWidth && variant === 'comment' ? sizeStyles.addLarge : sizeStyles.large)};
+  }
+
+  @media ${device.mobileResponsive} {
+    width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   }
 `;

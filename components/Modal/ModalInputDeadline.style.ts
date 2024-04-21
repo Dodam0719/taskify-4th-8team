@@ -6,14 +6,15 @@ interface ModalInputProps {
 }
 
 export const ModalInputDeadlineWrapper = styled.div`
-  width: 45rem;
+  min-width: 45rem;
   height: 7.9rem;
   display: inline-flex;
   flex-direction: column;
   gap: 1rem;
+  position: relative;
 
-  @media ${device.mobile} {
-    width: 28.7rem;
+  @media ${device.mobileResponsive} {
+    min-width: 28.7rem;
     height: 7.1rem;
   }
 `;
@@ -23,7 +24,7 @@ export const ModalInputTitleLabel = styled.label`
   font-size: 1.8rem;
   font-weight: 500;
 
-  @media ${device.mobile} {
+  @media ${device.mobileResponsive} {
     font-size: 1.6rem;
   }
 `;
@@ -48,7 +49,7 @@ export const ModalInputTitleInput = styled.input<ModalInputProps>`
     font-size: 1.6rem;
   }
 
-  @media ${device.mobile} {
+  @media ${device.mobileResponsive} {
     height: 4.2rem;
     padding: 1.2rem 1.6rem 1.2rem 4.6rem;
     font-size: 1.4rem;
@@ -56,5 +57,18 @@ export const ModalInputTitleInput = styled.input<ModalInputProps>`
     ::placeholder {
       font-size: 1.4rem;
     }
+  }
+`;
+
+export const CalendarWrapper = styled.div`
+  position: absolute;
+  top: 100%;
+  z-index: 100;
+
+  .react-calendar {
+    width: 100%;
+    max-width: 45rem;
+    border-radius: 0.6rem;
+    border: 0.1rem solid var(--gray_060, #d9d9d9);
   }
 `;

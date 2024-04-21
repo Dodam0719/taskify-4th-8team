@@ -35,9 +35,9 @@ export const ModalWrapper = styled.div<{
 
   // 4.8rem는 양 옆의 마진, 55.4rem 이상에서는 줄어들지 않음
   @media (max-width: ${customBreakpoints.mobileFix}) {
-    min-width: 37.5rem;
     width: calc(100% - 4.8rem);
     max-width: 55.4rem;
+    height: ${({ mobileHeight }) => mobileHeight};
   }
 
   // 37.5rem에서 32.7rem로 고정

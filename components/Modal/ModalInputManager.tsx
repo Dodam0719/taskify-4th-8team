@@ -59,7 +59,7 @@ const ModalInputManager = () => {
               alt='프로필 이미지'
               width={26}
               height={26}
-              style={{ marginRight: '8px', borderRadius: '100%' }}
+              style={{ marginRight: '0.8rem', borderRadius: '100%' }}
             />
           )}
           <S.DropdownInput type='text' value={searchTerm} onChange={handleSearchChange} placeholder='이름을 입력해 주세요' />
