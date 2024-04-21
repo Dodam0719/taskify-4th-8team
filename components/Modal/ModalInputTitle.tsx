@@ -5,15 +5,23 @@ interface TitleData {
   title: string;
 }
 
-const ModalInputTitle: React.FC = () => {
+interface ModalInputTitleProps {
+  title: string;
+  height?: string;
+  isTextarea?: boolean;
+}
+
+const ModalInputTitle: React.FC<ModalInputTitleProps> = ({ title, height, isTextarea = false }) => {
   const { register } = useForm<TitleData>();
+  const InputOrTextarea: React.ElementType = isTextarea ? S.ModalInputTitleTextarea : S.ModalInputTitleInput;
 
   return (
     <S.ModalInputTitleWrapper>
       <S.ModalInputTitleLabel htmlFor='title'>
-        제목<S.ModalInputTitleLabelStar> *</S.ModalInputTitleLabelStar>
+        {title}
+        <S.ModalInputTitleLabelStar> *</S.ModalInputTitleLabelStar>
       </S.ModalInputTitleLabel>
-      <S.ModalInputTitleInput {...register('title')} placeholder='제목을 입력해 주세요' />
+      <InputOrTextarea {...register('title')} placeholder={`${title}을 입력해 주세요`} customHeight={height} />
     </S.ModalInputTitleWrapper>
   );
 };

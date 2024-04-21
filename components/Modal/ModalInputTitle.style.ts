@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ModalInputTitleWrapper = styled.div`
   width: 45rem;
-  height: 7.9rem;
+  min-height: 7.9rem;
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
@@ -34,9 +34,9 @@ export const ModalInputTitleLabelStar = styled.span`
   }
 `;
 
-export const ModalInputTitleInput = styled.input`
+export const ModalInputTitleInput = styled.input<{ customHeight?: string }>`
   width: 100%;
-  height: 4.8rem;
+  height: ${({ customHeight }) => customHeight || '4.8rem'};
   padding: 1.4rem 1.6rem;
   border-radius: 0.6rem;
   border: 0.1rem solid var(--gray_060, #d9d9d9);
@@ -50,12 +50,23 @@ export const ModalInputTitleInput = styled.input`
   }
 
   @media (max-width: 767px) {
-    height: 4.2rem;
+    height: ${({ customHeight }) => customHeight || '4.2rem'};
     padding: 1.2rem 1.6rem 1.3rem;
     font-size: 1.4rem;
 
     ::placeholder {
       font-size: 1.4rem;
     }
+  }
+`;
+
+export const ModalInputTitleTextarea = styled(ModalInputTitleInput).attrs({
+  as: 'textarea',
+})`
+  resize: none;
+  overflow: hidden;
+
+  &:focus {
+    overflow: auto;
   }
 `;
