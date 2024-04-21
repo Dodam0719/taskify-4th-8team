@@ -9,6 +9,7 @@ export const SideMenu = styled.aside`
   border-right: 1px solid var(--gray_060);
   font-size: 1.2rem;
   font-weight: 700;
+  background-color: var(--white_100);
 
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
     width: 16rem;
