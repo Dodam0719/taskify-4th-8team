@@ -1,9 +1,11 @@
 import React, { MouseEventHandler, ReactNode } from 'react';
 import { BUTTON_COMPONENTS } from './Button.style';
 
-interface Props {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   className?: string;
+  $width: string;
+  $height: string;
   variant:
     | 'login'
     | 'signup'

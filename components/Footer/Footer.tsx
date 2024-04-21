@@ -10,9 +10,9 @@ const CustomFooter = () => {
           <S.FooterText>FAQ</S.FooterText>
         </S.FooterMidle>
         <S.FooterRight>
-          <S.Image src='/email_icon.svg' alt='이메일 아이콘' />
-          <S.Image src='/facebook_icon.svg' alt='페이스북 아이콘' />
-          <S.Image src='/instagram_icon.svg' alt='인스타그램 아이콘' />
+          <S.Image src='/assets/icon/email_icon.svg' alt='이메일 아이콘' />
+          <S.Image src='/assets/icon/facebook_icon.svg' alt='페이스북 아이콘' />
+          <S.Image src='/assets/icon/instagram_icon.svg' alt='인스타그램 아이콘' />
         </S.FooterRight>
       </S.FooterWrapper>
     </S.Footer>

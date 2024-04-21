@@ -7,13 +7,13 @@ export const commonStyle = css`
 `;
 
 export const BUTTON_COMPONENTS = {
-  login: styled.button`
+  login: styled.button<{ $width: string; $height: string }>`
     ${commonStyle};
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 52rem;
-    height: 5rem;
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     border-radius: 0.8rem;
     padding: 1.4rem 23.6rem;
     background-color: var(--violet_000);
@@ -28,13 +28,13 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  signup: styled.button`
+  signup: styled.button<{ $width: string; $height: string }>`
     ${commonStyle};
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 52rem;
-    height: 5rem;
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     border-radius: 0.8rem;
     padding: 1.4rem 23.6rem;
     background-color: var(--violet_000);
@@ -49,13 +49,13 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  accept: styled.button`
+  accept: styled.button<{ $width: string; $height: string }>`
     ${commonStyle};
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 8.4rem;
-    height: 3.2rem;
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     border-radius: 0.4rem;
     padding: 0.7rem 2.9rem;
     background-color: var(--violet_000);
@@ -79,13 +79,13 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  reject: styled.button`
+  reject: styled.button<{ $width: string; $height: string }>`
     ${commonStyle};
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 8.4rem;
-    height: 3.2rem;
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     border-radius: 0.4rem;
     padding: 0.7rem 2.9rem;
     border: 0.1rem solid var(--gray_060);
@@ -110,13 +110,13 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  delete: styled.button`
+  delete: styled.button<{ $width: string; $height: string }>`
     ${commonStyle};
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 8.4rem;
-    height: 3.2rem;
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     border-radius: 0.4rem;
     padding: 0.7rem 2.9rem;
     border: 0.1rem solid var(--gray_060);
@@ -135,13 +135,13 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  addColumn: styled.button`
+  addColumn: styled.button<{ $width: string; $height: string }>`
     ${commonStyle};
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 35.4rem;
-    height: 7rem;
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     border-radius: 0.8rem;
     border: 0.1rem solid var(--gray_060);
     background-color: var(--white_100);
@@ -165,13 +165,13 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  addTodo: styled.button`
+  addTodo: styled.button<{ $width: string; $height: string }>`
     ${commonStyle};
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 31.4rem;
-    height: 4rem;
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     border-radius: 0.6rem;
     border: 0.1rem solid var(--gray_060);
     background-color: var(--white_100);
@@ -185,13 +185,13 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  deleteDashboard: styled.button`
+  deleteDashboard: styled.button<{ $width: number; $height: number }>`
     ${commonStyle};
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32rem;
-    height: 6.2rem;
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     padding: 2rem 9.5rem;
     border-radius: 0.8rem;
     border: 0.1rem solid var(--gray_060);
@@ -210,13 +210,13 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  pagenation: styled.button`
+  pagenation: styled.button<{ $width: number; $height: number }>`
     ${commonStyle};
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 4rem;
-    height: 4rem;
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     border-radius: 0.4rem;
     border: 0.1rem solid var(--gray_060);
     background-color: var(--white_100);
@@ -227,13 +227,13 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  addDashboard: styled.button`
+  addDashboard: styled.button<{ $width: number; $height: number }>`
     ${commonStyle};
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 33.2rem;
-    height: 7rem;
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     border-radius: 0.8rem;
     border: 0.1rem solid var(--gray_060);
     background-color: var(--white_100);
@@ -255,13 +255,13 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  dashboard: styled.button`
+  dashboard: styled.button<{ $width: number; $height: number }>`
     ${commonStyle};
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 33.2rem;
-    height: 7rem;
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     border-radius: 0.8rem;
     border: 0.1rem solid var(--gray_060);
     background-color: var(--white_100);
@@ -284,8 +284,10 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  icon: styled.button`
+  icon: styled.button<{ $width: number; $height: number }>`
     ${commonStyle};
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
     background: none;
   `,
 };
