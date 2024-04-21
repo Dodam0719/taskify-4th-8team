@@ -1,6 +1,7 @@
+import { device } from '@/styles/breakpoints';
 import styled from 'styled-components';
 
-export const ProgressChipStyle = styled.li`
+export const ProgressChip = styled.li`
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -10,17 +11,18 @@ export const ProgressChipStyle = styled.li`
   border-radius: 1.1rem;
   list-style: none;
   color: var(--violet_000);
+  font-size: 1.2rem;
+  font-weight: 400;
+`;
 
-  .point {
-    width: 0.6rem;
-    height: 0.6rem;
-    background-color: var(--violet_000);
-    border-radius: 50%;
-  }
-
-  @media screen and (max-width: 767px) {
-    .text {
-      font-size: 1rem;
-    }
+export const Point = styled.div`
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: var(--violet_000);
+  border-radius: 50%;
+`;
+export const Text = styled.span`
+  @media ${device.mobile} {
+    font-size: 1rem;
   }
 `;

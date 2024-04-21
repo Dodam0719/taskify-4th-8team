@@ -1,62 +1,68 @@
+import { device } from '@/styles/breakpoints';
+import Image from 'next/image';
 import styled from 'styled-components';
 
-export const SideMenuStyle = styled.aside`
+export const SideMenu = styled.aside`
   width: 30rem;
   height: 100vh;
   padding: 2rem 2.4rem;
   border-right: 1px solid var(--gray_060);
+  font-size: 1.2rem;
+  font-weight: 700;
 
-  .logo-container {
-    display: flex;
-    align-items: center;
-  }
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5.7rem 0 2.7rem;
-
-    .text {
-      color: var(--gray_000);
-    }
-  }
-
-  .list-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2.7rem;
-  }
-
-  @media screen and (max-width: 1024px) and (min-width: 768px) {
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
     width: 16rem;
   }
-
-  @media screen and (max-width: 767px) {
+  @media ${device.mobile} {
     width: 6.7rem;
     padding: 0;
     padding-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+`;
 
-    .text,
-    .logo-title,
-    .crown-icon {
-      display: none;
-    }
+export const LogoContainer = styled.section`
+  display: flex;
+  align-items: center;
+`;
 
-    .logo-image {
-      width: 2.4rem;
-      height: 2.7rem;
-    }
+export const LogoImage = styled(Image)`
+  @media ${device.mobile} {
+    width: 2.4rem;
+    height: 2.7rem;
+  }
+`;
 
-    .container {
-      margin: 3.9rem 0 3.8rem;
-    }
+export const LogoTitle = styled(Image)`
+  @media ${device.mobile} {
+    display: none;
+  }
+`;
 
-    .list-container {
-      gap: 3.8rem;
-    }
+export const Container = styled.section`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5.7rem 0 2.7rem;
+  @media ${device.mobile} {
+    margin: 3.9rem 0 3.8rem;
+  }
+`;
+
+export const Text = styled.span`
+  color: var(--gray_000);
+  @media ${device.mobile} {
+    display: none;
+  }
+`;
+
+export const ListContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 2.7rem;
+  @media ${device.mobile} {
+    gap: 3.8rem;
   }
 `;

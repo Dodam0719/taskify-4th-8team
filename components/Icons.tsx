@@ -1,3 +1,4 @@
+import { device } from '@/styles/breakpoints';
 import styled, { css } from 'styled-components';
 
 export const Add = styled.div<{ $width: string; $height: string }>`
@@ -72,10 +73,26 @@ export const Kebab = styled.div<{ $width: string; $height: string }>`
   height: ${({ $height }) => $height};
 `;
 
-export const Search = styled.div<{ $width: string; $height: string }>`
+export const Search = styled.div`
+  background: url('/icons/Search.svg') no-repeat;
+  position: absolute;
+  top: 0.7rem;
+  left: 1.6rem;
+
+  width: 2.4rem;
+  height: 2.4rem;
+
+  @media ${device.mobile} {
+    width: 2.2rem;
+    height: 2.2rem;
+    top: 0.7rem;
+    left: 1.2rem;
+  }
+  
+<!-- export const Search = styled.div<{ $width: string; $height: string }>`
   background: url('/icons/Search.svg') no-repeat;
   width: ${({ $width }) => $width};
-  height: ${({ $height }) => $height};
+  height: ${({ $height }) => $height}; -->
 `;
 
 export const Setting = styled.div<{ $width: string; $height: string }>`
@@ -84,8 +101,11 @@ export const Setting = styled.div<{ $width: string; $height: string }>`
   height: ${({ $height }) => $height};
 `;
 
-export const Unsubscribe = styled.div<{ $width: string; $height: string }>`
-  background: url('/icons/Unsubscribe.svg') no-repeat;
-  width: ${({ $width }) => $width};
-  height: ${({ $height }) => $height};
+export const Unsubscribe = styled.div`
+
+// export const Unsubscribe = styled.div<{ $width: string; $height: string }>`
+// >>>>>>> develop
+//   background: url('/icons/Unsubscribe.svg') no-repeat;
+//   width: ${({ $width }) => $width};
+//   height: ${({ $height }) => $height};
 `;

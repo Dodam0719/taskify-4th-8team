@@ -1,3 +1,4 @@
+import { device } from '@/styles/breakpoints';
 import styled from 'styled-components';
 
 export const AddCardButtonStyle = styled.a`
@@ -7,16 +8,16 @@ export const AddCardButtonStyle = styled.a`
   width: 31.4rem;
   height: 4rem;
 
-  border-radius: 6px;
-  border: 1px solid var(--gray-gray_D9D9D9, #d9d9d9);
-  background: var(--white-white_FFFFFF, #fff);
+  border-radius: 0.6rem;
+  border: 1px solid var(--gray_060);
+  background: var(--white_100);
   cursor: pointer;
 
-  @media screen and (max-width: 1024px) and (min-width: 768px) {
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
     width: 100%;
   }
 
-  @media screen and (max-width: 767px) {
+  @media ${device.mobile} {
     width: 100%;
     height: 3.2rem;
   }

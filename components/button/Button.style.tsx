@@ -72,7 +72,7 @@ export const BUTTON_COMPONENTS = {
     }
 
     @media ${device.mobile} {
-      width: 10.9rem;
+      width: 50%;
       height: 2.8rem;
       padding: 0.7rem 3.7rem;
       font-size: 1.2rem;
@@ -103,7 +103,7 @@ export const BUTTON_COMPONENTS = {
     }
 
     @media ${device.mobile} {
-      width: 10.9rem;
+      width: 50%;
       height: 2.8rem;
       padding: 0.7rem 3.7rem;
       font-size: 1.2rem;
@@ -177,13 +177,11 @@ export const BUTTON_COMPONENTS = {
     background-color: var(--white_100);
 
     @media ${device.tablet} {
-      width: 54.4rem;
-      height: 4rem;
+      width: 100%;
     }
 
     @media ${device.mobile} {
-      width: 28.4rem;
-      height: 3.2rem;
+      width: 100%;
     }
   `,
 

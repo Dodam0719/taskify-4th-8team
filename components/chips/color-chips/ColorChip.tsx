@@ -1,12 +1,5 @@
-import Image from 'next/image';
+import { ColorChipsType } from '../type';
 import * as S from './ColorChip.style';
-
-interface ColorChipsType {
-  color: string;
-  index: number;
-  selectedColorIndex: number;
-  setSelectedColorIndex: (index: number) => void;
-}
 
 const ColorChip = ({ color, index, selectedColorIndex, setSelectedColorIndex }: ColorChipsType) => {
   const handleOnColorClick = () => {
@@ -15,11 +8,9 @@ const ColorChip = ({ color, index, selectedColorIndex, setSelectedColorIndex }: 
 
   return (
     <>
-      <S.ColorChipStyle color={color} onClick={handleOnColorClick}>
-        {selectedColorIndex === index && (
-          <Image className='check-image' src='/assets/chips/check.svg' alt='체크 이미지' width={24} height={24} />
-        )}
-      </S.ColorChipStyle>
+      <S.ColorChip color={color} onClick={handleOnColorClick}>
+        {selectedColorIndex === index && <S.CheckImage src='/icons/Check.svg' alt='체크 이미지' width={24} height={24} />}
+      </S.ColorChip>
     </>
   );
 };

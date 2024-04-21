@@ -1,21 +1,21 @@
 import Card from './Card';
 import CardHeader from './CardHeader';
-import { CardListStyle } from './CardList.style';
-import AddCardButton from './add-card-button/AddCardButton';
-
-interface CardListStyle {
-  children: string;
-}
+import * as S from './CardList.style';
+import { CardListStyle } from './type';
+import Button from '../button/Button';
+import PlusChip from '../chips/plus-chip/PlusChip';
 
 const CardList = ({ children }: CardListStyle) => {
   return (
-    <CardListStyle>
+    <S.CardList>
       <CardHeader>{children}</CardHeader>
-      <div className='card-container'>
-        <AddCardButton />
+      <S.CardContainer>
+        <Button variant='addTodo'>
+          <PlusChip />
+        </Button>
         <Card />
-      </div>
-    </CardListStyle>
+      </S.CardContainer>
+    </S.CardList>
   );
 };
 
