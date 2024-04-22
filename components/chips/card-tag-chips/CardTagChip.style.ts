@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { device } from '@/styles/breakpoints';
 import { CardTagChipType } from '../type';
 
-export const CardTagChip = styled.li<CardTagChipType>`
+export const CardTagChip = styled.div<CardTagChipType>`
   height: 2.2rem;
   padding: 0.4rem 0.6rem;
   background-color: ${({ tagColor }) => tagColor};
