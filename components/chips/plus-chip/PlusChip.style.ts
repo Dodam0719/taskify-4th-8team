@@ -16,11 +16,17 @@ export const PlusChipContainer = styled.div`
     width: 2rem;
     height: 2rem;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const AddImage = styled(Image)`
   @media ${device.mobile} {
     width: 1.45rem;
     height: 1.45rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;

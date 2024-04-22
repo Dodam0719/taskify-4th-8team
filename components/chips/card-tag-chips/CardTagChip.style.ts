@@ -17,4 +17,7 @@ export const Tag = styled.span`
   @media ${device.mobile} {
     font-size: 1rem;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
