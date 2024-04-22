@@ -4,21 +4,18 @@ import { EyeOff, EyeOn } from '../Icons';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
+  gap?: string;
   errorMsg?: string;
   label: string;
-  LabelMarginBottom?: string;
-  mobileLabelMarginBottom?: string;
   fontSize?: string;
-  mobilefontSize?: string;
-  fontweight?: string;
-  inputwidth?: string;
-  inputheight?: string;
-  mobileinputwidth?: string;
-  mobileinputheight?: string;
-  inputMarginBottom?: string;
-  mobileinputMarginBottom?: string;
-  placeholderfontSize?: string;
-  mobileplaceholderfontSize?: string;
+  mobileFontSize?: string;
+  fontWeight?: string;
+  width?: string;
+  height?: string;
+  mobileWidth?: string;
+  mobileHeight?: string;
+  placeholderFontSize?: string;
+  mobilePlaceholderFontSize?: string;
   isShow?: string;
 }
 
@@ -26,20 +23,17 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   {
     id,
     type = 'text',
-    LabelMarginBottom,
-    mobileLabelMarginBottom,
+    gap,
     placeholder,
     fontSize,
-    mobilefontSize,
-    fontweight,
-    inputwidth,
-    inputheight,
-    mobileinputwidth,
-    mobileinputheight,
-    inputMarginBottom,
-    mobileinputMarginBottom,
-    placeholderfontSize,
-    mobileplaceholderfontSize,
+    mobileFontSize,
+    fontWeight,
+    width,
+    height,
+    mobileWidth,
+    mobileHeight,
+    placeholderFontSize,
+    mobilePlaceholderFontSize,
     isShow,
     errorMsg,
     label,
@@ -79,29 +73,21 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 
   return (
     <>
-      <S.Container>
-        <S.Label
-          fontSize={fontSize}
-          fontweight={fontweight}
-          LabelMarginBottom={LabelMarginBottom}
-          mobilefontSize={mobilefontSize}
-          mobileLabelMarginBottom={mobileLabelMarginBottom}
-          htmlFor={id}>
+      <S.Container gap={gap}>
+        <S.Label fontSize={fontSize} fontWeight={fontWeight} mobileFontSize={mobileFontSize} htmlFor={id}>
           {label}
         </S.Label>
         <S.Input
           id={id}
           type={type}
           placeholder={placeholder}
-          placeholderfontSize={placeholderfontSize}
-          mobileplaceholderfontSize={mobileplaceholderfontSize}
+          placeholderFontSize={placeholderFontSize}
+          mobilePlaceholderFontSize={mobilePlaceholderFontSize}
           ref={handleRef}
-          inputwidth={inputwidth}
-          inputheight={inputheight}
-          mobileinputwidth={mobileinputwidth}
-          mobileinputheight={mobileinputheight}
-          inputMarginBottom={inputMarginBottom}
-          mobileinputMarginBottom={mobileinputMarginBottom}
+          width={width}
+          height={height}
+          mobileWidth={mobileWidth}
+          mobileHeight={mobileHeight}
           $error={!!errorMsg}
           {...props}
         />

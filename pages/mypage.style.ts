@@ -76,11 +76,13 @@ export const myPageProfileTextInputBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 36.6rem;
+  gap: 2rem;
   @media ${device.tablet} {
     width: 29rem;
   }
   @media ${device.mobile} {
     width: 24.4rem;
+    gap: 1.6rem;
   }
 `;
 export const myPageProfileImgBox = styled.div`
@@ -100,7 +102,7 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0.4rem;
+  margin-top: 2.4rem;
   margin-left: auto;
   width: 8.4rem;
   height: 3.2rem;
@@ -115,7 +117,7 @@ export const Button = styled.button`
   @media ${device.mobile} {
     height: 2.8rem;
     font-size: 1.2rem;
-    margin-top: 0rem;
+    margin-top: 1.6rem;
   }
 `;
 export const myPagePasswordBox = styled.div`
@@ -131,6 +133,7 @@ export const myPagePasswordBox = styled.div`
     color: var(--black_050);
     margin-bottom: 3.2rem;
   }
+
   @media ${device.tablet} {
     width: 54.4rem;
   }
@@ -144,5 +147,13 @@ export const myPagePasswordBox = styled.div`
       color: var(--black_050);
       margin-bottom: 2.4rem;
     }
+  }
+`;
+export const myPageProfilePasswordInputBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  @media ${device.mobile} {
+    gap: 1.6rem;
   }
 `;

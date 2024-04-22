@@ -5,16 +5,14 @@ import * as S from './mypage.style';
 import { Arrow_forward, Add } from '@/components/Icons';
 
 const inputProps = {
-  LabelMarginBottom: '1rem',
+  gap: '1rem',
   fontSize: '1.8rem',
-  fontweight: '500',
-  inputMarginBottom: '2rem',
-  placeholderfontSize: '1.6rem',
-  mobileplaceholderfontSize: '1.4rem',
-  mobilefontSize: '1.6rem',
-  mobileinputMarginBottom: '1.6rem',
-  inputheight: '4.8rem',
-  mobileinputheight: '4.2rem',
+  fontWeight: '500',
+  placeholderFontSize: '1.6rem',
+  mobilePlaceholderFontSize: '1.4rem',
+  mobileFontSize: '1.6rem',
+  height: '4.8rem',
+  mobileHeight: '4.2rem',
 };
 
 const myPage = () => {
@@ -44,9 +42,25 @@ const myPage = () => {
             </S.myPageProfileBox>
             <S.myPagePasswordBox>
               <h2>비밀번호 변경</h2>
-              <Input label='현재 비밀번호' {...inputProps} isShow='' type='password' placeholder='현재 비밀번호 입력' />
-              <Input label='새 비밀번호' {...inputProps} isShow='' type='password' placeholder='새 비밀번호 입력' />
-              <Input label='새 비밀번호 확인' {...inputProps} isShow='' type='password' placeholder='새 비밀번호 입력' />
+              <S.myPageProfilePasswordInputBox>
+                <Input label='현재 비밀번호' {...inputProps} isShow='' type='password' placeholder='현재 비밀번호 입력' />
+                <Input
+                  label='새 비밀번호'
+                  {...inputProps}
+                  isShow=''
+                  type='password'
+                  placeholder='새 비밀번호 입력'
+                  // errorMsg='비밀번호가 일치하지않습니다'
+                />
+                <Input
+                  label='새 비밀번호 확인'
+                  {...inputProps}
+                  isShow=''
+                  type='password'
+                  placeholder='새 비밀번호 입력'
+                  // errorMsg='비밀번호가 일치하지않습니다'
+                />
+              </S.myPageProfilePasswordInputBox>
               <S.Button>변경</S.Button>
             </S.myPagePasswordBox>
           </S.myPageWrapper>

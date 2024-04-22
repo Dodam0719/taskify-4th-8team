@@ -3,52 +3,46 @@ import { device } from '@/styles/breakpoints';
 
 type InputStyledProps = {
   $error?: boolean;
-  inputwidth?: string;
-  inputheight?: string;
-  mobileinputwidth?: string;
-  mobileinputheight?: string;
-  inputMarginBottom?: string;
-  mobileinputMarginBottom?: string;
-  placeholderfontSize?: string;
-  mobileplaceholderfontSize?: string;
+  width?: string;
+  height?: string;
+  mobileWidth?: string;
+  mobileHeight?: string;
+  placeholderFontSize?: string;
+  mobilePlaceholderFontSize?: string;
 };
 
-export const Container = styled.div`
+export const Container = styled.div<{ gap?: string }>`
   display: flex;
   flex-direction: column;
   position: relative;
+  gap: ${({ gap }) => gap};
 `;
 
 export const Label = styled.label<{
-  fontweight?: string;
+  fontWeight?: string;
   fontSize?: string;
-  LabelMarginBottom?: string;
-  mobilefontSize?: string;
-  mobileLabelMarginBottom?: string;
+  mobileFontSize?: string;
 }>`
   color: var(--black_050);
   font-size: ${({ fontSize }) => fontSize};
-  font-weight: ${({ fontweight }) => fontweight};
-  margin-bottom: ${({ LabelMarginBottom }) => LabelMarginBottom};
+  font-weight: ${({ fontWeight }) => fontWeight};
 
   @media ${device.mobile} {
-    font-size: ${({ mobilefontSize }) => mobilefontSize};
-    margin-bottom: ${({ mobileLabelMarginBottom }) => mobileLabelMarginBottom};
+    font-size: ${({ mobileFontSize }) => mobileFontSize};
   }
 `;
 
 export const Input = styled.input<InputStyledProps>`
-  width: ${({ inputwidth }) => inputwidth};
-  height: ${({ inputheight }) => inputheight};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
   padding: 1.3rem 1.6rem;
   border-radius: 0.8rem;
   border: 0.1rem solid ${({ $error }) => ($error ? 'var(--red_100)' : 'var(--gray_060)')};
   background-color: var(--white_100);
-  margin-bottom: ${({ inputMarginBottom }) => inputMarginBottom};
 
   &::placeholder {
     color: var(--gray_020);
-    font-size: ${({ placeholderfontSize }) => placeholderfontSize};
+    font-size: ${({ placeholderFontSize }) => placeholderFontSize};
   }
 
   &:focus {
@@ -56,11 +50,10 @@ export const Input = styled.input<InputStyledProps>`
     border: 0.1rem solid var(--violet_000);
   }
   @media ${device.mobile} {
-    width: ${({ mobileinputwidth }) => mobileinputwidth};
-    height: ${({ mobileinputheight }) => mobileinputheight};
-    margin-bottom: ${({ mobileinputMarginBottom }) => mobileinputMarginBottom};
+    width: ${({ mobileWidth }) => mobileWidth};
+    height: ${({ mobileHeight }) => mobileHeight};
     &::placeholder {
-      font-size: ${({ mobileplaceholderfontSize }) => mobileplaceholderfontSize};
+      font-size: ${({ mobilePlaceholderFontSize }) => mobilePlaceholderFontSize};
       color: var(--gray_020);
     }
   }
