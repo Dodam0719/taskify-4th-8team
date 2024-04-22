@@ -2,9 +2,113 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { device } from '@/styles/breakpoints';
 
-export const InviteDashStyle = styled.article`
+export const InviteDashStyle = styled.main`
+  width: 100%;
+  padding: 4rem;
+  padding-bottom: 12.2rem;
+
+  @media ${device.tablet} {
+    width: 100%;
+  }
+  @media ${device.mobile} {
+    width: 100%;
+  }
+`;
+
+export const ButtonContainerStyle = styled.section`
+  display: grid;
+  gap: 1.3rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 102.2rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  > * {
+    min-width: 33.2rem;
+  }
+  @media ${device.tablet} {
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 1rem;
+    > * {
+      gap: 1rem;
+      min-width: auto;
+      width: auto;
+      height: 6.8rem;
+    }
+  }
+  @media ${device.mobile} {
+    grid-template-columns: 1fr;
+    margin-bottom: 0.8rem;
+
+    > * {
+      gap: 0.8rem;
+      width: auto;
+      height: 5.8rem;
+    }
+  }
+`;
+
+export const ButtonColorPointStyle = styled.div`
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: var(${({ color }) => color});
+  border-radius: 50%;
+`;
+
+export const PageNationContainer = styled.section`
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 1.6rem;
   width: 102.2rem;
-  height: auto;
+  margin-bottom: 4.4rem;
+
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--black_050);
+  @media ${device.tablet} {
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+  @media ${device.mobile} {
+    width: 100%;
+
+    margin-bottom: 2.4rem;
+  }
+`;
+
+export const ArrowContainer = styled.section`
+  display: flex;
+  background: var(--white_100);
+`;
+
+export const ArrowBackPage = styled(Image)`
+  padding: 1.2rem;
+  border-radius: 0 0.4rem 0.4rem 0;
+  border: 1px solid var(--gray_060);
+  background: var(--white_100);
+  transform: scaleX(-1);
+  @media ${device.mobile} {
+    width: 3.6rem;
+    height: 3.6rem;
+    padding: 1rem;
+  }
+`;
+
+export const ArrowNextPage = styled(Image)`
+  padding: 1.2rem;
+  border-radius: 0 0.4rem 0.4rem 0;
+  border: 1px solid var(--gray_060);
+  background: var(--white_100);
+  @media ${device.mobile} {
+    width: 3.6rem;
+    height: 3.6rem;
+    padding: 1rem;
+  }
+`;
+
+export const InviteDashListStyle = styled.article`
+  width: 102.2rem;
+  background-color: var(--white_100);
 
   @media ${device.tablet} {
     width: 100%;
