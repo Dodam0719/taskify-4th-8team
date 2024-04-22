@@ -20,6 +20,9 @@ export const SideMenu = styled.aside`
     flex-direction: column;
     align-items: center;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const LogoContainer = styled.section`
@@ -29,6 +32,9 @@ export const LogoContainer = styled.section`
   @media ${device.mobile} {
     margin: 0;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const LogoImage = styled(Image)`
@@ -36,11 +42,17 @@ export const LogoImage = styled(Image)`
     width: 2.4rem;
     height: 2.7rem;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const LogoTitle = styled(Image)`
   @media ${device.mobile} {
     display: none;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -55,12 +67,18 @@ export const Container = styled.section`
   @media ${device.mobile} {
     margin: 3.9rem 0 3.8rem;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const Text = styled.span`
   color: var(--gray_000);
   @media ${device.mobile} {
     display: none;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -71,5 +89,8 @@ export const ListContainer = styled.section`
 
   @media ${device.mobile} {
     gap: 3.8rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
