@@ -53,4 +53,5 @@ export const ErrorMessage = styled.div`
   color: var(--red_100);
   font-size: 1.4rem;
   font-weight: 400;
+  justify-content: flex-start;
 `;
