@@ -17,6 +17,9 @@ export const UserContainer = styled.section`
   @media ${device.mobile} {
     gap: 0.8rem;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const Profile = styled.div<TableProfileType>`
@@ -37,6 +40,9 @@ export const Profile = styled.div<TableProfileType>`
     height: 3.4rem;
     font-size: 1.4rem;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const USER = styled.span`
@@ -44,6 +50,9 @@ export const USER = styled.span`
   font-weight: 400;
   @media ${device.mobile} {
     font-size: 1.4rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -53,5 +62,8 @@ export const DeleteButton = styled.button`
   @media ${device.mobile} {
     width: 5.2rem;
     height: 2.5rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;

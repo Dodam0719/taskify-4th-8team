@@ -10,6 +10,9 @@ export const DashBoardWrapper = styled.main`
       height: 2rem;
     }
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const UnsubscribeWrapper = styled.section`
@@ -32,6 +35,9 @@ export const UnsubscribeTitle = styled.h1`
   @media ${device.mobile} {
     font-size: 2rem;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const UnsubscribeContainer = styled.div`
@@ -50,6 +56,9 @@ export const UnsubscribeContainer = styled.div`
       height: 6rem;
     }
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const UnsubscribeText = styled.p`
@@ -58,5 +67,8 @@ export const UnsubscribeText = styled.p`
   color: var(--gray_020);
   @media ${device.mobile} {
     font-size: 1.4rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;

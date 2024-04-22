@@ -11,6 +11,9 @@ export const InviteDashStyle = styled.main`
   @media ${device.mobile} {
     width: 100%;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const ButtonContainerStyle = styled.section`
@@ -31,6 +34,9 @@ export const ButtonContainerStyle = styled.section`
     grid-template-columns: 1fr;
     gap: 0.8rem;
     margin-bottom: 0.8rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -58,8 +64,10 @@ export const PageNationContainer = styled.section`
   }
   @media ${device.mobile} {
     width: 100%;
-
     margin-bottom: 2.4rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -79,6 +87,9 @@ export const ArrowBackPage = styled(Image)`
     height: 3.6rem;
     padding: 1rem;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const ArrowNextPage = styled(Image)`
@@ -90,6 +101,9 @@ export const ArrowNextPage = styled(Image)`
     width: 3.6rem;
     height: 3.6rem;
     padding: 1rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -108,6 +122,9 @@ export const InviteDashContainerStyle = styled.section`
   @media ${device.mobile} {
     padding: 2.4rem 1.6rem 0;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const TitleStyle = styled.p`
@@ -116,6 +133,9 @@ export const TitleStyle = styled.p`
 
   @media ${device.mobile} {
     font-size: 2rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -182,6 +202,9 @@ export const ListHeaderItemStyle = styled.section`
   @media ${device.mobile} {
     display: none;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const ListStyle = styled.section`
@@ -192,19 +215,23 @@ export const ListStyle = styled.section`
   @media ${device.mobile} {
     display: none;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const ListMobileStyle = styled.section`
   display: none;
   @media ${device.mobile} {
     display: block;
-
     > :first-child {
       padding-top: 0;
     }
-
     > :last-child {
       border: none;
     }
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
