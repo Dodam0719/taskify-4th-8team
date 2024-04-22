@@ -10,7 +10,7 @@ import ModalDeleteColumn from './ModalDeleteColumn';
 import ModalInputProgress from './ModalInputProgress';
 import ModalInputTag from './ModalInputTag';
 import ModalInputManager from './ModalInputManager';
-import ModalNewTodo from './ModalNewTodo';
+import ModalTodo from './ModalTodo';
 import { ModalTool } from './ModalTools.style';
 
 const handleCommentClick = () => {
@@ -80,7 +80,8 @@ const Modal = () => {
         <ModalNewdash title='새로운 대시보드' placeholder='뉴프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
       )} */}
       {/* {isModalOpen && <ModalDeleteColumn message='컬럼의 모든 카드가 삭제됩니다.' onClose={handleCloseModal} />} */}
-      {isModalOpen && <ModalNewTodo onSubmit={handleNewCardSubmit} onClose={handleCloseModal} />}
+      {/* {isModalOpen && <ModalTodo title='할 일 생성' onSubmit={handleNewCardSubmit} onClose={handleCloseModal} />} */}
+      {isModalOpen && <ModalTodo todoTitle='할 일 수정' onSubmit={handleNewCardSubmit} onClose={handleCloseModal} />}
     </>
   );
 };
