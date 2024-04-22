@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 import { device } from '../../styles/breakpoints';
 export const DashboardHeader = styled.nav`
-  width: 162rem;
+  width: 100%;
+  max-width: 162rem;
   height: 7rem;
   display: flex;
   align-items: center;
   padding: 0 8rem 0 4rem;
+  @media ${device.tablet} {
+    padding: 0 4rem 0 6.8rem;
+  }
+  @media ${device.mobile} {
+    padding: 0 1.2rem;
+  }
 `;
 export const RecipientName = styled.h1`
   color: var(--black_050);
@@ -20,7 +27,7 @@ export const SettingButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 83.4rem;
+  margin-left: auto;
   width: 8.8rem;
   height: 4rem;
   border-radius: 0.8rem;
@@ -38,13 +45,13 @@ export const SettingButton = styled.button`
   @media ${device.tablet} {
     width: 8.5rem;
     height: 3.6rem;
-    margin-left: 6.8rem;
+    margin-left: auto;
     font-size: 1.4rem;
   }
   @media ${device.mobile} {
     width: 4.9rem;
     height: 3rem;
-    margin-left: 1.2rem;
+    margin-left: auto;
     img {
       display: none;
     }

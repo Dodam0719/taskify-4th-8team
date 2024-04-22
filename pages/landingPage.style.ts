@@ -48,6 +48,7 @@ export const main = styled.main`
     color: var(--white_100);
     font-size: 1.8rem;
     font-weight: 500;
+    border: none;
   }
   @media ${device.tablet} {
     h1 {
@@ -97,7 +98,7 @@ export const Image = styled.img`
     width: 53.7rem;
     height: 31.4rem;
   }
-  @media ${device.tablet} {
+  @media ${device.mobile} {
     width: 28.7rem;
     height: 16.8rem;
   }

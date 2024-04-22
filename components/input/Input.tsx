@@ -6,9 +6,47 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
   errorMsg?: string;
   label: string;
+  LabelMarginBottom?: string;
+  mobileLabelMarginBottom?: string;
+  fontSize?: string;
+  mobilefontSize?: string;
+  fontweight?: string;
+  inputwidth?: string;
+  inputheight?: string;
+  mobileinputwidth?: string;
+  mobileinputheight?: string;
+  inputMarginBottom?: string;
+  mobileinputMarginBottom?: string;
+  placeholderfontSize?: string;
+  mobileplaceholderfontSize?: string;
+  isShow?: string;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(function Input({ id, type = 'text', placeholder, errorMsg, label, ...props }, ref) {
+const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  {
+    id,
+    type = 'text',
+    LabelMarginBottom,
+    mobileLabelMarginBottom,
+    placeholder,
+    fontSize,
+    mobilefontSize,
+    fontweight,
+    inputwidth,
+    inputheight,
+    mobileinputwidth,
+    mobileinputheight,
+    inputMarginBottom,
+    mobileinputMarginBottom,
+    placeholderfontSize,
+    mobileplaceholderfontSize,
+    isShow,
+    errorMsg,
+    label,
+    ...props
+  },
+  ref
+) {
   const [isPassword, setIsPassword] = useState(false);
   const passwordRef = useRef<HTMLInputElement | null>(null);
 
@@ -42,10 +80,33 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input({ id, type
   return (
     <>
       <S.Container>
-        <S.Label htmlFor={id}>{label}</S.Label>
-        <S.Input id={id} type={type} placeholder={placeholder} ref={handleRef} $error={!!errorMsg} {...props} />
+        <S.Label
+          fontSize={fontSize}
+          fontweight={fontweight}
+          LabelMarginBottom={LabelMarginBottom}
+          mobilefontSize={mobilefontSize}
+          mobileLabelMarginBottom={mobileLabelMarginBottom}
+          htmlFor={id}>
+          {label}
+        </S.Label>
+        <S.Input
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          placeholderfontSize={placeholderfontSize}
+          mobileplaceholderfontSize={mobileplaceholderfontSize}
+          ref={handleRef}
+          inputwidth={inputwidth}
+          inputheight={inputheight}
+          mobileinputwidth={mobileinputwidth}
+          mobileinputheight={mobileinputheight}
+          inputMarginBottom={inputMarginBottom}
+          mobileinputMarginBottom={mobileinputMarginBottom}
+          $error={!!errorMsg}
+          {...props}
+        />
         {type === 'password' && (
-          <S.ImgPosition onClick={toggleEyesButton}>
+          <S.ImgPosition isShow={isShow} onClick={toggleEyesButton}>
             {isPassword ? <EyeOff $width={'2.4rem'} $height={'2.4rem'} /> : <EyeOn $width={'2.4rem'} $height={'2.4rem'} />}
           </S.ImgPosition>
         )}
