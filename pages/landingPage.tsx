@@ -71,7 +71,6 @@ const LandingPage = () => {
         </S.sectionWrapper3>
       </S.section>
       <CustomFooter />
-      <DashboardHeader />
     </S.LandingPage>
   );
 };

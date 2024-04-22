@@ -19,15 +19,25 @@ export const RecipientName = styled.h1`
   font-size: 2rem;
   font-weight: 700;
   line-height: normal;
+  margin-right: auto;
   @media ${device.tablet} {
     display: none;
   }
 `;
+
+export const DashboardHeaderWrapper = styled.div<{ isShow?: string }>`
+  display: ${({ isShow }) => (isShow === 'show' ? 'flex' : 'none')};
+  align-items: center;
+
+  @media ${device.tablet} {
+    margin-left: ${({ isShow }) => (isShow === 'none' ? '0' : 'auto')};
+  }
+`;
+
 export const SettingButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
   width: 8.8rem;
   height: 4rem;
   border-radius: 0.8rem;
@@ -94,15 +104,16 @@ export const InviteButton = styled.button`
 
 export const ProfileTestWrapper = styled.div`
   display: flex;
-  margin-left: 4rem;
-  margin-right: 4.2rem;
+  padding-left: 4rem;
+  padding-right: 4.2rem;
+  border-right: 0.01rem solid var(--gray_060);
   @media ${device.tablet} {
-    margin-left: 3.2rem;
-    margin-right: 3.4rem;
+    padding-left: 3.2rem;
+    padding-right: 3.4rem;
   }
   @media ${device.mobile} {
-    margin-left: 1.6rem;
-    margin-right: 2.2rem;
+    padding-left: 1.6rem;
+    padding-right: 2.2rem;
   }
 `;
 export const TestProfile = styled.div`
@@ -146,14 +157,19 @@ export const LastTestProfile = styled.div`
   text-align: center;
   color: #d25b68;
   font-weight: 600;
+  @media ${device.mobile} {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
 `;
-export const ProfileWrapper = styled.div`
+export const ProfileWrapper = styled.div<{ isShow?: string }>`
   display: flex;
   align-items: center;
-  border-left: 0.01rem solid var(--gray_060);
   padding-left: 3.2rem;
+
   @media ${device.tablet} {
     padding-left: 2.4rem;
+    margin-left: ${({ isShow }) => (isShow === 'none' ? 'auto' : '')};
   }
   @media ${device.mobile} {
     padding-left: 1.2rem;

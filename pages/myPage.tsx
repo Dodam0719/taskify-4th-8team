@@ -21,7 +21,7 @@ const myPage = () => {
       <S.myPage>
         <SideMenu />
         <S.myPagemain>
-          <DashboardHeader />
+          <DashboardHeader isShow='none' />
           <S.myPageWrapper>
             <S.myPageTitle>
               <Arrow_forward $width='2rem' $height='2rem' />
