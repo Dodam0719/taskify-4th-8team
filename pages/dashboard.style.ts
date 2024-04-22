@@ -12,6 +12,9 @@ export const DashboardStyle = styled.div`
   @media (${device.mobile}) {
     height: 100%;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const WrapperStyle = styled.div`

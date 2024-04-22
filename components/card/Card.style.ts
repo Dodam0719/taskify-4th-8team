@@ -19,6 +19,9 @@ export const CardWrapperStyle = styled.section`
     border-right: none;
     border-bottom: 1px solid var(--gray_080);
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const CardHeaderStyle = styled.article`
@@ -29,6 +32,9 @@ export const CardHeaderStyle = styled.article`
   margin-bottom: 2.4rem;
   @media (${device.mobile}) {
     margin-bottom: 1.6rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -54,6 +60,9 @@ export const TitleStyle = styled.div`
     font-size: 1.6rem;
     font-weight: 700;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const CardListItemStyle = styled.article``;
@@ -69,6 +78,9 @@ export const CardStyle = styled.article`
   }
   @media (${device.mobile}) {
     padding: 1.2rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -96,6 +108,9 @@ export const CardItemTitleStyle = styled.div`
   font-weight: 500;
   @media (${device.mobile}) {
     font-size: 1.4rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -135,6 +150,9 @@ export const DateStyle = styled.div`
   @media (${device.mobile}) {
     gap: 0.4rem;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const ProfileStyle = styled.div`
@@ -147,5 +165,8 @@ export const ProfileStyle = styled.div`
     gap: 0.4rem;
     width: 2.2rem;
     height: 2.2rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
