@@ -32,8 +32,10 @@ const InviteDash = () => {
         </Button>
         {BUTTONS.map((button) => (
           <Button variant='dashboard' $width='33.2rem' $height='7rem'>
-            <S.ButtonColorPointStyle color={button.color} />
-            <span>{button.name}</span>
+            <div>
+              <S.ButtonColorPointStyle color={button.color} />
+              <span>{button.name}</span>
+            </div>
             <Arrow_forward $width='1.8rem' $height='1.8rem' />
           </Button>
         ))}

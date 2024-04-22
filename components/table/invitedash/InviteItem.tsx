@@ -8,8 +8,12 @@ const InviteItem = ({ name, inviter }: InviteItemType) => {
       <S.ItemStyle>{name}</S.ItemStyle>
       <S.ItemStyle>{inviter}</S.ItemStyle>
       <S.ButtonContainerStyle>
-        <Button variant='accept'>수락</Button>
-        <Button variant='reject'>거절</Button>
+        <Button variant='accept' $width='8.4rem' $height='3.2rem'>
+          수락
+        </Button>
+        <Button variant='reject' $width='8.4rem' $height='3.2rem'>
+          거절
+        </Button>
       </S.ButtonContainerStyle>
     </S.InviteItemStyle>
   );

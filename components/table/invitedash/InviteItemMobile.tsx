@@ -16,8 +16,12 @@ const InviteItemMobile = ({ name, inviter }: InviteItemType) => {
         </S.ContainerStyle>
       </S.NameLabelStyle>
       <S.ButtonContainerStyle>
-        <Button variant='accept'>수락</Button>
-        <Button variant='reject'>거절</Button>
+        <Button variant='accept' $width='50%' $height='50%'>
+          수락
+        </Button>
+        <Button variant='reject' $width='50%' $height='50%'>
+          거절
+        </Button>
       </S.ButtonContainerStyle>
     </S.InviteItemMobileStyle>
   );
