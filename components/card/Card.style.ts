@@ -1,120 +1,150 @@
+import { device } from '@/styles/breakpoints';
 import Image from 'next/image';
 import styled from 'styled-components';
-import { device } from '@/styles/breakpoints';
 
-export const Card = styled.section`
-  width: 31.4rem;
+export const CardWrapperStyle = styled.section`
+  max-width: 35.4rem;
+  min-width: auto;
+  height: 100%;
+  padding: 2rem 2rem;
+  border-right: 1px solid var(--gray_080);
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
+    border: none;
+    max-width: 100%;
+    border-bottom: 1px solid var(--gray_080);
+  }
+  @media (${device.mobile}) {
+    max-width: 100%;
+    height: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--gray_080);
+  }
+`;
+
+export const CardHeaderStyle = styled.article`
+  display: flex;
+  width: 100%;
   height: auto;
-  padding: 2rem;
-  border-radius: 0.6rem;
-  border: 1px solid var(--gray_060);
-  background: var(--white_100);
-  cursor: pointer;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+  @media (${device.mobile}) {
+    margin-bottom: 1.6rem;
+  }
+`;
 
+export const CardHeaderTitleStyle = styled.div`
+  display: flex;
+  align-items: center;
+  height: 2.2rem;
+`;
+
+export const PointStyle = styled.div`
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: var(--violet_000);
+  border-radius: 50%;
+`;
+
+export const TitleStyle = styled.div`
+  margin: 0 0.8rem 0 1.2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--black_050);
+  @media (${device.mobile}) {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+`;
+
+export const CardListItemStyle = styled.article``;
+
+export const CardStyle = styled.article`
+  margin-top: 1.6rem;
+  padding: 2rem;
+  background-color: var(--white_100);
+  border: 1px solid var(--gray_060);
+  border-radius: 0.6rem;
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
     display: flex;
-    gap: 2rem;
-    width: 100%;
-    height: 9.3rem;
   }
-  @media ${device.mobile} {
-    width: 100%;
+  @media (${device.mobile}) {
     padding: 1.2rem;
   }
 `;
 
-export const CardImage = styled(Image)`
+export const CardImageStyle = styled(Image)`
+  width: 100%;
+  height: 100%;
   margin-bottom: 1.2rem;
-
+  border-radius: 0.4rem;
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
     width: 9.1rem;
-    height: auto;
+    height: 5.3rem;
     margin: 0;
-  }
-  @media ${device.mobile} {
-    width: 100%;
-    height: 100%;
+    margin-right: 2rem;
   }
 `;
 
-export const Container = styled.section`
-  @media screen and (${device.tablet}) and (${device.tabletMin}) {
-    width: 100%;
-  }
+export const InfoContainerStyle = styled.section`
+  width: 100%;
+  height: 100%;
 `;
 
-export const CardTitle = styled.p`
+export const CardItemTitleStyle = styled.div`
   margin-bottom: 1rem;
   font-size: 1.6rem;
   font-weight: 500;
-
-  @media screen and (${device.tablet}) and (${device.tabletMin}) {
-    width: 100%;
-  }
-  @media ${device.mobile} {
+  @media (${device.mobile}) {
     font-size: 1.4rem;
-    margin-bottom: 0.6rem;
   }
 `;
 
-export const InfoContainer = styled.section`
-  @media screen and (${device.tablet}) and (${device.tabletMin}) {
-    width: 100%;
-    display: flex;
-    white-space: nowrap;
-    gap: 1.6rem;
-  }
-`;
-
-export const CardBottomContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1rem;
-
+export const ContainerStyle = styled.div`
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 1.6rem;
+    white-space: nowrap;
+  }
+`;
+
+export const CardBottomStyle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin: 0;
   }
-  @media ${device.mobile} {
-    margin-top: 0.6rem;
-  }
 `;
 
-export const CardDateContainer = styled.div`
+export const DateStyle = styled.div`
   display: flex;
   align-items: center;
   gap: 0.6rem;
-
-  @media ${device.mobile} {
-    font-size: 1rem;
+  > div {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--gray_000);
+  }
+  @media (${device.mobile}) {
+    gap: 0.4rem;
   }
 `;
 
-export const CalendarImage = styled(Image)`
-  @media ${device.mobile} {
-    width: 1.4rem;
-    height: 1.4rem;
-  }
-`;
-
-export const CardDate = styled.span`
-  font-size: 1.2rem;
-  font-weight: 500;
-  @media ${device.mobile} {
-    font-size: 1rem;
-  }
-`;
-
-export const CardProfileImage = styled.div`
+export const ProfileStyle = styled.div`
   width: 2.4rem;
   height: 2.4rem;
-  border-radius: 50%;
   background-color: #a3c4a2;
+  border-radius: 50%;
 
-  @media ${device.mobile} {
+  @media (${device.mobile}) {
+    gap: 0.4rem;
     width: 2.2rem;
     height: 2.2rem;
   }
