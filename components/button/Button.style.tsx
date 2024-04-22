@@ -239,7 +239,7 @@ export const BUTTON_COMPONENTS = {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.2rem;
+    gap: 1.3rem;
     width: ${({ $width }) => $width};
     height: ${({ $height }) => $height};
     border-radius: 0.8rem;
@@ -267,7 +267,8 @@ export const BUTTON_COMPONENTS = {
     ${commonStyle};
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 2.6rem 2rem;
     width: ${({ $width }) => $width};
     height: ${({ $height }) => $height};
     border-radius: 0.8rem;
@@ -279,6 +280,12 @@ export const BUTTON_COMPONENTS = {
 
     font-size: 1.6rem;
     font-weight: 600;
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
 
     @media ${device.tablet} {
       width: 24.7rem;
