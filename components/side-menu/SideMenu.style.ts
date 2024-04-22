@@ -10,7 +10,7 @@ export const SideMenu = styled.aside`
   background-color: var(--white_100);
 
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
-    min-width: 1.6rem;
+    min-width: 16rem;
   }
   @media ${device.mobile} {
     min-width: 6.7rem;
