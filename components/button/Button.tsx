@@ -4,8 +4,8 @@ import { CSSProperties } from 'react';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  $width: string;
-  $height: string;
+  $width: CSSProperties['width'];
+  $height: CSSProperties['height'];
   variant:
     | 'login'
     | 'signup'

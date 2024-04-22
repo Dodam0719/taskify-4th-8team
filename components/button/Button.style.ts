@@ -8,8 +8,8 @@ export const commonStyle = css`
 `;
 
 interface SizeProp {
-  $width: string;
-  $height: string;
+  $width: CSSProperties['width'];
+  $height: CSSProperties['height'];
 }
 
 export const BUTTON_COMPONENTS = {

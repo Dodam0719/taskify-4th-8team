@@ -20,7 +20,7 @@ const SignupInputs = () => {
         label='이메일'
         {...register('email', {
           required: { value: true, message: '이메일을 입력해 주세요' },
-          pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: '유효한 이메일 주소를 입력해주세요' },
+          pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: '이메일 형식으로 입력해 주세요.' },
         })}
         errorMsg={errors.email ? errors.email.message : ''}
       />
