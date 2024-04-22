@@ -19,6 +19,12 @@ export const Arrow_forward = styled.div<{ $width: string; $height: string }>`
   height: ${({ $height }) => $height};
 `;
 
+export const Arrow_forward_disabled = styled.div<{ $width: string; $height: string }>`
+  background: url('/icons/Arrow_Forward_disabled.svg') no-repeat;
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+`;
+
 export const Calendar = styled.div<{ $width: string; $height: string }>`
   background: url('/icons/Calendar.svg') no-repeat;
   width: ${({ $width }) => $width};
@@ -88,12 +94,13 @@ export const Search = styled.div`
     top: 0.7rem;
     left: 1.2rem;
   }
-  
-<!-- export const Search = styled.div<{ $width: string; $height: string }>`
-  background: url('/icons/Search.svg') no-repeat;
-  width: ${({ $width }) => $width};
-  height: ${({ $height }) => $height}; -->
+
+  // export const Search = styled.div<{ $width: string; $height: string }>
 `;
+//   background: url('/icons/Search.svg') no-repeat;
+//   width: ${({ $width }) => $width};
+//   height: ${({ $height }) => $height};
+// `;
 
 export const Setting = styled.div<{ $width: string; $height: string }>`
   background: url('/icons/Setting.svg') no-repeat;
@@ -101,11 +108,15 @@ export const Setting = styled.div<{ $width: string; $height: string }>`
   height: ${({ $height }) => $height};
 `;
 
-export const Unsubscribe = styled.div`
+export const Unsubscribe = styled.div<{ $width: string; $height: string }>`
+  background: url('/icons/Unsubscribe.svg') no-repeat;
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+`;
 
 // export const Unsubscribe = styled.div<{ $width: string; $height: string }>`
 // >>>>>>> develop
 //   background: url('/icons/Unsubscribe.svg') no-repeat;
 //   width: ${({ $width }) => $width};
 //   height: ${({ $height }) => $height};
-`;
+// `;
