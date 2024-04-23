@@ -1,13 +1,19 @@
 import styled, { css } from 'styled-components';
 import { device } from '@/styles/breakpoints';
+import { CSSProperties } from 'react';
 
 export const commonStyle = css`
   cursor: pointer;
   border: none;
 `;
 
+interface SizeProp {
+  $width: CSSProperties['width'];
+  $height: CSSProperties['height'];
+}
+
 export const BUTTON_COMPONENTS = {
-  login: styled.button<{ $width: string; $height: string }>`
+  login: styled.button<SizeProp>`
     ${commonStyle};
     display: flex;
     align-items: center;
@@ -25,10 +31,11 @@ export const BUTTON_COMPONENTS = {
 
     @media ${device.mobile} {
       width: 35.1rem;
+      padding: 1rem 2rem;
     }
   `,
 
-  signup: styled.button<{ $width: string; $height: string }>`
+  signup: styled.button<SizeProp>`
     ${commonStyle};
     display: flex;
     align-items: center;
@@ -46,10 +53,11 @@ export const BUTTON_COMPONENTS = {
 
     @media ${device.mobile} {
       width: 35.1rem;
+      padding: 1rem 2rem;
     }
   `,
 
-  accept: styled.button<{ $width: string; $height: string }>`
+  accept: styled.button<SizeProp>`
     ${commonStyle};
     display: flex;
     align-items: center;
@@ -79,7 +87,7 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  reject: styled.button<{ $width: string; $height: string }>`
+  reject: styled.button<SizeProp>`
     ${commonStyle};
     display: flex;
     align-items: center;
@@ -110,7 +118,7 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  delete: styled.button<{ $width: string; $height: string }>`
+  delete: styled.button<SizeProp>`
     ${commonStyle};
     display: flex;
     align-items: center;
@@ -135,7 +143,7 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  addColumn: styled.button<{ $width: string; $height: string }>`
+  addColumn: styled.button<SizeProp>`
     ${commonStyle};
     display: flex;
     align-items: center;
@@ -170,7 +178,7 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  addTodo: styled.button<{ $width: string; $height: string }>`
+  addTodo: styled.button<SizeProp>`
     ${commonStyle};
     display: flex;
     align-items: center;
@@ -192,7 +200,7 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  deleteDashboard: styled.button<{ $width: number; $height: number }>`
+  deleteDashboard: styled.button<SizeProp>`
     ${commonStyle};
     display: flex;
     align-items: center;
@@ -217,7 +225,7 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  pagenation: styled.button<{ $width: number; $height: number }>`
+  pagenation: styled.button<SizeProp>`
     ${commonStyle};
     display: flex;
     align-items: center;
@@ -234,7 +242,7 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  addDashboard: styled.button<{ $width: number; $height: number }>`
+  addDashboard: styled.button<SizeProp>`
     ${commonStyle};
     display: flex;
     align-items: center;
@@ -263,7 +271,7 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  dashboard: styled.button<{ $width: number; $height: number }>`
+  dashboard: styled.button<SizeProp>`
     ${commonStyle};
     display: flex;
     align-items: center;
@@ -299,7 +307,7 @@ export const BUTTON_COMPONENTS = {
     }
   `,
 
-  icon: styled.button<{ $width: number; $height: number }>`
+  icon: styled.button<SizeProp>`
     ${commonStyle};
     width: ${({ $width }) => $width};
     height: ${({ $height }) => $height};
