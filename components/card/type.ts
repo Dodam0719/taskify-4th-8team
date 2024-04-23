@@ -1,3 +1,3 @@
-export interface CardListStyle {
+export interface CardListType {
   children: string;
 }

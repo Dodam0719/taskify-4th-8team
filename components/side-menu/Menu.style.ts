@@ -8,6 +8,7 @@ export const Menu = styled.section`
   gap: 0.6rem;
   font-size: 1.8rem;
   font-weight: 500;
+  padding: 1.2rem;
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
     gap: 0.4rem;
   }

@@ -1,7 +1,7 @@
 import { device } from '@/styles/breakpoints';
 import styled from 'styled-components';
 
-export const ProgressChip = styled.li`
+export const ProgressChip = styled.div`
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -24,5 +24,8 @@ export const Point = styled.div`
 export const Text = styled.span`
   @media ${device.mobile} {
     font-size: 1rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
