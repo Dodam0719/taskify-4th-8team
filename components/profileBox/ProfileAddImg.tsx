@@ -1,6 +1,5 @@
 import * as S from '../../pages/mypage.style';
-
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import styled from 'styled-components';
 
 const UploadInput = styled.input`
@@ -10,15 +9,14 @@ const UploadInput = styled.input`
 const ProfileAddImg = () => {
   const [image, setImage] = useState('');
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-      setImage(reader.result);
-    };
+  const handleImageUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    const file: File | null = event.target.files?.[0] || null;
 
     if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result as string);
+      };
       reader.readAsDataURL(file);
     }
   };
