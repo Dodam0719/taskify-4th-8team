@@ -6,14 +6,14 @@ import ProfileBox from '@/components/profileBox/ProfileBox';
 import ProfilePasswordBox from '@/components/profileBox/ProfilePasswordBox';
 
 export const inputProps = {
-  gap: '1rem',
+  $gap: '1rem',
   fontSize: '1.8rem',
   fontWeight: '500',
-  placeholderfontsize: '1.6rem',
-  mobileplaceholderfontsize: '1.4rem',
-  mobilefontsize: '1.6rem',
+  $placeholderfontsize: '1.6rem',
+  $mobileplaceholderfontsize: '1.4rem',
+  $mobileFontSize: '1.6rem',
   height: '4.8rem',
-  mobileheight: '4.2rem',
+  $mobileheight: '4.2rem',
 };
 
 const myPage = () => {
@@ -22,7 +22,7 @@ const myPage = () => {
       <S.myPage>
         <SideMenu />
         <S.myPagemain>
-          <DashboardHeader isShow='false' />
+          <DashboardHeader isVisible='false' />
           <S.myPageWrapper>
             <S.myPageTitle>
               <Arrow_forward $width='2rem' $height='2rem' />

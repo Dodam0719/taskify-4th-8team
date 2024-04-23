@@ -8,10 +8,10 @@ const ProfilePasswordBox = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
     getValues,
-    setError, // setError 함수 가져오기
-    clearErrors, // clearErrors 함수 가져오기
+    setError,
+    clearErrors,
     watch,
   } = useForm({ mode: 'onChange', defaultValues: { password: '', passwordCheck: '' } });
 
@@ -22,11 +22,9 @@ const ProfilePasswordBox = () => {
         message: '비밀번호가 일치하지 않습니다',
       });
     } else {
-      // 비밀번호 일치시 오류 제거
       clearErrors('passwordCheck');
     }
   }, [watch('password'), watch('passwordCheck')]);
-
   return (
     <S.myPagePasswordBox>
       <h2>비밀번호 변경</h2>
@@ -53,7 +51,9 @@ const ProfilePasswordBox = () => {
           errorMsg={errors.passwordCheck ? errors.passwordCheck.message : ''}
         />
       </S.myPageProfilePasswordInputBox>
-      <S.Button type='submit'>변경</S.Button>
+      <S.passwordButton type='submit' isActive={isValid}>
+        변경
+      </S.passwordButton>
     </S.myPagePasswordBox>
   );
 };

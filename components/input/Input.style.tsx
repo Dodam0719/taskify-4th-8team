@@ -5,30 +5,30 @@ type InputStyledProps = {
   $error?: boolean;
   width?: string;
   height?: string;
-  mobilewidth?: string;
-  mobileheight?: string;
-  placeholderfontsize?: string;
-  mobileplaceholderfontsize?: string;
+  $mobileWidth?: string;
+  $mobileHeight?: string;
+  $placeholderFontSize?: string;
+  $mobilePlaceholderFontSize?: string;
 };
 
-export const Container = styled.div<{ gap?: string }>`
+export const Container = styled.div<{ $gap?: string }>`
   display: flex;
   flex-direction: column;
   position: relative;
-  gap: ${({ gap }) => gap};
+  gap: ${({ $gap }) => $gap};
 `;
 
 export const Label = styled.label<{
   fontWeight?: string;
   fontSize?: string;
-  mobilefontsize?: string;
+  $mobileFontSize?: string;
 }>`
   color: var(--black_050);
   font-size: ${({ fontSize }) => fontSize};
   font-weight: ${({ fontWeight }) => fontWeight};
 
   @media ${device.mobile} {
-    font-size: ${({ mobilefontsize }) => mobilefontsize};
+    font-size: ${({ $mobileFontSize }) => $mobileFontSize};
   }
 `;
 
@@ -42,7 +42,7 @@ export const Input = styled.input<InputStyledProps>`
 
   &::placeholder {
     color: var(--gray_020);
-    font-size: ${({ placeholderfontsize }) => placeholderfontsize};
+    font-size: ${({ $placeholderFontSize }) => $placeholderFontSize};
   }
 
   &:focus {
@@ -50,19 +50,19 @@ export const Input = styled.input<InputStyledProps>`
     border: 0.1rem solid var(--violet_000);
   }
   @media ${device.mobile} {
-    width: ${({ mobilewidth }) => mobilewidth};
-    height: ${({ mobileheight }) => mobileheight};
+    width: ${({ $mobileWidth }) => $mobileWidth};
+    height: ${({ $mobileHeight }) => $mobileHeight};
     &::placeholder {
-      font-size: ${({ mobileplaceholderfontsize }) => mobileplaceholderfontsize};
+      font-size: ${({ $mobilePlaceholderFontSize }) => $mobilePlaceholderFontSize};
       color: var(--gray_020);
     }
   }
 `;
 
-export const ImgPosition = styled.div<{ isVisible?: string }>`
-  display: ${({ isVisible }) => (isVisible ? '' : 'none')};
+export const ImgPosition = styled.div<{ $isShow?: string }>`
+  display: ${({ $isShow }) => ($isShow ? '' : 'none')};
   position: absolute;
-  bottom: 3rem;
+  top: 4rem;
   right: 1rem;
 `;
 
@@ -70,4 +70,5 @@ export const ErrorMessage = styled.div`
   color: var(--red_100);
   font-size: 1.4rem;
   font-weight: 400;
+  justify-content: flex-start;
 `;

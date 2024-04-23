@@ -1,47 +1,47 @@
 import React, { InputHTMLAttributes, useRef, useState, useCallback, forwardRef, Ref } from 'react';
 import * as S from './Input.style';
-import { EyeOff, EyeOn } from '../Icons';
+import { EyeOff, EyeOn } from '@/components/Icons';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
-  gap?: string;
   errorMsg?: string;
   label: string;
+  $gap?: string;
   fontSize?: string;
-  mobilefontsize?: string;
+  $mobileFontSize?: string;
   fontWeight?: string;
   width?: string;
   height?: string;
-  mobilewidth?: string;
-  mobileheight?: string;
-  placeholderfontsize?: string;
-  mobileplaceholderfontsize?: string;
-  isVisible?: string;
+  $mobileWidth?: string;
+  $mobileHeight?: string;
+  $placeholderFontSize?: string;
+  $mobilePlaceholderFontSize?: string;
+  isShow?: string;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   {
     id,
     type = 'text',
-    gap,
+    $gap,
     placeholder,
     fontSize,
-    mobilefontsize,
+    $mobileFontSize,
     fontWeight,
     width,
     height,
-    mobilewidth,
-    mobileheight,
-    placeholderfontsize,
-    mobileplaceholderfontsize,
-    isVisible,
+    $mobileWidth,
+    $mobileHeight,
+    $placeholderFontSize,
+    $mobilePlaceholderFontSize,
+    isShow,
     errorMsg,
     label,
     ...props
   },
   ref
 ) {
-  const [isPassword, setIsPassword] = useState(false);
+  const [isPassword, setIsPassword] = useState(type === 'password');
   const passwordRef = useRef<HTMLInputElement | null>(null);
 
   const toggleEyesButton = () => {
@@ -73,31 +73,31 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 
   return (
     <>
-      <S.Container gap={gap}>
-        <S.Label fontSize={fontSize} fontWeight={fontWeight} mobilefontsize={mobilefontsize} htmlFor={id}>
+      <S.Container $gap={$gap}>
+        <S.Label fontSize={fontSize} fontWeight={fontWeight} $mobileFontSize={$mobileFontSize} htmlFor={id}>
           {label}
         </S.Label>
         <S.Input
           id={id}
           type={type}
           placeholder={placeholder}
-          placeholderfontsize={placeholderfontsize}
-          mobileplaceholderfontsize={mobileplaceholderfontsize}
+          $placeholderFontSize={$placeholderFontSize}
+          $mobilePlaceholderFontSize={$mobilePlaceholderFontSize}
           ref={handleRef}
           width={width}
           height={height}
-          mobilewidth={mobilewidth}
-          mobileheight={mobileheight}
+          $mobileWidth={$mobileWidth}
+          $mobileHeight={$mobileHeight}
           $error={!!errorMsg}
           {...props}
         />
         {type === 'password' && (
-          <S.ImgPosition isVisible={isVisible} onClick={toggleEyesButton}>
+          <S.ImgPosition isshow={isShow} onClick={toggleEyesButton}>
             {isPassword ? <EyeOff $width={'2.4rem'} $height={'2.4rem'} /> : <EyeOn $width={'2.4rem'} $height={'2.4rem'} />}
           </S.ImgPosition>
         )}
+        {errorMsg && <S.ErrorMessage>{errorMsg}</S.ErrorMessage>}
       </S.Container>
-      {errorMsg && <S.ErrorMessage>{errorMsg}</S.ErrorMessage>}
     </>
   );
 });

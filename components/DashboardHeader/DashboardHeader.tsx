@@ -51,7 +51,7 @@ const DashboardHeader = ({ isVisible }: DashboardHeaderProps) => {
   return (
     <S.DashboardHeader>
       <S.RecipientName>내 대시보드</S.RecipientName>
-      <S.DashboardHeaderWrapper isVisible={isVisible}>
+      <S.DashboardHeaderWrapper isvisible={isVisible}>
         <S.SettingButton>
           <img src='/assets/icon/setting_icon.svg' alt='관리 버튼이미지' />
           관리
@@ -74,7 +74,7 @@ const DashboardHeader = ({ isVisible }: DashboardHeaderProps) => {
           )}
         </S.ProfileTestWrapper>
       </S.DashboardHeaderWrapper>
-      <S.ProfileWrapper isVisible={isVisible}>
+      <S.ProfileWrapper isvisible={isVisible}>
         <S.ProfileInitials>B</S.ProfileInitials>
         <S.ProfileName>배유철</S.ProfileName>
       </S.ProfileWrapper>
