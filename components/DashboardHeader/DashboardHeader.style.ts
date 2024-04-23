@@ -25,11 +25,11 @@ export const RecipientName = styled.h1`
 `;
 
 export const DashboardHeaderWrapper = styled.div<{ isShow?: string }>`
-  display: ${({ isShow }) => (isShow === 'show' ? 'flex' : 'none')};
+  display: ${({ isShow }) => (isShow === 'true' ? 'flex' : 'none')};
   align-items: center;
 
   @media ${device.tablet} {
-    margin-left: ${({ isShow }) => (isShow === 'none' ? '0' : 'auto')};
+    margin-left: ${({ isShow }) => (isShow === 'false' ? '0' : 'auto')};
   }
 `;
 
@@ -168,7 +168,7 @@ export const ProfileWrapper = styled.div<{ isShow?: string }>`
 
   @media ${device.tablet} {
     padding-left: 2.4rem;
-    margin-left: ${({ isShow }) => (isShow === 'none' ? 'auto' : '')};
+    margin-left: ${({ isShow }) => (isShow === 'false' ? 'auto' : '')};
   }
   @media ${device.mobile} {
     padding-left: 1.2rem;

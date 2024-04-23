@@ -95,7 +95,10 @@ export const myPageProfileImgBox = styled.div`
     width: 3rem;
     height: 3rem;
   }
-
+  .uploaded-image {
+    width: 100%;
+    height: 100%;
+  }
   @media ${device.mobile} {
     width: 10rem;
     height: 10rem;

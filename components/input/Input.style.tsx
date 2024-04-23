@@ -5,10 +5,10 @@ type InputStyledProps = {
   $error?: boolean;
   width?: string;
   height?: string;
-  mobileWidth?: string;
-  mobileHeight?: string;
-  placeholderFontSize?: string;
-  mobilePlaceholderFontSize?: string;
+  mobilewidth?: string;
+  mobileheight?: string;
+  placeholderfontsize?: string;
+  mobileplaceholderfontsize?: string;
 };
 
 export const Container = styled.div<{ gap?: string }>`
@@ -21,14 +21,14 @@ export const Container = styled.div<{ gap?: string }>`
 export const Label = styled.label<{
   fontWeight?: string;
   fontSize?: string;
-  mobileFontSize?: string;
+  mobilefontsize?: string;
 }>`
   color: var(--black_050);
   font-size: ${({ fontSize }) => fontSize};
   font-weight: ${({ fontWeight }) => fontWeight};
 
   @media ${device.mobile} {
-    font-size: ${({ mobileFontSize }) => mobileFontSize};
+    font-size: ${({ mobilefontsize }) => mobilefontsize};
   }
 `;
 
@@ -42,7 +42,7 @@ export const Input = styled.input<InputStyledProps>`
 
   &::placeholder {
     color: var(--gray_020);
-    font-size: ${({ placeholderFontSize }) => placeholderFontSize};
+    font-size: ${({ placeholderfontsize }) => placeholderfontsize};
   }
 
   &:focus {
@@ -50,17 +50,17 @@ export const Input = styled.input<InputStyledProps>`
     border: 0.1rem solid var(--violet_000);
   }
   @media ${device.mobile} {
-    width: ${({ mobileWidth }) => mobileWidth};
-    height: ${({ mobileHeight }) => mobileHeight};
+    width: ${({ mobilewidth }) => mobilewidth};
+    height: ${({ mobileheight }) => mobileheight};
     &::placeholder {
-      font-size: ${({ mobilePlaceholderFontSize }) => mobilePlaceholderFontSize};
+      font-size: ${({ mobileplaceholderfontsize }) => mobileplaceholderfontsize};
       color: var(--gray_020);
     }
   }
 `;
 
-export const ImgPosition = styled.div<{ isShow?: string }>`
-  display: ${({ isShow }) => (isShow ? '' : 'none')};
+export const ImgPosition = styled.div<{ isVisible?: string }>`
+  display: ${({ isVisible }) => (isVisible ? '' : 'none')};
   position: absolute;
   bottom: 3rem;
   right: 1rem;

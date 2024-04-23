@@ -8,15 +8,15 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   errorMsg?: string;
   label: string;
   fontSize?: string;
-  mobileFontSize?: string;
+  mobilefontsize?: string;
   fontWeight?: string;
   width?: string;
   height?: string;
-  mobileWidth?: string;
-  mobileHeight?: string;
-  placeholderFontSize?: string;
-  mobilePlaceholderFontSize?: string;
-  isShow?: string;
+  mobilewidth?: string;
+  mobileheight?: string;
+  placeholderfontsize?: string;
+  mobileplaceholderfontsize?: string;
+  isVisible?: string;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
@@ -26,15 +26,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     gap,
     placeholder,
     fontSize,
-    mobileFontSize,
+    mobilefontsize,
     fontWeight,
     width,
     height,
-    mobileWidth,
-    mobileHeight,
-    placeholderFontSize,
-    mobilePlaceholderFontSize,
-    isShow,
+    mobilewidth,
+    mobileheight,
+    placeholderfontsize,
+    mobileplaceholderfontsize,
+    isVisible,
     errorMsg,
     label,
     ...props
@@ -74,25 +74,25 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   return (
     <>
       <S.Container gap={gap}>
-        <S.Label fontSize={fontSize} fontWeight={fontWeight} mobileFontSize={mobileFontSize} htmlFor={id}>
+        <S.Label fontSize={fontSize} fontWeight={fontWeight} mobilefontsize={mobilefontsize} htmlFor={id}>
           {label}
         </S.Label>
         <S.Input
           id={id}
           type={type}
           placeholder={placeholder}
-          placeholderFontSize={placeholderFontSize}
-          mobilePlaceholderFontSize={mobilePlaceholderFontSize}
+          placeholderfontsize={placeholderfontsize}
+          mobileplaceholderfontsize={mobileplaceholderfontsize}
           ref={handleRef}
           width={width}
           height={height}
-          mobileWidth={mobileWidth}
-          mobileHeight={mobileHeight}
+          mobilewidth={mobilewidth}
+          mobileheight={mobileheight}
           $error={!!errorMsg}
           {...props}
         />
         {type === 'password' && (
-          <S.ImgPosition isShow={isShow} onClick={toggleEyesButton}>
+          <S.ImgPosition isVisible={isVisible} onClick={toggleEyesButton}>
             {isPassword ? <EyeOff $width={'2.4rem'} $height={'2.4rem'} /> : <EyeOn $width={'2.4rem'} $height={'2.4rem'} />}
           </S.ImgPosition>
         )}
