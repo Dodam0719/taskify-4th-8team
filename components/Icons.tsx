@@ -7,6 +7,11 @@ export const Add = styled.div<{ $width: string; $height: string }>`
   height: ${({ $height }) => $height};
 `;
 
+export const AddImg = styled.img<{ $width: string; $height: string }>`
+  background: url('/icons/Add_Img.svg') no-repeat;
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+`;
 export const Arrow_dropdown = styled.div<{ $width: string; $height: string }>`
   background: url('/icons/Arrow_dropdown.svg') no-repeat;
   width: ${({ $width }) => $width};
@@ -15,6 +20,12 @@ export const Arrow_dropdown = styled.div<{ $width: string; $height: string }>`
 
 export const Arrow_forward = styled.div<{ $width: string; $height: string }>`
   background: url('/icons/Arrow_forward.svg') no-repeat;
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+`;
+
+export const Arrow_forward_disabled = styled.div<{ $width: string; $height: string }>`
+  background: url('/icons/Arrow_Forward_disabled.svg') no-repeat;
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
 `;
@@ -102,11 +113,8 @@ export const Setting = styled.div<{ $width: string; $height: string }>`
   height: ${({ $height }) => $height};
 `;
 
-export const Unsubscribe = styled.div``;
-
-// export const Unsubscribe = styled.div<{ $width: string; $height: string }>`
-// >>>>>>> develop
-//   background: url('/icons/Unsubscribe.svg') no-repeat;
-//   width: ${({ $width }) => $width};
-//   height: ${({ $height }) => $height};
-// `;
+export const Unsubscribe = styled.div<{ $width: string; $height: string }>`
+  background: url('/icons/Unsubscribe.svg') no-repeat;
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+`;

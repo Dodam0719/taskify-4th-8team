@@ -9,6 +9,9 @@ export const Table = styled.article`
     width: 100%;
     padding: 2.2rem 2rem 1.6rem;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const UserList = styled.article`

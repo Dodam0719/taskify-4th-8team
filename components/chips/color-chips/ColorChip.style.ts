@@ -16,11 +16,17 @@ export const ColorChip = styled.div`
     width: 2.8rem;
     height: 2.8rem;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const CheckImage = styled(Image)`
   @media ${device.mobile} {
     width: 2.2rem;
     height: 2.2rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;

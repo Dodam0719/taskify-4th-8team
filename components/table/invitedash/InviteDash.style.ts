@@ -2,9 +2,114 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { device } from '@/styles/breakpoints';
 
-export const InviteDashStyle = styled.article`
-  width: 102.2rem;
-  height: auto;
+export const InviteDashStyle = styled.main`
+  padding: 4rem 0 12.2rem 4rem;
+
+  @media ${device.tablet} {
+    width: 100%;
+  }
+  @media ${device.mobile} {
+    width: 100%;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
+
+export const ButtonContainerStyle = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.3rem;
+  width: 100%;
+  margin-bottom: 1.2rem;
+  > button {
+    width: auto;
+  }
+  @media ${device.tablet} {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  @media ${device.mobile} {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
+
+export const ButtonColorPointStyle = styled.div`
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: var(${({ color }) => color});
+  border-radius: 50%;
+`;
+
+export const PageNationContainer = styled.section`
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 1.6rem;
+  width: 100%;
+  margin-bottom: 4.4rem;
+
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--black_050);
+  @media ${device.tablet} {
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+  @media ${device.mobile} {
+    width: 100%;
+    margin-bottom: 2.4rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
+
+export const ArrowContainer = styled.section`
+  display: flex;
+  background: var(--white_100);
+`;
+
+export const ArrowBackPage = styled(Image)`
+  padding: 1.2rem;
+  border-radius: 0 0.4rem 0.4rem 0;
+  border: 1px solid var(--gray_060);
+  background: var(--white_100);
+  transform: scaleX(-1);
+  @media ${device.mobile} {
+    width: 3.6rem;
+    height: 3.6rem;
+    padding: 1rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
+
+export const ArrowNextPage = styled(Image)`
+  padding: 1.2rem;
+  border-radius: 0 0.4rem 0.4rem 0;
+  border: 1px solid var(--gray_060);
+  background: var(--white_100);
+  @media ${device.mobile} {
+    width: 3.6rem;
+    height: 3.6rem;
+    padding: 1rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
+
+export const InviteDashListStyle = styled.article`
+  width: 100%;
+  background-color: var(--white_100);
 
   @media ${device.tablet} {
     width: 100%;
@@ -17,6 +122,9 @@ export const InviteDashContainerStyle = styled.section`
   @media ${device.mobile} {
     padding: 2.4rem 1.6rem 0;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const TitleStyle = styled.p`
@@ -25,6 +133,9 @@ export const TitleStyle = styled.p`
 
   @media ${device.mobile} {
     font-size: 2rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -91,14 +202,21 @@ export const ListHeaderItemStyle = styled.section`
   @media ${device.mobile} {
     display: none;
   }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
 `;
 
 export const ListStyle = styled.section`
   > :last-child {
     border: none;
   }
+
   @media ${device.mobile} {
     display: none;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;
 
@@ -106,13 +224,14 @@ export const ListMobileStyle = styled.section`
   display: none;
   @media ${device.mobile} {
     display: block;
-
     > :first-child {
       padding-top: 0;
     }
-
     > :last-child {
       border: none;
     }
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;

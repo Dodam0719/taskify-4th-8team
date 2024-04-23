@@ -140,7 +140,10 @@ export const BUTTON_COMPONENTS = {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: ${({ $width }) => $width};
+    gap: 1.2rem;
+    margin: 6.8rem 2rem 2rem 2rem;
+    max-width: ${({ $width }) => $width};
+    min-width: auto;
     height: ${({ $height }) => $height};
     border-radius: 0.8rem;
     border: 0.1rem solid var(--gray_060);
@@ -152,12 +155,14 @@ export const BUTTON_COMPONENTS = {
     font-weight: 700;
 
     @media ${device.tablet} {
-      width: 54.4rem;
-      height: 7rem;
+      max-width: auto;
+      min-width: 100%;
+      margin: 0;
     }
 
     @media ${device.mobile} {
-      width: 28.4rem;
+      max-width: auto;
+      min-width: 100%;
       height: 6rem;
       padding: 2rem 6rem;
       gap: 1.2rem;
@@ -171,6 +176,7 @@ export const BUTTON_COMPONENTS = {
     align-items: center;
     justify-content: center;
     width: ${({ $width }) => $width};
+    max-width: auto;
     height: ${({ $height }) => $height};
     border-radius: 0.6rem;
     border: 0.1rem solid var(--gray_060);
@@ -182,6 +188,7 @@ export const BUTTON_COMPONENTS = {
 
     @media ${device.mobile} {
       width: 100%;
+      height: 3.2rem;
     }
   `,
 
@@ -232,6 +239,7 @@ export const BUTTON_COMPONENTS = {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 1.3rem;
     width: ${({ $width }) => $width};
     height: ${({ $height }) => $height};
     border-radius: 0.8rem;
@@ -249,7 +257,7 @@ export const BUTTON_COMPONENTS = {
     }
 
     @media ${device.mobile} {
-      width: 26rem;
+      width: 100%;
       height: 5.8rem;
       font-size: 1.4rem;
     }
@@ -259,7 +267,8 @@ export const BUTTON_COMPONENTS = {
     ${commonStyle};
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 2.6rem 2rem;
     width: ${({ $width }) => $width};
     height: ${({ $height }) => $height};
     border-radius: 0.8rem;
@@ -271,6 +280,12 @@ export const BUTTON_COMPONENTS = {
 
     font-size: 1.6rem;
     font-weight: 600;
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
 
     @media ${device.tablet} {
       width: 24.7rem;

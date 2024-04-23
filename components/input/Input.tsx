@@ -4,11 +4,43 @@ import { EyeOff, EyeOn } from '../Icons';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
+  gap?: string;
   errorMsg?: string;
   label: string;
+  fontSize?: string;
+  mobileFontSize?: string;
+  fontWeight?: string;
+  width?: string;
+  height?: string;
+  mobileWidth?: string;
+  mobileHeight?: string;
+  placeholderFontSize?: string;
+  mobilePlaceholderFontSize?: string;
+  isShow?: string;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(function Input({ id, type = 'text', placeholder, errorMsg, label, ...props }, ref) {
+const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  {
+    id,
+    type = 'text',
+    gap,
+    placeholder,
+    fontSize,
+    mobileFontSize,
+    fontWeight,
+    width,
+    height,
+    mobileWidth,
+    mobileHeight,
+    placeholderFontSize,
+    mobilePlaceholderFontSize,
+    isShow,
+    errorMsg,
+    label,
+    ...props
+  },
+  ref
+) {
   const [isPassword, setIsPassword] = useState(false);
   const passwordRef = useRef<HTMLInputElement | null>(null);
 
@@ -41,11 +73,26 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input({ id, type
 
   return (
     <>
-      <S.Container>
-        <S.Label htmlFor={id}>{label}</S.Label>
-        <S.Input id={id} type={type} placeholder={placeholder} ref={handleRef} $error={!!errorMsg} {...props} />
+      <S.Container gap={gap}>
+        <S.Label fontSize={fontSize} fontWeight={fontWeight} mobileFontSize={mobileFontSize} htmlFor={id}>
+          {label}
+        </S.Label>
+        <S.Input
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          placeholderFontSize={placeholderFontSize}
+          mobilePlaceholderFontSize={mobilePlaceholderFontSize}
+          ref={handleRef}
+          width={width}
+          height={height}
+          mobileWidth={mobileWidth}
+          mobileHeight={mobileHeight}
+          $error={!!errorMsg}
+          {...props}
+        />
         {type === 'password' && (
-          <S.ImgPosition onClick={toggleEyesButton}>
+          <S.ImgPosition isShow={isShow} onClick={toggleEyesButton}>
             {isPassword ? <EyeOff $width={'2.4rem'} $height={'2.4rem'} /> : <EyeOn $width={'2.4rem'} $height={'2.4rem'} />}
           </S.ImgPosition>
         )}
