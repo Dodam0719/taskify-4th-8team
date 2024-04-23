@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../styles/breakpoints';
-type InputStyledProps = {
-  $error?: boolean;
-};
+
 export const myPage = styled.div`
   display: flex;
 `;
@@ -93,9 +91,18 @@ export const myPageProfileImgBox = styled.div`
   height: 18.2rem;
   background-color: #f5f5f5;
   border-radius: 0.6rem;
+  img {
+    width: 3rem;
+    height: 3rem;
+  }
+
   @media ${device.mobile} {
     width: 10rem;
     height: 10rem;
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
   }
 `;
 export const Button = styled.button`

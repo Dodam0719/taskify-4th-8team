@@ -7,6 +7,11 @@ export const Add = styled.div<{ $width: string; $height: string }>`
   height: ${({ $height }) => $height};
 `;
 
+export const AddImg = styled.img<{ $width: string; $height: string }>`
+  background: url('/icons/Add_Img.svg') no-repeat;
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+`;
 export const Arrow_dropdown = styled.div<{ $width: string; $height: string }>`
   background: url('/icons/Arrow_dropdown.svg') no-repeat;
   width: ${({ $width }) => $width};

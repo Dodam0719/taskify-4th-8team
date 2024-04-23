@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { device } from '../../styles/breakpoints';
 export const DashboardHeader = styled.nav`
   width: 100%;
-  max-width: 162rem;
   height: 7rem;
   display: flex;
   align-items: center;

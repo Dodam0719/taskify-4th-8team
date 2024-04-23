@@ -2,7 +2,7 @@ import DashboardHeader from '@/components/DashboardHeader/DashboardHeader';
 import Input from '@/components/input/Input';
 import SideMenu from '@/components/side-menu/SideMenu';
 import * as S from './mypage.style';
-import { Arrow_forward, Add } from '@/components/Icons';
+import { Arrow_forward } from '@/components/Icons';
 
 const inputProps = {
   gap: '1rem',
@@ -31,7 +31,7 @@ const myPage = () => {
               <h2>프로필</h2>
               <S.myPageProfileSection>
                 <S.myPageProfileImgBox>
-                  <Add $width='2rem' $height='2rem' />
+                  <img src='/icons/Add_Img.svg' alt='이미지 추가' />
                 </S.myPageProfileImgBox>
                 <S.myPageProfileTextInputBox>
                   <Input label='이메일' {...inputProps} type='email' placeholder='johndoe@gmail.com' />
