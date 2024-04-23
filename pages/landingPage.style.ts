@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 import { device } from '../styles/breakpoints';
-
+export const LandingPage = styled.div`
+  width: 100%;
+  background-color: var(--black_000);
+  display: flex;
+  flex-direction: column;
+`;
 export const main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 9.4rem;
-  background-color: var(--black_000);
   h1 {
     margin-top: 4.82rem;
     text-align: center;
-    font-family: pretendard;
     font-size: 7.6rem;
     font-weight: 700;
     line-height: 10rem;
@@ -45,6 +48,7 @@ export const main = styled.main`
     color: var(--white_100);
     font-size: 1.8rem;
     font-weight: 500;
+    border: none;
   }
   @media ${device.tablet} {
     h1 {
@@ -94,7 +98,7 @@ export const Image = styled.img`
     width: 53.7rem;
     height: 31.4rem;
   }
-  @media ${device.tablet} {
+  @media ${device.mobile} {
     width: 28.7rem;
     height: 16.8rem;
   }
@@ -104,7 +108,6 @@ export const section = styled.section`
   flex-direction: column;
   align-items: center;
   padding-bottom: 9rem;
-  background-color: var(--black_000);
   @media ${device.mobile} {
     padding-bottom: 5.9rem;
   }
@@ -114,13 +117,13 @@ export const sectionWrapper1 = styled.div`
   width: 120rem;
   height: 60rem;
   border-radius: 0.8rem;
-  background-color: var(--black_100);
+  background-color: var(--black_025);
   display: grid;
   grid-template:
-    '. . .'
-    'p . img'
-    'h2 . img'
-    '. . img';
+    '. . '
+    'p  img'
+    'h2  img'
+    '.  img';
   p {
     margin-top: 12.3rem;
     margin-left: 6rem;
@@ -155,9 +158,9 @@ export const sectionWrapper1 = styled.div`
     height: 97.2rem;
     border-radius: 0.8rem;
     grid-template:
-      'p p p'
-      'h2 h2 h2'
-      'img img img';
+      'p p '
+      'h2 h2 '
+      'img img ';
     p {
       margin-top: 6.3rem;
     }
@@ -198,13 +201,13 @@ export const sectionWrapper2 = styled.div`
   width: 120rem;
   height: 60rem;
   border-radius: 0.8rem;
-  background-color: var(--black_100);
+  background-color: var(--black_025);
   display: grid;
   grid-template:
-    '. . .'
-    'img p .'
-    'img h2 .'
-    'img . .';
+    '. . '
+    'img p '
+    'img h2 '
+    'img . ';
   p {
     margin-top: 12.3rem;
 
@@ -215,8 +218,6 @@ export const sectionWrapper2 = styled.div`
   }
   h2 {
     margin-top: 10rem;
-
-    font-family: pretendard;
     font-size: 4.8rem;
     font-weight: 700;
     line-height: 6.4rem;
@@ -235,9 +236,9 @@ export const sectionWrapper2 = styled.div`
     height: 97.2rem;
     border-radius: 0.8rem;
     grid-template:
-      'p p p'
-      'h2 h2 h2'
-      'img img img';
+      'p p '
+      'h2 h2 '
+      'img img ';
     p {
       margin-top: 6.3rem;
       margin-left: 6rem;
@@ -256,6 +257,7 @@ export const sectionWrapper2 = styled.div`
     width: 34.3rem;
     height: 68.6rem;
     align-items: center;
+    margin-bottom: 3.1rem;
     p {
       margin-top: 6rem;
       margin-left: 0;
@@ -278,15 +280,11 @@ export const sectionWrapper2 = styled.div`
   }
 `;
 export const sectionWrapper3 = styled.div`
-  width: 120rem;
-
   h3 {
-    font-family: Pretendard;
     font-size: 2.8rem;
     font-weight: 700;
     color: var(--white_100);
     margin-bottom: 3.6rem;
-    letter-spacing: -0.21rem;
   }
   div {
     display: flex;
@@ -304,7 +302,9 @@ export const sectionWrapper3 = styled.div`
     }
   }
   @media ${device.mobile} {
-    font-size: 2.2rem;
+    h3 {
+      font-size: 2.2rem;
+    }
   }
 `;
 export const sectionBox = styled.div`
@@ -334,14 +334,12 @@ export const textBox = styled.div`
   background-color: var(--black_025);
   border-radius: 0 0 0.8rem 0.8rem;
   h4 {
-    font-family: pretendard;
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--white_100);
     margin-bottom: 1.8rem;
   }
   p {
-    font-family: pretendard;
     font-size: 1.6rem;
     font-weight: 500;
     line-height: normal;
@@ -354,7 +352,7 @@ export const textBox = styled.div`
     padding-top: 2.7rem;
     width: 34.3rem;
     height: 11.2rem;
-    margin-bottom: 0;
+    margin-bottom: 4rem;
     p {
       letter-spacing: -0.14rem;
     }

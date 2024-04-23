@@ -1,13 +1,15 @@
+import ModalTask from '@/components/Modal/ModalTask';
 import CustomFooter from '../components/Footer/Footer';
 import CustomHeader from '../components/Header/Header';
 import * as S from './landingPage.style';
+import DashboardHeader from '@/components/DashboardHeader/DashboardHeader';
 
-function LandingPage() {
+const LandingPage = () => {
   return (
-    <>
+    <S.LandingPage>
       <CustomHeader />
       <S.main>
-        <S.Image src='/Landingmainimg.png' alt='main img' />
+        <S.Image src='/assets/landingimg/Landingmainimg.png' alt='main img' />
         <h1>
           새로운 일정 관리<span>Taskify</span>
         </h1>
@@ -21,7 +23,7 @@ function LandingPage() {
           <h2>
             일의 <span>우선순위</span>를<br /> 관리하세요
           </h2>
-          <img src='/Landingimg1.png' alt='img1' />
+          <img src='/assets/landingimg/Landingimg1.png' alt='img1' />
         </S.sectionWrapper1>
       </S.section>
       <S.section>
@@ -31,7 +33,7 @@ function LandingPage() {
             해야 할 일을
             <br /> 등록하세요
           </h2>
-          <img src='/Landingimg2.png' alt='img2' />
+          <img src='/assets/landingimg/Landingimg2.png' alt='img2' />
         </S.sectionWrapper2>
       </S.section>
       <S.section>
@@ -40,7 +42,7 @@ function LandingPage() {
           <div>
             <S.sectionBox>
               <S.imageBox>
-                <img src='/Landingimg3.png' alt='img3' />
+                <img src='/assets/landingimg/Landingimg3.png' alt='img3' />
               </S.imageBox>
               <S.textBox>
                 <h4>대시보드 설정</h4>
@@ -49,7 +51,7 @@ function LandingPage() {
             </S.sectionBox>
             <S.sectionBox>
               <S.imageBox>
-                <img src='/Landingimg4.png' alt='img4' />
+                <img src='/assets/landingimg/Landingimg4.png' alt='img4' />
               </S.imageBox>
               <S.textBox>
                 <h4>초대</h4>
@@ -58,7 +60,7 @@ function LandingPage() {
             </S.sectionBox>
             <S.sectionBox>
               <S.imageBox>
-                <img src='/Landingimg5.png' alt='img5' />
+                <img src='/assets/landingimg/Landingimg5.png' alt='img5' />
               </S.imageBox>
               <S.textBox>
                 <h4>구성원</h4>
@@ -69,7 +71,7 @@ function LandingPage() {
         </S.sectionWrapper3>
       </S.section>
       <CustomFooter />
-    </>
+    </S.LandingPage>
   );
-}
+};
 export default LandingPage;

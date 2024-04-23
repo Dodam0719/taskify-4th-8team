@@ -7,8 +7,8 @@ const CustomHeader = () => {
       <S.HeaderWrapper>
         {/* 링크추가예정 */}
         <S.StyledLink>
-          <S.ImageIcon src='/header.img.icon.svg' alt='main logo' />
-          <S.ImageText src='/Taskify.text.icon.svg' alt='main title' />
+          <S.ImageIcon src='/assets/icon/header.img.icon.svg' alt='main logo' />
+          <S.ImageText src='/assets/icon/Taskify.text.icon.svg' alt='main title' />
         </S.StyledLink>
         <S.ButtonWrapper>
           {/* 링크추가예정 */}

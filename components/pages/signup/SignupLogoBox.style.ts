@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  padding-top: 0.5%;
+  margin-top: 1%;
 `;
 
 export const StyledImage = styled(Image)`

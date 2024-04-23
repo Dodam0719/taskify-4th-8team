@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import ModalButton from './ModalButton';
+import { device } from '../../styles/breakpoints';
 
 export const ModalInputCommentForm = styled.form`
   width: 45rem;
   height: 13.9rem;
-
+  @media ${device.tablet} {
+    width: 42rem;
+  }
   @media (max-width: 767px) {
     width: 28.7rem;
     height: 9.5rem;
@@ -14,7 +17,7 @@ export const ModalInputCommentForm = styled.form`
 export const ModalInputCommentLabel = styled.label`
   color: var(--black_050, #333236);
   font-size: 1.6rem;
-
+  font-weight: 500;
   @media (max-width: 767px) {
     font-size: 1.4rem;
   }

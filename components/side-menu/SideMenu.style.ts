@@ -1,62 +1,98 @@
+import { device } from '@/styles/breakpoints';
+import Image from 'next/image';
 import styled from 'styled-components';
 
-export const SideMenuStyle = styled.aside`
-  width: 30rem;
+export const SideMenu = styled.aside`
+  min-width: 30rem;
   height: 100vh;
-  padding: 2rem 2.4rem;
+  padding: 2rem 0rem 2rem 2.4rem;
   border-right: 1px solid var(--gray_060);
+  font-size: 1.2rem;
+  font-weight: 700;
+  background-color: var(--white_100);
 
-  .logo-container {
-    display: flex;
-    align-items: center;
-  }
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5.7rem 0 2.7rem;
-
-    .text {
-      color: var(--gray_000);
-    }
-  }
-
-  .list-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2.7rem;
-  }
-
-  @media screen and (max-width: 1024px) and (min-width: 768px) {
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
     width: 16rem;
   }
-
-  @media screen and (max-width: 767px) {
-    width: 6.7rem;
+  @media ${device.mobile} {
+    min-width: 6.7rem;
     padding: 0;
     padding-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
 
-    .text,
-    .logo-title,
-    .crown-icon {
-      display: none;
-    }
+export const LogoContainer = styled.section`
+  display: flex;
+  align-items: center;
+  margin: 2rem 0 0 2.4rem;
+  @media ${device.mobile} {
+    margin: 0;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
 
-    .logo-image {
-      width: 2.4rem;
-      height: 2.7rem;
-    }
+export const LogoImage = styled(Image)`
+  @media ${device.mobile} {
+    width: 2.4rem;
+    height: 2.7rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
 
-    .container {
-      margin: 3.9rem 0 3.8rem;
-    }
+export const LogoTitle = styled(Image)`
+  @media ${device.mobile} {
+    display: none;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
 
-    .list-container {
-      gap: 3.8rem;
-    }
+export const Container = styled.section`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6rem 2.4rem 2.7rem;
+  @media ${device.tablet} {
+    margin: 6rem 2rem 1.8rem 2.4rem;
+  }
+  @media ${device.mobile} {
+    margin: 3.9rem 0 3.8rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
+
+export const Text = styled.span`
+  color: var(--gray_000);
+  @media ${device.mobile} {
+    display: none;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
+
+export const ListContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.2rem;
+
+  @media ${device.mobile} {
+    gap: 3.8rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;

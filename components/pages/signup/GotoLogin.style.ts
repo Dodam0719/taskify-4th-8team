@@ -7,6 +7,6 @@ export const Text = styled.p`
 `;
 
 export const StyledLink = styled(Link)`
-  color: var(--blue_100);
+  color: var(--violet_000);
   text-decoration: underline;
 `;

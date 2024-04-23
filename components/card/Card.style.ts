@@ -1,119 +1,172 @@
+import { device } from '@/styles/breakpoints';
+import Image from 'next/image';
 import styled from 'styled-components';
 
-export const CardStyle = styled.section`
-  width: 31.4rem;
+export const CardWrapperStyle = styled.section`
+  max-width: 35.4rem;
+  min-width: auto;
+  height: 100%;
+  padding: 2rem 2rem;
+  border-right: 1px solid var(--gray_080);
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
+    border: none;
+    max-width: 100%;
+    border-bottom: 1px solid var(--gray_080);
+  }
+  @media (${device.mobile}) {
+    max-width: 100%;
+    height: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--gray_080);
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
+
+export const CardHeaderStyle = styled.article`
+  display: flex;
+  width: 100%;
   height: auto;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+  @media (${device.mobile}) {
+    margin-bottom: 1.6rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
 
+export const CardHeaderTitleStyle = styled.div`
+  display: flex;
+  align-items: center;
+  height: 2.2rem;
+`;
+
+export const PointStyle = styled.div`
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: var(--violet_000);
+  border-radius: 50%;
+`;
+
+export const TitleStyle = styled.div`
+  margin: 0 0.8rem 0 1.2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--black_050);
+  @media (${device.mobile}) {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
+
+export const CardListItemStyle = styled.article``;
+
+export const CardStyle = styled.article`
+  margin-top: 1.6rem;
   padding: 2rem;
-
-  border-radius: 6px;
+  background-color: var(--white_100);
   border: 1px solid var(--gray_060);
-  background: var(--white_100);
-
-  cursor: pointer;
-
-  .card-image {
-    margin-bottom: 1.2rem;
-  }
-
-  .card-title {
-    margin-bottom: 1rem;
-  }
-
-  .card-bottom-container {
+  border-radius: 0.6rem;
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1rem;
-
-    .card-date-container {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-
-      .card-date {
-        color: var(--gray_000);
-      }
-    }
   }
-
-  .card-profile-image {
-    width: 2.4rem;
-    height: 2.4rem;
-    border-radius: 50%;
-    background-color: #a3c4a2;
-  }
-
-  @media screen and (max-width: 1024px) and (min-width: 768px) {
-    display: flex;
-    gap: 2rem;
-    width: 100%;
-    height: 9.3rem;
-
-    .card-image {
-      width: 9.1rem;
-      height: auto;
-      margin: 0;
-    }
-
-    .container {
-      width: 100%;
-
-      .card-title {
-        width: 100%;
-      }
-
-      .info-container {
-        width: 100%;
-        display: flex;
-        white-space: nowrap;
-        gap: 1.6rem;
-
-        .card-bottom-container {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-
-          margin: 0;
-        }
-      }
-    }
-  }
-
-  @media screen and (max-width: 767px) {
-    width: 100%;
+  @media (${device.mobile}) {
     padding: 1.2rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
 
-    .card-image {
-      width: 100%;
-      height: 100%;
-    }
+export const CardImageStyle = styled(Image)`
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1.2rem;
+  border-radius: 0.4rem;
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
+    width: 9.1rem;
+    height: 5.3rem;
+    margin: 0;
+    margin-right: 2rem;
+  }
+`;
 
-    .card-title {
-      font-size: 1.4rem;
-      margin-bottom: 0.6rem;
-    }
+export const InfoContainerStyle = styled.section`
+  width: 100%;
+  height: 100%;
+`;
 
-    .card-bottom-container {
-      margin-top: 0.6rem;
+export const CardItemTitleStyle = styled.div`
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  @media (${device.mobile}) {
+    font-size: 1.4rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
 
-      .card-date-container {
-        gap: 0.4rem;
+export const ContainerStyle = styled.div`
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.6rem;
+    white-space: nowrap;
+  }
+`;
 
-        .card-calendar-image {
-          width: 1.4rem;
-          height: 1.4rem;
-        }
+export const CardBottomStyle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+`;
 
-        .card-date {
-          font-size: 1rem;
-        }
-      }
-    }
+export const DateStyle = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  > div {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--gray_000);
+  }
+  @media (${device.mobile}) {
+    gap: 0.4rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
 
-    .card-profile-image {
-      width: 2.2rem;
-      height: 2.2rem;
-    }
+export const ProfileStyle = styled.div`
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: #a3c4a2;
+  border-radius: 50%;
+
+  @media (${device.mobile}) {
+    gap: 0.4rem;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
   }
 `;

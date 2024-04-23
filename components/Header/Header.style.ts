@@ -24,15 +24,14 @@ export const HeaderWrapper = styled.div`
     padding: 0 2rem;
   }
 `;
+
 export const ImageIcon = styled.img`
-  background-color: var(--black_000);
   width: 2.9rem;
   height: 3.3rem;
 `;
 export const ImageText = styled.img`
   width: 8rem;
   height: 2.2rem;
-  background-color: var(--black_000);
 `;
 export const StyledLink = styled.div`
   display: flex;
@@ -46,7 +45,6 @@ export const Button = styled.button`
   border: none;
   background-color: var(--black_000);
   font-size: 1.6rem;
-  font-family: pretendard;
   color: var(--white_100);
 `;
 export const ButtonWrapper = styled.div`

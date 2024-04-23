@@ -7,7 +7,7 @@ export const Footer = styled.footer`
   @media ${device.mobile} {
     display: flex;
     flex-direction: column;
-    padding-top: 6.1rem;
+    padding-top: 2.1rem;
   }
 `;
 export const FooterWrapper = styled.div`
@@ -34,7 +34,6 @@ export const FooterWrapper = styled.div`
   }
 `;
 export const FooterText = styled.p`
-  font-family: pretendard;
   font-size: 1.6rem;
   font-weight: 400;
   color: var(--gray_020);
