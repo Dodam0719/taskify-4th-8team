@@ -3,31 +3,38 @@ import { device } from '@/styles/breakpoints';
 
 type InputStyledProps = {
   $error?: boolean;
+  width?: string;
+  height?: string;
+  mobileWidth?: string;
+  mobileHeight?: string;
+  placeholderFontSize?: string;
+  mobilePlaceholderFontSize?: string;
 };
 
-export const Container = styled.div`
+export const Container = styled.div<{ gap?: string }>`
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 52rem;
-  height: 7.7rem;
-  gap: 0.8rem;
+  gap: ${({ gap }) => gap};
+`;
 
-  font-size: 1.6rem;
-  font-weight: 400;
+export const Label = styled.label<{
+  fontWeight?: string;
+  fontSize?: string;
+  mobileFontSize?: string;
+}>`
+  color: var(--black_050);
+  font-size: ${({ fontSize }) => fontSize};
+  font-weight: ${({ fontWeight }) => fontWeight};
 
   @media ${device.mobile} {
-    width: 35.1rem;
+    font-size: ${({ mobileFontSize }) => mobileFontSize};
   }
 `;
 
-export const Label = styled.label`
-  color: var(--black_050);
-`;
-
 export const Input = styled.input<InputStyledProps>`
-  width: 100%;
-  height: 5rem;
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
   padding: 1.3rem 1.6rem;
   border-radius: 0.8rem;
   border: 0.1rem solid ${({ $error }) => ($error ? 'var(--red_100)' : 'var(--gray_060)')};
@@ -35,17 +42,27 @@ export const Input = styled.input<InputStyledProps>`
 
   &::placeholder {
     color: var(--gray_020);
+    font-size: ${({ placeholderFontSize }) => placeholderFontSize};
   }
 
   &:focus {
     outline: none;
     border: 0.1rem solid var(--violet_000);
   }
+  @media ${device.mobile} {
+    width: ${({ mobileWidth }) => mobileWidth};
+    height: ${({ mobileHeight }) => mobileHeight};
+    &::placeholder {
+      font-size: ${({ mobilePlaceholderFontSize }) => mobilePlaceholderFontSize};
+      color: var(--gray_020);
+    }
+  }
 `;
 
-export const ImgPosition = styled.div`
+export const ImgPosition = styled.div<{ isShow?: string }>`
+  display: ${({ isShow }) => (isShow ? '' : 'none')};
   position: absolute;
-  bottom: 1.4rem;
+  bottom: 3rem;
   right: 1rem;
 `;
 

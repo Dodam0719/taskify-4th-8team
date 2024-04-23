@@ -4,13 +4,15 @@ import styled from 'styled-components';
 
 export const SideMenu = styled.aside`
   min-width: 30rem;
+  height: 100vh;
+  padding: 2rem 0rem 2rem 2.4rem;
   border-right: 1px solid var(--gray_060);
   font-size: 1.2rem;
   font-weight: 700;
   background-color: var(--white_100);
 
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
-    min-width: 16rem;
+    width: 16rem;
   }
   @media ${device.mobile} {
     min-width: 6.7rem;

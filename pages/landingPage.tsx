@@ -1,6 +1,8 @@
+import ModalTask from '@/components/Modal/ModalTask';
 import CustomFooter from '../components/Footer/Footer';
 import CustomHeader from '../components/Header/Header';
 import * as S from './landingPage.style';
+import DashboardHeader from '@/components/DashboardHeader/DashboardHeader';
 
 const LandingPage = () => {
   return (
