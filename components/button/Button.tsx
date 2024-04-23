@@ -1,11 +1,11 @@
 import React, { MouseEventHandler, ReactNode } from 'react';
 import { BUTTON_COMPONENTS } from './Button.style';
+import { CSSProperties } from 'react';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  className?: string;
-  $width: string;
-  $height: string;
+  $width: CSSProperties['width'];
+  $height: CSSProperties['height'];
   variant:
     | 'login'
     | 'signup'
@@ -19,11 +19,10 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     | 'addDashboard'
     | 'dashboard'
     | 'icon';
-  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = ({ variant, ...props }: Props) => {
-  const Component = BUTTON_COMPONENTS[variant] || null;
+  const Component = BUTTON_COMPONENTS[variant];
   return Component ? <Component {...props} /> : null;
 };
 

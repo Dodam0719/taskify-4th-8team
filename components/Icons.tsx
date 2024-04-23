@@ -24,6 +24,12 @@ export const Arrow_forward = styled.div<{ $width: string; $height: string }>`
   height: ${({ $height }) => $height};
 `;
 
+export const Arrow_backward = styled.div<{ $width: string; $height: string }>`
+  background: url('/icons/Arrow_backward.svg') no-repeat;
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+`;
+
 export const Arrow_forward_disabled = styled.div<{ $width: string; $height: string }>`
   background: url('/icons/Arrow_Forward_disabled.svg') no-repeat;
   width: ${({ $width }) => $width};
