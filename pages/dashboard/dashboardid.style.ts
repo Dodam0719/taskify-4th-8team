@@ -21,12 +21,6 @@ export const WrapperStyle = styled.div`
   width: 100%;
 `;
 
-export const NavigationStyle = styled.nav`
-  width: 100%;
-  height: 7rem;
-  background-color: var(--white_100);
-`;
-
 export const CardListStyle = styled.article`
   display: flex;
   width: 100%;

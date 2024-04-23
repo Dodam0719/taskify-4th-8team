@@ -8,11 +8,13 @@ const MyDashBoard = () => {
   return (
     <S.MyDashBoardStyle>
       <SideMenu />
-      <S.ContainerStyle>
-        {/* <DashboardHeader /> */}
-        {/* <NoInvitedDashboard /> */}
-        <InviteDash />
-      </S.ContainerStyle>
+      <S.MyDashBoardWrapperStyle>
+        <S.ContainerStyle>
+          <DashboardHeader isShow='none' />
+          {/* <NoInvitedDashboard /> */}
+          <InviteDash />
+        </S.ContainerStyle>
+      </S.MyDashBoardWrapperStyle>
     </S.MyDashBoardStyle>
   );
 };

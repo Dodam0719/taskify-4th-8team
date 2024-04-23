@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { device } from '@/styles/breakpoints';
 
 export const InviteDashStyle = styled.main`
-  padding: 4rem 0 12.2rem 4rem;
+  max-width: 106.2rem;
+  padding: 4rem 4rem 12.2rem;
 
   @media ${device.tablet} {
     width: 100%;

@@ -10,8 +10,7 @@ const Dashboard = () => {
     <S.DashboardStyle>
       <SideMenu />
       <S.WrapperStyle>
-        {/* <DashboardHeader /> */}
-        <S.NavigationStyle>비브리지</S.NavigationStyle>
+        <DashboardHeader isShow='show' />
         <S.CardListStyle>
           <Card>To do</Card>
           <Card>On Progress</Card>
