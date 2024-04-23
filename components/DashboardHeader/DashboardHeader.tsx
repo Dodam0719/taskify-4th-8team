@@ -17,8 +17,11 @@ const PROFILE: ProfileItem[] = [
   { color: '--green_100', initials: 'Q' },
   { color: '--green_100', initials: 'Q' },
 ];
+interface DashboardHeaderProps {
+  isShow: string;
+}
 
-const DashboardHeader = () => {
+const DashboardHeader = ({ isShow }: DashboardHeaderProps) => {
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
   const [additionalProfiles, setAdditionalProfiles] = useState<number>(0);
 
@@ -45,36 +48,33 @@ const DashboardHeader = () => {
     }
   }, [isTabletView]);
 
-  if (typeof window !== 'undefined') {
-    console.log('뷰포트의 너비:', window.innerWidth);
-  } else {
-    console.log('서버 환경에서는 뷰포트의 너비를 확인할 수 없습니다.');
-  }
   return (
     <S.DashboardHeader>
       <S.RecipientName>내 대시보드</S.RecipientName>
-      <S.SettingButton>
-        <img src='/assets/icon/setting_icon.svg' alt='관리 버튼이미지' />
-        관리
-      </S.SettingButton>
-      <S.InviteButton>
-        <img src='/assets/icon/invite_icon.svg' alt='초대 버튼이미지' />
-        초대하기
-      </S.InviteButton>
-      <S.ProfileTestWrapper>
-        {PROFILE.slice(0, 4).map((item, index) => (
-          <S.TestProfile key={index} className={`profile-item-${index}`} color={item.color}>
-            {item.initials}
-          </S.TestProfile>
-        ))}
-        {additionalProfiles && (
-          <S.LastTestProfile>
-            <span>+</span>
-            {additionalProfiles}
-          </S.LastTestProfile>
-        )}
-      </S.ProfileTestWrapper>
-      <S.ProfileWrapper>
+      <S.DashboardHeaderWrapper isShow={isShow}>
+        <S.SettingButton>
+          <img src='/assets/icon/setting_icon.svg' alt='관리 버튼이미지' />
+          관리
+        </S.SettingButton>
+        <S.InviteButton>
+          <img src='/assets/icon/invite_icon.svg' alt='초대 버튼이미지' />
+          초대하기
+        </S.InviteButton>
+        <S.ProfileTestWrapper>
+          {PROFILE.slice(0, 4).map((item, index) => (
+            <S.TestProfile key={index} className={`profile-item-${index}`} color={item.color}>
+              {item.initials}
+            </S.TestProfile>
+          ))}
+          {additionalProfiles && (
+            <S.LastTestProfile>
+              <span>+</span>
+              {additionalProfiles}
+            </S.LastTestProfile>
+          )}
+        </S.ProfileTestWrapper>
+      </S.DashboardHeaderWrapper>
+      <S.ProfileWrapper isShow={isShow}>
         <S.ProfileInitials>B</S.ProfileInitials>
         <S.ProfileName>배유철</S.ProfileName>
       </S.ProfileWrapper>
