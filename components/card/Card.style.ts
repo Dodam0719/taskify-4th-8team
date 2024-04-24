@@ -8,7 +8,6 @@ export const CardWrapperStyle = styled.section`
   height: auto;
   padding: 2rem 2rem;
   border-right: 1px solid var(--gray_080);
-  cursor: pointer;
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
     border: none;
     max-width: 100%;
@@ -74,6 +73,8 @@ export const CardStyle = styled.article`
   background-color: var(--white_100);
   border: 1px solid var(--gray_060);
   border-radius: 0.6rem;
+  cursor: pointer;
+
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
     display: flex;
   }
