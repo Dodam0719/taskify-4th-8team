@@ -4,14 +4,9 @@ import InviteItem from './InviteItem';
 import InviteItemMobile from './InviteItemMobile';
 import Button from '@/components/button/Button';
 import PlusChip from '@/components/chips/plus-chip/PlusChip';
-
-const BUTTONS = [
-  { name: '비브리지', color: '--green_100', isOwner: true },
-  { name: '코드잇', color: '--purple_100', isOwner: true },
-  { name: '3분기 계획', color: '--orange_100', isOwner: false },
-  { name: '회의록', color: '--blue_100', isOwner: false },
-  { name: '중요 문서함', color: '--pink_100', isOwner: false },
-];
+import useDashboards from '@/hooks/useDashboards';
+import { useEffect } from 'react';
+import Menu from '@/components/side-menu/Menu';
 
 const INVITE_ITEM = [
   ['프로덕트 디자인', '손동희'],
@@ -23,6 +18,16 @@ const INVITE_ITEM = [
 ];
 
 const InviteDash = () => {
+  const { dashboards, loadDashboards } = useDashboards();
+
+  useEffect(() => {
+    loadDashboards();
+  }, [loadDashboards]);
+  if (!dashboards) return <div></div>;
+
+  const myDashboards = dashboards.filter((dashboard) => dashboard.createdByMe);
+  const inviteDashBoards = dashboards.filter((dashboard) => !dashboard.createdByMe);
+
   return (
     <S.InviteDashStyle>
       <S.ButtonContainerStyle>
@@ -30,14 +35,17 @@ const InviteDash = () => {
           <span>새로운 대시 보드</span>
           <PlusChip />
         </Button>
-        {BUTTONS.map((button) => (
+        {myDashboards.map((dashboard) => (
           <Button variant='dashboard' $width='33.2rem' $height='7rem'>
             <div>
-              <S.ButtonColorPointStyle color={button.color} />
-              <span>{button.name}</span>
+              <S.ButtonColorPointStyle color={dashboard.color} />
+              <Menu key={dashboard.id} dashboard={dashboard} />
             </div>
             <Arrow_forward $width='1.8rem' $height='1.8rem' />
           </Button>
+        ))}
+        {inviteDashBoards.map((dashboard) => (
+          <Menu key={dashboard.id} dashboard={dashboard} />
         ))}
       </S.ButtonContainerStyle>
       <S.PageNationContainer>
