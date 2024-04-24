@@ -5,6 +5,7 @@ export const Add = styled.div<{ $width: string; $height: string }>`
   background: url('/icons/Add.svg') no-repeat;
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
+  cursor: pointer;
 `;
 
 export const AddImg = styled.img<{ $width: string; $height: string }>`

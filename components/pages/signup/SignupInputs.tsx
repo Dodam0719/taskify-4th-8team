@@ -1,16 +1,24 @@
 import styled from 'styled-components';
 import Input from '@/components/input/Input';
-import { useForm } from 'react-hook-form';
+import { UseFormRegister, FieldErrors, UseFormGetValues } from 'react-hook-form';
 import * as S from './SignupInputs.style';
 
-const SignupInputs = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    getValues,
-  } = useForm({ mode: 'onBlur', defaultValues: { email: '', nickname: '', password: '', passwordCheck: '' } });
+type FormValues = {
+  email: string;
+  nickname: string;
+  password: string;
+  passwordCheck: string;
+};
 
+const SignupInputs = ({
+  register,
+  errors,
+  getValues,
+}: {
+  register: UseFormRegister<FormValues>;
+  errors: FieldErrors<FormValues>;
+  getValues: UseFormGetValues<FormValues>;
+}) => {
   return (
     <S.Container>
       <Input

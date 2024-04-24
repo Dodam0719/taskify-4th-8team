@@ -8,6 +8,7 @@ export interface Dashboard {
   color: string;
   createdAt: string;
   updatedAt: string;
+  createdByMe: boolean;
 }
 
 const useDashboards = () => {
@@ -33,7 +34,7 @@ const useDashboards = () => {
     setLoading(true);
     try {
       const data = await fetchDashboards();
-      setDashboards(data);
+      setDashboards(data.dashboards as Dashboard[]);
     } catch (error: unknown) {
       setError(handleError(error));
     } finally {
