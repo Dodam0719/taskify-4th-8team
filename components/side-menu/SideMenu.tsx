@@ -10,6 +10,7 @@ const MENU_NAME = ['비브리지', '코드잇', '3분기 계획', '회의록', '
 
 const SideMenu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedDashboardIndex, setSelectedDashboardIndex] = useState(-1);
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
@@ -35,11 +36,27 @@ const SideMenu = () => {
         <Add $width='2rem' $height='2rem' onClick={handleOpenModal} />
       </S.Container>
       <S.ListContainer>
-        {myDashboards.map((dashboard) => (
-          <Menu key={dashboard.id} dashboard={dashboard} />
+        {myDashboards.map((dashboard, index) => (
+          <Menu
+            key={dashboard.id}
+            index={index}
+            dashboard={dashboard}
+            selectedDashboardIndex={selectedDashboardIndex}
+            setSelectedDashboardIndex={(index) => {
+              setSelectedDashboardIndex(index);
+            }}
+          />
         ))}
-        {inviteDashBoards.map((dashboard) => (
-          <Menu key={dashboard.id} dashboard={dashboard} />
+        {inviteDashBoards.map((dashboard, index) => (
+          <Menu
+            key={dashboard.id}
+            index={index}
+            dashboard={dashboard}
+            selectedDashboardIndex={selectedDashboardIndex}
+            setSelectedDashboardIndex={(index) => {
+              setSelectedDashboardIndex(index);
+            }}
+          />
         ))}
       </S.ListContainer>
       {isModalOpen && <ModalNewdash dashboards={dashboards} onSubmit={addDashboard} onClose={handleCloseModal} />}
