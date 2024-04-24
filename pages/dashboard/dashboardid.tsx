@@ -24,7 +24,7 @@ const Dashboard = () => {
     <S.DashboardStyle>
       <SideMenu />
       <S.WrapperStyle>
-        <DashboardHeader isShow='show' />
+        <DashboardHeader isVisible='true' />
         <S.CardListStyle>
           {Object.entries(cardLists).map(([columnId, cardList]) => (
             <Card key={columnId} cardList={cardList}>
