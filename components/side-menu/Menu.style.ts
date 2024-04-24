@@ -32,7 +32,7 @@ export const Point = styled.div`
   height: 0.8rem;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background-color: var(${({ color }) => color});
+  background-color: ${({ color }) => color};
 `;
 
 export const MenuItemContainerStyle = styled.div`

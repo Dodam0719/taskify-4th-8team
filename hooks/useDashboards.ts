@@ -8,6 +8,7 @@ export interface Dashboard {
   color: string;
   createdAt: string;
   updatedAt: string;
+  createdByMe: boolean;
 }
 
 const useDashboards = () => {
@@ -15,6 +16,7 @@ const useDashboards = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // 새로운 대시보드 생성
   const addDashboard = useCallback(async (dashboardData: { title: string; color: string }) => {
     setLoading(true);
     try {
@@ -27,16 +29,14 @@ const useDashboards = () => {
     }
   }, []);
 
-  const loadDashboards = useCallback(async (page: number, size: number) => {
+  // 대시보드 목록 가져오기
+  const loadDashboards = useCallback(async () => {
     setLoading(true);
     try {
-      const data = await fetchDashboards(page, size);
-      console.log(data);
-      setDashboards(data || []);
+      const data = await fetchDashboards();
+      setDashboards(data.dashboards as Dashboard[]);
     } catch (error: unknown) {
-      console.error(error);
       setError(handleError(error));
-      setDashboards([]);
     } finally {
       setLoading(false);
     }

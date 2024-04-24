@@ -1,50 +1,35 @@
 import axios from 'axios';
 import api from './axios';
+import { Dashboard } from '@/hooks/useDashboards';
 
-const dashboardsEndPoint = '/dashboards';
+// const dashboardsEndPoint = '/dashboards';
+const dashboardsEndPoint = '/dashboards/?navigationMethod=pagination';
 
 interface DashboardData {
   title: string;
   color: string;
 }
 
-interface DashboardResponse extends DashboardData {
-  id: number;
-  createdAt: string;
-  updatedAt: string;
+interface DashboardsResponse extends DashboardData {
+  dashboards: Dashboard[];
 }
 
-export const createDashboard = async (data: DashboardData): Promise<DashboardResponse> => {
+export const createDashboard = async (data: DashboardData): Promise<Dashboard> => {
   try {
-    console.log('Sending data to server:', data);
     const response = await api.post(dashboardsEndPoint, data);
-    console.log('Received response:', response.data);
     return response.data;
-  } catch (error: unknown) {
-    if (axios.isAxiosError(error)) {
-      console.error('Error posting dashboard:', error.response?.data);
-      throw new Error(error.response?.data?.message || '대시보드 만들기에 실패했습니다.');
-    } else {
-      throw new Error('대시보드 만들기에 실패했습니다.');
-    }
+  } catch (error) {
+    throw new Error('대시보드 만들기에 실패했습니다.');
   }
 };
 
-export const fetchDashboards = async (page: number = 1, size: number = 10): Promise<DashboardResponse[]> => {
+// export const fetchDashboards = async (page: number = 1, size: number = 10): Promise<DashboardsResponse> => {
+export const fetchDashboards = async (): Promise<DashboardsResponse> => {
   try {
-    const response = await api.get(`${dashboardsEndPoint}?navigationMethod=infiniteScroll&page=${page}&size=${size}`);
-    const dashboards = response.data;
-    if (dashboards.length === 0) {
-      console.log('조회된 대시보드가 없습니다.');
-    }
-    console.log('Received dashboards:', dashboards);
-    return dashboards;
-  } catch (error: unknown) {
-    if (axios.isAxiosError(error)) {
-      console.error('Error fetching dashboards:', error.response?.data);
-      throw new Error(error.response?.data?.message || '대시보드 가져오기에 실패했습니다.');
-    } else {
-      throw new Error('대시보드 가져오기에 실패했습니다.');
-    }
+    // const response = await api.get(`${dashboardsEndPoint}?navigationMethod=infiniteScroll&page=${page}&size=${size}`);
+    const response = await api.get(dashboardsEndPoint);
+    return response.data;
+  } catch (error) {
+    throw new Error('대시보드 가져오기에 실패했습니다.');
   }
 };
