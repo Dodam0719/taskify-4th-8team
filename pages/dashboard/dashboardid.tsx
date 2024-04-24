@@ -20,7 +20,7 @@ const cardLists: { [key: string]: CardType[] } = {};
 const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = () => {
+  const handleNewColumnModal = () => {
     setIsModalOpen(true);
   };
 
@@ -51,12 +51,12 @@ const Dashboard = () => {
             <ModalColumn title='새 컬럼 생성' placeholder='새로운 프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
           )}
           <S.ButtonStyle>
-            <Button variant='addColumn' onClick={handleOpenModal} $width='35.4rem' $height='7rem'>
+            <Button variant='addColumn' onClick={handleNewColumnModal} $width='35.4rem' $height='7rem'>
               <span>새로운 컬럼 추가하기</span>
               <PlusChip />
             </Button>
           </S.ButtonStyle>
-          <Button variant='addColumn' onClick={handleOpenModal} $width='35.4rem' $height='7rem'>
+          <Button variant='addColumn' onClick={handleNewColumnModal} $width='35.4rem' $height='7rem'>
             <span>새로운 컬럼 추가하기</span>
             <PlusChip />
           </Button>
