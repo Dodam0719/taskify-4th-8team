@@ -4,6 +4,10 @@ export interface CardTagChipType {
   children?: React.ReactNode;
 }
 
+export interface CardTagChipsType {
+  tagList: string[];
+}
+
 export interface ColorChipsType {
   color: string;
   index: number;
