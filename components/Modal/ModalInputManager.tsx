@@ -8,6 +8,7 @@ const ModalInputManager = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [inputFocused, setInputFocused] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   // 선택된 멤버와 일치하는지 여부에 따라 멤버 목록을 필터링
@@ -27,6 +28,12 @@ const ModalInputManager = () => {
     setSearchTerm(e.target.value);
     if (!isOpen) {
       setIsOpen(true);
+    }
+  };
+
+  const handleBlur = () => {
+    if (!isOpen && selectedMember && searchTerm !== selectedMember.nickname) {
+      setSearchTerm(selectedMember.nickname);
     }
   };
 
@@ -59,10 +66,16 @@ const ModalInputManager = () => {
               alt='프로필 이미지'
               width={26}
               height={26}
-              style={{ marginRight: '8px', borderRadius: '100%' }}
+              style={{ marginRight: '0.8rem', borderRadius: '100%' }}
             />
           )}
-          <S.DropdownInput type='text' value={searchTerm} onChange={handleSearchChange} placeholder='이름을 입력해 주세요' />
+          <S.DropdownInput
+            type='text'
+            value={searchTerm}
+            onChange={handleSearchChange}
+            onBlur={handleBlur}
+            placeholder='이름을 입력해 주세요'
+          />
           <Image src='/assets/icon/arrow_drop_down_fill.svg' alt='드롭다운 화살표' width={26} height={26} />
         </S.DropdownHeader>
         {isOpen && (
@@ -71,7 +84,7 @@ const ModalInputManager = () => {
               <S.DropdownListItem key={member.id} onClick={() => handleSelect(member)}>
                 <span className='check-image'>
                   {selectedMember && selectedMember.id === member.id && (
-                    <Image src='/assets/chips/check_fill.svg' alt='체크 이미지' width={22} height={22} />
+                    <Image src='/assets/icon/check_fill.svg' alt='체크 이미지' width={22} height={22} />
                   )}
                 </span>
                 <Image className='profile-image' src={member.profileImageUrl} alt='프로필 이미지' width={26} height={26} />

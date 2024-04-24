@@ -56,7 +56,11 @@ const ModalInputDeadline: React.FC = () => {
         onClick={toggleCalendar}
         dateSelected={dateSelected}
       />
-      {calendarVisible && <Calendar onChange={handleDateChange} />}
+      {calendarVisible && (
+        <S.CalendarWrapper>
+          <Calendar onChange={handleDateChange} />
+        </S.CalendarWrapper>
+      )}
     </S.ModalInputDeadlineWrapper>
   );
 };

@@ -8,8 +8,7 @@ const size = {
 
 const device = {
   mobileMin: `(max-width: ${size.mobileMin}px)`,
-  mobileResponsive: `(max-width: 
-${size.mobileResponsive}px)`,
+  mobileResponsive: `(max-width: ${size.mobileResponsive}px)`,
   mobile: `(max-width: ${size.mobile}px)`,
   tabletMin: `(min-width: ${size.tabletMin}px)`,
   tablet: `(max-width: ${size.tablet}px)`,

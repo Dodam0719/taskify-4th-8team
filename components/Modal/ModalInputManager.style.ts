@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '@/styles/breakpoints';
 
 export const ModalInputProgressWrapper = styled.div`
   width: 21.7rem;
@@ -6,14 +7,19 @@ export const ModalInputProgressWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @media ${device.mobileResponsive} {
+    width: 100%;
+    height: 7.5rem;
+  }
 `;
 
 export const ModalInputManagerTitle = styled.div`
   color: var(--black_050, #333236);
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 500;
 
-  @media (max-width: 767px) {
+  @media ${device.mobileResponsive} {
     font-size: 1.6rem;
   }
 `;
@@ -28,7 +34,8 @@ export const DropdownContainer = styled.div<{ isOpen: boolean }>`
   background: var(--white_100, #fff);
   cursor: pointer;
 
-  @media (max-width: 767px) {
+  @media ${device.mobileResponsive} {
+    width: 100%;
     height: 4.2rem;
     padding: 0.8rem 1.6rem;
   }
@@ -52,7 +59,7 @@ export const DropdownInput = styled.input`
     font-size: 1.6rem;
   }
 
-  @media (max-width: 767px) {
+  @media ${device.mobileResponsive} {
     font-size: 1.4rem;
 
     ::placeholder {
@@ -78,6 +85,10 @@ export const DropdownList = styled.ul`
   list-style-type: none;
   padding: 0.65rem 0.8rem;
   margin: 0;
+
+  @media ${device.mobileResponsive} {
+    width: 100%;
+  }
 `;
 
 export const DropdownListItem = styled.li`
@@ -106,7 +117,7 @@ export const DropdownListItem = styled.li`
     border-radius: 100%;
   }
 
-  @media (max-width: 767px) {
+  @media ${device.mobileResponsive} {
     font-size: 1.4rem;
   }
 `;

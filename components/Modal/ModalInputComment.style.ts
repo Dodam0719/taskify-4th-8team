@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import ModalButton from './ModalButton';
-import { device } from '../../styles/breakpoints';
+import { device } from '@/styles/breakpoints';
 
 export const ModalInputCommentForm = styled.form`
   width: 45rem;
@@ -8,7 +8,7 @@ export const ModalInputCommentForm = styled.form`
   @media ${device.tablet} {
     width: 42rem;
   }
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     width: 28.7rem;
     height: 9.5rem;
   }
@@ -18,7 +18,7 @@ export const ModalInputCommentLabel = styled.label`
   color: var(--black_050, #333236);
   font-size: 1.6rem;
   font-weight: 500;
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     font-size: 1.4rem;
   }
 `;
@@ -45,7 +45,7 @@ export const InputContainer = styled.div`
     border-color: var(--violet_000, #5534da);
   }
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     height: 7rem;
     margin-top: 0.8rem;
     padding: 1.2rem;
@@ -58,7 +58,7 @@ export const ModalInputCommentInput = styled.input`
   outline: none;
   font-size: 1.4rem;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     font-size: 1.2rem;
   }
 `;

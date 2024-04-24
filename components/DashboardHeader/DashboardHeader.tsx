@@ -18,10 +18,10 @@ const PROFILE: ProfileItem[] = [
   { color: '--green_100', initials: 'Q' },
 ];
 interface DashboardHeaderProps {
-  isShow: string;
+  isVisible: string;
 }
 
-const DashboardHeader = ({ isShow }: DashboardHeaderProps) => {
+const DashboardHeader = ({ isVisible }: DashboardHeaderProps) => {
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
   const [additionalProfiles, setAdditionalProfiles] = useState<number>(0);
 
@@ -51,7 +51,7 @@ const DashboardHeader = ({ isShow }: DashboardHeaderProps) => {
   return (
     <S.DashboardHeader>
       <S.RecipientName>내 대시보드</S.RecipientName>
-      <S.DashboardHeaderWrapper isShow={isShow}>
+      <S.DashboardHeaderWrapper isvisible={isVisible}>
         <S.SettingButton>
           <img src='/assets/icon/setting_icon.svg' alt='관리 버튼이미지' />
           관리
@@ -74,7 +74,7 @@ const DashboardHeader = ({ isShow }: DashboardHeaderProps) => {
           )}
         </S.ProfileTestWrapper>
       </S.DashboardHeaderWrapper>
-      <S.ProfileWrapper isShow={isShow}>
+      <S.ProfileWrapper isvisible={isVisible}>
         <S.ProfileInitials>B</S.ProfileInitials>
         <S.ProfileName>배유철</S.ProfileName>
       </S.ProfileWrapper>

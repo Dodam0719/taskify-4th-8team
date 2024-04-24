@@ -11,8 +11,8 @@ const MyDashBoard = () => {
       <S.MyDashBoardWrapperStyle>
         <S.ContainerStyle>
           <DashboardHeader isShow='none' />
-          {/* <NoInvitedDashboard /> */}
-          <InviteDash />
+          <NoInvitedDashboard />
+          {/* <InviteDash /> */}
         </S.ContainerStyle>
       </S.MyDashBoardWrapperStyle>
     </S.MyDashBoardStyle>
