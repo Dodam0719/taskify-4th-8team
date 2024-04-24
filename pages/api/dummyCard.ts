@@ -92,7 +92,7 @@ export const dummyCards = [
         id: 5,
         title: '온라인 교육 컨텐츠 제작',
         description: '다음 달에 제작할 온라인 교육 컨텐츠에 대해 논의해주세요.',
-        tags: ['교육', '컨텐츠', '제작', 'ㄱㅅㄱㄷ'],
+        tags: ['교육', '컨텐츠', '제작', 'ㄱㅅㄱㄷ', '집에보내줘'],
         dueDate: '2024-05-10',
         assignee: {
           profileImageUrl: '프로필 이미지 URL',
