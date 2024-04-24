@@ -9,7 +9,7 @@ interface ModalButtonProps {
 
 const ModalButton: React.FC<ModalButtonProps> = ({ text, fullWidth = false, onClick, variant = 'confirm' }) => {
   return (
-    <S.ButtonModal variant={variant} fullWidth={fullWidth} onClick={onClick}>
+    <S.ButtonModal $variant={variant} $fullWidth={fullWidth} onClick={onClick}>
       {text}
     </S.ButtonModal>
   );

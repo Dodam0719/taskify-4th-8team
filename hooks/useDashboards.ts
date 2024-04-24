@@ -15,7 +15,6 @@ const useDashboards = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // 새로운 대시보드 생성
   const addDashboard = useCallback(async (dashboardData: { title: string; color: string }) => {
     setLoading(true);
     try {
@@ -28,13 +27,14 @@ const useDashboards = () => {
     }
   }, []);
 
-  // 대시보드 목록 가져오기
-  const loadDashboards = useCallback(async () => {
+  const loadDashboards = useCallback(async (page: number, size: number) => {
     setLoading(true);
     try {
-      const data = await fetchDashboards();
+      const data = await fetchDashboards(page, size);
+      console.log(data);
       setDashboards(data);
     } catch (error: unknown) {
+      console.error(error);
       setError(handleError(error));
     } finally {
       setLoading(false);
