@@ -8,6 +8,7 @@ export const CardWrapperStyle = styled.section`
   height: auto;
   padding: 2rem 2rem;
   border-right: 1px solid var(--gray_080);
+  cursor: pointer;
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
     border: none;
     max-width: 100%;
