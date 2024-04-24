@@ -31,6 +31,7 @@ const ModalNewdash: React.FC<ModalNewdashProps> = ({ dashboards, onSubmit, onClo
     } else {
       onSubmit({ title: name, color: selectedColor });
       reset();
+      onClose();
     }
   };
 

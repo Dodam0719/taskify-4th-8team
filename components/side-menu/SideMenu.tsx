@@ -8,7 +8,7 @@ const COLOR = ['--green_100', '--purple_100', '--orange_100', '--blue_100', '--p
 const MENU_NAME = ['비브리지', '코드잇', '3분기 계획', '회의록', '중요 문서함', '가나다라마바아'];
 
 const SideMenu = () => {
-  const { dashboards, loadDashboards } = useDashboards();
+  const { dashboards, addDashboard, loadDashboards } = useDashboards();
 
   useEffect(() => {
     loadDashboards();

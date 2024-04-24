@@ -5,8 +5,9 @@ import InviteItemMobile from './InviteItemMobile';
 import Button from '@/components/button/Button';
 import PlusChip from '@/components/chips/plus-chip/PlusChip';
 import useDashboards from '@/hooks/useDashboards';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Menu from '@/components/side-menu/Menu';
+import ModalNewdash from '@/components/Modal/ModalNewdash';
 
 const INVITE_ITEM = [
   ['프로덕트 디자인', '손동희'],
@@ -18,7 +19,12 @@ const INVITE_ITEM = [
 ];
 
 const InviteDash = () => {
-  const { dashboards, loadDashboards } = useDashboards();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+
+  const { dashboards, addDashboard, loadDashboards } = useDashboards();
 
   useEffect(() => {
     loadDashboards();
@@ -31,7 +37,7 @@ const InviteDash = () => {
   return (
     <S.InviteDashStyle>
       <S.ButtonContainerStyle>
-        <Button variant='addDashboard' $width='33.2rem' $height='7rem'>
+        <Button variant='addDashboard' $width='33.2rem' $height='7rem' onClick={handleOpenModal}>
           <span>새로운 대시 보드</span>
           <PlusChip />
         </Button>
@@ -79,6 +85,7 @@ const InviteDash = () => {
           ))}
         </S.ListMobileStyle>
       </S.InviteDashListStyle>
+      {isModalOpen && <ModalNewdash dashboards={dashboards} onSubmit={addDashboard} onClose={handleCloseModal} />}
     </S.InviteDashStyle>
   );
 };
