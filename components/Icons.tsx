@@ -117,6 +117,7 @@ export const Setting = styled.div<{ $width: string; $height: string }>`
   background: url('/icons/Setting.svg') no-repeat;
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
+  cursor: pointer;
 `;
 
 export const Unsubscribe = styled.div<{ $width: string; $height: string }>`
