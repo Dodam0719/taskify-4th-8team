@@ -19,7 +19,11 @@ const ModalNewdash: React.FC<ModalNewdashProps> = ({ dashboards, onSubmit, onClo
 
   const submitForm = (formData: { name: string }) => {
     const { name } = formData;
-    if (dashboards.some((dashboard) => dashboard.title === name)) {
+
+    // 새로운 대시보드 이름이 이미 존재하는지 확인
+    const duplicateDashboard = Array.isArray(dashboards) ? dashboards.find((dashboard) => dashboard.title === name) : null;
+
+    if (duplicateDashboard) {
       setError('name', {
         type: 'duplicate',
         message: '중복된 대시보드 이름입니다',

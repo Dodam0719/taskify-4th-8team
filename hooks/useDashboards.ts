@@ -32,10 +32,11 @@ const useDashboards = () => {
     try {
       const data = await fetchDashboards(page, size);
       console.log(data);
-      setDashboards(data);
+      setDashboards(data || []);
     } catch (error: unknown) {
       console.error(error);
       setError(handleError(error));
+      setDashboards([]);
     } finally {
       setLoading(false);
     }
