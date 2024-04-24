@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 import Input from '@/components/input/Input';
-import { useForm } from 'react-hook-form';
+import { UseFormRegister, FieldErrors } from 'react-hook-form';
 import * as S from './LoginInputs.style';
 
-const LoginInputs = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ mode: 'onBlur', defaultValues: { email: '', password: '' } });
+type FormValues = {
+  email: string;
+  password: string;
+};
 
+const LoginInputs = ({ register, errors }: { register: UseFormRegister<FormValues>; errors: FieldErrors<FormValues> }) => {
   return (
     <S.Container>
       <Input

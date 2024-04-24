@@ -1,17 +1,13 @@
-import LoginInputs from '@/components/pages/login/LoginInputs';
 import LoginLogoBox from '@/components/pages/login/LoginLogoBox';
 import GotoSignup from '@/components/pages/login/GotoSignup';
-import Button from '@/components/button/Button';
-import * as S from './Login.style';
+import LoginForm from '@/components/pages/login/LoginForm';
+import * as S from '@/pages/login.style';
 
 const Login = () => {
   return (
     <S.Container>
       <LoginLogoBox />
-      <LoginInputs />
-      <Button variant='login' $width='52rem' $height='5rem'>
-        로그인
-      </Button>
+      <LoginForm />
       <GotoSignup />
     </S.Container>
   );

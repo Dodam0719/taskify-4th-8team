@@ -15,9 +15,3 @@ export const Container = styled.div`
     overflow-x: hidden;
   }
 `;
-
-export const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-`;
