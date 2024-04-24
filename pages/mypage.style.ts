@@ -95,7 +95,10 @@ export const myPageProfileImgBox = styled.div`
     width: 3rem;
     height: 3rem;
   }
-
+  .uploaded-image {
+    width: 100%;
+    height: 100%;
+  }
   @media ${device.mobile} {
     width: 10rem;
     height: 10rem;
@@ -115,12 +118,37 @@ export const Button = styled.button`
   height: 3.2rem;
   border: none;
   border-radius: 0.4rem;
-  background-color: var(--violet_000);
   font-size: 1.4rem;
   text-align: center;
   font-weight: 500;
+  background-color: var(--violet_000);
   line-height: normal;
   color: var(--white_100);
+  cursor: pointer;
+
+  @media ${device.mobile} {
+    height: 2.8rem;
+    font-size: 1.2rem;
+    margin-top: 1.6rem;
+  }
+`;
+export const passwordButton = styled.button<{ isActive: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.4rem;
+  margin-left: auto;
+  width: 8.4rem;
+  height: 3.2rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: 500;
+  background-color: ${({ isActive }) => (isActive ? 'var(--violet_000)' : 'var(--gray_020)')};
+  line-height: normal;
+  color: var(--white_100);
+  cursor: pointer;
   @media ${device.mobile} {
     height: 2.8rem;
     font-size: 1.2rem;
@@ -130,10 +158,9 @@ export const Button = styled.button`
 export const myPagePasswordBox = styled.div`
   margin-top: 1.2rem;
   width: 62rem;
-  height: 45.4rem;
   border-radius: 0.8rem;
   background-color: var(--white_100);
-  padding: 3.2rem 2.8rem 0rem;
+  padding: 3.2rem 2.8rem 2.8rem;
   h2 {
     font-size: 2.4rem;
     font-weight: 700;
@@ -146,7 +173,6 @@ export const myPagePasswordBox = styled.div`
   }
   @media ${device.mobile} {
     width: 28.4rem;
-    height: 38.5rem;
     padding: 2.8rem 2rem 2rem;
     h2 {
       font-size: 2rem;
