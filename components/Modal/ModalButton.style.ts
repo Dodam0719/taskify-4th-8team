@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { device } from '@/styles/breakpoints';
 
 export const sizeStyles = {
   addSmall: css`
@@ -41,7 +42,7 @@ export const variantStyles = {
   `,
 };
 
-export const ButtonModal = styled.button<{ variant: 'comment' | 'cancel' | 'confirm' }>`
+export const ButtonModal = styled.button<{ variant: 'comment' | 'cancel' | 'confirm'; fullWidth?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +53,12 @@ export const ButtonModal = styled.button<{ variant: 'comment' | 'cancel' | 'conf
   ${({ variant }) => (variant === 'comment' ? sizeStyles.addLarge : sizeStyles.large)}
   ${({ variant }) => variantStyles[variant]}
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     ${({ variant }) => (variant === 'comment' ? sizeStyles.addSmall : sizeStyles.small)}
+    ${({ fullWidth, variant }) => (fullWidth && variant === 'comment' ? sizeStyles.addLarge : sizeStyles.large)};
+  }
+
+  @media ${device.mobileResponsive} {
+    width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   }
 `;

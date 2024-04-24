@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '@/styles/breakpoints';
 
 export const ModalAlertContent = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ export const ModalAlertContent = styled.div`
     font-weight: 500;
   }
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     width: 100%;
     margin: 8.1rem auto 5rem;
     p {
@@ -23,7 +24,7 @@ export const ModalAlertContent = styled.div`
 export const ModalAlertFooter = styled.div`
   margin: 0 2.8rem 2.8rem 39.2rem;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     width: 100%;
     margin: 0 auto;
     display: flex;
