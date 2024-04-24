@@ -12,7 +12,7 @@ export interface ColorChipsType {
   color: string;
   index: number;
   selectedColorIndex: number;
-  setSelectedColorIndex: (index: number) => void;
+  setSelectedColorIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface NumberChipType {
