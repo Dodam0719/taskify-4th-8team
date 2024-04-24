@@ -1,19 +1,20 @@
+import axios from 'axios';
 import api from './axios';
+import { Dashboard } from '@/hooks/useDashboards';
 
-const dashboardsEndPoint = '/dashboards';
+// const dashboardsEndPoint = '/dashboards';
+const dashboardsEndPoint = '/dashboards/?navigationMethod=pagination';
 
 interface DashboardData {
   title: string;
   color: string;
 }
 
-interface DashboardResponse extends DashboardData {
-  id: number;
-  createdAt: string;
-  updatedAt: string;
+interface DashboardsResponse extends DashboardData {
+  dashboards: Dashboard[];
 }
 
-export const createDashboard = async (data: DashboardData): Promise<DashboardResponse> => {
+export const createDashboard = async (data: DashboardData): Promise<Dashboard> => {
   try {
     const response = await api.post(dashboardsEndPoint, data);
     return response.data;
@@ -22,8 +23,10 @@ export const createDashboard = async (data: DashboardData): Promise<DashboardRes
   }
 };
 
-export const fetchDashboards = async (): Promise<DashboardResponse[]> => {
+// export const fetchDashboards = async (page: number = 1, size: number = 10): Promise<DashboardsResponse> => {
+export const fetchDashboards = async (): Promise<DashboardsResponse> => {
   try {
+    // const response = await api.get(`${dashboardsEndPoint}?navigationMethod=infiniteScroll&page=${page}&size=${size}`);
     const response = await api.get(dashboardsEndPoint);
     return response.data;
   } catch (error) {
