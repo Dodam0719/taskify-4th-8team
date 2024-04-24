@@ -7,8 +7,30 @@ import PlusChip from '../chips/plus-chip/PlusChip';
 import Button from '../button/Button';
 import { CardListType } from './type';
 import { CardType } from '@/pages/api/dummyCardDataType';
+import { useState } from 'react';
+import ModalColumn from '../Modal/ModalColumn';
 
 const Card = ({ children, cardList }: CardListType) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleSettingsModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleDelete = () => {
+    setIsModalOpen(false);
+    setShowAlert(true);
+  };
+
+  const handleColumnManageSubmit = (data: { name: string }) => {
+    // 컬럼 관리 로직 추가
+  };
+
   return (
     <S.CardWrapperStyle>
       <S.CardHeaderStyle>
@@ -17,7 +39,16 @@ const Card = ({ children, cardList }: CardListType) => {
           <S.TitleStyle>{children}</S.TitleStyle>
           <NumberChip>{cardList.length}</NumberChip>
         </S.CardHeaderTitleStyle>
-        <Setting $width='2.4rem' $height='2.4rem' />
+        {isModalOpen && (
+          <ModalColumn
+            title='컬럼 관리'
+            placeholder='Done'
+            onSubmit={handleColumnManageSubmit}
+            onClose={handleCloseModal}
+            onDelete={handleDelete}
+          />
+        )}
+        <Setting onClick={handleSettingsModal} $width='2.4rem' $height='2.4rem' />
       </S.CardHeaderStyle>
       <S.CardListItemStyle>
         <Button variant='addTodo' $width='100%' $height='4rem'>
