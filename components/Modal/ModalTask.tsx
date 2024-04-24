@@ -5,6 +5,7 @@ import ModalBackground from './ModalBackground';
 import ModalInputComment from './ModalInputComment';
 import * as S from './ModalTask.style';
 import ModalTools from './ModalTools';
+import { CardType } from '@/pages/api/dummyCardDataType';
 interface ModalTaskProps {
   onClose: () => void;
   width?: string;
@@ -13,6 +14,7 @@ interface ModalTaskProps {
   tabletHeight?: string;
   mobileWidth?: string;
   mobileHeight?: string;
+  // tagList: CardType[];
 }
 const ModalTask = ({ onClose, width, height, tabletWidth, tabletHeight, mobileWidth, mobileHeight }: ModalTaskProps) => {
   const [isHidden, setIsHidden] = useState(true);
@@ -32,6 +34,8 @@ const ModalTask = ({ onClose, width, height, tabletWidth, tabletHeight, mobileWi
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [KebobChoiceRef]);
+
+  const cardLists: { [key: string]: CardType[] } = {};
 
   return (
     <ModalBackground
@@ -67,9 +71,7 @@ const ModalTask = ({ onClose, width, height, tabletWidth, tabletHeight, mobileWi
             <div />
             <span>To Do</span>
           </S.ProgressChip>
-          <S.CardChips>
-            <CardTagChips />
-          </S.CardChips>
+          <S.CardChips>{/* <CardTagChips /> */}</S.CardChips>
         </S.ModalTaskChips>
         <S.ModalTaskText>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum finibus nibh arcu, quis consequat ante cursus eget. Cras

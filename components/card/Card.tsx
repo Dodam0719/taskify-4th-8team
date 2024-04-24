@@ -10,10 +10,12 @@ import { CardType } from '@/pages/api/dummyCardDataType';
 import { useState } from 'react';
 import ModalColumn from '../Modal/ModalColumn';
 import ModalTodo from '../Modal/ModalTodo';
+import ModalTask from '../Modal/ModalTask';
 
 const Card = ({ children, cardList }: CardListType) => {
   const [isColumnModalOpen, setIsColumnModalOpen] = useState(false);
   const [isTodoModalOpen, setIsTodoModalOpen] = useState(false);
+  const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
   const handleSettingsModal = () => {
@@ -24,9 +26,14 @@ const Card = ({ children, cardList }: CardListType) => {
     setIsTodoModalOpen(true);
   };
 
+  const handleTaskModal = () => {
+    setIsTaskModalOpen(true);
+  };
+
   const handleCloseModal = () => {
     setIsColumnModalOpen(false);
     setIsTodoModalOpen(false);
+    setIsTaskModalOpen(false);
   };
 
   const handleDelete = () => {
@@ -66,8 +73,9 @@ const Card = ({ children, cardList }: CardListType) => {
         <Button variant='addTodo' onClick={handleTodoModal} $width='100%' $height='4rem'>
           <PlusChip />
         </Button>
+        {isTaskModalOpen && <ModalTask onClose={handleCloseModal} />}
         {cardList.map((card: CardType) => (
-          <S.CardStyle key={card.id}>
+          <S.CardStyle key={card.id} onClick={handleTaskModal}>
             {card.imageUrl !== '' && <S.CardImageStyle src={card.imageUrl} alt='카드 이미지' width={272} height={160} />}
             <S.InfoContainerStyle>
               <S.CardItemTitleStyle>{card.title}</S.CardItemTitleStyle>
