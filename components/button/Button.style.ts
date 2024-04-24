@@ -22,7 +22,7 @@ export const BUTTON_COMPONENTS = {
     height: ${({ $height }) => $height};
     border-radius: 0.8rem;
     padding: 1.4rem 23.6rem;
-    background-color: var(--violet_000);
+    background-color: ${({ disabled }) => (disabled ? 'var(--gray_020)' : 'var(--violet_000)')};
     color: var(--white_100);
     white-space: nowrap;
 
@@ -44,7 +44,7 @@ export const BUTTON_COMPONENTS = {
     height: ${({ $height }) => $height};
     border-radius: 0.8rem;
     padding: 1.4rem 23.6rem;
-    background-color: var(--violet_000);
+    background-color: ${({ disabled }) => (disabled ? 'var(--gray_020)' : 'var(--violet_000)')};
     color: var(--white_100);
     white-space: nowrap;
 
