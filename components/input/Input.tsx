@@ -16,7 +16,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   $mobileHeight?: string;
   $placeholderFontSize?: string;
   $mobilePlaceholderFontSize?: string;
-  isShow?: string;
+  $isShow?: string;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
@@ -34,7 +34,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     $mobileHeight,
     $placeholderFontSize,
     $mobilePlaceholderFontSize,
-    isShow,
+    $isShow,
     errorMsg,
     label,
     ...props
@@ -92,7 +92,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           {...props}
         />
         {type === 'password' && (
-          <S.ImgPosition isshow={isShow} onClick={toggleEyesButton}>
+          <S.ImgPosition $isShow={$isShow} onClick={toggleEyesButton}>
             {isPassword ? <EyeOff $width={'2.4rem'} $height={'2.4rem'} /> : <EyeOn $width={'2.4rem'} $height={'2.4rem'} />}
           </S.ImgPosition>
         )}

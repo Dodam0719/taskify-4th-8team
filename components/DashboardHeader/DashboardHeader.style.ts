@@ -6,6 +6,7 @@ export const DashboardHeader = styled.nav`
   display: flex;
   align-items: center;
   padding: 0 8rem 0 4rem;
+  background-color: var(--white_100);
   @media ${device.tablet} {
     padding: 0 4rem 0 6.8rem;
   }

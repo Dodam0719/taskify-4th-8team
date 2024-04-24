@@ -59,8 +59,8 @@ export const Input = styled.input<InputStyledProps>`
   }
 `;
 
-export const ImgPosition = styled.div<{ isshow?: string }>`
-  display: ${({ isshow }) => (isshow ? '' : 'none')};
+export const ImgPosition = styled.div<{ $isShow?: string }>`
+  display: ${({ $isShow }) => ($isShow ? '' : 'none')};
   position: absolute;
   top: 4rem;
   right: 1rem;
