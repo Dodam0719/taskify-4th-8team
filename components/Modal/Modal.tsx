@@ -12,6 +12,7 @@ import ModalInputTag from './ModalInputTag';
 import ModalInputManager from './ModalInputManager';
 import ModalTodo from './ModalTodo';
 import { ModalTool } from './ModalTools.style';
+import ModalInvite from './ModalInvite';
 
 const handleCommentClick = () => {
   console.log('Comment button clicked');
@@ -26,6 +27,10 @@ const handleConfirmClick = () => {
 };
 
 const handleNewColumnSubmit = (data: { name: string }) => {
+  // 새 컬럼 생성 로직 추가
+};
+
+const handleInviteSubmit = (data: { name: string }) => {
   // 새 컬럼 생성 로직 추가
 };
 
@@ -67,6 +72,7 @@ const Modal = () => {
       {/* {isModalOpen && (
         <ModalColumn title='새 컬럼 생성' placeholder='새로운 프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
       )} */}
+      {/* {isModalOpen && <ModalInvite title='초대하기' placeholder='' onSubmit={handleInviteSubmit} onClose={handleCloseModal} />} */}
       {/* {isModalOpen && (
         <ModalColumn
           title='컬럼 관리'
