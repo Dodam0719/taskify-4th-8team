@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '@/styles/breakpoints';
 
 export const ModalNewdashForm = styled.form`
   width: 54rem;
@@ -7,7 +8,7 @@ export const ModalNewdashForm = styled.form`
   border-radius: 0.8rem;
   background: var(--white_100, #fff);
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     width: 32.7rem;
     min-height: 29.3rem;
     padding: 2.8rem 2rem;
@@ -20,7 +21,7 @@ export const ModalNewdashTitle = styled.legend`
   font-weight: 700;
   margin-bottom: 3.2rem;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     font-size: 2rem;
     margin-bottom: 2.4rem;
   }
@@ -31,7 +32,7 @@ export const ModalNewdashLabel = styled.label`
   font-size: 1.8rem;
   font-weight: 500;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     font-size: 1.6rem;
   }
 `;
@@ -49,7 +50,7 @@ export const ModalNewdashInput = styled.input`
     color: var(--black_050, #333236);
   }
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     margin: 1rem 0 2.4rem;
   }
 `;
@@ -59,7 +60,7 @@ export const ModalNewdashButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     min-height: 4.2rem;
   }
 `;

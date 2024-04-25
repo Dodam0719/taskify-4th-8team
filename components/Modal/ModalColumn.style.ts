@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '@/styles/breakpoints';
 
 export const ModalColumnForm = styled.form`
   width: 54rem;
@@ -7,7 +8,7 @@ export const ModalColumnForm = styled.form`
   border-radius: 0.8rem;
   background: var(--white_100, #fff);
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     width: 32.7rem;
     min-height: 24.1rem;
     padding: 2.8rem 2rem;
@@ -20,7 +21,7 @@ export const ModalColumnFormTitle = styled.legend`
   font-weight: 700;
   margin-bottom: 3.2rem;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     font-size: 2rem;
     margin-bottom: 2.4rem;
   }
@@ -31,7 +32,7 @@ export const ModalColumnFormLabel = styled.label`
   font-size: 1.8rem;
   font-weight: 500;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     font-size: 1.6rem;
   }
 `;
@@ -49,7 +50,7 @@ export const ModalColumnFormInput = styled.input`
     color: var(--black_050, #333236);
   }
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     margin: 1rem 0 2.4rem;
   }
 `;
@@ -68,7 +69,7 @@ export const ModalColumnFormButtonWrapper = styled.div`
   justify-content: space-between;
   align-items: flex-end;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     min-height: 4.2rem;
     display: flex;
     flex-direction: column;
@@ -81,7 +82,7 @@ export const PlaceholderText = styled.div`
   flex-grow: 1;
   height: 0;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     display: none;
   }
 `;
@@ -94,7 +95,7 @@ export const ModalColumnFormDeleteText = styled.span`
   margin-right: auto;
   cursor: pointer;
 
-  @media (max-width: 767px) {
+  @media ${device.mobile} {
     margin-bottom: 1.6rem;
   }
 `;
