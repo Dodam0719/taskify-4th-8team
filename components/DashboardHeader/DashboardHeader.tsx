@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import * as S from './DashboardHeader.style';
+import Link from 'next/link';
+import ModalInvite from '../Modal/ModalInvite';
 
 interface ProfileItem {
   color: string;
@@ -24,6 +26,7 @@ interface DashboardHeaderProps {
 const DashboardHeader = ({ isVisible }: DashboardHeaderProps) => {
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
   const [additionalProfiles, setAdditionalProfiles] = useState<number>(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     function handleResize() {
@@ -48,15 +51,30 @@ const DashboardHeader = ({ isVisible }: DashboardHeaderProps) => {
     }
   }, [isTabletView]);
 
+  const handleInviteModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleInviteSubmit = (data: { name: string }) => {
+    // 새 컬럼 생성 로직 추가
+  };
+
   return (
     <S.DashboardHeader>
       <S.RecipientName>내 대시보드</S.RecipientName>
       <S.DashboardHeaderWrapper isvisible={isVisible}>
-        <S.SettingButton>
-          <img src='/assets/icon/setting_icon.svg' alt='관리 버튼이미지' />
-          관리
-        </S.SettingButton>
-        <S.InviteButton>
+        <Link href='/dashboard/dashboardid/edit'>
+          <S.SettingButton>
+            <img src='/assets/icon/setting_icon.svg' alt='관리 버튼이미지' />
+            관리
+          </S.SettingButton>
+        </Link>
+        {isModalOpen && <ModalInvite title='초대하기' placeholder='' onSubmit={handleInviteSubmit} onClose={handleCloseModal} />}
+        <S.InviteButton onClick={handleInviteModal}>
           <img src='/assets/icon/invite_icon.svg' alt='초대 버튼이미지' />
           초대하기
         </S.InviteButton>

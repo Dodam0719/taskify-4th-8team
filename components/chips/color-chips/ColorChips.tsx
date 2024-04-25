@@ -21,7 +21,7 @@ const ColorChips = ({ onColorSelect }: { onColorSelect: (color: string) => void 
           color={color}
           index={index}
           selectedColorIndex={selectedColorIndex}
-          setSelectedColorIndex={(index: number) => {
+          setSelectedColorIndex={(index) => {
             setSelectedColorIndex(index);
           }}
         />

@@ -4,11 +4,19 @@ import { MenuType } from './type';
 
 interface Props {
   dashboard: Dashboard;
+  index: number;
+  selectedDashboardIndex: number;
+  setSelectedDashboardIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Menu = ({ dashboard }: Props) => {
+const Menu = ({ dashboard, index, selectedDashboardIndex, setSelectedDashboardIndex }: Props) => {
+  const handleOnDashboardSelect = () => {
+    setSelectedDashboardIndex(index);
+    console.log(index);
+  };
+
   return (
-    <S.Menu>
+    <S.Menu onClick={handleOnDashboardSelect} color={selectedDashboardIndex === index ? 'var(--violet_100)' : 'none'}>
       <S.MenuContainer>
         <S.Point color={dashboard.color} />
         <S.MenuItemContainerStyle>
