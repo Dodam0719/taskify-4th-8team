@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import client from '@/lib/axios';
 import * as S from '@/components/pages/login/LoginForm.style';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 const LoginForm = () => {
   const router = useRouter();
@@ -12,9 +13,12 @@ const LoginForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm({ mode: 'onBlur', defaultValues: { email: '', password: '' } });
 
-  const disabledCondition = !!errors.email || !!errors.password;
+  const watchAllFileds = watch();
+  const isAllFiledsEmpty = Object.values(watchAllFileds).some((value) => !value);
+  const disabledCondition = !!errors.email || !!errors.password || isAllFiledsEmpty;
 
   const logIn = async (data: object) => {
     try {

@@ -10,9 +10,9 @@ const MyDashBoard = () => {
       <SideMenu />
       <S.MyDashBoardWrapperStyle>
         <S.ContainerStyle>
-          <DashboardHeader isShow='none' />
-          <NoInvitedDashboard />
-          {/* <InviteDash /> */}
+          <DashboardHeader isVisible='false' />
+          {/* <NoInvitedDashboard /> */}
+          <InviteDash />
         </S.ContainerStyle>
       </S.MyDashBoardWrapperStyle>
     </S.MyDashBoardStyle>
