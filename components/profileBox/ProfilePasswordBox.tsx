@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ModalAlert from '../Modal/ModalAlert';
 import axios from 'axios';
-const ORIGIN_PASSWORD = 'qwer1234';
+const ORIGIN_PASSWORD = '12345678';
 
 const ProfilePasswordBox = () => {
   const {
@@ -23,7 +23,8 @@ const ProfilePasswordBox = () => {
     const currentPassword = getValues('password');
     const newPassword = getValues('newpassword');
     const token =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA3NiwidGVhbUlkIjoiNC04IiwiaWF0IjoxNzEzOTQ1MzY5LCJpc3MiOiJzcC10YXNraWZ5In0.E1NirRzbZ059KSFmS5amhJCUotuctQWSkYAyqV0_E8E';
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzE1MSwidGVhbUlkIjoiNC04IiwiaWF0IjoxNzE0MDE4NjE2LCJpc3MiOiJzcC10YXNraWZ5In0.wEc_QlvILAwBmsSKV38vQnSMP65mY62jMG3qqExChSM';
+
     if (currentPassword !== ORIGIN_PASSWORD) {
       setIsModalOpen(true);
     } else {
