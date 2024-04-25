@@ -1,10 +1,9 @@
 import LoginInputs from '@/components/pages/login/LoginInputs';
 import Button from '@/components/button/Button';
 import { useForm } from 'react-hook-form';
-import client from '@/lib/axios';
+import api from '@/pages/api/axios';
 import * as S from '@/components/pages/login/LoginForm.style';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 
 const LoginForm = () => {
   const router = useRouter();
@@ -22,8 +21,11 @@ const LoginForm = () => {
 
   const logIn = async (data: object) => {
     try {
-      const response = await client.post('/auth/login', data);
+      const response = await api.post('/auth/login', data);
       if (response.status === 201) {
+        const result = response.data;
+        const accessToken = result.accessToken;
+        localStorage.setItem('token', accessToken);
         router.push('/mydashboard');
       }
     } catch (error: any) {

@@ -3,7 +3,7 @@ import SignupInputs from '@/components/pages/signup/SignupInputs';
 import TermsAgreement from '@/components/pages/signup/TermsAgreement';
 import Button from '@/components/button/Button';
 import { useForm } from 'react-hook-form';
-import client from '@/lib/axios';
+import api from '@/pages/api/axios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -18,9 +18,15 @@ const SignupForm = () => {
     watch,
   } = useForm({ mode: 'onBlur', defaultValues: { email: '', nickname: '', password: '', passwordCheck: '' } });
 
+  const [isAgree, setIsAgree] = useState(false);
+  const watchAllFileds = watch();
+  const isAllFiledsEmpty = Object.values(watchAllFileds).some((value) => !value);
+  const disabledCondition =
+    !!errors.email || !!errors.nickname || !!errors.password || !!errors.passwordCheck || !isAgree || isAllFiledsEmpty;
+
   const signUp = async (data: object) => {
     try {
-      const response = await client.post('/users/', data);
+      const response = await api.post('/users/', data);
       if (response.status === 201) {
         alert('가입이 완료되었습니다.');
         const result = response.data;
@@ -32,12 +38,6 @@ const SignupForm = () => {
       alert(error.response.data.message);
     }
   };
-
-  const [isAgree, setIsAgree] = useState(false);
-  const watchAllFileds = watch();
-  const isAllFiledsEmpty = Object.values(watchAllFileds).some((value) => !value);
-  const disabledCondition =
-    !!errors.email || !!errors.nickname || !!errors.password || !!errors.passwordCheck || !isAgree || isAllFiledsEmpty;
 
   return (
     <S.Container onSubmit={handleSubmit(signUp)}>
