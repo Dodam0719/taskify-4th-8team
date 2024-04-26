@@ -12,6 +12,7 @@ import ModalInputTag from './ModalInputTag';
 import ModalInputManager from './ModalInputManager';
 import ModalTodo from './ModalTodo';
 import { ModalTool } from './ModalTools.style';
+import ModalInvite from './ModalInvite';
 
 const handleCommentClick = () => {
   console.log('Comment button clicked');
@@ -26,6 +27,10 @@ const handleConfirmClick = () => {
 };
 
 const handleNewColumnSubmit = (data: { name: string }) => {
+  // 새 컬럼 생성 로직 추가
+};
+
+const handleInviteSubmit = (data: { name: string }) => {
   // 새 컬럼 생성 로직 추가
 };
 
@@ -67,6 +72,7 @@ const Modal = () => {
       {/* {isModalOpen && (
         <ModalColumn title='새 컬럼 생성' placeholder='새로운 프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
       )} */}
+      {/* {isModalOpen && <ModalInvite title='초대하기' placeholder='' onSubmit={handleInviteSubmit} onClose={handleCloseModal} />} */}
       {/* {isModalOpen && (
         <ModalColumn
           title='컬럼 관리'
@@ -80,7 +86,7 @@ const Modal = () => {
         <ModalNewdash title='새로운 대시보드' placeholder='뉴프로젝트' onSubmit={handleNewColumnSubmit} onClose={handleCloseModal} />
       )} */}
       {/* {isModalOpen && <ModalDeleteColumn message='컬럼의 모든 카드가 삭제됩니다.' onClose={handleCloseModal} />} */}
-      {/* {isModalOpen && <ModalTodo title='할 일 생성' onSubmit={handleNewCardSubmit} onClose={handleCloseModal} />} */}
+      {/* {isModalOpen && <ModalTodo todoTitle='할 일 생성' onSubmit={handleNewCardSubmit} onClose={handleCloseModal} />} */}
       {isModalOpen && <ModalTodo todoTitle='할 일 수정' onSubmit={handleNewCardSubmit} onClose={handleCloseModal} />}
     </>
   );
