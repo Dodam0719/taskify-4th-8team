@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import * as S from './DashboardHeader.style';
 
 interface ProfileItem {
@@ -19,9 +19,9 @@ const PROFILE: ProfileItem[] = [
 ];
 interface DashboardHeaderProps {
   isVisible: string;
+  children: React.ReactNode;
 }
-
-const DashboardHeader = ({ isVisible }: DashboardHeaderProps) => {
+const DashboardHeader = ({ isVisible, children }: DashboardHeaderProps) => {
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
   const [additionalProfiles, setAdditionalProfiles] = useState<number>(0);
 
@@ -50,7 +50,7 @@ const DashboardHeader = ({ isVisible }: DashboardHeaderProps) => {
 
   return (
     <S.DashboardHeader>
-      <S.RecipientName>내 대시보드</S.RecipientName>
+      <S.RecipientName>{children}</S.RecipientName>
       <S.DashboardHeaderWrapper isvisible={isVisible}>
         <S.SettingButton>
           <img src='/assets/icon/setting_icon.svg' alt='관리 버튼이미지' />
@@ -74,7 +74,7 @@ const DashboardHeader = ({ isVisible }: DashboardHeaderProps) => {
           )}
         </S.ProfileTestWrapper>
       </S.DashboardHeaderWrapper>
-      <S.ProfileWrapper isvisible={isVisible}>
+      <S.ProfileWrapper isVisible={isVisible}>
         <S.ProfileInitials>B</S.ProfileInitials>
         <S.ProfileName>배유철</S.ProfileName>
       </S.ProfileWrapper>

@@ -10,7 +10,7 @@ const Dashboard = () => {
     <S.DashboardStyle>
       <SideMenu />
       <S.WrapperStyle>
-        <DashboardHeader isShow='show' />
+        <DashboardHeader isVisible='show' />
         <S.CardListStyle>
           <Card>To do</Card>
           <Card>On Progress</Card>

@@ -13,12 +13,14 @@ export const main = styled.main`
   padding-top: 9.4rem;
   h1 {
     margin-top: 4.82rem;
-    text-align: center;
     font-size: 7.6rem;
     font-weight: 700;
     line-height: 10rem;
     color: var(--white_100);
     letter-spacing: -2px;
+  }
+  h1 span {
+    display: inline-block;
   }
   span {
     margin-left: 2.8rem;
@@ -32,12 +34,11 @@ export const main = styled.main`
   p {
     margin-top: 2.4rem;
     font-size: 1.8rem;
+    margin-bottom: 6.6rem;
     font-weight: 400;
     color: var(--white_100);
   }
   button {
-    margin-top: 6.6rem;
-    margin-bottom: 18.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,6 +50,7 @@ export const main = styled.main`
     font-size: 1.8rem;
     font-weight: 500;
     border: none;
+    cursor: pointer;
   }
   @media ${device.tablet} {
     h1 {
@@ -80,9 +82,9 @@ export const main = styled.main`
       p {
         margin-top: 1.8rem;
         font-size: 1.2rem;
+        margin-bottom: 7rem;
       }
       button {
-        margin-top: 7rem;
         width: 23.5rem;
         padding: 1.3rem 0 1.2rem;
         font-size: 1.4rem;
@@ -114,6 +116,7 @@ export const section = styled.section`
 `;
 
 export const sectionWrapper1 = styled.div`
+  margin-top: 18.4rem;
   width: 120rem;
   height: 60rem;
   border-radius: 0.8rem;
@@ -176,6 +179,7 @@ export const sectionWrapper1 = styled.div`
   @media ${device.mobile} {
     width: 34.3rem;
     height: 68.6rem;
+    margin-top: 8rem;
     align-items: center;
     p {
       margin-top: 6rem;

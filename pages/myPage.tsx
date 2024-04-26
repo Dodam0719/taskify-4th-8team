@@ -22,7 +22,7 @@ const myPage = () => {
       <S.myPage>
         <SideMenu />
         <S.myPagemain>
-          <DashboardHeader isVisible='false' />
+          <DashboardHeader isVisible='false'>계정관리</DashboardHeader>
           <S.myPageWrapper>
             <S.myPageTitle>
               <Arrow_forward $width='2rem' $height='2rem' />

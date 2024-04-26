@@ -8,28 +8,32 @@ import axios from 'axios';
 const ProfileBox = () => {
   const [nickname, setNickname] = useState('');
   const [uploadedImage, setUploadedImage] = useState<File | null>(null);
+  const token =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzE1MCwidGVhbUlkIjoiNC04IiwiaWF0IjoxNzE0MTA5NTYyLCJpc3MiOiJzcC10YXNraWZ5In0.dE6h9qvGxT86uyyRPsOutje3j6XvhMM8gDzDLQwdxtY';
 
   const handleSave = async () => {
     try {
+      let config;
+
       if (uploadedImage || nickname) {
-        const formData = new FormData();
-        formData.append('image', uploadedImage);
-        formData.append('nickname', nickname);
-        const config = {
-          headers: {
-            'Content-Type': 'application/json',
-          },
+        const userData = {
+          profileImageUrl: uploadedImage,
+          nickname: nickname,
         };
 
-        const response = await axios.post('https://sp-taskify-api.vercel.app/4-8/users/me', formData, config);
-        console.log('이미지가 성공적으로 서버로 전송되었습니다:', response.data);
-      } else {
-        console.error('전송할 이미지가 없습니다.');
+        config = {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const response = await axios.put('https://sp-taskify-api.vercel.app/4-8/users/me', userData, config);
       }
     } catch (error) {
-      console.error('이미지를 서버로 전송하는 중에 오류가 발생했습니다:', error);
+      console.error('요청을 서버로 전송하는 중에 오류가 발생했습니다:', error);
     }
   };
+
   return (
     <S.myPageProfileBox>
       <h2>프로필</h2>

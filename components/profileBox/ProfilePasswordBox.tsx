@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ModalAlert from '../Modal/ModalAlert';
 import axios from 'axios';
-const ORIGIN_PASSWORD = '12345678';
+const ORIGIN_PASSWORD = '123456789';
 
 const ProfilePasswordBox = () => {
   const {
@@ -23,7 +23,7 @@ const ProfilePasswordBox = () => {
     const currentPassword = getValues('password');
     const newPassword = getValues('newpassword');
     const token =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzE1MSwidGVhbUlkIjoiNC04IiwiaWF0IjoxNzE0MDE4NjE2LCJpc3MiOiJzcC10YXNraWZ5In0.wEc_QlvILAwBmsSKV38vQnSMP65mY62jMG3qqExChSM';
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzE1MCwidGVhbUlkIjoiNC04IiwiaWF0IjoxNzE0MTA5NTYyLCJpc3MiOiJzcC10YXNraWZ5In0.dE6h9qvGxT86uyyRPsOutje3j6XvhMM8gDzDLQwdxtY';
 
     if (currentPassword !== ORIGIN_PASSWORD) {
       setIsModalOpen(true);
@@ -73,7 +73,7 @@ const ProfilePasswordBox = () => {
           type='password'
           placeholder='현재 비밀번호 입력'
           {...register('password', {
-            minLength: { value: 8, message: '비밀번호는 최소 8자리 이상이어야 합니다' },
+            required: true,
           })}
         />
         <Input
