@@ -3,6 +3,9 @@ import { device } from '../styles/breakpoints';
 
 export const myPage = styled.div`
   display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
 `;
 export const myPagemain = styled.div`
   width: 100%;
@@ -95,7 +98,7 @@ export const myPageProfileImgBox = styled.div`
     width: 3rem;
     height: 3rem;
   }
-  .uploaded-image {
+  .preview-image {
     width: 100%;
     height: 100%;
   }

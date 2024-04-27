@@ -1,7 +1,7 @@
 import DashboardHeader from '@/components/DashboardHeader/DashboardHeader';
 import SideMenu from '@/components/side-menu/SideMenu';
 import * as S from './mypage.style';
-import { Arrow_forward } from '@/components/Icons';
+import { Arrow_backward } from '@/components/Icons';
 import ProfileBox from '@/components/profileBox/ProfileBox';
 import ProfilePasswordBox from '@/components/profileBox/ProfilePasswordBox';
 
@@ -22,10 +22,10 @@ const myPage = () => {
       <S.myPage>
         <SideMenu />
         <S.myPagemain>
-          <DashboardHeader isVisible='false' />
+          <DashboardHeader isVisible='false'>계정관리</DashboardHeader>
           <S.myPageWrapper>
             <S.myPageTitle>
-              <Arrow_forward $width='2rem' $height='2rem' />
+              <Arrow_backward $width='2rem' $height='2rem' />
               <h1>돌아가기</h1>
             </S.myPageTitle>
             <ProfileBox />

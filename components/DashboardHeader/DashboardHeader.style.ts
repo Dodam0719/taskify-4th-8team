@@ -164,14 +164,14 @@ export const LastTestProfile = styled.div`
     height: 3.4rem;
   }
 `;
-export const ProfileWrapper = styled.div<{ isvisible?: string }>`
+export const ProfileWrapper = styled.div<{ isVisible?: string }>`
   display: flex;
   align-items: center;
   padding-left: 3.2rem;
 
   @media ${device.tablet} {
     padding-left: 2.4rem;
-    margin-left: ${({ isvisible }) => (isvisible === 'false' ? 'auto' : '')};
+    margin-left: ${({ isVisible }) => (isVisible === 'false' ? 'auto' : '')};
   }
   @media ${device.mobile} {
     padding-left: 1.2rem;

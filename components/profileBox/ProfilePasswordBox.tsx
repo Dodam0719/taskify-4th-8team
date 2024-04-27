@@ -1,9 +1,16 @@
 import * as S from '../../pages/mypage.style';
 import Input from '@/components/input/Input';
 import { inputProps } from '@/pages/myPage';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-
+import ModalAlert from '../Modal/ModalAlert';
+import axios, { AxiosError } from 'axios';
+import api from '@/pages/api/api';
+interface MyAxiosError extends AxiosError {
+  response?: {
+    status: number;
+  };
+}
 const ProfilePasswordBox = () => {
   const {
     register,
@@ -13,10 +20,43 @@ const ProfilePasswordBox = () => {
     setError,
     clearErrors,
     watch,
-  } = useForm({ mode: 'onChange', defaultValues: { password: '', passwordCheck: '' } });
+  } = useForm({ mode: 'onChange', defaultValues: { password: '', newpassword: '', passwordCheck: '' } });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const onSubmit = async () => {
+    const currentPassword = getValues('password');
+    const newPassword = getValues('newpassword');
+    if (!currentPassword) {
+      setIsModalOpen(true);
+    } else {
+      try {
+        const response = await axios.put(
+          'https://sp-taskify-api.vercel.app/4-8/auth/password',
+          {
+            password: currentPassword,
+            newPassword: newPassword,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        );
+      } catch (error: MyAxiosError) {
+        if (error.response.status === 400) {
+          setIsModalOpen(true);
+        }
+      }
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
-    if (watch('password') !== watch('passwordCheck') && watch('passwordCheck')) {
+    if (watch('newpassword') !== watch('passwordCheck') && watch('passwordCheck')) {
       setError('passwordCheck', {
         type: 'password-mismatch',
         message: '비밀번호가 일치하지 않습니다',
@@ -24,19 +64,31 @@ const ProfilePasswordBox = () => {
     } else {
       clearErrors('passwordCheck');
     }
-  }, [watch('password'), watch('passwordCheck')]);
+  }, [watch('newpassword'), watch('passwordCheck')]);
   return (
     <S.myPagePasswordBox>
       <h2>비밀번호 변경</h2>
       <S.myPageProfilePasswordInputBox>
-        <Input label='현재 비밀번호' {...inputProps} type='password' placeholder='현재 비밀번호 입력' />
         <Input
           id='password'
+          label='현재 비밀번호'
+          {...inputProps}
+          type='password'
+          placeholder='현재 비밀번호 입력'
+          {...register('password', {
+            required: true,
+          })}
+        />
+        <Input
+          id='newpassword'
           label='새 비밀번호'
           {...inputProps}
           type='password'
           placeholder='새 비밀번호 입력'
-          {...register('password', { required: { value: true, message: '비밀번호가 일치하지 않습니다.' } })}
+          {...register('newpassword', {
+            minLength: { value: 8, message: '8자 이상 입력해 주세요.' },
+          })}
+          errorMsg={errors.newpassword ? errors.newpassword.message : ''}
         />
         <Input
           id='passwordCheck'
@@ -45,16 +97,18 @@ const ProfilePasswordBox = () => {
           type='password'
           placeholder='새 비밀번호 입력'
           {...register('passwordCheck', {
-            required: { value: true, message: '비밀번호가 일치하지 않습니다.' },
-            validate: (value) => value === getValues('password') || '비밀번호가 일치하지 않습니다',
+            required: true,
+            validate: (value) => value === getValues('newpassword') || '비밀번호가 일치하지 않습니다',
           })}
           errorMsg={errors.passwordCheck ? errors.passwordCheck.message : ''}
         />
       </S.myPageProfilePasswordInputBox>
-      <S.passwordButton type='submit' isActive={isValid}>
+      <S.passwordButton type='button' onClick={handleSubmit(onSubmit)} isActive={isValid}>
         변경
       </S.passwordButton>
+      {isModalOpen && <ModalAlert message='현재 비밀번호가 틀렸습니다.' onClose={handleCloseModal}></ModalAlert>}
     </S.myPagePasswordBox>
   );
 };
+
 export default ProfilePasswordBox;

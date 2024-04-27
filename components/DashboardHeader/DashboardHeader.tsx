@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import * as S from './DashboardHeader.style';
 import Link from 'next/link';
 import ModalInvite from '../Modal/ModalInvite';
@@ -21,9 +21,9 @@ const PROFILE: ProfileItem[] = [
 ];
 interface DashboardHeaderProps {
   isVisible: string;
+  children: React.ReactNode;
 }
-
-const DashboardHeader = ({ isVisible }: DashboardHeaderProps) => {
+const DashboardHeader = ({ isVisible, children }: DashboardHeaderProps) => {
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
   const [additionalProfiles, setAdditionalProfiles] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -65,7 +65,7 @@ const DashboardHeader = ({ isVisible }: DashboardHeaderProps) => {
 
   return (
     <S.DashboardHeader>
-      <S.RecipientName>내 대시보드</S.RecipientName>
+      <S.RecipientName>{children}</S.RecipientName>
       <S.DashboardHeaderWrapper isvisible={isVisible}>
         <Link href='/dashboard/dashboardid/edit'>
           <S.SettingButton>
@@ -92,7 +92,7 @@ const DashboardHeader = ({ isVisible }: DashboardHeaderProps) => {
           )}
         </S.ProfileTestWrapper>
       </S.DashboardHeaderWrapper>
-      <S.ProfileWrapper isvisible={isVisible}>
+      <S.ProfileWrapper isVisible={isVisible}>
         <S.ProfileInitials>B</S.ProfileInitials>
         <S.ProfileName>배유철</S.ProfileName>
       </S.ProfileWrapper>

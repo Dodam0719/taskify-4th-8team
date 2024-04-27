@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../styles/breakpoints';
+import { Link } from 'react-router-dom';
 
 export const Header = styled.header`
   background-color: var(--black_000);
@@ -28,10 +29,18 @@ export const HeaderWrapper = styled.div`
 export const ImageIcon = styled.img`
   width: 2.9rem;
   height: 3.3rem;
+  @media ${device.mobile} {
+    width: 2.4rem;
+    height: 2.7ren;
+  }
 `;
 export const ImageText = styled.img`
   width: 8rem;
   height: 2.2rem;
+
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 export const StyledLink = styled.div`
   display: flex;
@@ -46,6 +55,10 @@ export const Button = styled.button`
   background-color: var(--black_000);
   font-size: 1.6rem;
   color: var(--white_100);
+  cursor: pointer;
+  @media ${device.mobile} {
+    font-size: 1.4rem;
+  }
 `;
 export const ButtonWrapper = styled.div`
   display: flex;
