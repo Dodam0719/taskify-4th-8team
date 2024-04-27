@@ -4,25 +4,26 @@ import { MenuType } from './type';
 
 interface Props {
   dashboard: Dashboard;
-  index: number;
   selectedDashboardIndex: number;
   setSelectedDashboardIndex: React.Dispatch<React.SetStateAction<number>>;
+  type: string;
+  id: number;
 }
 
-const Menu = ({ dashboard, index, selectedDashboardIndex, setSelectedDashboardIndex }: Props) => {
+const Menu = ({ dashboard, selectedDashboardIndex, setSelectedDashboardIndex, type, id }: Props) => {
   const handleOnDashboardSelect = () => {
-    setSelectedDashboardIndex(index);
-    console.log(index);
+    if (type === 'sideMenu') {
+      setSelectedDashboardIndex(id);
+    }
   };
 
   return (
-    <S.Menu onClick={handleOnDashboardSelect} color={selectedDashboardIndex === index ? 'var(--violet_100)' : 'none'}>
+    <S.Menu onClick={handleOnDashboardSelect} color={selectedDashboardIndex === id && type === 'sideMenu' ? 'var(--violet_100)' : 'none'}>
       <S.MenuContainer>
         <S.Point color={dashboard.color} />
         <S.MenuItemContainerStyle>
-          {/* 내가 만든 대시보드에만 달리게 조건 달아줘야 함 */}
           {dashboard.createdByMe && <S.CrownIcon src='/icons/Crown.svg' alt='왕관 아이콘' width={18} height={14} />}
-          <S.MenuItem>{dashboard.title}</S.MenuItem>
+          <S.MenuItem displayStyle={type === 'sideMenu' ? 'none' : 'block'}>{dashboard.title}</S.MenuItem>
         </S.MenuItemContainerStyle>
       </S.MenuContainer>
     </S.Menu>
