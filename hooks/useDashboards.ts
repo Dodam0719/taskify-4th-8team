@@ -2,10 +2,13 @@ import { useCallback, useState } from 'react';
 import { createDashboard, fetchDashboards } from '@/pages/api/dashboardsAPI';
 import axios from 'axios';
 
-export interface Dashboard {
-  id: number;
+export interface BaseDashboard {
   title: string;
   color: string;
+}
+
+export interface Dashboard extends BaseDashboard {
+  id: number;
   createdAt: string;
   updatedAt: string;
   createdByMe: boolean;

@@ -8,6 +8,7 @@ import useDashboards from '@/hooks/useDashboards';
 import { useEffect, useState } from 'react';
 import Menu from '@/components/side-menu/Menu';
 import ModalNewdash from '@/components/Modal/ModalNewdash';
+import useGetDashboards from '@/query/useGetDashboards';
 
 const INVITE_ITEM = [
   ['프로덕트 디자인', '손동희'],
@@ -24,12 +25,12 @@ const InviteDash = () => {
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
-  const { dashboards, addDashboard, loadDashboards } = useDashboards();
+  const { data, isPending, isError } = useGetDashboards();
 
-  useEffect(() => {
-    loadDashboards();
-  }, [loadDashboards]);
-  if (!dashboards) return <div></div>;
+  if (isPending) return <div>로딩중</div>;
+  if (isError) return <div>에러</div>;
+
+  const { dashboards } = data;
 
   const myDashboards = dashboards.filter((dashboard) => dashboard.createdByMe);
   const inviteDashBoards = dashboards.filter((dashboard) => !dashboard.createdByMe);
@@ -85,7 +86,7 @@ const InviteDash = () => {
           ))}
         </S.ListMobileStyle>
       </S.InviteDashListStyle>
-      {isModalOpen && <ModalNewdash dashboards={dashboards} onSubmit={addDashboard} onClose={handleCloseModal} />}
+      {isModalOpen && <ModalNewdash dashboards={dashboards} onClose={handleCloseModal} />}
     </S.InviteDashStyle>
   );
 };

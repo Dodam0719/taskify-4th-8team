@@ -11,7 +11,7 @@ const DashboardNewName = ({ children }: DashboardNewNameType) => {
     <S.DashboardNewNameStyle>
       <S.DashboardEditTitleContainerStyle>
         <p>{children}</p>
-        <ColorChips />
+        <ColorChips onColorSelect={() => {}} />
       </S.DashboardEditTitleContainerStyle>
       <S.DashboardEditStyle>
         <label>대시보드이름</label>

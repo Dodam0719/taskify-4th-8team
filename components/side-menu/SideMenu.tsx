@@ -1,12 +1,20 @@
 import * as S from './SideMenu.style';
 import Menu from './Menu';
 import { Add } from '../Icons';
-import useDashboards from '@/hooks/useDashboards';
 import { useEffect, useState } from 'react';
 import ModalNewdash from '../Modal/ModalNewdash';
+import { useResource } from '@/hooks/useResource';
+import { BaseDashboard, Dashboard } from '@/hooks/useDashboards';
+import useGetDashboards from '@/query/useGetDashboards';
 
 const COLOR = ['--green_100', '--purple_100', '--orange_100', '--blue_100', '--pink_100', '--green_100'];
 const MENU_NAME = ['비브리지', '코드잇', '3분기 계획', '회의록', '중요 문서함', '가나다라마바아'];
+
+export interface ResDashboards {
+  dashboards: Dashboard[];
+  totalCount: number;
+  cursorId: null | string;
+}
 
 const SideMenu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,11 +23,23 @@ const SideMenu = () => {
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
-  const { dashboards, addDashboard, loadDashboards } = useDashboards();
+  // const {
+  //   data: resDashBoards,
+  //   loading,
+  //   error,
+  //   fetchData,
+  //   createData,
+  // } = useResource<Dashboard, BaseDashboard, ResDashboards>('/dashboards/?navigationMethod=pagination');
+  // if (!resDashBoards) return;
+  // const dashboards = resDashBoards.dashboards;
 
-  useEffect(() => {
-    loadDashboards();
-  }, [loadDashboards]);
+  const { data, isPending, isError } = useGetDashboards();
+
+  if (isPending) return <div>로딩중</div>;
+  if (isError) return <div>데이터 패칭중 에러 발생</div>;
+
+  const { dashboards } = data;
+
   if (!dashboards) return <div></div>;
 
   const myDashboards = dashboards.filter((dashboard) => dashboard.createdByMe);
@@ -59,7 +79,7 @@ const SideMenu = () => {
           />
         ))}
       </S.ListContainer>
-      {isModalOpen && <ModalNewdash dashboards={dashboards} onSubmit={addDashboard} onClose={handleCloseModal} />}
+      {isModalOpen && <ModalNewdash dashboards={dashboards} onClose={handleCloseModal} />}
     </S.SideMenu>
   );
 };

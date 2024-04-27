@@ -5,15 +5,16 @@ import ModalBackground from './ModalBackground';
 import { useState } from 'react';
 import ColorChips, { CHIP_COLORS } from '../chips/color-chips/ColorChips';
 import { Dashboard } from '@/hooks/useDashboards';
+import useCreateMatching from '@/mutation/useCreateDashborad';
 
 interface ModalNewdashProps {
   dashboards: Dashboard[];
-  onSubmit: (data: { title: string; color: string }) => void;
   onClose: () => void;
 }
 
-const ModalNewdash: React.FC<ModalNewdashProps> = ({ dashboards, onSubmit, onClose }) => {
+const ModalNewdash: React.FC<ModalNewdashProps> = ({ dashboards, onClose }) => {
   const { register, handleSubmit, reset, setError } = useForm<{ name: string }>();
+  const mutationDashBoards = useCreateMatching();
 
   const [selectedColor, setSelectedColor] = useState(CHIP_COLORS[0]);
 
@@ -29,7 +30,7 @@ const ModalNewdash: React.FC<ModalNewdashProps> = ({ dashboards, onSubmit, onClo
         message: '중복된 대시보드 이름입니다',
       });
     } else {
-      onSubmit({ title: name, color: selectedColor });
+      mutationDashBoards.mutate({ title: name, color: selectedColor });
       reset();
       onClose();
     }
