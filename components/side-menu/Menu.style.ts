@@ -7,6 +7,9 @@ export const Menu = styled.section`
   font-size: 1.8rem;
   font-weight: 500;
   padding: 1.2rem;
+  background-color: ${({ color }) => color};
+  border-radius: 0.4rem;
+  cursor: pointer;
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
     gap: 0.4rem;
     padding: 1.2rem 0.6rem;

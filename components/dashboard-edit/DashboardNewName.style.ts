@@ -33,7 +33,7 @@ export const DashboardEditTitleContainerStyle = styled.div`
   }
 `;
 
-export const DashboardEditStyle = styled.p`
+export const DashboardEditStyle = styled.form`
   display: flex;
   flex-direction: column;
   label {

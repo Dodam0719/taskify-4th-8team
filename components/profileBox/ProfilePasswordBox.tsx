@@ -4,9 +4,13 @@ import { inputProps } from '@/pages/myPage';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ModalAlert from '../Modal/ModalAlert';
-import axios from 'axios';
-const ORIGIN_PASSWORD = '123456789';
-
+import axios, { AxiosError } from 'axios';
+import api from '@/pages/api/api';
+interface MyAxiosError extends AxiosError {
+  response?: {
+    status: number;
+  };
+}
 const ProfilePasswordBox = () => {
   const {
     register,
@@ -22,14 +26,11 @@ const ProfilePasswordBox = () => {
   const onSubmit = async () => {
     const currentPassword = getValues('password');
     const newPassword = getValues('newpassword');
-    const token =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzE1MCwidGVhbUlkIjoiNC04IiwiaWF0IjoxNzE0MTA5NTYyLCJpc3MiOiJzcC10YXNraWZ5In0.dE6h9qvGxT86uyyRPsOutje3j6XvhMM8gDzDLQwdxtY';
-
-    if (currentPassword !== ORIGIN_PASSWORD) {
+    if (!currentPassword) {
       setIsModalOpen(true);
     } else {
       try {
-        const response = await axios.post(
+        const response = await axios.put(
           'https://sp-taskify-api.vercel.app/4-8/auth/password',
           {
             password: currentPassword,
@@ -38,12 +39,14 @@ const ProfilePasswordBox = () => {
           {
             headers: {
               'Content-Type': 'application/json',
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
           }
         );
-      } catch (error) {
-        console.error('네트워크 오류:', error);
+      } catch (error: MyAxiosError) {
+        if (error.response.status === 400) {
+          setIsModalOpen(true);
+        }
       }
     }
   };

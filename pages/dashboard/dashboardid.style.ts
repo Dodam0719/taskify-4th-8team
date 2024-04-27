@@ -4,7 +4,8 @@ import styled from 'styled-components';
 export const DashboardStyle = styled.div`
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   background-color: var(--gray_100);
   @media ${device.tablet} {
     max-height: 100%;

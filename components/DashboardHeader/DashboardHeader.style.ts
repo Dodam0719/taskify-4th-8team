@@ -48,6 +48,7 @@ export const SettingButton = styled.button`
   line-height: normal;
   color: var(--gray_000);
   gap: 0.8rem;
+  cursor: pointer;
   img {
     width: 2rem;
     height: 2rem;
@@ -82,6 +83,7 @@ export const InviteButton = styled.button`
   color: var(--gray_000);
   gap: 0.8rem;
   margin-left: 1.6rem;
+  cursor: pointer;
   img {
     width: 2rem;
     height: 2rem;
