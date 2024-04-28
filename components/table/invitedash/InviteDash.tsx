@@ -11,6 +11,7 @@ import useGetDashboards from '@/query/useGetDashboards';
 import { apiCall } from '@/pages/api/api';
 import Noinvited from '../no-invited-dashboard/NoInvited';
 import Link from 'next/link';
+import { BaseDashboard } from '@/hooks/useDashboards';
 
 const INVITE_ITEM = [
   ['프로덕트 디자인', '손동희'],
@@ -20,11 +21,33 @@ const INVITE_ITEM = [
   ['유닛 C', '김태현'],
   ['유닛 D', '정혜진'],
 ];
+export interface ResInviteData {
+  cursorId: number;
+  invitations: InviteData[];
+}
+
+export interface InviteData {
+  id: number;
+  inviter: Invite;
+  teamId: string;
+  dashboard: BaseDashboard;
+  invitee: Invite;
+  inviteAccepted: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface Invite {
+  nickname: string;
+  email: string;
+  id: number;
+}
 
 const InviteDash = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDashboardIndex, setSelectedDashboardIndex] = useState(-1);
-  const [inviteData, setInviteData] = useState();
+  const [inviteData, setInviteData] = useState<ResInviteData>();
+  const [searchInput, setSearchInput] = useState('');
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
@@ -33,7 +56,7 @@ const InviteDash = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const data = await apiCall('get', 'https://sp-taskify-api.vercel.app/4-8/invitations?size=10');
+      const data: ResInviteData = await apiCall('get', 'https://sp-taskify-api.vercel.app/4-8/invitations?size=10');
       setInviteData(data);
     };
     fetch();
@@ -46,6 +69,11 @@ const InviteDash = () => {
 
   const myDashboards = dashboards.filter((dashboard) => dashboard.createdByMe);
   const inviteDashBoards = dashboards.filter((dashboard) => !dashboard.createdByMe);
+
+  // 검색 결과 필터링
+  const filteredInvitations = inviteData?.invitations.filter((item) =>
+    item.dashboard.title.toLowerCase().includes(searchInput.toLowerCase())
+  );
 
   return (
     <S.InviteDashStyle>
@@ -107,7 +135,7 @@ const InviteDash = () => {
           <S.InviteDashContainerStyle>
             <S.TitleStyle>초대받은 대시보드</S.TitleStyle>
             <S.SearchFormStyle>
-              <S.SearchInputStyle placeholder='검색' />
+              <S.SearchInputStyle placeholder='검색' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
               <Search />
             </S.SearchFormStyle>
           </S.InviteDashContainerStyle>
@@ -117,7 +145,7 @@ const InviteDash = () => {
             <S.ListHeaderItemStyle>수락 여부</S.ListHeaderItemStyle>
           </S.ListHeaderStyle>
           <S.ListStyle>
-            {inviteData?.invitations.map((item) => (
+            {filteredInvitations?.map((item) => (
               <InviteItem
                 key={item.id}
                 id={item.id}
@@ -128,7 +156,7 @@ const InviteDash = () => {
             ))}
           </S.ListStyle>
           <S.ListMobileStyle>
-            {inviteData?.invitations.map((item) => (
+            {filteredInvitations?.map((item) => (
               <InviteItemMobile
                 key={item.id}
                 id={item.id}
