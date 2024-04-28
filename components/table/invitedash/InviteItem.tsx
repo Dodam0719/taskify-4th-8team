@@ -6,7 +6,7 @@ import { apiCall } from '@/pages/api/api';
 const InviteItem = ({ name, inviter, id, setInviteData }: InviteItemType) => {
   const handleClick = async (isAccepted: boolean) => {
     try {
-      await apiCall('put', `https://sp-taskify-api.vercel.app/4-8/invitations/${id}`, {
+      await apiCall('put', `https://sp-taskify-api.vercel.app/4-8/invitations/${dashboardid}`, {
         inviteAccepted: isAccepted,
       });
       const data = await apiCall('get', 'https://sp-taskify-api.vercel.app/4-8/invitations?size=10');
