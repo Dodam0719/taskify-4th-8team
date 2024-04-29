@@ -1,8 +1,13 @@
 import { device } from '@/styles/breakpoints';
 import Image from 'next/image';
+import Link from 'next/link';
 import styled from 'styled-components';
 
-export const Menu = styled.section`
+interface MenuItemType {
+  displayStyle: string;
+}
+
+export const Menu = styled.div`
   gap: 0.6rem;
   font-size: 1.8rem;
   font-weight: 500;
@@ -46,11 +51,12 @@ export const MenuItemContainerStyle = styled.div`
   }
 `;
 
-export const MenuItem = styled.span`
+export const MenuItem = styled.span<MenuItemType>`
   color: var(--gray_000);
 
   @media ${device.mobile} {
-    display: none;
+    display: ${({ displayStyle }) => displayStyle};
+    margin-left: 1.2rem;
   }
   @media ${device.mobileMin} {
     width: 100%;
