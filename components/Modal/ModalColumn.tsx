@@ -2,22 +2,26 @@ import { useForm } from 'react-hook-form';
 import * as S from './ModalColumn.style';
 import ModalButton from './ModalButton';
 import ModalBackground from './ModalBackground';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import api from '@/pages/api/api';
+import { Column } from '../chips/type';
 
 interface ColumnFormProps {
   title: string;
   placeholder: string;
   onSubmit: (data: { name: string }) => void;
   onClose: () => void;
-  onDelete?: () => void;
+  dashboardId: string;
+  columninfo: Column;
 }
 
-const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, onClose, onDelete }) => {
+const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, onClose, dashboardId, columninfo }) => {
   const {
     register,
     handleSubmit,
     reset,
     setError,
+    getValues,
     formState: { errors },
   } = useForm<{ name: string }>();
 
@@ -38,6 +42,33 @@ const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, 
       reset();
     }
   };
+  const handlesSubmitColumn = async () => {
+    const columnTitle = getValues('name');
+    const dashboardIdAsNumber = parseInt(dashboardId);
+    if (title === '새 컬럼 생성') {
+      try {
+        const response = await api.post('/columns', {
+          title: columnTitle,
+          dashboardId: dashboardIdAsNumber,
+        });
+        // API 호출 성공 시 처리 로직 추가
+      } catch (error) {}
+    } else if (title === '컬럼 관리') {
+      try {
+        const response = await api.put(`/columns/${columninfo.id}`, {
+          title: columnTitle,
+        });
+        // API 호출 성공 시 처리 로직 추가
+      } catch (error) {}
+    }
+  };
+
+  const handlesSubmitDeleteColumn = async () => {
+    try {
+      const response = await api.delete(`/columns/${columninfo.id}`, {});
+      // API 호출 성공 시 처리 로직 추가
+    } catch (error) {}
+  };
 
   return (
     <ModalBackground onClose={onClose}>
@@ -48,13 +79,13 @@ const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, 
         {errors.name && <S.ModalColumnErrorMessage>{errors.name.message}</S.ModalColumnErrorMessage>}
         <S.ModalColumnFormButtonWrapper>
           {title === '컬럼 관리' ? (
-            <S.ModalColumnFormDeleteText onClick={onDelete}>삭제하기</S.ModalColumnFormDeleteText>
+            <S.ModalColumnFormDeleteText onClick={handlesSubmitDeleteColumn}>삭제하기</S.ModalColumnFormDeleteText>
           ) : (
             <S.PlaceholderText /> // PC에서는 공간을 유지하되 모바일에서는 렌더링하지 않음
           )}
           <S.ModalColumnFormButton>
             <ModalButton text='취소' variant='cancel' onClick={onClose} />
-            <ModalButton text='확인' variant='confirm' />
+            <ModalButton text='확인' variant='confirm' onClick={handlesSubmitColumn} />
           </S.ModalColumnFormButton>
         </S.ModalColumnFormButtonWrapper>
       </S.ModalColumnForm>

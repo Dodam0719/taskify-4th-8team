@@ -22,3 +22,18 @@ export interface NumberChipType {
 export interface ProgressChipType {
   children: string;
 }
+
+export interface Column {
+  id: number;
+  title: string;
+  teamId: string;
+  dashboardId: number;
+  createdAt: string;
+  updatedAt: string;
+  length: number;
+}
+
+export interface Columninfo {
+  result: string;
+  data: Column[];
+}

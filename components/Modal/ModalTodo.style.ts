@@ -67,23 +67,33 @@ export const ModalTodoImageTitle = styled.p`
   }
 `;
 
-export const ModalTodoImageButton = styled.button`
+export const ModalTodoImageButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 7.6rem;
   height: 7.6rem;
-  padding: 2.4rem;
   border: none;
   border-radius: 6px;
   background-color: #f5f5f5;
-  background-image: url(/icons/Add_Chip.svg);
-  background-repeat: no-repeat;
   background-size: 2.8rem;
-  background-position: center;
   cursor: pointer;
-
+  img {
+    width: 3rem;
+    height: 3rem;
+  }
+  .preview-image {
+    width: 100%;
+    height: 100%;
+  }
   @media ${device.mobileResponsive} {
     width: 5.8rem;
     height: 5.8rem;
     padding: 1.8rem;
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
   }
 `;
 

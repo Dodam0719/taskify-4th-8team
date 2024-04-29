@@ -10,6 +10,7 @@ const MyDashBoard = () => {
       <S.MyDashBoardWrapperStyle>
         <S.ContainerStyle>
           <DashboardHeader isVisible='false'>내 대시보드</DashboardHeader>
+          {/* <NoInvitedDashboard /> */}
           <InviteDash />
         </S.ContainerStyle>
       </S.MyDashBoardWrapperStyle>

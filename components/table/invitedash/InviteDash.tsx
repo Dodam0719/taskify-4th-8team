@@ -8,10 +8,12 @@ import { useEffect, useState } from 'react';
 import Menu from '@/components/side-menu/Menu';
 import ModalNewdash from '@/components/Modal/ModalNewdash';
 import useGetDashboards from '@/query/useGetDashboards';
+import { useRouter } from 'next/router';
 import { apiCall } from '@/pages/api/api';
 import Noinvited from '../no-invited-dashboard/NoInvited';
 import Link from 'next/link';
 import { BaseDashboard } from '@/hooks/useDashboards';
+
 
 const INVITE_ITEM = [
   ['프로덕트 디자인', '손동희'],
@@ -45,10 +47,16 @@ export interface Invite {
 
 const InviteDash = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
   const [selectedDashboardIndex, setSelectedDashboardIndex] = useState(-1);
   const [inviteData, setInviteData] = useState<ResInviteData>();
   const [searchInput, setSearchInput] = useState('');
 
+
+  const handleClick = (id: number) => {
+    const queryString = `${id}`;
+    router.push(`/dashboard/${queryString}`);
+  };
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
@@ -83,23 +91,20 @@ const InviteDash = () => {
           <PlusChip />
         </Button>
         {myDashboards.map((dashboard) => (
-          <Link href={`/dashboard/${dashboard.id}`} key={dashboard.id}>
-            <Button variant='dashboard' $width='33.2rem' $height='7rem'>
-              <div>
-                <S.ButtonColorPointStyle color={dashboard.color} />
-                <Menu
-                  id={dashboard.id}
+        <Link href={`/dashboard/${dashboard.id}`} key={dashboard.id}>
+          <Button onClick={() => handleClick(dashboard.id)} variant='dashboard' $width='33.2rem' $height='7rem'>
+            <div>
+              <S.ButtonColorPointStyle color={dashboard.color} />
+              <Menu  id={dashboard.id}
                   dashboard={dashboard}
                   selectedDashboardIndex={selectedDashboardIndex}
                   setSelectedDashboardIndex={(index) => {
                     setSelectedDashboardIndex(index);
                   }}
-                  type='button'
-                />
-              </div>
-              <Arrow_forward $width='1.8rem' $height='1.8rem' />
-            </Button>
-          </Link>
+                  type='button' />
+            </div>
+            <Arrow_forward $width='1.8rem' $height='1.8rem' />
+          </Button>
         ))}
         {inviteDashBoards.map((dashboard) => (
           <Link href={`/dashboard/${dashboard.id}`} key={dashboard.id}>
