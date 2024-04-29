@@ -8,6 +8,8 @@ import { dummyCards } from '../api/dummyCard';
 import { CardType } from '../api/dummyCardDataType';
 import { useState } from 'react';
 import ModalColumn from '@/components/Modal/ModalColumn';
+import { useParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 const columnIdToTitleMap: { [key: string]: string } = {
   '0': 'To do',
@@ -18,6 +20,10 @@ const columnIdToTitleMap: { [key: string]: string } = {
 const cardLists: { [key: string]: CardType[] } = {};
 
 const Dashboard = () => {
+  const router = useRouter();
+  const { dashboardId } = router.query;
+  console.log(dashboardId);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleNewColumnModal = () => {
@@ -40,7 +46,7 @@ const Dashboard = () => {
     <S.DashboardStyle>
       <SideMenu />
       <S.WrapperStyle>
-        <DashboardHeader isVisible='true' />
+        <DashboardHeader isVisible='true' children='' />
         <S.CardListStyle>
           {Object.entries(cardLists).map(([columnId, cardList]) => (
             <Card key={columnId} cardList={cardList}>

@@ -4,13 +4,19 @@ import * as S from './edit.style';
 import DashboardNewName from '@/components/dashboard-edit/DashboardNewName';
 import { Arrow_forward } from '@/components/Icons';
 import Table from '@/components/table/Table';
+import { useParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 const DashboardEdit = () => {
+  const router = useRouter();
+  const { dashboardId } = router.query;
+  console.log(dashboardId);
+
   return (
     <S.DashboardEditStyle>
       <SideMenu />
       <S.DashboardWrapperStyle>
-        <DashboardHeader isShow='show' />
+        <DashboardHeader isVisible='true' children='' />
         <S.DashboardMainStyle>
           <S.DashboardBackStyle>
             <Arrow_forward $width='2rem' $height='2rem' />

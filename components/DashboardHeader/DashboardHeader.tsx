@@ -2,6 +2,8 @@ import { ReactNode, useEffect, useState } from 'react';
 import * as S from './DashboardHeader.style';
 import Link from 'next/link';
 import ModalInvite from '../Modal/ModalInvite';
+import { useParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 interface ProfileItem {
   color: string;
@@ -24,6 +26,10 @@ interface DashboardHeaderProps {
   children: React.ReactNode;
 }
 const DashboardHeader = ({ isVisible, children }: DashboardHeaderProps) => {
+  const router = useRouter();
+  const { dashboardId } = router.query;
+  console.log(dashboardId);
+
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
   const [additionalProfiles, setAdditionalProfiles] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -67,13 +73,13 @@ const DashboardHeader = ({ isVisible, children }: DashboardHeaderProps) => {
     <S.DashboardHeader>
       <S.RecipientName>{children}</S.RecipientName>
       <S.DashboardHeaderWrapper isvisible={isVisible}>
-        <Link href='/dashboard/dashboardid/edit'>
+        <Link href={`/dashboard/${dashboardId}/edit`}>
           <S.SettingButton>
             <img src='/assets/icon/setting_icon.svg' alt='관리 버튼이미지' />
             관리
           </S.SettingButton>
         </Link>
-        {isModalOpen && <ModalInvite title='초대하기' placeholder='' onSubmit={handleInviteSubmit} onClose={handleCloseModal} />}
+        {isModalOpen && <ModalInvite title='초대하기' placeholder='' onClose={handleCloseModal} />}
         <S.InviteButton onClick={handleInviteModal}>
           <img src='/assets/icon/invite_icon.svg' alt='초대 버튼이미지' />
           초대하기
