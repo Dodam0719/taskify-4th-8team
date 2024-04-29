@@ -3,10 +3,10 @@ import { InviteItemType } from '../type';
 import * as S from './InviteItem.style';
 import { apiCall } from '@/pages/api/api';
 
-const InviteItem = ({ name, inviter, id, setInviteData }: InviteItemType) => {
+const InviteItem = ({ name, inviter, setInviteData, id }: InviteItemType) => {
   const handleClick = async (isAccepted: boolean) => {
     try {
-      await apiCall('put', `https://sp-taskify-api.vercel.app/4-8/invitations/${dashboardid}`, {
+      await apiCall('put', `https://sp-taskify-api.vercel.app/4-8/invitations/${id}`, {
         inviteAccepted: isAccepted,
       });
       const data = await apiCall('get', 'https://sp-taskify-api.vercel.app/4-8/invitations?size=10');
