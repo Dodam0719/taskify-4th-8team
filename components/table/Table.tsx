@@ -54,7 +54,7 @@ const Table = ({ title, userList }: TableType) => {
 
   const cancelInvite = async (dashboardId: number = 7073, invitationId: number) => {
     try {
-      const response = await api.delete(`dashboard/${dashboardId}/invitations/${invitationId}`);
+      const response = await api.delete(`dashboards/${dashboardId}/invitations/${invitationId}`);
       if (response.status === 204) {
         console.log('초대가 취소되었습니다.');
         getInviteInfo();
