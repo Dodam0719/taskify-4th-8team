@@ -8,6 +8,7 @@ export interface InviteItemType {
 export interface TableType {
   title: string;
   userList: string;
+  dashboardId: number;
 }
 
 export interface MemberInfo {

@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { device } from '@/styles/breakpoints';
 
-interface ModalInputProps {
-  dateSelected: boolean;
-}
-
 export const ModalInputDeadlineWrapper = styled.div`
   min-width: 45rem;
   height: 7.9rem;
@@ -29,7 +25,7 @@ export const ModalInputTitleLabel = styled.label`
   }
 `;
 
-export const ModalInputTitleInput = styled.input<ModalInputProps>`
+export const ModalInputTitleInput = styled.input<any>`
   width: 100%;
   height: 4.8rem;
   padding: 1.4rem 1.6rem 1.4rem 4.6rem;
@@ -39,7 +35,7 @@ export const ModalInputTitleInput = styled.input<ModalInputProps>`
   outline: none;
   font-size: 1.6rem;
 
-  background-image: url(${(props) => (props.dateSelected ? '/assets/icon/calendar-today-icon-fill.svg' : '/icons/Calendar.svg')});
+  background-image: url(${(props) => (props.dateselected ? '/assets/icon/calendar-today-icon-fill.svg' : '/icons/Calendar.svg')});
   background-size: 1.8rem;
   background-repeat: no-repeat;
   background-position: left 1.6rem center;

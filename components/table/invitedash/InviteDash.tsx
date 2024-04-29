@@ -103,7 +103,6 @@ const InviteDash = () => {
                   type='button'
                 />
               </div>
-
               <Arrow_forward $width='1.8rem' $height='1.8rem' />
             </Button>
           </Link>

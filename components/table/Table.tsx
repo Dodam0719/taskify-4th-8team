@@ -45,7 +45,7 @@ const Table = ({ title, userList, dashboardId }: TableType) => {
       const response = await api.delete(`members/${memberId}`);
       if (response.status === 204) {
         console.log('멤버가 삭제되었습니다.');
-        getMemberInfo(dashboardId, page, size);
+        getMemberInfo(dashboardId);
       }
     } catch (error: any) {
       console.log(error.response.data.message);
@@ -57,12 +57,18 @@ const Table = ({ title, userList, dashboardId }: TableType) => {
       const response = await api.delete(`dashboards/${dashboardId}/invitations/${invitationId}`);
       if (response.status === 204) {
         console.log('초대가 취소되었습니다.');
-        getInviteInfo();
+        getInviteInfo(dashboardId);
       }
     } catch (error: any) {
       console.log(error.response.data.message);
     }
   };
+
+  // const memberList: string[] = memberInfo.members.map((members) => members.nickname);
+  // const initialList: string[] = memberList.map((nickname: string) => nickname.charAt(0));
+  // const memberIdList: number[] = memberInfo.members.map((members) => members.userId);
+  // const isOwnerList: boolean[] = memberInfo.members.map((members) => members.isOwner);
+  // const invitedEmailList: string[] = inviteInfo.invitations.map((invitations) => invitations.invitee.email);
 
   const getRandomColor = () => {
     const randomIndex = Math.floor(Math.random() * USER_PROFILE_COLOR.length);
@@ -71,8 +77,8 @@ const Table = ({ title, userList, dashboardId }: TableType) => {
   };
 
   useEffect(() => {
-    getMemberInfo();
-    getInviteInfo();
+    getMemberInfo(dashboardId);
+    getInviteInfo(dashboardId);
   }, []);
 
   return (

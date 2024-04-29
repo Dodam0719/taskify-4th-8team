@@ -11,8 +11,8 @@ interface ColumnFormProps {
   placeholder: string;
   onSubmit: (data: { name: string }) => void;
   onClose: () => void;
-  dashboardId: string;
-  columninfo: Column;
+  dashboardId: any;
+  columninfo?: any;
 }
 
 const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, onClose, dashboardId, columninfo }) => {
@@ -25,8 +25,8 @@ const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, 
     formState: { errors },
   } = useForm<{ name: string }>();
 
-  const [columnNames, setColumnNames] = useState<string[]>(['기존 컬럼1', '기존 컬럼2']); // 예시로 기존 컬럼 이름들
-
+  const [columnNames, setColumnNames] = useState<string[]>(['']);
+  console.log(columnNames);
   const submitForm = (data: { name: string }) => {
     // '새 컬럼 생성'일 때만 중복 이름 체크 수행
     if (title === '새 컬럼 생성' && columnNames.includes(data.name)) {
@@ -42,6 +42,7 @@ const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, 
       reset();
     }
   };
+
   const handlesSubmitColumn = async () => {
     const columnTitle = getValues('name');
     const dashboardIdAsNumber = parseInt(dashboardId);
@@ -51,14 +52,13 @@ const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, 
           title: columnTitle,
           dashboardId: dashboardIdAsNumber,
         });
-        // API 호출 성공 시 처리 로직 추가
+        setColumnNames((prev) => [...prev, columnTitle]);
       } catch (error) {}
     } else if (title === '컬럼 관리') {
       try {
         const response = await api.put(`/columns/${columninfo.id}`, {
           title: columnTitle,
         });
-        // API 호출 성공 시 처리 로직 추가
       } catch (error) {}
     }
   };
@@ -66,7 +66,7 @@ const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, 
   const handlesSubmitDeleteColumn = async () => {
     try {
       const response = await api.delete(`/columns/${columninfo.id}`, {});
-      // API 호출 성공 시 처리 로직 추가
+      setColumnNames((prev) => prev.filter((name) => name !== columninfo.title));
     } catch (error) {}
   };
 

@@ -32,7 +32,12 @@ const ModalInputTitle: React.FC<ModalInputTitleProps> = ({ onTitleChange, onDesc
         {title}
         <S.ModalInputTitleLabelStar> *</S.ModalInputTitleLabelStar>
       </S.ModalInputTitleLabel>
-      <InputOrTextarea {...register('title')} placeholder={`${title}을 입력해 주세요`} customHeight={height} onChange={handleInputChange} />
+      <InputOrTextarea
+        {...register('title')}
+        placeholder={`${title}을 입력해 주세요`}
+        $customHeight={height}
+        onChange={handleInputChange}
+      />
     </S.ModalInputTitleWrapper>
   );
 };

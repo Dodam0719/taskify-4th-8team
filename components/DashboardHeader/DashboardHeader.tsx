@@ -4,12 +4,12 @@ import Link from 'next/link';
 import ModalInvite from '../Modal/ModalInvite';
 import api from '@/pages/api/api';
 import randomColor from 'randomcolor';
-import { MembersInfo } from '@/components/card/type';
+import { MembersInfo } from '../card/type';
 
 interface DashboardHeaderProps {
   isVisible: string;
   children?: React.ReactNode;
-  dashboardId: string;
+  dashboardId?: any;
 }
 interface dashboardInfo {
   id: number;
@@ -34,7 +34,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
   const [additionalProfiles, setAdditionalProfiles] = useState<number | null>();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [dashboardInfo, setDashboardInfo] = useState<dashboardInfo>({});
+  const [dashboardInfo, setDashboardInfo] = useState<any>({});
   const [member, setMember] = useState<MembersInfo>({ members: [], totalCount: 0 });
   const [profileInfo, setProfileInfo] = useState<profileInfo>({
     id: '',
@@ -142,7 +142,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
   return (
     <S.DashboardHeader>
       <S.RecipientName>{dashboardInfo.title || children}</S.RecipientName>
-      <S.DashboardHeaderWrapper isvisible={isVisible}>
+      <S.DashboardHeaderWrapper $isvisible={isVisible}>
         <Link href={`/dashboard/${dashboardId}/edit`}>
           <S.SettingButton>
             <img src='/assets/icon/setting_icon.svg' alt='관리 버튼이미지' />
@@ -158,7 +158,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
         </S.InviteButton>
         <S.ProfileTestWrapper>
           {member.members.slice(0, 4).map((item: any, index: any) => (
-            <S.TestProfile key={index} className={`profile-item-${index}`} color={color}>
+            <S.TestProfile key={index} className={`profile-item-${index}`}>
               {item.nickname.charAt(0)}
             </S.TestProfile>
           ))}
@@ -170,8 +170,8 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
           )}
         </S.ProfileTestWrapper>
       </S.DashboardHeaderWrapper>
-      <S.ProfileWrapper isVisible={isVisible}>
-        <S.ProfileInitials color={color}>{profileInfo.nickname.charAt(0)}</S.ProfileInitials>
+      <S.ProfileWrapper $isvisible={isVisible}>
+        <S.ProfileInitials>{profileInfo.nickname.charAt(0)}</S.ProfileInitials>
         <S.ProfileName>{profileInfo.nickname}</S.ProfileName>
       </S.ProfileWrapper>
     </S.DashboardHeader>

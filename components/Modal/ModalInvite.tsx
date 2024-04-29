@@ -10,9 +10,10 @@ interface InviteFormProps {
   onSubmit: (data: { name: string }) => void;
   onClose: () => void;
   onDelete?: () => void;
+  dashboardId: any;
 }
 
-const ModalInvite: React.FC<InviteFormProps> = ({ title, onClose }) => {
+const ModalInvite: React.FC<InviteFormProps> = ({ dashboardId, title, onClose }) => {
   const {
     register,
     handleSubmit,
@@ -21,9 +22,9 @@ const ModalInvite: React.FC<InviteFormProps> = ({ title, onClose }) => {
     formState: { errors },
   } = useForm({ mode: 'onBlur', defaultValues: { email: '' } });
 
-  const Invite = async (data: { dashboardId: number; email: string }) => {
+  const Invite = async (data: any) => {
     try {
-      const response = await api.post(`/dashboards/${dashboardid}/invitations`, data);
+      const response = await api.post(`/dashboards/${dashboardId}/invitations`, data);
       if (response.status === 201) {
         console.log('가입이 완료됐습니다.');
         const result = response.data;

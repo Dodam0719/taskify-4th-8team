@@ -7,34 +7,30 @@ import ModalInputManager from './ModalInputManager';
 import ModalInputDeadline from './ModalInputDeadline';
 import ModalInputTag from './ModalInputTag';
 import { useState } from 'react';
-import { Member } from '../card/type';
 import api from '@/pages/api/api';
-import { Column } from '../chips/type';
+import { Column, Columninfo } from '../chips/type';
 import axios from 'axios';
 import styled from 'styled-components';
 const UploadInput = styled.input.attrs({ type: 'file', accept: 'image/*' })`
   display: none;
 `;
 interface ModalTodoProps {
-  todoTitle?: string;
-  onSubmit?: (data: { name: string }) => void;
-  onClose?: () => void;
-  dashboardId?: string;
-  columninfo?: Column;
+  todoTitle: string;
+  onSubmit: (data: { name: string }) => void;
+  onClose: () => void;
+  dashboardId: string;
+  columninfo: Column;
 }
-interface TagType {
-  id: string;
-  text: string;
-  color: string;
-}
+
 const ModalTodo: React.FC<ModalTodoProps> = ({ onClose, todoTitle, dashboardId, columninfo }) => {
-  const [selectedMember, setSelectedMember] = useState('');
+  const [selectedMember, setSelectedMember] = useState<any>('');
   const [deadline, setDeadLine] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [tags, setTags] = useState<TagType[]>(['']);
+  const [tags, setTags] = useState<string[]>([]);
   const [image, setImage] = useState<string | null>('');
-  const handleSelectedMemberChange = (selectedMember: Member | null) => {
+
+  const handleSelectedMemberChange = (selectedMember: any) => {
     setSelectedMember(selectedMember);
   };
   const handleDeadlineChange = (data: string) => {
@@ -46,14 +42,14 @@ const ModalTodo: React.FC<ModalTodoProps> = ({ onClose, todoTitle, dashboardId, 
   const handleDescriptionChange = (data: string) => {
     setDescription(data);
   };
-  const handleTagnChange = (data: TagType[]) => {
-    setTags(data);
+  const handleTagnChange = (title: string[]) => {
+    setTags(title);
   };
   const handlesSubmitColumn = async () => {
     const assigneeUserId = selectedMember.userId;
     const dashboardIdAsNumber = parseInt(dashboardId);
     try {
-      const requestBody = {
+      const requestBody: any = {
         assigneeUserId: assigneeUserId,
         dashboardId: dashboardIdAsNumber,
         columnId: columninfo.id,
@@ -62,8 +58,6 @@ const ModalTodo: React.FC<ModalTodoProps> = ({ onClose, todoTitle, dashboardId, 
         dueDate: deadline,
         tags: tags,
       };
-
-      // 이미지가 존재하는 경우에만 imageUrl 속성을 추가
       if (image) {
         requestBody.imageUrl = image;
       }
@@ -100,7 +94,7 @@ const ModalTodo: React.FC<ModalTodoProps> = ({ onClose, todoTitle, dashboardId, 
       <S.ModalTodoWrapper>
         <S.ModalTodoTitle>{todoTitle}</S.ModalTodoTitle>
         <S.StatusAndManagerWrapper>
-          {todoTitle === '할 일 수정' && <ModalInputProgress />}
+          {todoTitle === '할 일 수정' && <ModalInputProgress columninfo={columninfo} dashboardId={dashboardId} />}
           <ModalInputManager onSelectedMemberChange={handleSelectedMemberChange} dashboardId={dashboardId} />
         </S.StatusAndManagerWrapper>
         <ModalInputTitle onTitleChange={handleTitleChange} title='제목' />

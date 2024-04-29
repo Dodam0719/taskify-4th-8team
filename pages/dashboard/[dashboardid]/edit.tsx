@@ -11,6 +11,7 @@ const DashboardEdit = () => {
   const { dashboardid } = router.query;
   const dashboardId = typeof dashboardid === 'string' ? parseInt(dashboardid) : undefined;
   console.log(dashboardid);
+
   return (
     <S.DashboardEditStyle>
       <SideMenu />
@@ -22,7 +23,7 @@ const DashboardEdit = () => {
             <p>돌아가기</p>
           </S.DashboardBackStyle>
           <S.DashboardBoardListStyle>
-            <DashboardNewName>비브리지</DashboardNewName>
+            {dashboardId && <DashboardNewName dashboardId={dashboardId} children='대시보드 수정' />}
             {dashboardId && <Table title='구성원' userList='이름' dashboardId={dashboardId} />}
             {dashboardId && <Table title='초대 내역' userList='이메일' dashboardId={dashboardId} />}
           </S.DashboardBoardListStyle>
