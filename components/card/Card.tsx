@@ -63,7 +63,7 @@ const Card: React.FC<CardProps> = ({ dashboardId, columninfo, onCountChange }) =
           onClose={handleCloseModal}
         />
       )}
-      <Button variant='addTodo' onClick={handleTodoModal} $width='100%' $height='4rem'>
+      <Button variant='addTodo' onClick={handleTodoModal} $width='31.4rem' $height='4rem'>
         <PlusChip />
       </Button>
       {isTaskModalOpen && (
@@ -71,7 +71,7 @@ const Card: React.FC<CardProps> = ({ dashboardId, columninfo, onCountChange }) =
       )}
       {cardsInfo.cards.map((card) => (
         <S.CardStyle key={card.id} onClick={() => handleTaskModal(card.id)}>
-          {card.imageUrl !== null && <Image src={card.imageUrl} alt='카드 이미지' width={272} height={160} priority={false} />}
+          {card.imageUrl !== null && <S.CardImageStyle src={card.imageUrl} alt='카드 이미지' width={272} height={160} priority={false} />}
           <S.InfoContainerStyle>
             <S.CardItemTitleStyle>{card.title}</S.CardItemTitleStyle>
             <S.ContainerStyle>

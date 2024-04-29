@@ -47,6 +47,7 @@ export interface Invite {
 const InviteDash = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
+  const { dashboardid } = router.query;
   const [selectedDashboardIndex, setSelectedDashboardIndex] = useState(-1);
   const [inviteData, setInviteData] = useState<ResInviteData>();
   const [searchInput, setSearchInput] = useState('');
@@ -101,6 +102,7 @@ const InviteDash = () => {
                     setSelectedDashboardIndex(index);
                   }}
                   type='button'
+                  dashboardId={dashboardid}
                 />
               </div>
               <Arrow_forward $width='1.8rem' $height='1.8rem' />
