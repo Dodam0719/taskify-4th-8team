@@ -1,5 +1,5 @@
 import { device } from '@/styles/breakpoints';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Add = styled.div<{ $width: string; $height: string }>`
   background: url('/icons/Add.svg') no-repeat;

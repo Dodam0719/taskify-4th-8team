@@ -1,26 +1,24 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as S from './DashboardHeader.style';
 import Link from 'next/link';
 import ModalInvite from '../Modal/ModalInvite';
 import api from '@/pages/api/api';
-import randomColor from 'randomcolor';
-import { MembersInfo } from '../card/type';
+import { Member, MembersInfo } from '../card/type';
 
 interface DashboardHeaderProps {
   isVisible: string;
   children?: React.ReactNode;
-  dashboardId?: any;
+  dashboardId?: number;
 }
-interface dashboardInfo {
+interface DashboardInfo {
   id: number;
   title: string;
   color: string;
-  createdAt?: string;
-  updatedAt?: string;
-  userId?: number;
-  createdByMe?: boolean;
+  createdAt: string;
+  updatedAt: string;
+  userId: number;
+  createdByMe: boolean;
 }
-
 interface profileInfo {
   id?: string;
   email: string;
@@ -34,7 +32,15 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
   const [additionalProfiles, setAdditionalProfiles] = useState<number | null>();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [dashboardInfo, setDashboardInfo] = useState<any>({});
+  const [dashboardInfo, setDashboardInfo] = useState<DashboardInfo>({
+    id: 0,
+    title: '',
+    color: '',
+    createdAt: '',
+    updatedAt: '',
+    userId: 0,
+    createdByMe: true,
+  });
   const [member, setMember] = useState<MembersInfo>({ members: [], totalCount: 0 });
   const [profileInfo, setProfileInfo] = useState<profileInfo>({
     id: '',
@@ -44,11 +50,6 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
     createdAt: '',
     updatedAt: '',
   });
-  const [color, setColor] = useState<string>();
-
-  useEffect(() => {
-    setColor(randomColor());
-  }, []);
 
   useEffect(() => {
     const fetchDashboardInfo = async () => {
@@ -136,9 +137,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
     setIsModalOpen(false);
   };
 
-  const handleInviteSubmit = (data: { name: string }) => {
-    // 새 컬럼 생성 로직 추가
-  };
+  const handleInviteSubmit = () => {};
   return (
     <S.DashboardHeader>
       <S.RecipientName>{dashboardInfo.title || children}</S.RecipientName>
@@ -157,7 +156,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
           초대하기
         </S.InviteButton>
         <S.ProfileTestWrapper>
-          {member.members.slice(0, 4).map((item: any, index: any) => (
+          {member.members.slice(0, 4).map((item: Member, index: number) => (
             <S.TestProfile key={index} className={`profile-item-${index}`}>
               {item.nickname.charAt(0)}
             </S.TestProfile>

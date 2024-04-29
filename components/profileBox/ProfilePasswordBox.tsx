@@ -98,7 +98,7 @@ const ProfilePasswordBox = () => {
           errorMsg={errors.passwordCheck ? errors.passwordCheck.message : ''}
         />
       </S.myPageProfilePasswordInputBox>
-      <S.passwordButton type='button' onClick={handleSubmit(onSubmit)} $isactive={isValid}>
+      <S.passwordButton type='button' onClick={handleSubmit(onSubmit)} isactive={isValid}>
         변경
       </S.passwordButton>
       {isModalOpen && <ModalAlert message='현재 비밀번호가 틀렸습니다.' onClose={handleCloseModal}></ModalAlert>}

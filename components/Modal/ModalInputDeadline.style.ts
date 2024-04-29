@@ -25,7 +25,7 @@ export const ModalInputTitleLabel = styled.label`
   }
 `;
 
-export const ModalInputTitleInput = styled.input<any>`
+export const ModalInputTitleInput = styled.input<{ dateselected?: boolean }>`
   width: 100%;
   height: 4.8rem;
   padding: 1.4rem 1.6rem 1.4rem 4.6rem;

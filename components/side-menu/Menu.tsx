@@ -8,9 +8,10 @@ interface Props {
   setSelectedDashboardIndex: React.Dispatch<React.SetStateAction<number>>;
   type: string;
   id?: any;
+  dashboardid?: any;
 }
 
-const Menu = ({ dashboard, selectedDashboardIndex, setSelectedDashboardIndex, type, id }: Props) => {
+const Menu = ({ dashboardid, dashboard, selectedDashboardIndex, setSelectedDashboardIndex, type, id }: Props) => {
   const router = useRouter();
   const handleClick = (id: number) => {
     const queryString = `${id}`;

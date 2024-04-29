@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import * as S from './ModalColumn.style';
 import ModalButton from './ModalButton';
 import ModalBackground from './ModalBackground';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import api from '@/pages/api/api';
 import { Column } from '../chips/type';
 
@@ -11,8 +11,8 @@ interface ColumnFormProps {
   placeholder: string;
   onSubmit: (data: { name: string }) => void;
   onClose: () => void;
-  dashboardId: any;
-  columninfo?: any;
+  dashboardId?: number;
+  columninfo: Column;
 }
 
 const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, onClose, dashboardId, columninfo }) => {
@@ -45,29 +45,35 @@ const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, 
 
   const handlesSubmitColumn = async () => {
     const columnTitle = getValues('name');
-    const dashboardIdAsNumber = parseInt(dashboardId);
+    const dashboardIdAsNumber = dashboardId;
     if (title === '새 컬럼 생성') {
       try {
-        const response = await api.post('/columns', {
+        await api.post('/columns', {
           title: columnTitle,
           dashboardId: dashboardIdAsNumber,
         });
         setColumnNames((prev) => [...prev, columnTitle]);
-      } catch (error) {}
+      } catch (error) {
+        console.error(error);
+      }
     } else if (title === '컬럼 관리') {
       try {
-        const response = await api.put(`/columns/${columninfo.id}`, {
+        await api.put(`/columns/${columninfo.id}`, {
           title: columnTitle,
         });
-      } catch (error) {}
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
   const handlesSubmitDeleteColumn = async () => {
     try {
-      const response = await api.delete(`/columns/${columninfo.id}`, {});
+      await api.delete(`/columns/${columninfo.id}`, {});
       setColumnNames((prev) => prev.filter((name) => name !== columninfo.title));
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

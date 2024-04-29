@@ -1,12 +1,10 @@
 import Head from 'next/head';
-import { Inter } from 'next/font/google';
 import '../styles/GlobalStyle';
 import '../styles/FontStyle';
 import CustomFooter from '../components/Footer/Footer';
 import CustomHeader from '../components/Header/Header';
 import * as S from './index.style';
 import Link from 'next/link';
-const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (

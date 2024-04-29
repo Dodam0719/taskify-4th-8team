@@ -122,7 +122,7 @@ const FontStyle = createGlobalStyle`
   .font-14-medium {
     font-family: "Pretendard";
     font-size: 1.4rem;
-ard    font-style: normal;
+    font-style: normal;
     font-weight: 500;
     line-height: normal;
   }

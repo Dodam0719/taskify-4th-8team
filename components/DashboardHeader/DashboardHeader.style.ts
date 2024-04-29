@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import randomColor from 'randomcolor';
 import { device } from '../../styles/breakpoints';
 export const DashboardHeader = styled.nav`
   width: 100%;
@@ -26,7 +25,7 @@ export const RecipientName = styled.h1`
   }
 `;
 
-export const DashboardHeaderWrapper = styled.div<{ $isvisible?: any }>`
+export const DashboardHeaderWrapper = styled.div<{ $isvisible?: string }>`
   display: ${({ $isvisible }) => ($isvisible === 'true' ? 'flex' : 'none')};
   align-items: center;
 
@@ -175,7 +174,7 @@ export const LastTestProfile = styled.div`
     height: 3.4rem;
   }
 `;
-export const ProfileWrapper = styled.div<{ $isvisible?: any }>`
+export const ProfileWrapper = styled.div<{ $isvisible?: string }>`
   display: flex;
   align-items: center;
   padding-left: 3.2rem;

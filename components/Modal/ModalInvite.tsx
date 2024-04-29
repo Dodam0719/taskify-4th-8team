@@ -17,8 +17,7 @@ const ModalInvite: React.FC<InviteFormProps> = ({ dashboardId, title, onClose })
   const {
     register,
     handleSubmit,
-    reset,
-    setError,
+\
     formState: { errors },
   } = useForm({ mode: 'onBlur', defaultValues: { email: '' } });
 
