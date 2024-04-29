@@ -150,8 +150,7 @@ export const BUTTON_COMPONENTS = {
     justify-content: center;
     gap: 1.2rem;
     margin: 6.8rem 2rem 2rem 2rem;
-    max-width: ${({ $width }) => $width};
-    min-width: auto;
+    min-width: ${({ $width }) => $width};
     height: ${({ $height }) => $height};
     border-radius: 0.8rem;
     border: 0.1rem solid var(--gray_060);
@@ -184,7 +183,6 @@ export const BUTTON_COMPONENTS = {
     align-items: center;
     justify-content: center;
     width: ${({ $width }) => $width};
-    max-width: auto;
     height: ${({ $height }) => $height};
     border-radius: 0.6rem;
     border: 0.1rem solid var(--gray_060);
