@@ -119,11 +119,21 @@ export const ProfileTestWrapper = styled.div`
     padding-right: 2.2rem;
   }
 `;
+const getRandomColor = () => {
+  // 16진수 색상코드를 생성
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
 export const TestProfile = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: (${({ color }) => color});
+  background-color: ${getRandomColor};
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 5rem;
@@ -182,7 +192,8 @@ export const ProfileInitials = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ color }) => color};
+  background-color: ${getRandomColor};
+  width: 3.8rem;
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 5rem;

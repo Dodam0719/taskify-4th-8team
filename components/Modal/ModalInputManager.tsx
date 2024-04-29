@@ -5,13 +5,13 @@ import useMembers, { Member } from '@/hooks/useMembers';
 import api from '@/pages/api/api';
 
 interface ModalInputManagerProp {
-  onSelectedMemberChange: (selectedMember: Member | null) => void;
+  onSelectedMemberChange: (selectedMember: any) => void;
   dashboardId: string;
 }
 const ModalInputManager = ({ onSelectedMemberChange, dashboardId }: ModalInputManagerProp) => {
   const { members, loading, error } = useMembers();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedMember, setSelectedMember] = useState<Member | null>(null);
+  const [selectedMember, setSelectedMember] = useState<any>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [inputFocused, setInputFocused] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -79,16 +79,19 @@ const ModalInputManager = ({ onSelectedMemberChange, dashboardId }: ModalInputMa
       <S.ModalInputManagerTitle>담당자</S.ModalInputManagerTitle>
       <S.DropdownContainer onClick={toggleDropdown} $isopen={isOpen}>
         <S.DropdownHeader>
-          {selectedMember && (
-            <Image
-              className='profile-image'
-              src={selectedMember.profileImageUrl}
-              alt='프로필 이미지'
-              width={26}
-              height={26}
-              style={{ marginRight: '0.8rem', borderRadius: '100%' }}
-            />
-          )}
+          {selectedMember &&
+            (selectedMember.profileImageUrl ? (
+              <Image
+                className='profile-image'
+                src={selectedMember.profileImageUrl}
+                alt='프로필 이미지'
+                width={26}
+                height={26}
+                style={{ marginRight: '0.8rem', borderRadius: '100%' }}
+              />
+            ) : (
+              <S.selectedMemberInitials>{selectedMember.nickname.charAt(0)}</S.selectedMemberInitials>
+            ))}
           <S.DropdownInput
             type='text'
             value={searchTerm}
@@ -107,7 +110,11 @@ const ModalInputManager = ({ onSelectedMemberChange, dashboardId }: ModalInputMa
                     <Image src='/assets/icon/check_fill.svg' alt='체크 이미지' width={22} height={22} />
                   )}
                 </span>
-                <Image className='profile-image' src={member.profileImageUrl} alt='프로필 이미지' width={26} height={26} />
+                {member.profileImageUrl ? (
+                  <Image className='profile-image' src={member.profileImageUrl} alt='프로필 이미지' width={26} height={26} />
+                ) : (
+                  <S.MemberInitials>{member.nickname.charAt(0)}</S.MemberInitials>
+                )}
                 {member.nickname}
               </S.DropdownListItem>
             ))}
