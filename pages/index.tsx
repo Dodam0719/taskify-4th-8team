@@ -1,12 +1,10 @@
 import Head from 'next/head';
-import { Inter } from 'next/font/google';
 import '../styles/GlobalStyle';
 import '../styles/FontStyle';
 import CustomFooter from '../components/Footer/Footer';
 import CustomHeader from '../components/Header/Header';
 import * as S from './index.style';
 import Link from 'next/link';
-const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
@@ -24,7 +22,7 @@ export default function Home() {
           <h1>
             새로운 일정 관리<span>Taskify</span>
           </h1>
-          <p>서비스의 메인설명 들어갑니다.</p>
+          <p>일정과 할일을 쉽고 편하게 관리하세요!</p>
           <Link href='/login'>
             <button>로그인하기</button>
           </Link>
