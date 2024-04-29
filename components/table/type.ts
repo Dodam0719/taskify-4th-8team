@@ -50,6 +50,45 @@ export interface InviteInfo {
   }[];
 }
 
+export interface MemberInfo {
+  members: {
+    id: number;
+    userId: number;
+    email: string;
+    nickname: string;
+    profileImageUrl: string;
+    isOwner: boolean;
+    createdAt?: number;
+    updatedAt?: boolean;
+  }[];
+  totalCount: number;
+}
+
+export interface InviteInfo {
+  totalCount: number;
+  invitations: {
+    id: number;
+    inviter: {
+      nickname: string;
+      email: string;
+      id: number;
+    };
+    teamId?: string;
+    dashboard: {
+      title: string;
+      id: number;
+    };
+    invitee: {
+      nickname: string;
+      email: string;
+      id: number;
+    };
+    inviteAccepted?: boolean;
+    createdAt?: string;
+    updatedAt?: string;
+  }[];
+}
+
 export interface TableProfileType {
   userProfileColor: string;
 }

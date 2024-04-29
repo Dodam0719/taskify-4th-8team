@@ -129,7 +129,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
     }
   }, [isTabletView, member.members.length]);
 
-  const handleInviteModal = () => {
+  const handleOpenModal = () => {
     setIsModalOpen(true);
   };
 
@@ -140,7 +140,10 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
   const handleInviteSubmit = () => {};
   return (
     <S.DashboardHeader>
-      <S.RecipientName>{dashboardInfo.title || children}</S.RecipientName>
+      <S.RecipientName>
+        {dashboardInfo.title || children}
+        {dashboardInfo.createdByMe && <S.CrownIcon src='/icons/Crown.svg' alt='왕관 아이콘' width={20} height={16} />}
+      </S.RecipientName>
       <S.DashboardHeaderWrapper $isvisible={isVisible}>
         <Link href={`/dashboard/${dashboardId}/edit`}>
           <S.SettingButton>
@@ -148,10 +151,8 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
             관리
           </S.SettingButton>
         </Link>
-        {isModalOpen && (
-          <ModalInvite dashboardId={dashboardId} title='초대하기' placeholder='' onSubmit={handleInviteSubmit} onClose={handleCloseModal} />
-        )}
-        <S.InviteButton onClick={handleInviteModal}>
+        {isModalOpen && <ModalInvite dashboardId={dashboardId} title='초대하기' onClose={handleCloseModal} />}
+        <S.InviteButton onClick={handleOpenModal}>
           <img src='/assets/icon/invite_icon.svg' alt='초대 버튼이미지' />
           초대하기
         </S.InviteButton>
@@ -169,10 +170,12 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
           )}
         </S.ProfileTestWrapper>
       </S.DashboardHeaderWrapper>
-      <S.ProfileWrapper $isvisible={isVisible}>
-        <S.ProfileInitials>{profileInfo.nickname.charAt(0)}</S.ProfileInitials>
-        <S.ProfileName>{profileInfo.nickname}</S.ProfileName>
-      </S.ProfileWrapper>
+      <Link href={`/myPage`}>
+        <S.ProfileWrapper $isvisible={isVisible}>
+          <S.ProfileInitials>{profileInfo.nickname.charAt(0)}</S.ProfileInitials>
+          <S.ProfileName>{profileInfo.nickname}</S.ProfileName>
+        </S.ProfileWrapper>
+      </Link>
     </S.DashboardHeader>
   );
 };

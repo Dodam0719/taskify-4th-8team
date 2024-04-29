@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../styles/breakpoints';
+import Image from 'next/image';
 export const DashboardHeader = styled.nav`
   width: 100%;
   height: 7rem;
@@ -25,7 +26,22 @@ export const RecipientName = styled.h1`
   }
 `;
 
-export const DashboardHeaderWrapper = styled.div<{ $isvisible?: string }>`
+export const CrownIcon = styled(Image)`
+  margin-left: 0.8rem;
+
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
+    width: 1.5rem;
+    height: 1.2rem;
+  }
+  @media ${device.mobile} {
+    display: none;
+  }
+  @media ${device.mobileMin} {
+    width: 100%;
+  }
+`;
+
+export const DashboardHeaderWrapper = styled.div<{ $isvisible?: any }>`
   display: ${({ $isvisible }) => ($isvisible === 'true' ? 'flex' : 'none')};
   align-items: center;
 

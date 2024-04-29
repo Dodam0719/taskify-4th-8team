@@ -11,6 +11,7 @@ const InviteItem = ({ name, inviter, setInviteData, id }: InviteItemType) => {
       });
       const data = await apiCall('get', 'https://sp-taskify-api.vercel.app/4-8/invitations?size=10');
       setInviteData(data);
+      window.location.reload();
     } catch (e) {
       console.error(e);
     }
