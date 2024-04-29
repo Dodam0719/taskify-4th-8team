@@ -1,12 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import CardTagChips from '../chips/card-tag-chips/CardTagChips';
-import ProgressChipList from '../chips/progress-chips/ProgressChipList';
 import ModalBackground from './ModalBackground';
 import ModalInputComment from './ModalInputComment';
 import * as S from './ModalTask.style';
 import ModalTools from './ModalTools';
-import { CardType } from '@/pages/api/dummyCardDataType';
-import { Cardinfo } from '../card/type';
 import api from '@/pages/api/api';
 import { Cards } from '../table/type';
 import { Column } from '../chips/type';
@@ -85,7 +81,7 @@ const ModalTask = ({ CardId, columninfo, dashboardId, onClose }: ModalTaskProps)
             <div>
               {cardsInfo.assignee ? (
                 <>
-                  <text>{cardsInfo.assignee.nickname.charAt(0)}</text>
+                  <h4>{cardsInfo.assignee.nickname.charAt(0)}</h4>
                   <p>{cardsInfo.assignee.nickname}</p>
                 </>
               ) : (
@@ -109,7 +105,7 @@ const ModalTask = ({ CardId, columninfo, dashboardId, onClose }: ModalTaskProps)
         {cardsInfo.imageUrl && <S.ModalTaskImg src={cardsInfo.imageUrl} alt='테스크 이미지' />} <ModalInputComment />
         <S.ModalTaskComment>
           <S.CommentTitle>
-            <text>C</text>
+            <div>C</div>
             <h2>정만철</h2>
             <p>2022.12.27.14:00</p>
           </S.CommentTitle>

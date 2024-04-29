@@ -4,12 +4,11 @@ import ModalTodo from './ModalTodo';
 import { Column } from '../chips/type';
 
 interface ModalBackgroundProps {
-  onClose: () => void;
-  dashboardId: string;
-  columninfo: Column;
+  dashboardId?: any;
+  columninfo?: any;
 }
 
-const ModalTools = ({ dashboardId, columninfo, onClose }: ModalBackgroundProps) => {
+const ModalTools = ({ dashboardId, columninfo }: ModalBackgroundProps) => {
   const [isTodoModalOpen, setIsTodoModalOpen] = useState(false);
 
   const handleNewCardSubmit = (data: { name: string }) => {

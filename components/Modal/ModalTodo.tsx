@@ -29,7 +29,6 @@ const ModalTodo: React.FC<ModalTodoProps> = ({ onClose, todoTitle, dashboardId, 
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState<string[]>([]);
   const [image, setImage] = useState<string | null>('');
-  console.log(dashboardId);
 
   const handleSelectedMemberChange = (selectedMember: any) => {
     setSelectedMember(selectedMember);

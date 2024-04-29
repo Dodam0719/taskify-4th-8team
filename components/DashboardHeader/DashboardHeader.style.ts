@@ -26,12 +26,12 @@ export const RecipientName = styled.h1`
   }
 `;
 
-export const DashboardHeaderWrapper = styled.div<{ isvisible?: any }>`
-  display: ${({ isvisible }) => (isvisible === 'true' ? 'flex' : 'none')};
+export const DashboardHeaderWrapper = styled.div<{ $isvisible?: any }>`
+  display: ${({ $isvisible }) => ($isvisible === 'true' ? 'flex' : 'none')};
   align-items: center;
 
   @media ${device.tablet} {
-    margin-left: ${({ isvisible }) => (isvisible === 'false' ? '0' : 'auto')};
+    margin-left: ${({ $isvisible }) => ($isvisible === 'false' ? '0' : 'auto')};
   }
 `;
 
@@ -165,20 +165,20 @@ export const LastTestProfile = styled.div`
     height: 3.4rem;
   }
 `;
-export const ProfileWrapper = styled.div<{ isVisible?: any }>`
+export const ProfileWrapper = styled.div<{ $isvisible?: any }>`
   display: flex;
   align-items: center;
   padding-left: 3.2rem;
 
   @media ${device.tablet} {
     padding-left: 2.4rem;
-    margin-left: ${({ isVisible }) => (isVisible === 'false' ? 'auto' : '')};
+    margin-left: ${({ $isvisible }) => ($isvisible === 'false' ? 'auto' : '')};
   }
   @media ${device.mobile} {
     padding-left: 1.2rem;
   }
 `;
-export const ProfileInitials = styled.text`
+export const ProfileInitials = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

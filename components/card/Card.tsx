@@ -71,14 +71,14 @@ const Card: React.FC<CardProps> = ({ dashboardId, columninfo, onCountChange }) =
       )}
       {cardsInfo.cards.map((card) => (
         <S.CardStyle key={card.id} onClick={() => handleTaskModal(card.id)}>
-          {card.imageUrl !== null && <Image src={card.imageUrl} alt='카드 이미지' width={272} height={160} />}
+          {card.imageUrl !== null && <Image src={card.imageUrl} alt='카드 이미지' width={272} height={160} priority={false} />}
           <S.InfoContainerStyle>
             <S.CardItemTitleStyle>{card.title}</S.CardItemTitleStyle>
             <S.ContainerStyle>
               <CardTagChips tagList={card.tags} />
               <S.CardBottomStyle>
                 <S.DateStyle>
-                  <Image src='/icons/Calendar.svg' alt='달력 아이콘' width={18} height={18} />
+                  <Image src='/icons/Calendar.svg' alt='달력 아이콘' width={18} height={18} priority={false} />
                   <div>
                     {card.updatedAt === card.createdAt
                       ? new Date(card.createdAt).toLocaleDateString('ko-KR')

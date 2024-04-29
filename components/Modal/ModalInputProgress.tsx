@@ -49,7 +49,7 @@ const ModalInputProgress = ({ columninfo, dashboardId }: ModalInputProgressProps
   return (
     <S.ModalInputProgressWrapper ref={wrapperRef}>
       <S.ModalInputProgressTitle>상태</S.ModalInputProgressTitle>
-      <S.DropdownContainer onClick={toggleDropdown} isOpen={isOpen}>
+      <S.DropdownContainer onClick={toggleDropdown} $isopen={isOpen}>
         <S.DropdownHeader>
           <ProgressChip>{progressInfo?.data && progressInfo.data[selectedIndex]?.title}</ProgressChip>
           <Image src='/assets/icon/arrow_drop_down_fill.svg' alt='드롭다운 화살표' width={26} height={26} />

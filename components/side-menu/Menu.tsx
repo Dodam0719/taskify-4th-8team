@@ -6,7 +6,7 @@ interface Props {
   dashboard: Dashboard;
   selectedDashboardIndex: number;
   setSelectedDashboardIndex: React.Dispatch<React.SetStateAction<number>>;
-  type?: string;
+  type: string;
   id?: any;
 }
 
@@ -28,7 +28,7 @@ const Menu = ({ dashboard, selectedDashboardIndex, setSelectedDashboardIndex, ty
         <S.Point color={dashboard.color} />
         <S.MenuItemContainerStyle>
           {dashboard.createdByMe && <S.CrownIcon src='/icons/Crown.svg' alt='왕관 아이콘' width={18} height={14} />}
-          <S.MenuItem displayStyle={type === 'sideMenu' ? 'none' : 'block'}>{dashboard.title}</S.MenuItem>
+          <S.MenuItem $displayStyle={type === 'sideMenu' ? 'none' : 'block'}>{dashboard.title}</S.MenuItem>
         </S.MenuItemContainerStyle>
       </S.MenuContainer>
     </S.Menu>

@@ -4,13 +4,8 @@ import { inputProps } from '@/pages/myPage';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ModalAlert from '../Modal/ModalAlert';
-import axios, { AxiosError } from 'axios';
-import api from '@/pages/api/api';
-interface MyAxiosError extends AxiosError {
-  response?: {
-    status: number;
-  };
-}
+import axios from 'axios';
+
 const ProfilePasswordBox = () => {
   const {
     register,
@@ -43,7 +38,7 @@ const ProfilePasswordBox = () => {
             },
           }
         );
-      } catch (error: MyAxiosError) {
+      } catch (error: any) {
         if (error.response.status === 400) {
           setIsModalOpen(true);
         }
@@ -103,7 +98,7 @@ const ProfilePasswordBox = () => {
           errorMsg={errors.passwordCheck ? errors.passwordCheck.message : ''}
         />
       </S.myPageProfilePasswordInputBox>
-      <S.passwordButton type='button' onClick={handleSubmit(onSubmit)} isActive={isValid}>
+      <S.passwordButton type='button' onClick={handleSubmit(onSubmit)} $isactive={isValid}>
         변경
       </S.passwordButton>
       {isModalOpen && <ModalAlert message='현재 비밀번호가 틀렸습니다.' onClose={handleCloseModal}></ModalAlert>}

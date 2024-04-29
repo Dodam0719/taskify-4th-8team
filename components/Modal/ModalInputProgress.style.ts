@@ -24,13 +24,13 @@ export const ModalInputProgressTitle = styled.div`
   }
 `;
 
-export const DropdownContainer = styled.div<{ isOpen: boolean }>`
+export const DropdownContainer = styled.div<{ isopen: boolean }>`
   position: relative;
   width: 21.7rem;
   height: 4.8rem;
   padding: 1.1rem 1.6rem;
   border-radius: 0.6rem;
-  border: 0.1rem solid ${({ isOpen }) => (isOpen ? 'var(--violet_000, #5534da)' : 'var(--gray_060, #d9d9d9)')};
+  border: 0.1rem solid ${({ isopen }) => (isopen ? 'var(--violet_000, #5534da)' : 'var(--gray_060, #d9d9d9)')};
   background: var(--white_100, #fff);
   cursor: pointer;
 

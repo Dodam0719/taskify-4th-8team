@@ -16,12 +16,12 @@ interface profileInfo {
   updatedAt?: string;
 }
 interface ProfileAddImgProps {
-  handleImageSelected: (imageUrl: string) => void;
+  handleImageSelected: any;
 }
 
 const ProfileAddImg = ({ handleImageSelected }: ProfileAddImgProps) => {
   const [image, setImage] = useState('');
-  const [profileInfo, setProfileInfo] = useState<profileInfo>({});
+  const [profileInfo, setProfileInfo] = useState<any>({});
 
   useEffect(() => {
     const fetchProfileInfo = async () => {
