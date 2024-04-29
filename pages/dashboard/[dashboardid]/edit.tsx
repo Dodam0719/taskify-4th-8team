@@ -22,7 +22,7 @@ const DashboardEdit = () => {
             <p>돌아가기</p>
           </S.DashboardBackStyle>
           <S.DashboardBoardListStyle>
-            <DashboardNewName>비브리지</DashboardNewName>
+            <DashboardNewName dashboardId={dashboardid}>비브리지</DashboardNewName>
             <Table title='구성원' userList='이름' />
             <Table title='초대 내역' userList='이메일' />
           </S.DashboardBoardListStyle>

@@ -46,13 +46,6 @@ const ModalInvite: React.FC<InviteFormProps> = ({ dashboardId, title, onClose })
           placeholder='이메일을 입력해 주세요.'
         />
         {errors.email && <S.ModalInviteErrorMessage>{errors.email.message}</S.ModalInviteErrorMessage>}
-        <S.ModalInviteFormLabel htmlFor='email'>이메일</S.ModalInviteFormLabel>
-        <S.ModalInviteFormInput
-          id='email'
-          {...register('email', { required: { value: true, message: '이메일을 입력해 주세요.' } })}
-          placeholder='이메일을 입력해 주세요.'
-        />
-        {errors.email && <S.ModalInviteErrorMessage>{errors.email.message}</S.ModalInviteErrorMessage>}
         <S.ModalInviteFormButtonWrapper>
           <S.ModalInviteFormButton>
             <ModalButton text='취소' variant='cancel' onClick={onClose} />
