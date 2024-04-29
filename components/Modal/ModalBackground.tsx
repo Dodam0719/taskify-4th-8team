@@ -46,10 +46,10 @@ const ModalBackground: React.FC<ModalBackgroundProps> = ({
         ref={wrapperRef}
         width={width}
         height={height}
-        tabletWidth={tabletWidth}
-        tabletHeight={tabletHeight}
-        mobileWidth={mobileWidth}
-        mobileHeight={mobileHeight}>
+        $tabletWidth={tabletWidth}
+        $tabletHeight={tabletHeight}
+        $mobileWidth={mobileWidth}
+        $mobileHeight={mobileHeight}>
         {children}
       </S.ModalWrapper>
     </S.ModalOverlay>

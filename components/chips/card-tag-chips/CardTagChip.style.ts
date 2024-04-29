@@ -2,15 +2,15 @@ import styled from 'styled-components';
 import { device } from '@/styles/breakpoints';
 import { CardTagChipType } from '../type';
 
-export const CardTagChip = styled.div<CardTagChipType>`
+export const CardTagChip = styled.div<any>`
   height: 2.2rem;
   padding: 0.4rem 0.6rem;
-  background-color: ${({ tagColor }) => tagColor};
+  background-color: ${({ $tagColor }) => $tagColor};
   border-radius: 0.4rem;
   list-style: none;
   font-size: 1.2rem;
   font-weight: 400;
-  color: ${({ tagTextColor }) => tagTextColor};
+  color: ${({ $tagTextColor }) => $tagTextColor};
 `;
 
 export const Tag = styled.span`

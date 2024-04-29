@@ -11,8 +11,8 @@ interface ColumnFormProps {
   placeholder: string;
   onSubmit: (data: { name: string }) => void;
   onClose: () => void;
-  dashboardId: string;
-  columninfo: Column;
+  dashboardId: any;
+  columninfo?: any;
 }
 
 const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, onClose, dashboardId, columninfo }) => {

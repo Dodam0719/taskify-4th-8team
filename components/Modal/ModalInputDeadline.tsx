@@ -30,7 +30,7 @@ const ModalInputDeadline: React.FC<ModalInputDeadlineProps> = ({ onDeadlineChang
     };
   }, []);
 
-  const handleDateChange = (value: Date | Date[]) => {
+  const handleDateChange = (value: any) => {
     const selectedDate = Array.isArray(value) ? value[0] : value;
 
     const toLocaleDateTimeString = (date: Date) => {
@@ -63,7 +63,7 @@ const ModalInputDeadline: React.FC<ModalInputDeadlineProps> = ({ onDeadlineChang
         placeholder='날짜를 입력해 주세요'
         value={deadlineValue || ''}
         onClick={toggleCalendar}
-        dateSelected={dateSelected}
+        dateselected={dateSelected ? 'true' : 'false'}
       />
       {calendarVisible && (
         <S.CalendarWrapper>

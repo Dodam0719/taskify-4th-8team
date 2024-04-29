@@ -17,7 +17,7 @@ interface profileInfo {
 const ProfileBox = () => {
   const [nickname, setNickname] = useState('');
   const [uploadedImage, setUploadedImage] = useState(null);
-  const [profileInfo, setProfileInfo] = useState<profileInfo>({});
+  const [profileInfo, setProfileInfo] = useState<any>({});
 
   useEffect(() => {
     const fetchProfileInfo = async () => {
