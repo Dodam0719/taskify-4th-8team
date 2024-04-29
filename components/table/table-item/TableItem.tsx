@@ -1,52 +1,19 @@
 import Button from '@/components/button/Button';
-import { TableItemType, MemberInfo } from '../type';
+import { TableItemType } from '../type';
 import * as S from './TableItem.style';
-import api from '@/pages/api/axios';
 
-const TableItem = ({
-  userProfileColor,
-  userName,
-  userFirstName,
-  title,
-  email,
-  memberId,
-  memberInfo,
-  setMemberInfo,
-  inviteInfo,
-  dashboardId,
-  invitationId,
-  setInviteInfo,
-  deleteMember,
-  cancelInvite,
-}: TableItemType) => {
-  // const buttonText: string = title === '구성원' ? '삭제' : '취소';
-
+const TableItem = ({ userProfileColor, userName, userFirstName, title, email }: TableItemType) => {
   return (
     <S.TableItem>
-      {title === '구성원' && (
-        <>
-          <S.UserContainer>
-            <S.Profile userProfileColor={userProfileColor}>{userFirstName}</S.Profile>
-            <S.USER>{userName}</S.USER>
-          </S.UserContainer>
-          <Button variant='delete' $width={'8.4rem'} $height={'3.2rem'} onClick={() => memberId && deleteMember(memberId)}>
-            삭제
-          </Button>
-        </>
+      {title === '구성원' ? (
+        <S.UserContainer>
+          <S.Profile userProfileColor={userProfileColor}>{userFirstName}</S.Profile>
+          <S.USER>{userName}</S.USER>
+        </S.UserContainer>
+      ) : (
+        <S.USER>{email}</S.USER>
       )}
-
-      {title === '초대 내역' && (
-        <>
-          <S.USER>{email}</S.USER>
-          <Button
-            variant='delete'
-            $width={'8.4rem'}
-            $height={'3.2rem'}
-            onClick={() => dashboardId && invitationId && cancelInvite(dashboardId, invitationId)}>
-            취소
-          </Button>
-        </>
-      )}
+      <Button variant='delete'>삭제</Button>
     </S.TableItem>
   );
 };

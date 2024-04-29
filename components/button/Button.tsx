@@ -6,7 +6,6 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   $width: CSSProperties['width'];
   $height: CSSProperties['height'];
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   variant:
     | 'login'
     | 'signup'
