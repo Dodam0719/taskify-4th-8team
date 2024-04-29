@@ -5,6 +5,7 @@ interface ModalButtonProps {
   fullWidth?: boolean;
   variant: 'comment' | 'cancel' | 'confirm';
   onClick?: () => void;
+  onClose?: () => void;
 }
 
 const ModalButton: React.FC<ModalButtonProps> = ({ text, fullWidth = false, onClick, variant = 'confirm' }) => {
