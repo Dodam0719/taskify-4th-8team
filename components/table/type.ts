@@ -1,12 +1,10 @@
 import { SetStateAction } from 'react';
-
 export interface InviteItemType {
   name: string;
   inviter: string;
   id: number;
   setInviteData: React.Dispatch<SetStateAction<any>>;
 }
-
 export interface TableType {
   title: string;
   userList: string;
@@ -75,4 +73,23 @@ export interface TableItemType {
   deleteMember: (memberId: number) => Promise<void>;
   cancelInvite: (dashboardId: number, invitaionId: number) => Promise<void>;
   // onClick: React.MouseEvent<HTMLButtonElement, MouseEvent>;
+}
+export interface Assignee {
+  id: number;
+  nickname: string;
+  profileImageUrl: string;
+}
+export interface Cards {
+  id: number;
+  title: string;
+  description: string;
+  tags: string[];
+  dueDate: string;
+  assignee: Assignee;
+  imageUrl: string | null;
+  teamId: string;
+  columnId: number;
+  dashboardId: number;
+  createdAt: string;
+  updatedAt: string;
 }
