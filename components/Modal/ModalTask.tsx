@@ -34,26 +34,13 @@ const ModalTask = ({
   mobileWidth,
   mobileHeight,
 }: ModalTaskProps) => {
-  const [isHidden, setIsHidden] = useState(true);
+  const [isToolModalOpen, setIsToolModalOpen] = useState(false);
   const KebobChoiceRef = useRef<HTMLImageElement>(null);
   const [cardsInfo, setCardsInfo] = useState<Cards>({});
 
   const handleSetIsOpen = () => {
-    setIsHidden(!isHidden);
+    setIsToolModalOpen(true);
   };
-  const handleClickOutside = (event: any) => {
-    if (KebobChoiceRef.current && !KebobChoiceRef.current.contains(event.target)) {
-      setIsHidden(true);
-    }
-  };
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [KebobChoiceRef]);
-
-  const cardLists: { [key: string]: CardType[] } = {};
 
   useEffect(() => {
     const fetchCardsInfo = async () => {
@@ -80,7 +67,7 @@ const ModalTask = ({
         <S.ModalTaskHeader>
           <h1>{cardsInfo.title}</h1>
           <img onClick={handleSetIsOpen} ref={KebobChoiceRef} className='kebob' src='/assets/icon/kebob_icon.svg' alt='케밥 버튼이미지' />
-          {!isHidden && <ModalTools hidden={isHidden} />}
+          {isToolModalOpen && <ModalTools />}
           <img className='close' src='/assets/icon/close_icon.svg' alt='종료 버튼이미지' />
         </S.ModalTaskHeader>
         <S.ModalTaskBox>
