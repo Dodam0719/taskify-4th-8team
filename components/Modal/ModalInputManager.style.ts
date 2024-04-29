@@ -121,3 +121,50 @@ export const DropdownListItem = styled.li`
     font-size: 1.4rem;
   }
 `;
+const getRandomColor = () => {
+  // 16진수 색상코드를 생성
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+export const MemberInitials = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${getRandomColor};
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 0.2rem solid var(--white_100);
+  font-size: 1.2rem;
+  font-family: Montserrat;
+  text-align: center;
+  color: var(--white_100);
+  font-weight: 600;
+  margin-right: 0.6rem;
+
+  @media ${device.mobile} {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+`;
+export const selectedMemberInitials = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${getRandomColor};
+  width: 3.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 0.2rem solid var(--white_100);
+  font-size: 1.2rem;
+  font-family: Montserrat;
+  text-align: center;
+  color: var(--white_100);
+  font-weight: 600;
+  margin-right: 0.8rem;
+`;

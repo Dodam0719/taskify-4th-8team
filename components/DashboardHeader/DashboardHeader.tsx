@@ -158,7 +158,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
         </S.InviteButton>
         <S.ProfileTestWrapper>
           {member.members.slice(0, 4).map((item: any, index: any) => (
-            <S.TestProfile key={index} className={`profile-item-${index}`} color={color}>
+            <S.TestProfile key={index} className={`profile-item-${index}`}>
               {item.nickname.charAt(0)}
             </S.TestProfile>
           ))}
@@ -171,7 +171,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
         </S.ProfileTestWrapper>
       </S.DashboardHeaderWrapper>
       <S.ProfileWrapper $isvisible={isVisible}>
-        <S.ProfileInitials color={color}>{profileInfo.nickname.charAt(0)}</S.ProfileInitials>
+        <S.ProfileInitials>{profileInfo.nickname.charAt(0)}</S.ProfileInitials>
         <S.ProfileName>{profileInfo.nickname}</S.ProfileName>
       </S.ProfileWrapper>
     </S.DashboardHeader>

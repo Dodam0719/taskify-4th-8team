@@ -6,12 +6,13 @@ import api from '@/pages/api/axios';
 
 interface DashboardNewNameType {
   children: string;
+  dashboardId: any;
 }
 
-const DashboardNewName = ({ children }: DashboardNewNameType) => {
+const DashboardNewName = ({ dashboardId, children }: DashboardNewNameType) => {
   const [newName, setNewName] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
-
+  console.log(selectedColor);
   const checkEmptyName = () => {
     return newName;
   };
@@ -24,36 +25,27 @@ const DashboardNewName = ({ children }: DashboardNewNameType) => {
     setSelectedColor(color);
   };
 
-  const handleEditDashboard = () => {
-    const isFilled = checkEmptyName();
-
-    if (isFilled) {
-      const changeDashboard = async (dashboardId: number = 7073, title: string = newName, color: string = selectedColor) => {
-        try {
-          const response = await api.put(`/dashboards/${dashboardId}`);
-          if (response.status === 200) {
-            const result = response.data;
-            console.log('대시보드를 수정했습니다.');
-          }
-        } catch (error: any) {
-          console.log(error.response.data.message);
-        }
-      };
-    } else {
-      alert('대시보드 이름을 입력해주십시오.');
+  const changeDashboard = async () => {
+    try {
+      const response = await api.post(`/dashboards/${dashboardId}`, {
+        title: newName,
+        color: selectedColor,
+      });
+    } catch (error: any) {
+      console.log(error.response.data.message);
     }
   };
 
   return (
     <S.DashboardNewNameStyle>
-      <form onSubmit={handleEditDashboard}>
+      <form>
         <S.DashboardEditTitleContainerStyle>
           <p>{children}</p>
           <ColorChips onColorSelect={() => {}} />
         </S.DashboardEditTitleContainerStyle>
         <S.DashboardEditStyle>
           <label>대시보드이름</label>
-          <input type='text' placeholder='이름을 입력해주세요' onChange={handleChangeNewName} />
+          <input type='text' placeholder='이름을 입력해주세요' value={newName} onChange={handleChangeNewName} />
         </S.DashboardEditStyle>
         <S.DashboardEditButtonStyle>
           <Button variant='accept' $width='8.4rem' $height='3.2rem' type='submit'>
