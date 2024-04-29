@@ -126,7 +126,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
       const additionalCount = member.members.length > 4 ? member.members.length - 4 : null;
       setAdditionalProfiles(additionalCount);
     }
-  }, [isTabletView]);
+  }, [isTabletView, member.members.length]);
 
   const handleInviteModal = () => {
     setIsModalOpen(true);
