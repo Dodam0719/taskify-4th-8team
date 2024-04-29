@@ -2,14 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import * as S from './ModalInputManager.style';
 import Image from 'next/image';
 import useMembers, { Member } from '@/hooks/useMembers';
+import api from '@/pages/api/api';
 
-const ModalInputManager = () => {
+interface ModalInputManagerProp {
+  onSelectedMemberChange: (selectedMember: Member | null) => void;
+  dashboardId: string;
+}
+const ModalInputManager = ({ onSelectedMemberChange, dashboardId }: ModalInputManagerProp) => {
   const { members, loading, error } = useMembers();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [inputFocused, setInputFocused] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const [membersinfo, setMembersInfo] = useState<{ members: Member[]; totalCount: number }>({ members: [], totalCount: 0 });
 
   // 선택된 멤버와 일치하는지 여부에 따라 멤버 목록을 필터링
   const filteredMembers = searchTerm
@@ -22,6 +28,7 @@ const ModalInputManager = () => {
     setSelectedMember(member);
     setSearchTerm(member.nickname);
     setIsOpen(false);
+    onSelectedMemberChange(member);
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,6 +60,19 @@ const ModalInputManager = () => {
   // 멤버 목록 로딩 중이거나 에러가 발생했는지 여부에 따라 UI를 조정
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error loading members.</div>;
+  useEffect(() => {
+    const fetchMembersInfo = async () => {
+      if (dashboardId)
+        try {
+          const response = await api.get(`members?page=1&size=20&dashboardId=${dashboardId}`);
+          setMembersInfo(response.data);
+        } catch (error) {
+          console.error('프로필 정보를 가져오는 중에 오류가 발생했습니다:', error);
+        }
+    };
+
+    fetchMembersInfo();
+  }, []);
 
   return (
     <S.ModalInputProgressWrapper ref={wrapperRef}>
@@ -80,7 +100,7 @@ const ModalInputManager = () => {
         </S.DropdownHeader>
         {isOpen && (
           <S.DropdownList>
-            {filteredMembers.map((member) => (
+            {membersinfo.members.map((member) => (
               <S.DropdownListItem key={member.id} onClick={() => handleSelect(member)}>
                 <span className='check-image'>
                   {selectedMember && selectedMember.id === member.id && (

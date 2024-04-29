@@ -277,7 +277,8 @@ export const BUTTON_COMPONENTS = {
     align-items: center;
     justify-content: space-between;
     padding: 2.6rem 2rem;
-    width: ${({ $width }) => $width};
+    /* width: ${({ $width }) => $width}; */
+    min-width: 100%;
     height: ${({ $height }) => $height};
     border-radius: 0.8rem;
     border: 0.1rem solid var(--gray_060);
@@ -292,16 +293,15 @@ export const BUTTON_COMPONENTS = {
     > div {
       display: flex;
       align-items: center;
-      gap: 1.6rem;
     }
 
     @media ${device.tablet} {
-      width: 24.7rem;
+      width: 100%;
       height: 6.8rem;
     }
 
     @media ${device.mobile} {
-      width: 26rem;
+      width: 100%;
       height: 5.8rem;
       font-size: 1.4rem;
     }
