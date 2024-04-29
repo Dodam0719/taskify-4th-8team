@@ -28,6 +28,7 @@ export const ModalInviteFormTitle = styled.legend`
 `;
 
 export const ModalInviteFormLabel = styled.label`
+  display: flex;
   color: var(--black_050, #333236);
   font-size: 1.8rem;
   font-weight: 500;
