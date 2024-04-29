@@ -6,6 +6,8 @@ import { useForm } from 'react-hook-form';
 import api from '@/pages/api/axios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import ModalAlert from '@/components/Modal/ModalAlert';
+import ModalSignupAlert from '@/components/Modal/ModalSignupAlert';
 
 const SignupForm = () => {
   const router = useRouter();
@@ -17,25 +19,33 @@ const SignupForm = () => {
     getValues,
     watch,
   } = useForm({ mode: 'onBlur', defaultValues: { email: '', nickname: '', password: '', passwordCheck: '' } });
-
   const [isAgree, setIsAgree] = useState(false);
   const watchAllFileds = watch();
   const isAllFiledsEmpty = Object.values(watchAllFileds).some((value) => !value);
   const disabledCondition =
     !!errors.email || !!errors.nickname || !!errors.password || !!errors.passwordCheck || !isAgree || isAllFiledsEmpty;
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSignupSuccess, setIsSignupSucceess] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+  const handleOpenSignupModal = () => setIsSignupSucceess(true);
+  const handleCloseSignupModal = () => setIsSignupSucceess(false);
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+
   const signUp = async (data: object) => {
     try {
-      const response = await api.post('/users/', data);
+      const response = await api.post(`/users/`, data);
       if (response.status === 201) {
-        alert('가입이 완료되었습니다.');
+        setModalMessage('가입이 완료됐습니다.');
+        handleOpenSignupModal();
         const result = response.data;
-        router.push('/login');
+        router.push(`/login`);
         return result;
       }
     } catch (error: any) {
-      console.log(error.response.data.message);
-      alert(error.response.data.message);
+      setModalMessage(error.response.data.message);
+      handleOpenModal();
     }
   };
 
@@ -46,8 +56,9 @@ const SignupForm = () => {
       <Button variant='signup' $width='52rem' $height='5rem' type='submit' disabled={disabledCondition}>
         가입하기
       </Button>
+      {isModalOpen && <ModalAlert message={modalMessage} onClose={handleCloseModal} />}
+      {isSignupSuccess && <ModalSignupAlert message={modalMessage} onClose={handleCloseSignupModal} />}
     </S.Container>
   );
 };
-
 export default SignupForm;

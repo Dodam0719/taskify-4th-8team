@@ -10,7 +10,7 @@ const DashboardEdit = () => {
     <S.DashboardEditStyle>
       <SideMenu />
       <S.DashboardWrapperStyle>
-        <DashboardHeader isShow='show' />
+        <DashboardHeader isVisible='false' children='' />
         <S.DashboardMainStyle>
           <S.DashboardBackStyle>
             <Arrow_forward $width='2rem' $height='2rem' />
