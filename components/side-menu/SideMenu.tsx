@@ -7,6 +7,7 @@ import { useResource } from '@/hooks/useResource';
 import { BaseDashboard, Dashboard } from '@/hooks/useDashboards';
 import useGetDashboards from '@/query/useGetDashboards';
 
+
 const COLOR = ['--green_100', '--purple_100', '--orange_100', '--blue_100', '--pink_100', '--green_100'];
 const MENU_NAME = ['비브리지', '코드잇', '3분기 계획', '회의록', '중요 문서함', '가나다라마바아'];
 

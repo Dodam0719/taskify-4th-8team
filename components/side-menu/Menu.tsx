@@ -1,6 +1,7 @@
 import { Dashboard } from '@/hooks/useDashboards';
 import * as S from './Menu.style';
 import { MenuType } from './type';
+import router, { useRouter } from 'next/router';
 
 interface Props {
   dashboard: Dashboard;
@@ -9,9 +10,15 @@ interface Props {
   setSelectedDashboardIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Menu = ({ dashboard, index, selectedDashboardIndex, setSelectedDashboardIndex }: Props) => {
+const Menu = ({ dashboard, index, selectedDashboardIndex, setSelectedDashboardIndex, onClick }: Props) => {
+  const router = useRouter();
+  const handleClick = (id: number) => {
+    const queryString = `${id}`;
+    router.push(`/dashboard/${queryString}`);
+  };
   const handleOnDashboardSelect = () => {
     setSelectedDashboardIndex(index);
+    handleClick(dashboard.id);
     console.log(index);
   };
 

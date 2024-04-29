@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import randomColor from 'randomcolor';
 import { device } from '../../styles/breakpoints';
 export const DashboardHeader = styled.nav`
   width: 100%;
@@ -122,7 +123,7 @@ export const TestProfile = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(${({ color }) => color});
+  background-color: (${({ color }) => color});
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 5rem;
@@ -181,7 +182,7 @@ export const ProfileInitials = styled.text`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #a3c4a2;
+  background-color: ${({ color }) => color};
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 5rem;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import { CHIP_COLORS } from '../chips/color-chips/ColorChips';
@@ -13,13 +13,16 @@ interface TagType {
   text: string;
   color: string;
 }
-
-const ModalInputTag = () => {
+interface ModalInputTagProps {
+  onTagChange: (title: string[]) => void;
+}
+const ModalInputTag = ({ onTagChange }: ModalInputTagProps) => {
   const {
     register,
     handleSubmit,
     setValue,
     setError,
+    getValues,
     clearErrors,
     formState: { errors },
   } = useForm<FormValues>();
@@ -61,9 +64,11 @@ const ModalInputTag = () => {
         text: tagInput,
         color: CHIP_COLORS[randomColorIndex],
       };
-      setTags([...tags, newTag]);
+      setTags((prevTags) => [...prevTags, newTag]);
       setValue('tagInput', '');
       clearErrors('tagInput');
+      const allTagTexts = [...tags, newTag].map((tag) => tag.text);
+      onTagChange(allTagTexts);
     }
   };
 

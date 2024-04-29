@@ -6,14 +6,25 @@ interface TitleData {
 }
 
 interface ModalInputTitleProps {
+  onTitleChange?: (title: string) => void; // 수정
+  onDescriptionChange?: (title: string) => void;
   title: string;
   height?: string;
   isTextarea?: boolean;
 }
 
-const ModalInputTitle: React.FC<ModalInputTitleProps> = ({ title, height, isTextarea = false }) => {
+const ModalInputTitle: React.FC<ModalInputTitleProps> = ({ onTitleChange, onDescriptionChange, title, height, isTextarea = false }) => {
   const { register } = useForm<TitleData>();
   const InputOrTextarea: React.ElementType = isTextarea ? S.ModalInputTitleTextarea : S.ModalInputTitleInput;
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    if (onTitleChange) {
+      onTitleChange(value);
+    }
+    if (onDescriptionChange) {
+      onDescriptionChange(value);
+    }
+  };
 
   return (
     <S.ModalInputTitleWrapper>
@@ -21,7 +32,7 @@ const ModalInputTitle: React.FC<ModalInputTitleProps> = ({ title, height, isText
         {title}
         <S.ModalInputTitleLabelStar> *</S.ModalInputTitleLabelStar>
       </S.ModalInputTitleLabel>
-      <InputOrTextarea {...register('title')} placeholder={`${title}을 입력해 주세요`} customHeight={height} />
+      <InputOrTextarea {...register('title')} placeholder={`${title}을 입력해 주세요`} customHeight={height} onChange={handleInputChange} />
     </S.ModalInputTitleWrapper>
   );
 };

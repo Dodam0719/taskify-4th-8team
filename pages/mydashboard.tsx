@@ -10,7 +10,7 @@ const MyDashBoard = () => {
       <SideMenu />
       <S.MyDashBoardWrapperStyle>
         <S.ContainerStyle>
-          <DashboardHeader isVisible='false' />
+          <DashboardHeader isVisible='false'>내 대시보드</DashboardHeader>
           {/* <NoInvitedDashboard /> */}
           <InviteDash />
         </S.ContainerStyle>

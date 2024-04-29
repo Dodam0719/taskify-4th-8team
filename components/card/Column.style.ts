@@ -74,28 +74,26 @@ export const CardStyle = styled.article`
   border: 1px solid var(--gray_060);
   border-radius: 0.6rem;
   cursor: pointer;
-
+  Image {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1.2rem;
+    border-radius: 0.4rem;
+  }
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
     display: flex;
+    Image {
+      width: 9.1rem;
+      height: 5.3rem;
+      margin: 0;
+      margin-right: 2rem;
+    }
   }
   @media (${device.mobile}) {
     padding: 1.2rem;
   }
   @media (${device.mobileMin}) {
     width: 100%;
-  }
-`;
-
-export const CardImageStyle = styled(Image)`
-  width: 100%;
-  height: 100%;
-  margin-bottom: 1.2rem;
-  border-radius: 0.4rem;
-  @media screen and (${device.tablet}) and (${device.tabletMin}) {
-    width: 9.1rem;
-    height: 5.3rem;
-    margin: 0;
-    margin-right: 2rem;
   }
 `;
 
@@ -162,11 +160,29 @@ export const ProfileStyle = styled.div`
   height: 2.4rem;
   background-color: #a3c4a2;
   border-radius: 50%;
-
+  color: var(--white_100);
+  font-size: 1.2rem;
+  font-family: Montserrat;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
   @media (${device.mobile}) {
     gap: 0.4rem;
     width: 2.2rem;
     height: 2.2rem;
+  }
+  @media (${device.mobile}) {
+    gap: 0.4rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1rem;
   }
   @media (${device.mobileMin}) {
     width: 100%;

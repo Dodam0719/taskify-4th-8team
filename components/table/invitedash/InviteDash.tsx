@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import Menu from '@/components/side-menu/Menu';
 import ModalNewdash from '@/components/Modal/ModalNewdash';
 import useGetDashboards from '@/query/useGetDashboards';
+import { useRouter } from 'next/router';
 
 const INVITE_ITEM = [
   ['프로덕트 디자인', '손동희'],
@@ -21,7 +22,12 @@ const INVITE_ITEM = [
 
 const InviteDash = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
 
+  const handleClick = (id: number) => {
+    const queryString = `${id}`;
+    router.push(`/dashboard/${queryString}`);
+  };
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
@@ -43,7 +49,7 @@ const InviteDash = () => {
           <PlusChip />
         </Button>
         {myDashboards.map((dashboard) => (
-          <Button variant='dashboard' $width='33.2rem' $height='7rem'>
+          <Button onClick={() => handleClick(dashboard.id)} variant='dashboard' $width='33.2rem' $height='7rem'>
             <div>
               <S.ButtonColorPointStyle color={dashboard.color} />
               <Menu key={dashboard.id} dashboard={dashboard} />
