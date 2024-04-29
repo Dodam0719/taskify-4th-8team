@@ -35,9 +35,9 @@ export const ModalInputTitleLabelStar = styled.span`
   }
 `;
 
-export const ModalInputTitleInput = styled.input<{ customHeight?: string }>`
+export const ModalInputTitleInput = styled.input<{ $customHeight?: string }>`
   width: 100%;
-  height: ${({ customHeight }) => customHeight || '4.8rem'};
+  height: ${({ $customHeight }) => $customHeight || '4.8rem'};
   padding: 1.4rem 1.6rem;
   border-radius: 0.6rem;
   border: 0.1rem solid var(--gray_060, #d9d9d9);
@@ -51,7 +51,7 @@ export const ModalInputTitleInput = styled.input<{ customHeight?: string }>`
   }
 
   @media ${device.mobileResponsive} {
-    height: ${({ customHeight }) => customHeight || '4.2rem'};
+    height: ${({ $customHeight }) => $customHeight || '4.2rem'};
     padding: 1.2rem 1.6rem 1.3rem;
     font-size: 1.4rem;
 

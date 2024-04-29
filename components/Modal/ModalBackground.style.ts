@@ -14,10 +14,10 @@ export const ModalOverlay = styled.div`
 export const ModalWrapper = styled.div<{
   width?: string;
   height?: string;
-  tabletWidth?: string;
-  tabletHeight?: string;
-  mobileWidth?: string;
-  mobileHeight?: string;
+  $tabletWidth?: string;
+  $tabletHeight?: string;
+  $mobileWidth?: string;
+  $mobileHeight?: string;
 }>`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
@@ -25,15 +25,15 @@ export const ModalWrapper = styled.div<{
   background: var(--white_100, #fff);
 
   @media ${device.mobile} {
-    width: ${({ tabletWidth }) => tabletWidth};
-    height: ${({ tabletHeight }) => tabletHeight};
+    width: ${({ $tabletWidth }) => $tabletWidth};
+    height: ${({ $tabletHeight }) => $tabletHeight};
   }
 
   // 4.8rem는 양 옆의 마진, 55.4rem 이상에서는 줄어들지 않음
   @media ${device.mobileResponsive} {
     width: calc(100% - 4.8rem);
     max-width: 55.3rem;
-    height: ${({ mobileHeight }) => mobileHeight};
+    height: ${({ $mobileHeight }) => $mobileHeight};
   }
 
   // 37.5rem에서 32.7rem로 고정

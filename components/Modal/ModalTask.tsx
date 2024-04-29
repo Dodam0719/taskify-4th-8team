@@ -1,12 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import CardTagChips from '../chips/card-tag-chips/CardTagChips';
-import ProgressChipList from '../chips/progress-chips/ProgressChipList';
 import ModalBackground from './ModalBackground';
 import ModalInputComment from './ModalInputComment';
 import * as S from './ModalTask.style';
 import ModalTools from './ModalTools';
-import { CardType } from '@/pages/api/dummyCardDataType';
-import { Cardinfo } from '../card/type';
 import api from '@/pages/api/api';
 import { Cards } from '../table/type';
 import { Column } from '../chips/type';
@@ -20,26 +16,35 @@ interface ModalTaskProps {
   mobileHeight?: string;
   CardId: number | null;
   columninfo: Column;
+  dashboardId: string;
+
   // tagList: CardType[];
 }
 
-const ModalTask = ({
-  CardId,
-  columninfo,
-  onClose,
-  width,
-  height,
-  tabletWidth,
-  tabletHeight,
-  mobileWidth,
-  mobileHeight,
-}: ModalTaskProps) => {
+const ModalTask = ({ CardId, columninfo, dashboardId, onClose }: ModalTaskProps) => {
   const [isToolModalOpen, setIsToolModalOpen] = useState(false);
   const KebobChoiceRef = useRef<HTMLImageElement>(null);
-  const [cardsInfo, setCardsInfo] = useState<Cards>({});
+  const [cardsInfo, setCardsInfo] = useState<Cards>({
+    id: 0,
+    title: '',
+    description: '',
+    tags: [],
+    dueDate: '',
+    assignee: {
+      id: 0,
+      nickname: '',
+      profileImageUrl: '',
+    },
+    imageUrl: '',
+    teamId: '',
+    columnId: 0,
+    dashboardId: 0,
+    createdAt: '',
+    updatedAt: '',
+  });
 
   const handleSetIsOpen = () => {
-    setIsToolModalOpen(true);
+    setIsToolModalOpen((prevState) => !prevState);
   };
 
   useEffect(() => {
@@ -67,7 +72,7 @@ const ModalTask = ({
         <S.ModalTaskHeader>
           <h1>{cardsInfo.title}</h1>
           <img onClick={handleSetIsOpen} ref={KebobChoiceRef} className='kebob' src='/assets/icon/kebob_icon.svg' alt='케밥 버튼이미지' />
-          {isToolModalOpen && <ModalTools />}
+          {isToolModalOpen && <ModalTools dashboardId={dashboardId} columninfo={columninfo} />}
           <img className='close' src='/assets/icon/close_icon.svg' alt='종료 버튼이미지' />
         </S.ModalTaskHeader>
         <S.ModalTaskBox>
@@ -76,7 +81,7 @@ const ModalTask = ({
             <div>
               {cardsInfo.assignee ? (
                 <>
-                  <text>{cardsInfo.assignee.nickname.charAt(0)}</text>
+                  <h4>{cardsInfo.assignee.nickname.charAt(0)}</h4>
                   <p>{cardsInfo.assignee.nickname}</p>
                 </>
               ) : (
@@ -100,7 +105,7 @@ const ModalTask = ({
         {cardsInfo.imageUrl && <S.ModalTaskImg src={cardsInfo.imageUrl} alt='테스크 이미지' />} <ModalInputComment />
         <S.ModalTaskComment>
           <S.CommentTitle>
-            <text>C</text>
+            <div>C</div>
             <h2>정만철</h2>
             <p>2022.12.27.14:00</p>
           </S.CommentTitle>

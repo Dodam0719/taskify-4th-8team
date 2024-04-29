@@ -66,7 +66,7 @@ const Modal = () => {
       {/* <ModalInputTitle /> */}
       {/* <ModalInputDeadline /> */}
       {/* <ModalInputProgress /> */}
-      <ModalInputTag />
+      {/* <ModalInputTag /> */}
       {/* <ModalInputManager /> */}
 
       {/* {isModalOpen && (
@@ -87,7 +87,7 @@ const Modal = () => {
       )} */}
       {/* {isModalOpen && <ModalDeleteColumn message='컬럼의 모든 카드가 삭제됩니다.' onClose={handleCloseModal} />} */}
       {/* {isModalOpen && <ModalTodo todoTitle='할 일 생성' onSubmit={handleNewCardSubmit} onClose={handleCloseModal} />} */}
-      {isModalOpen && <ModalTodo todoTitle='할 일 수정' onSubmit={handleNewCardSubmit} onClose={handleCloseModal} />}
+      {/* {isModalOpen && <ModalTodo todoTitle='할 일 수정' onSubmit={handleNewCardSubmit} onClose={handleCloseModal} />} */}
     </>
   );
 };

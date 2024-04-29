@@ -77,7 +77,7 @@ const ModalInputManager = ({ onSelectedMemberChange, dashboardId }: ModalInputMa
   return (
     <S.ModalInputProgressWrapper ref={wrapperRef}>
       <S.ModalInputManagerTitle>담당자</S.ModalInputManagerTitle>
-      <S.DropdownContainer onClick={toggleDropdown} isOpen={isOpen}>
+      <S.DropdownContainer onClick={toggleDropdown} $isopen={isOpen}>
         <S.DropdownHeader>
           {selectedMember && (
             <Image

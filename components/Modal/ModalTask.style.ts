@@ -131,7 +131,7 @@ export const ModalTaskComment = styled.div`
 export const CommentTitle = styled.div`
   display: flex;
   align-items: center;
-  text {
+  div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,7 +159,7 @@ export const CommentTitle = styled.div`
     margin-left: 0.8rem;
   }
   @media ${device.mobile} {
-    text {
+    div {
       width: 2.6rem;
       height: 2.6rem;
       font-size: 1.2rem;
@@ -248,7 +248,7 @@ export const ResponsiblePerson = styled.div`
     margin-top: 0.6rem;
     margin-bottom: 2rem;
   }
-  text {
+  h4 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -278,7 +278,7 @@ export const ResponsiblePerson = styled.div`
       margin-top: 0.4rem;
       margin-bottom: 0;
     }
-    text {
+    h4 {
       width: 2.6rem;
       height: 2.6rem;
       font-size: 1.2rem;

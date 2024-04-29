@@ -10,6 +10,7 @@ const DashboardEdit = () => {
   const router = useRouter();
   const { dashboardid } = router.query;
   console.log(dashboardid);
+
   return (
     <S.DashboardEditStyle>
       <SideMenu />

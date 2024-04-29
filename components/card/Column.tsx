@@ -1,22 +1,15 @@
-import Image from 'next/image';
-import CardTagChips from '../chips/card-tag-chips/CardTagChips';
 import * as S from './Column.style';
 import NumberChip from '../chips/number-chips/NumberChip';
 import { Setting } from '../Icons';
-
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ModalColumn from '../Modal/ModalColumn';
-import ModalTodo from '../Modal/ModalTodo';
-import ModalTask from '../Modal/ModalTask';
 import Card from './Card';
-import { Column } from '../chips/type';
 interface CardProps {
-  dashboardId: string;
-  column: Column;
+  dashboardId: any;
+  column: any;
 }
 const Column = ({ column, dashboardId }: CardProps) => {
   const [isColumnModalOpen, setIsColumnModalOpen] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
   const [totalCount, setTotalCount] = useState<any>();
 
   const handleSettingsModal = () => {

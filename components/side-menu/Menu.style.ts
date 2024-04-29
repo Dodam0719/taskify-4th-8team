@@ -1,11 +1,6 @@
 import { device } from '@/styles/breakpoints';
 import Image from 'next/image';
-import Link from 'next/link';
 import styled from 'styled-components';
-
-interface MenuItemType {
-  displayStyle: string;
-}
 
 export const Menu = styled.div`
   gap: 0.6rem;
@@ -51,11 +46,11 @@ export const MenuItemContainerStyle = styled.div`
   }
 `;
 
-export const MenuItem = styled.span<MenuItemType>`
+export const MenuItem = styled.span<any>`
   color: var(--gray_000);
 
   @media ${device.mobile} {
-    display: ${({ displayStyle }) => displayStyle};
+    display: ${({ $displayStyle }) => $displayStyle};
     margin-left: 1.2rem;
   }
   @media ${device.mobileMin} {
