@@ -20,16 +20,14 @@ export const DashboardStyle = styled.div`
 
 export const WrapperStyle = styled.div`
   width: 100%;
+  overflow: hidden;
 `;
 
 export const CardListStyle = styled.article`
   display: flex;
   width: 100%;
   height: auto;
-  align-items: stretch;
-  > * {
-    flex-grow: 1;
-  }
+  overflow: scroll;
   > button {
     width: auto;
   }

@@ -67,6 +67,25 @@ export const TitleStyle = styled.div`
 
 export const CardListItemStyle = styled.article``;
 
+export const CardImageStyle = styled(Image)`
+  margin-bottom: 1.2rem;
+  border-radius: 0.4rem;
+  @media screen and (${device.tablet}) and (${device.tabletMin}) {
+    width: 9.1rem;
+    height: 5.3rem;
+    margin: 0;
+    margin-right: 2rem;
+  }
+  @media (${device.mobile}) {
+    width: 100%;
+    max-height: 100%;
+    min-height: 25rem;
+  }
+  @media (${device.mobileMin}) {
+    width: 100%;
+  }
+`;
+
 export const CardStyle = styled.article`
   margin-top: 1.6rem;
   padding: 2rem;
@@ -74,20 +93,8 @@ export const CardStyle = styled.article`
   border: 1px solid var(--gray_060);
   border-radius: 0.6rem;
   cursor: pointer;
-  Image {
-    width: 100%;
-    height: 100%;
-    margin-bottom: 1.2rem;
-    border-radius: 0.4rem;
-  }
   @media screen and (${device.tablet}) and (${device.tabletMin}) {
     display: flex;
-    Image {
-      width: 9.1rem;
-      height: 5.3rem;
-      margin: 0;
-      margin-right: 2rem;
-    }
   }
   @media (${device.mobile}) {
     padding: 1.2rem;

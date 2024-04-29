@@ -12,9 +12,6 @@ interface DashboardNewNameType {
 const DashboardNewName = ({ dashboardId, children }: DashboardNewNameType) => {
   const [newName, setNewName] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
-  const checkEmptyName = () => {
-    return newName;
-  };
 
   const handleChangeNewName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewName(e.target.value);
@@ -23,13 +20,15 @@ const DashboardNewName = ({ dashboardId, children }: DashboardNewNameType) => {
   const handleColorSelect = (color: string) => {
     setSelectedColor(color);
   };
+  const handelSubmitDashboard = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // 폼의 기본 동작인 제출을 막음
 
-  const changeDashboard = async () => {
     try {
-      const response = await api.post(`/dashboards/${dashboardId}`, {
+      const response = await api.put(`/dashboards/${dashboardId}`, {
         title: newName,
         color: selectedColor,
       });
+      window.location.reload();
     } catch (error: any) {
       console.log(error.response.data.message);
     }
@@ -37,17 +36,17 @@ const DashboardNewName = ({ dashboardId, children }: DashboardNewNameType) => {
 
   return (
     <S.DashboardNewNameStyle>
-      <form>
+      <form onSubmit={handelSubmitDashboard}>
         <S.DashboardEditTitleContainerStyle>
           <p>{children}</p>
-          <ColorChips onColorSelect={() => {}} />
+          <ColorChips onColorSelect={handleColorSelect} />
         </S.DashboardEditTitleContainerStyle>
         <S.DashboardEditStyle>
           <label>대시보드이름</label>
           <input type='text' placeholder='이름을 입력해주세요' value={newName} onChange={handleChangeNewName} />
         </S.DashboardEditStyle>
         <S.DashboardEditButtonStyle>
-          <Button variant='accept' $width='8.4rem' $height='3.2rem' type='submit'>
+          <Button variant='accept' $width='8.4rem' $height='3.2rem'>
             변경
           </Button>
         </S.DashboardEditButtonStyle>

@@ -1,7 +1,6 @@
 import Button from '@/components/button/Button';
-import { TableItemType, MemberInfo } from '../type';
+import { TableItemType } from '../type';
 import * as S from './TableItem.style';
-import api from '@/pages/api/axios';
 
 const TableItem = ({
   userProfileColor,
