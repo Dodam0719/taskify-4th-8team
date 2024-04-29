@@ -141,7 +141,10 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
   };
   return (
     <S.DashboardHeader>
-      <S.RecipientName>{dashboardInfo.title || children}</S.RecipientName>
+      <S.RecipientName>
+        {dashboardInfo.title || children}
+        {dashboardInfo.createdByMe && <S.CrownIcon src='/icons/Crown.svg' alt='왕관 아이콘' width={20} height={16} />}
+      </S.RecipientName>
       <S.DashboardHeaderWrapper $isvisible={isVisible}>
         <Link href={`/dashboard/${dashboardId}/edit`}>
           <S.SettingButton>
@@ -168,10 +171,12 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
           )}
         </S.ProfileTestWrapper>
       </S.DashboardHeaderWrapper>
-      <S.ProfileWrapper $isvisible={isVisible}>
-        <S.ProfileInitials>{profileInfo.nickname.charAt(0)}</S.ProfileInitials>
-        <S.ProfileName>{profileInfo.nickname}</S.ProfileName>
-      </S.ProfileWrapper>
+      <Link href={`/myPage`}>
+        <S.ProfileWrapper $isvisible={isVisible}>
+          <S.ProfileInitials>{profileInfo.nickname.charAt(0)}</S.ProfileInitials>
+          <S.ProfileName>{profileInfo.nickname}</S.ProfileName>
+        </S.ProfileWrapper>
+      </Link>
     </S.DashboardHeader>
   );
 };
