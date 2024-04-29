@@ -20,6 +20,7 @@ const Card: React.FC<CardProps> = ({ dashboardId, columninfo, onCountChange }) =
   const [isTodoModalOpen, setIsTodoModalOpen] = useState(false);
   const [cardsInfo, setCardsInfo] = useState<Cardinfo>({ cursorId: 0, totalCount: 0, cards: [] });
   const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
+
   const handleTaskModal = (cardId: number) => {
     setSelectedCardId(cardId); // 클릭된 카드의 아이디 설정
     setIsTaskModalOpen(true);
@@ -65,7 +66,9 @@ const Card: React.FC<CardProps> = ({ dashboardId, columninfo, onCountChange }) =
       <Button variant='addTodo' onClick={handleTodoModal} $width='100%' $height='4rem'>
         <PlusChip />
       </Button>
-      {isTaskModalOpen && <ModalTask CardId={selectedCardId} columninfo={columninfo} onClose={handleCloseModal} />}
+      {isTaskModalOpen && (
+        <ModalTask CardId={selectedCardId} columninfo={columninfo} dashboardId={dashboardId} onClose={handleCloseModal} />
+      )}
       {cardsInfo.cards.map((card) => (
         <S.CardStyle key={card.id} onClick={() => handleTaskModal(card.id)}>
           {card.imageUrl !== null && <Image src={card.imageUrl} alt='카드 이미지' width={272} height={160} />}

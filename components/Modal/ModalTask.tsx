@@ -20,26 +20,35 @@ interface ModalTaskProps {
   mobileHeight?: string;
   CardId: number | null;
   columninfo: Column;
+  dashboardId: string;
+
   // tagList: CardType[];
 }
 
-const ModalTask = ({
-  CardId,
-  columninfo,
-  onClose,
-  width,
-  height,
-  tabletWidth,
-  tabletHeight,
-  mobileWidth,
-  mobileHeight,
-}: ModalTaskProps) => {
+const ModalTask = ({ CardId, columninfo, dashboardId, onClose }: ModalTaskProps) => {
   const [isToolModalOpen, setIsToolModalOpen] = useState(false);
   const KebobChoiceRef = useRef<HTMLImageElement>(null);
-  const [cardsInfo, setCardsInfo] = useState<Cards>({});
+  const [cardsInfo, setCardsInfo] = useState<Cards>({
+    id: 0,
+    title: '',
+    description: '',
+    tags: [],
+    dueDate: '',
+    assignee: {
+      id: 0,
+      nickname: '',
+      profileImageUrl: '',
+    },
+    imageUrl: '',
+    teamId: '',
+    columnId: 0,
+    dashboardId: 0,
+    createdAt: '',
+    updatedAt: '',
+  });
 
   const handleSetIsOpen = () => {
-    setIsToolModalOpen(true);
+    setIsToolModalOpen((prevState) => !prevState);
   };
 
   useEffect(() => {
@@ -67,7 +76,7 @@ const ModalTask = ({
         <S.ModalTaskHeader>
           <h1>{cardsInfo.title}</h1>
           <img onClick={handleSetIsOpen} ref={KebobChoiceRef} className='kebob' src='/assets/icon/kebob_icon.svg' alt='케밥 버튼이미지' />
-          {isToolModalOpen && <ModalTools />}
+          {isToolModalOpen && <ModalTools dashboardId={dashboardId} columninfo={columninfo} />}
           <img className='close' src='/assets/icon/close_icon.svg' alt='종료 버튼이미지' />
         </S.ModalTaskHeader>
         <S.ModalTaskBox>

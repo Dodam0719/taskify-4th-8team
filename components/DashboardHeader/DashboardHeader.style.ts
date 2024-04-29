@@ -26,7 +26,7 @@ export const RecipientName = styled.h1`
   }
 `;
 
-export const DashboardHeaderWrapper = styled.div<{ isvisible?: string }>`
+export const DashboardHeaderWrapper = styled.div<{ isvisible?: any }>`
   display: ${({ isvisible }) => (isvisible === 'true' ? 'flex' : 'none')};
   align-items: center;
 
@@ -165,7 +165,7 @@ export const LastTestProfile = styled.div`
     height: 3.4rem;
   }
 `;
-export const ProfileWrapper = styled.div<{ isVisible?: string }>`
+export const ProfileWrapper = styled.div<{ isVisible?: any }>`
   display: flex;
   align-items: center;
   padding-left: 3.2rem;

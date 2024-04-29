@@ -13,14 +13,6 @@ import api from '../api/api';
 import Column from '@/components/card/Column';
 import { Columninfo } from '@/components/chips/type';
 
-const columnIdToTitleMap: { [key: string]: string } = {
-  '0': 'To do',
-  '1': 'On Progress',
-  '2': 'Done',
-};
-
-const cardLists: { [key: string]: CardType[] } = {};
-
 const Dashboard = () => {
   const router = useRouter();
   const { dashboardid } = router.query;
@@ -38,9 +30,6 @@ const Dashboard = () => {
     // 새 컬럼 생성 로직 추가
   };
 
-  Object.keys(columnIdToTitleMap).forEach((columnId) => {
-    cardLists[columnId] = dummyCards[0].cards.filter((card) => card.columnId === parseInt(columnId));
-  });
   useEffect(() => {
     const fetchColumnsInfo = async () => {
       if (dashboardid)

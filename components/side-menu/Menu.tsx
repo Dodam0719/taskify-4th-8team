@@ -1,18 +1,16 @@
 import { Dashboard } from '@/hooks/useDashboards';
 import * as S from './Menu.style';
-import { MenuType } from './type';
-import router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 interface Props {
   dashboard: Dashboard;
   selectedDashboardIndex: number;
   setSelectedDashboardIndex: React.Dispatch<React.SetStateAction<number>>;
-  type: string;
-  id: number;
+  type?: string;
+  id?: any;
 }
 
-
-const Menu = ({ dashboard, index, selectedDashboardIndex, setSelectedDashboardIndex, onClick, type, id }: Props) => {
+const Menu = ({ dashboard, selectedDashboardIndex, setSelectedDashboardIndex, type, id }: Props) => {
   const router = useRouter();
   const handleClick = (id: number) => {
     const queryString = `${id}`;
@@ -22,7 +20,6 @@ const Menu = ({ dashboard, index, selectedDashboardIndex, setSelectedDashboardIn
     if (type === 'sideMenu') {
       setSelectedDashboardIndex(id);
     }
-
   };
 
   return (

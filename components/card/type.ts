@@ -40,11 +40,7 @@ export interface Member {
   updatedAt?: string;
 }
 
-export interface Members {
-  members: Member[];
-}
-
 export interface MembersInfo {
-  members: Members;
+  members: Member[];
   totalCount: number;
 }

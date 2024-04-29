@@ -4,10 +4,9 @@ import * as S from './Column.style';
 import NumberChip from '../chips/number-chips/NumberChip';
 import { Setting } from '../Icons';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ModalColumn from '../Modal/ModalColumn';
-import ModalTodo from '../Modal/ModalTodo';
-import ModalTask from '../Modal/ModalTask';
+
 import Card from './Card';
 import { Column } from '../chips/type';
 interface CardProps {

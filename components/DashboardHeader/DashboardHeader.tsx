@@ -4,12 +4,12 @@ import Link from 'next/link';
 import ModalInvite from '../Modal/ModalInvite';
 import api from '@/pages/api/api';
 import randomColor from 'randomcolor';
-import { Membersinfo } from '../card/type';
+import { MembersInfo } from '../card/type';
 
 interface DashboardHeaderProps {
   isVisible: string;
   children?: React.ReactNode;
-  dashboardId: string;
+  dashboardId?: any;
 }
 interface dashboardInfo {
   id: number;
@@ -34,8 +34,8 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
   const [additionalProfiles, setAdditionalProfiles] = useState<number | null>();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [dashboardInfo, setDashboardInfo] = useState<dashboardInfo>({});
-  const [member, setMember] = useState<Membersinfo>({ members: [], totalCount: 0 });
+  const [dashboardInfo, setDashboardInfo] = useState<any>({});
+  const [member, setMember] = useState<MembersInfo>({ members: [], totalCount: 0 });
   const [profileInfo, setProfileInfo] = useState<profileInfo>({
     id: '',
     email: '',
@@ -137,7 +137,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
   return (
     <S.DashboardHeader>
       <S.RecipientName>{dashboardInfo.title || children}</S.RecipientName>
-      <S.DashboardHeaderWrapper isvisible={isVisible}>
+      <S.DashboardHeaderWrapper isVisible={isVisible}>
         <Link href={`/dashboard/${dashboardId}/edit`}>
           <S.SettingButton>
             <img src='/assets/icon/setting_icon.svg' alt='관리 버튼이미지' />
