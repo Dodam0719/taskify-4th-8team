@@ -44,6 +44,12 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
     createdAt: '',
     updatedAt: '',
   });
+  const [color, setColor] = useState<string>();
+
+  useEffect(() => {
+    setColor(randomColor());
+  }, []);
+
   useEffect(() => {
     const fetchDashboardInfo = async () => {
       if (dashboardId)
@@ -133,7 +139,6 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
   const handleInviteSubmit = (data: { name: string }) => {
     // 새 컬럼 생성 로직 추가
   };
-  const color = randomColor();
   return (
     <S.DashboardHeader>
       <S.RecipientName>{dashboardInfo.title || children}</S.RecipientName>
