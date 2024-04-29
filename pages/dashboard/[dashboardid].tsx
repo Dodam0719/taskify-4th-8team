@@ -41,6 +41,7 @@ const Dashboard = () => {
   Object.keys(columnIdToTitleMap).forEach((columnId) => {
     cardLists[columnId] = dummyCards[0].cards.filter((card) => card.columnId === parseInt(columnId));
   });
+
   useEffect(() => {
     const fetchColumnsInfo = async () => {
       if (dashboardid)

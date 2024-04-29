@@ -31,6 +31,7 @@ interface profileInfo {
 }
 
 const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderProps) => {
+
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
   const [additionalProfiles, setAdditionalProfiles] = useState<number | null>();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -144,7 +145,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
             관리
           </S.SettingButton>
         </Link>
-        {isModalOpen && <ModalInvite title='초대하기' placeholder='' onSubmit={handleInviteSubmit} onClose={handleCloseModal} />}
+        {isModalOpen && <ModalInvite title='초대하기' placeholder='' onClose={handleCloseModal} />}
         <S.InviteButton onClick={handleInviteModal}>
           <img src='/assets/icon/invite_icon.svg' alt='초대 버튼이미지' />
           초대하기

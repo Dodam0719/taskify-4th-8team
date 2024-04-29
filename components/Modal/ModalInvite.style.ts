@@ -55,7 +55,7 @@ export const ModalInviteFormInput = styled.input`
   }
 `;
 
-export const ModalInviteErrorMessage = styled.div`
+export const ModalInviteErrorMessage = styled.p`
   height: 1.7rem;
   margin: -2rem 0 2.8rem;
   color: var(--red_100, #d6173a);
@@ -66,14 +66,15 @@ export const ModalInviteErrorMessage = styled.div`
 export const ModalInviteFormButtonWrapper = styled.div`
   min-height: 4.8rem;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-items: center;
 
   @media ${device.mobile} {
     min-height: 4.2rem;
     display: flex;
     flex-direction: invite;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -84,19 +85,6 @@ export const PlaceholderText = styled.div`
 
   @media ${device.mobile} {
     display: none;
-  }
-`;
-
-export const ModalInviteFormDeleteText = styled.span`
-  color: var(--gray_020, #9fa6b2);
-  font-size: 1.4rem;
-  font-weight: 400;
-  text-decoration-line: underline;
-  margin-right: auto;
-  cursor: pointer;
-
-  @media ${device.mobile} {
-    margin-bottom: 1.6rem;
   }
 `;
 

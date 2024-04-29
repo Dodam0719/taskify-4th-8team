@@ -2,56 +2,46 @@ import { useForm } from 'react-hook-form';
 import * as S from './ModalInvite.style';
 import ModalButton from './ModalButton';
 import ModalBackground from './ModalBackground';
-import { useState } from 'react';
+import api from '@/pages/api/axios';
 
-interface ColumnFormProps {
+interface InviteFormProps {
   title: string;
   placeholder: string;
-  onSubmit: (data: { name: string }) => void;
   onClose: () => void;
-  onDelete?: () => void;
 }
 
-const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, onClose, onDelete }) => {
+const ModalInvite: React.FC<InviteFormProps> = ({ title, onClose }) => {
   const {
     register,
     handleSubmit,
-    reset,
-    setError,
     formState: { errors },
-  } = useForm<{ name: string }>();
+  } = useForm({ mode: 'onBlur', defaultValues: { email: '' } });
 
-  const [columnNames, setColumnNames] = useState<string[]>(['기존 컬럼1', '기존 컬럼2']); // 예시로 기존 컬럼 이름들
-
-  const submitForm = (data: { name: string }) => {
-    // '새 컬럼 생성'일 때만 중복 이름 체크 수행
-    if (title === '새 컬럼 생성' && columnNames.includes(data.name)) {
-      setError('name', {
-        type: 'duplicate',
-        message: '중복된 컬럼 이름입니다',
-      });
-    } else {
-      onSubmit(data);
-      if (title === '새 컬럼 생성') {
-        setColumnNames((prev) => [...prev, data.name]); // 새 컬럼 이름 추가
+  const Invite = async (data: { dashboardId: number; email: string }) => {
+    try {
+      const response = await api.post(`/dashboards/${dashboardid}/invitations`, data);
+      if (response.status === 201) {
+        console.log('가입이 완료됐습니다.');
+        const result = response.data;
+        return result;
       }
-      reset();
+    } catch (error: any) {
+      alert(error.response.data.message);
     }
   };
 
   return (
     <ModalBackground onClose={onClose}>
-      <S.ModalInviteForm onSubmit={handleSubmit(submitForm)}>
+      <S.ModalInviteForm onSubmit={handleSubmit((data) => Invite(data))}>
         <S.ModalInviteFormTitle>{title}</S.ModalInviteFormTitle>
-        <S.ModalInviteFormLabel htmlFor='name'>이메일</S.ModalInviteFormLabel>
-        <S.ModalInviteFormInput id='name' {...register('name', { required: true })} placeholder={placeholder} />
-        {errors.name && <S.ModalInviteErrorMessage>{errors.name.message}</S.ModalInviteErrorMessage>}
+        <S.ModalInviteFormLabel htmlFor='email'>이메일</S.ModalInviteFormLabel>
+        <S.ModalInviteFormInput
+          id='email'
+          {...register('email', { required: { value: true, message: '이메일을 입력해 주세요.' } })}
+          placeholder='이메일을 입력해 주세요.'
+        />
+        {errors.email && <S.ModalInviteErrorMessage>{errors.email.message}</S.ModalInviteErrorMessage>}
         <S.ModalInviteFormButtonWrapper>
-          {title === '컬럼 관리' ? (
-            <S.ModalInviteFormDeleteText onClick={onDelete}>삭제하기</S.ModalInviteFormDeleteText>
-          ) : (
-            <S.PlaceholderText /> // PC에서는 공간을 유지하되 모바일에서는 렌더링하지 않음
-          )}
           <S.ModalInviteFormButton>
             <ModalButton text='취소' variant='cancel' onClick={onClose} />
             <ModalButton text='확인' variant='confirm' />
@@ -62,4 +52,4 @@ const ModalColumn: React.FC<ColumnFormProps> = ({ title, placeholder, onSubmit, 
   );
 };
 
-export default ModalColumn;
+export default ModalInvite;
