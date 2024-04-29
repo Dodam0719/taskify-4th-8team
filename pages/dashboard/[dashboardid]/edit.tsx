@@ -9,12 +9,13 @@ import { useRouter } from 'next/router';
 const DashboardEdit = () => {
   const router = useRouter();
   const { dashboardid } = router.query;
+  const dashboardId = typeof dashboardid === 'string' ? parseInt(dashboardid) : undefined;
   console.log(dashboardid);
   return (
     <S.DashboardEditStyle>
       <SideMenu />
       <S.DashboardWrapperStyle>
-        <DashboardHeader isVisible='false' children='' dashboardId={dashboardid} />
+        {dashboardid && <DashboardHeader isVisible='false' children='' dashboardId={dashboardid} />}
         <S.DashboardMainStyle>
           <S.DashboardBackStyle>
             <Arrow_forward $width='2rem' $height='2rem' />
@@ -22,8 +23,8 @@ const DashboardEdit = () => {
           </S.DashboardBackStyle>
           <S.DashboardBoardListStyle>
             <DashboardNewName>비브리지</DashboardNewName>
-            <Table title='구성원' userList='이름' />
-            <Table title='초대 내역' userList='이메일' />
+            {dashboardId && <Table title='구성원' userList='이름' dashboardId={dashboardId} />}
+            {dashboardId && <Table title='초대 내역' userList='이메일' dashboardId={dashboardId} />}
           </S.DashboardBoardListStyle>
         </S.DashboardMainStyle>
       </S.DashboardWrapperStyle>
