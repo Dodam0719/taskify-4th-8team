@@ -28,6 +28,7 @@ const DashboardNewName = ({ dashboardId, children }: DashboardNewNameType) => {
         title: newName,
         color: selectedColor,
       });
+      window.location.reload();
     } catch (error: any) {
       console.log(error.response.data.message);
     }
