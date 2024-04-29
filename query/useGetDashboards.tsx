@@ -6,7 +6,7 @@ const useGetDashboards = () => {
   return useQuery<ResDashboards>({
     queryFn: async () => {
       try {
-        const res = await api.get(`/dashboards/?navigationMethod=pagination&cursorId=0&size=5&page=1`);
+        const res = await api.get(`/dashboards/?navigationMethod=pagination&cursorId=0&size=1000&page=1`);
         return res.data;
       } catch (e) {}
     },

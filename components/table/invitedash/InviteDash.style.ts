@@ -110,6 +110,9 @@ export const ArrowNextPage = styled(Image)`
 
 export const InviteDashListStyle = styled.article`
   width: 100%;
+  height: 60rem;
+  overflow: scroll;
+  overflow-x: hidden;
   background-color: var(--white_100);
 
   @media ${device.tablet} {
