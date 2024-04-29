@@ -11,7 +11,7 @@ interface ModalAlertProps {
   mobileHeight?: string;
 }
 
-const ModalAlert: React.FC<ModalAlertProps> = ({ message, onClose, width, height, mobileWidth, mobileHeight }) => {
+const ModalAlert: React.FC<ModalAlertProps> = ({ message, onClose }) => {
   return (
     <ModalBackground onClose={onClose} width='54rem' height='25rem' mobileWidth='32.7rem' mobileHeight='22rem'>
       <S.ModalAlertContent>

@@ -8,7 +8,7 @@ interface FormData {
 const ModalInputComment: React.FC = () => {
   const { register, handleSubmit, reset } = useForm<FormData>();
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(() => {
     /* 제출로직 */
     reset();
   });

@@ -5,22 +5,20 @@ import useMembers, { Member } from '@/hooks/useMembers';
 import api from '@/pages/api/api';
 
 interface ModalInputManagerProp {
-  onSelectedMemberChange: (selectedMember: any) => void;
+  onSelectedMemberChange: (selectedMember: Member) => void;
   dashboardId: string;
 }
 const ModalInputManager = ({ onSelectedMemberChange, dashboardId }: ModalInputManagerProp) => {
-  const { members, loading, error } = useMembers();
+  const { loading, error } = useMembers();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedMember, setSelectedMember] = useState<any>(null);
+  const [selectedMember, setSelectedMember] = useState<Member>();
   const [searchTerm, setSearchTerm] = useState('');
-  const [inputFocused, setInputFocused] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [membersinfo, setMembersInfo] = useState<{ members: Member[]; totalCount: number }>({ members: [], totalCount: 0 });
 
-  // 선택된 멤버와 일치하는지 여부에 따라 멤버 목록을 필터링
-  const filteredMembers = searchTerm
-    ? members.filter((member) => member.nickname.toLowerCase().includes(searchTerm.toLowerCase()))
-    : members;
+  // const filteredMembers = searchTerm
+  //   ? members.filter((member) => member.nickname.toLowerCase().includes(searchTerm.toLowerCase()))
+  //   : members;
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 

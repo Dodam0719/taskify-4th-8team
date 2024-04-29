@@ -102,7 +102,7 @@ const InviteDash = () => {
                     setSelectedDashboardIndex(index);
                   }}
                   type='button'
-                  dashboardId={dashboardid}
+                  dashboardid={dashboardid}
                 />
               </div>
               <Arrow_forward $width='1.8rem' $height='1.8rem' />

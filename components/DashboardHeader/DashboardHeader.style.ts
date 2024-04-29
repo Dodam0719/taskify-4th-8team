@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import randomColor from 'randomcolor';
 import { device } from '../../styles/breakpoints';
 import Image from 'next/image';
 export const DashboardHeader = styled.nav`
@@ -191,7 +190,7 @@ export const LastTestProfile = styled.div`
     height: 3.4rem;
   }
 `;
-export const ProfileWrapper = styled.div<{ $isvisible?: any }>`
+export const ProfileWrapper = styled.div<{ $isvisible?: string }>`
   display: flex;
   align-items: center;
   padding-left: 3.2rem;

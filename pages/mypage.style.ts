@@ -135,7 +135,7 @@ export const Button = styled.button`
     margin-top: 1.6rem;
   }
 `;
-export const passwordButton = styled.button<{ isActive: boolean }>`
+export const passwordButton = styled.button<{ isactive: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,7 +148,7 @@ export const passwordButton = styled.button<{ isActive: boolean }>`
   font-size: 1.4rem;
   text-align: center;
   font-weight: 500;
-  background-color: ${({ isActive }) => (isActive ? 'var(--violet_000)' : 'var(--gray_020)')};
+  background-color: ${({ isactive }) => (isactive ? 'var(--violet_000)' : 'var(--gray_020)')};
   line-height: normal;
   color: var(--white_100);
   cursor: pointer;

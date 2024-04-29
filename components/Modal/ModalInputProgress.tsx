@@ -9,7 +9,7 @@ interface ModalInputProgressProps {
   columninfo: Column;
   dashboardId: string;
 }
-const ModalInputProgress = ({ columninfo, dashboardId }: ModalInputProgressProps) => {
+const ModalInputProgress = ({ dashboardId }: ModalInputProgressProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [progressInfo, setProgressInfo] = useState<Columninfo>({ result: '', data: [] });

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import { CHIP_COLORS } from '../chips/color-chips/ColorChips';
@@ -22,7 +22,6 @@ const ModalInputTag = ({ onTagChange }: ModalInputTagProps) => {
     handleSubmit,
     setValue,
     setError,
-    getValues,
     clearErrors,
     formState: { errors },
   } = useForm<FormValues>();

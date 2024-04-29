@@ -23,9 +23,7 @@ const Dashboard = () => {
     setIsModalOpen(false);
   };
 
-  const handleNewColumnSubmit = (data: { name: string }) => {
-    // 새 컬럼 생성 로직 추가
-  };
+  const handleNewColumnSubmit = () => {};
 
   useEffect(() => {
     const fetchColumnsInfo = async () => {

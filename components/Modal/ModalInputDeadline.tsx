@@ -3,17 +3,18 @@ import * as S from './ModalInputDeadline.style';
 import { useEffect, useRef, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-
+import { Value } from '../../node_modules/react-calendar/dist/esm/shared/types';
 interface DeadlineData {
   title: string;
 }
+
 interface ModalInputDeadlineProps {
   onDeadlineChange: (newDeadline: string) => void;
 }
 const ModalInputDeadline: React.FC<ModalInputDeadlineProps> = ({ onDeadlineChange }) => {
   const { register, setValue, watch } = useForm<DeadlineData>();
   const [calendarVisible, setCalendarVisible] = useState(false);
-  const [dateSelected, setDateSelected] = useState(false);
+  const [dateSelected, setDateSelected] = useState<boolean>(false);
   const deadlineValue = watch('title');
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -30,7 +31,7 @@ const ModalInputDeadline: React.FC<ModalInputDeadlineProps> = ({ onDeadlineChang
     };
   }, []);
 
-  const handleDateChange = (value: any) => {
+  const handleDateChange = (value: Value) => {
     const selectedDate = Array.isArray(value) ? value[0] : value;
 
     const toLocaleDateTimeString = (date: Date) => {
@@ -43,12 +44,16 @@ const ModalInputDeadline: React.FC<ModalInputDeadlineProps> = ({ onDeadlineChang
       return `${year}-${month}-${day} ${hours}:${minutes}`;
     };
 
-    const dateTimeString = toLocaleDateTimeString(selectedDate);
+    const dateTimeString = selectedDate && toLocaleDateTimeString(selectedDate);
 
-    setValue('title', dateTimeString);
+    {
+      dateTimeString && setValue('title', dateTimeString);
+    }
     setCalendarVisible(false);
     setDateSelected(true);
-    onDeadlineChange(dateTimeString);
+    {
+      dateTimeString && onDeadlineChange(dateTimeString);
+    }
   };
 
   const toggleCalendar = () => {
@@ -63,7 +68,7 @@ const ModalInputDeadline: React.FC<ModalInputDeadlineProps> = ({ onDeadlineChang
         placeholder='날짜를 입력해 주세요'
         value={deadlineValue || ''}
         onClick={toggleCalendar}
-        dateselected={dateSelected ? 'true' : 'false'}
+        dateselected={dateSelected}
       />
       {calendarVisible && (
         <S.CalendarWrapper>

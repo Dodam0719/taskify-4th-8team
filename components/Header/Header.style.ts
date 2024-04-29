@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { device } from '../../styles/breakpoints';
-import { Link } from 'react-router-dom';
 
 export const Header = styled.header`
   background-color: var(--black_000);
