@@ -3,9 +3,7 @@ import * as S from './ModalInvite.style';
 import ModalButton from './ModalButton';
 import ModalBackground from './ModalBackground';
 import api from '@/pages/api/axios';
-import api from '@/pages/api/axios';
 
-interface InviteFormProps {
 interface InviteFormProps {
   title: string;
   placeholder: string;
@@ -40,7 +38,6 @@ const ModalInvite: React.FC<InviteFormProps> = ({ dashboardId, title, onClose })
   return (
     <ModalBackground onClose={onClose}>
       <S.ModalInviteForm onSubmit={handleSubmit((data) => Invite(data))}>
-      <S.ModalInviteForm onSubmit={handleSubmit((data) => Invite(data))}>
         <S.ModalInviteFormTitle>{title}</S.ModalInviteFormTitle>
         <S.ModalInviteFormLabel htmlFor='email'>이메일</S.ModalInviteFormLabel>
         <S.ModalInviteFormInput
@@ -67,5 +64,4 @@ const ModalInvite: React.FC<InviteFormProps> = ({ dashboardId, title, onClose })
   );
 };
 
-export default ModalInvite;
 export default ModalInvite;
