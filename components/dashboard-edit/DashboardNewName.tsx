@@ -30,7 +30,7 @@ const DashboardNewName = ({ children }: DashboardNewNameType) => {
     if (isFilled) {
       const changeDashboard = async (dashboardId: number = 7073, title: string = newName, color: string = selectedColor) => {
         try {
-          const response = await api.put(`/dashboard/${dashboardId}`);
+          const response = await api.put(`/dashboards/${dashboardId}`);
           if (response.status === 200) {
             const result = response.data;
             console.log('대시보드를 수정했습니다.');

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import ModalInvite from '../Modal/ModalInvite';
 import api from '@/pages/api/api';
 import randomColor from 'randomcolor';
-import { Membersinfo } from '../card/type';
+import { MembersInfo } from '@/components/card/type';
 
 interface DashboardHeaderProps {
   isVisible: string;
@@ -35,7 +35,7 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
   const [additionalProfiles, setAdditionalProfiles] = useState<number | null>();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [dashboardInfo, setDashboardInfo] = useState<dashboardInfo>({});
-  const [member, setMember] = useState<Membersinfo>({ members: [], totalCount: 0 });
+  const [member, setMember] = useState<MembersInfo>({ members: [], totalCount: 0 });
   const [profileInfo, setProfileInfo] = useState<profileInfo>({
     id: '',
     email: '',
@@ -44,6 +44,12 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
     createdAt: '',
     updatedAt: '',
   });
+  const [color, setColor] = useState<string>();
+
+  useEffect(() => {
+    setColor(randomColor());
+  }, []);
+
   useEffect(() => {
     const fetchDashboardInfo = async () => {
       if (dashboardId)
@@ -133,7 +139,6 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
   const handleInviteSubmit = (data: { name: string }) => {
     // 새 컬럼 생성 로직 추가
   };
-  const color = randomColor();
   return (
     <S.DashboardHeader>
       <S.RecipientName>{dashboardInfo.title || children}</S.RecipientName>
