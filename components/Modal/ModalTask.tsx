@@ -6,6 +6,10 @@ import ModalInputComment from './ModalInputComment';
 import * as S from './ModalTask.style';
 import ModalTools from './ModalTools';
 import { CardType } from '@/pages/api/dummyCardDataType';
+import { Cardinfo } from '../card/type';
+import api from '@/pages/api/api';
+import { Cards } from '../table/type';
+import { Column } from '../chips/type';
 interface ModalTaskProps {
   onClose: () => void;
   width?: string;
@@ -14,11 +18,25 @@ interface ModalTaskProps {
   tabletHeight?: string;
   mobileWidth?: string;
   mobileHeight?: string;
+  CardId: number | null;
+  columninfo: Column;
   // tagList: CardType[];
 }
-const ModalTask = ({ onClose, width, height, tabletWidth, tabletHeight, mobileWidth, mobileHeight }: ModalTaskProps) => {
+
+const ModalTask = ({
+  CardId,
+  columninfo,
+  onClose,
+  width,
+  height,
+  tabletWidth,
+  tabletHeight,
+  mobileWidth,
+  mobileHeight,
+}: ModalTaskProps) => {
   const [isHidden, setIsHidden] = useState(true);
   const KebobChoiceRef = useRef<HTMLImageElement>(null);
+  const [cardsInfo, setCardsInfo] = useState<Cards>({});
 
   const handleSetIsOpen = () => {
     setIsHidden(!isHidden);
@@ -37,6 +55,18 @@ const ModalTask = ({ onClose, width, height, tabletWidth, tabletHeight, mobileWi
 
   const cardLists: { [key: string]: CardType[] } = {};
 
+  useEffect(() => {
+    const fetchCardsInfo = async () => {
+      try {
+        const response = await api.get(`/cards/${CardId}`);
+        setCardsInfo(response.data);
+      } catch (error) {
+        console.error('프로필 정보를 가져오는 중에 오류가 발생했습니다:', error);
+      }
+    };
+
+    fetchCardsInfo();
+  }, []);
   return (
     <ModalBackground
       onClose={onClose}
@@ -48,7 +78,7 @@ const ModalTask = ({ onClose, width, height, tabletWidth, tabletHeight, mobileWi
       mobileHeight='70rem'>
       <S.ModalTask>
         <S.ModalTaskHeader>
-          <h1>새로운 일정 관리 Taskify</h1>
+          <h1>{cardsInfo.title}</h1>
           <img onClick={handleSetIsOpen} ref={KebobChoiceRef} className='kebob' src='/assets/icon/kebob_icon.svg' alt='케밥 버튼이미지' />
           {!isHidden && <ModalTools hidden={isHidden} />}
           <img className='close' src='/assets/icon/close_icon.svg' alt='종료 버튼이미지' />
@@ -57,28 +87,30 @@ const ModalTask = ({ onClose, width, height, tabletWidth, tabletHeight, mobileWi
           <S.ResponsiblePerson>
             <h3>담당자</h3>
             <div>
-              <text>B</text>
-              <p>배유철</p>
+              {cardsInfo.assignee ? (
+                <>
+                  <text>{cardsInfo.assignee.nickname.charAt(0)}</text>
+                  <p>{cardsInfo.assignee.nickname}</p>
+                </>
+              ) : (
+                <span>No assignee</span>
+              )}
             </div>
           </S.ResponsiblePerson>
           <S.Deadline>
             <h3>마감일</h3>
-            <p>2022.12.30 19:00</p>
+            <p>{cardsInfo.dueDate}</p>
           </S.Deadline>
         </S.ModalTaskBox>
         <S.ModalTaskChips>
           <S.ProgressChip>
             <div />
-            <span>To Do</span>
+            <span>{columninfo.title}</span>
           </S.ProgressChip>
-          <S.CardChips>{/* <CardTagChips /> */}</S.CardChips>
+          <S.CardChips>{cardsInfo.tags}</S.CardChips>
         </S.ModalTaskChips>
-        <S.ModalTaskText>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum finibus nibh arcu, quis consequat ante cursus eget. Cras
-          mattis, nulla non laoreet porttitor, diam justo laoreet eros, vel aliquet diam elit at leo.
-        </S.ModalTaskText>
-        <S.ModalTaskImg src='/assets/card/card-image.png' alt='테스크 이미지' />
-        <ModalInputComment />
+        <S.ModalTaskText>{cardsInfo.description}</S.ModalTaskText>
+        {cardsInfo.imageUrl && <S.ModalTaskImg src={cardsInfo.imageUrl} alt='테스크 이미지' />} <ModalInputComment />
         <S.ModalTaskComment>
           <S.CommentTitle>
             <text>C</text>

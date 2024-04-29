@@ -13,6 +13,7 @@ interface profileInfo {
   createdAt?: string;
   updatedAt?: string;
 }
+
 const ProfileBox = () => {
   const [nickname, setNickname] = useState('');
   const [uploadedImage, setUploadedImage] = useState(null);

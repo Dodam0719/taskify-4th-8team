@@ -2,37 +2,102 @@ import { ReactNode, useEffect, useState } from 'react';
 import * as S from './DashboardHeader.style';
 import Link from 'next/link';
 import ModalInvite from '../Modal/ModalInvite';
-import { useParams } from 'react-router-dom';
-import { useRouter } from 'next/router';
+import api from '@/pages/api/api';
+import randomColor from 'randomcolor';
+import { Membersinfo } from '../card/type';
 
-interface ProfileItem {
-  color: string;
-  initials: string;
-}
-
-const PROFILE: ProfileItem[] = [
-  { color: '--green_100', initials: 'Y' },
-  { color: '--purple_100', initials: 'C' },
-  { color: '--orange_100', initials: 'K' },
-  { color: '--blue_100', initials: 'J' },
-  { color: '--pink_100', initials: 'H' },
-  { color: '--green_100', initials: 'Q' },
-  { color: '--green_100', initials: 'Q' },
-  { color: '--green_100', initials: 'Q' },
-  { color: '--green_100', initials: 'Q' },
-];
 interface DashboardHeaderProps {
   isVisible: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  dashboardId?: string;
 }
-const DashboardHeader = ({ isVisible, children }: DashboardHeaderProps) => {
-  const router = useRouter();
-  const { dashboardId } = router.query;
-  console.log(dashboardId);
+interface dashboardInfo {
+  id: number;
+  title: string;
+  color: string;
+  createdAt?: string;
+  updatedAt?: string;
+  userId?: number;
+  createdByMe?: boolean;
+}
 
+interface profileInfo {
+  id?: string;
+  email: string;
+  nickname: string;
+  profileImageUrl: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderProps) => {
   const [isTabletView, setIsTabletView] = useState<boolean>(false);
-  const [additionalProfiles, setAdditionalProfiles] = useState<number>(0);
+  const [additionalProfiles, setAdditionalProfiles] = useState<number | null>();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [dashboardInfo, setDashboardInfo] = useState<dashboardInfo>({});
+  const [member, setMember] = useState<Membersinfo>({ members: [], totalCount: 0 });
+  const [profileInfo, setProfileInfo] = useState<profileInfo>({
+    id: '',
+    email: '',
+    nickname: '',
+    profileImageUrl: '',
+    createdAt: '',
+    updatedAt: '',
+  });
+  useEffect(() => {
+    const fetchDashboardInfo = async () => {
+      if (dashboardId)
+        try {
+          const response = await api.get(`/dashboards/${dashboardId}`);
+          setDashboardInfo(response.data);
+        } catch (error) {
+          console.error('프로필 정보를 가져오는 중에 오류가 발생했습니다:', error);
+        }
+    };
+
+    fetchDashboardInfo();
+  }, [dashboardId]);
+
+  useEffect(() => {
+    const fetchProfileInfo = async () => {
+      try {
+        const response = await api.get('/users/me');
+        setProfileInfo(response.data);
+      } catch (error) {
+        console.error('프로필 정보를 가져오는 중에 오류가 발생했습니다:', error);
+      }
+    };
+
+    fetchProfileInfo();
+  }, []);
+
+  useEffect(() => {
+    const fetchDashboardInfo = async () => {
+      if (dashboardId)
+        try {
+          const response = await api.get(`/dashboards/${dashboardId}`);
+          setDashboardInfo(response.data);
+        } catch (error) {
+          console.error('프로필 정보를 가져오는 중에 오류가 발생했습니다:', error);
+        }
+    };
+
+    fetchDashboardInfo();
+  }, [dashboardId]);
+
+  useEffect(() => {
+    const fetchDashboardMemberInfo = async () => {
+      if (dashboardId)
+        try {
+          const response = await api.get(`/members?page=1&size=20&dashboardId=${dashboardId}`);
+          setMember(response.data);
+        } catch (error) {
+          console.error('프로필 정보를 가져오는 중에 오류가 발생했습니다:', error);
+        }
+    };
+
+    fetchDashboardMemberInfo();
+  }, [dashboardId]);
 
   useEffect(() => {
     function handleResize() {
@@ -49,10 +114,10 @@ const DashboardHeader = ({ isVisible, children }: DashboardHeaderProps) => {
 
   useEffect(() => {
     if (isTabletView) {
-      const additionalCount = PROFILE.length > 2 ? PROFILE.length - 2 : 0;
+      const additionalCount = member.members.length > 2 ? member.members.length - 2 : null;
       setAdditionalProfiles(additionalCount);
     } else {
-      const additionalCount = PROFILE.length > 4 ? PROFILE.length - 4 : 0;
+      const additionalCount = member.members.length > 4 ? member.members.length - 4 : null;
       setAdditionalProfiles(additionalCount);
     }
   }, [isTabletView]);
@@ -68,10 +133,10 @@ const DashboardHeader = ({ isVisible, children }: DashboardHeaderProps) => {
   const handleInviteSubmit = (data: { name: string }) => {
     // 새 컬럼 생성 로직 추가
   };
-
+  const color = randomColor();
   return (
     <S.DashboardHeader>
-      <S.RecipientName>{children}</S.RecipientName>
+      <S.RecipientName>{dashboardInfo.title || children}</S.RecipientName>
       <S.DashboardHeaderWrapper isvisible={isVisible}>
         <Link href={`/dashboard/${dashboardId}/edit`}>
           <S.SettingButton>
@@ -85,9 +150,9 @@ const DashboardHeader = ({ isVisible, children }: DashboardHeaderProps) => {
           초대하기
         </S.InviteButton>
         <S.ProfileTestWrapper>
-          {PROFILE.slice(0, 4).map((item, index) => (
-            <S.TestProfile key={index} className={`profile-item-${index}`} color={item.color}>
-              {item.initials}
+          {member.members.slice(0, 4).map((item: any, index: any) => (
+            <S.TestProfile key={index} className={`profile-item-${index}`} color={color}>
+              {item.nickname.charAt(0)}
             </S.TestProfile>
           ))}
           {additionalProfiles && (
@@ -99,8 +164,8 @@ const DashboardHeader = ({ isVisible, children }: DashboardHeaderProps) => {
         </S.ProfileTestWrapper>
       </S.DashboardHeaderWrapper>
       <S.ProfileWrapper isVisible={isVisible}>
-        <S.ProfileInitials>B</S.ProfileInitials>
-        <S.ProfileName>배유철</S.ProfileName>
+        <S.ProfileInitials color={color}>{profileInfo.nickname.charAt(0)}</S.ProfileInitials>
+        <S.ProfileName>{profileInfo.nickname}</S.ProfileName>
       </S.ProfileWrapper>
     </S.DashboardHeader>
   );

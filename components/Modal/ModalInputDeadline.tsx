@@ -7,8 +7,10 @@ import 'react-calendar/dist/Calendar.css';
 interface DeadlineData {
   title: string;
 }
-
-const ModalInputDeadline: React.FC = () => {
+interface ModalInputDeadlineProps {
+  onDeadlineChange: (newDeadline: string) => void;
+}
+const ModalInputDeadline: React.FC<ModalInputDeadlineProps> = ({ onDeadlineChange }) => {
   const { register, setValue, watch } = useForm<DeadlineData>();
   const [calendarVisible, setCalendarVisible] = useState(false);
   const [dateSelected, setDateSelected] = useState(false);
@@ -31,15 +33,22 @@ const ModalInputDeadline: React.FC = () => {
   const handleDateChange = (value: Date | Date[]) => {
     const selectedDate = Array.isArray(value) ? value[0] : value;
 
-    const toLocaleDateString = (date: Date) => {
-      const offset = date.getTimezoneOffset();
-      const localDate = new Date(date.getTime() - offset * 60 * 1000);
-      return localDate.toISOString().split('T')[0];
+    const toLocaleDateTimeString = (date: Date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+
+      return `${year}-${month}-${day} ${hours}:${minutes}`;
     };
 
-    setValue('title', toLocaleDateString(selectedDate));
+    const dateTimeString = toLocaleDateTimeString(selectedDate);
+
+    setValue('title', dateTimeString);
     setCalendarVisible(false);
     setDateSelected(true);
+    onDeadlineChange(dateTimeString);
   };
 
   const toggleCalendar = () => {
