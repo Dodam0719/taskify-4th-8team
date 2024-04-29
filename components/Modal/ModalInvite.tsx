@@ -11,17 +11,8 @@ interface InviteFormProps {
 }
 
 const ModalInvite: React.FC<InviteFormProps> = ({ dashboardId, title, onClose }) => {
-<<<<<<< HEAD
-  const {
-    register,
-    handleSubmit,
-\
-    formState: { errors },
-  } = useForm({ mode: 'onBlur', defaultValues: { email: '' } });
-=======
   const [inviteEmail, setInviteEmail] = useState<string>('');
   console.log(inviteEmail);
->>>>>>> 17f6f4b2605b484a2041874baefda1e2df17d78d
 
   const handleChangeInviteEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInviteEmail(e.target.value);
