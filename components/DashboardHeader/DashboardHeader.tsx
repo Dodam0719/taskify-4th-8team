@@ -168,10 +168,12 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
           )}
         </S.ProfileTestWrapper>
       </S.DashboardHeaderWrapper>
-      <S.ProfileWrapper $isvisible={isVisible}>
-        <S.ProfileInitials>{profileInfo.nickname.charAt(0)}</S.ProfileInitials>
-        <S.ProfileName>{profileInfo.nickname}</S.ProfileName>
-      </S.ProfileWrapper>
+      <Link href={`/myPage`}>
+        <S.ProfileWrapper $isvisible={isVisible}>
+          <S.ProfileInitials>{profileInfo.nickname.charAt(0)}</S.ProfileInitials>
+          <S.ProfileName>{profileInfo.nickname}</S.ProfileName>
+        </S.ProfileWrapper>
+      </Link>
     </S.DashboardHeader>
   );
 };
