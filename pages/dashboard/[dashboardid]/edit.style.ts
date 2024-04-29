@@ -1,3 +1,4 @@
+import Button from '@/components/button/Button';
 import { device } from '@/styles/breakpoints';
 import styled from 'styled-components';
 
@@ -40,4 +41,8 @@ export const DashboardBoardListStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+`;
+
+export const DeleteDashboardButton = styled(Button)`
+  margin-top: 4rem;
 `;
