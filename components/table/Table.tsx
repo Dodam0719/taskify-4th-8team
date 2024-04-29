@@ -10,13 +10,13 @@ const USER_PROFILE_COLOR = ['#C4B1A2', '#9DD7ED', '#FDD446', '#FFC85A'];
 // const USER_NAME = ['장만철', '김태순', '최주협', '윤지현'];
 // const USER_EMAIL = ['codeitA@codeit.com', 'codeitB@codeit.com', 'codeitC@codeit.com', 'codeitD@codeit.com'];
 
-const Table = ({ title, userList }: TableType) => {
+const Table = ({ title, userList, dashboardId }: TableType) => {
   const [memberInfo, setMemberInfo] = useState<MemberInfo>({ members: [], totalCount: 0 });
   const [inviteInfo, setInviteInfo] = useState<InviteInfo>({ invitations: [], totalCount: 0 });
 
-  const getMemberInfo = async (id: number = 7073, page: number = 1, size: number = 20) => {
+  const getMemberInfo = async (dashboardId: number, page: number = 1, size: number = 20) => {
     try {
-      const response = await api.get(`members`, { params: { dashboardId: id, page, size } });
+      const response = await api.get(`members`, { params: { dashboardId, page, size } });
       if (response.status === 200) {
         const memberData = response.data;
         setMemberInfo(memberData);
@@ -27,7 +27,7 @@ const Table = ({ title, userList }: TableType) => {
     }
   };
 
-  const getInviteInfo = async (dashboardId: number = 7073, page: number = 1, size: number = 10) => {
+  const getInviteInfo = async (dashboardId: number, page: number = 1, size: number = 10) => {
     try {
       const response = await api.get(`dashboards/${dashboardId}/invitations`, { params: { page, size } });
       if (response.status === 200) {
@@ -45,19 +45,19 @@ const Table = ({ title, userList }: TableType) => {
       const response = await api.delete(`members/${memberId}`);
       if (response.status === 204) {
         console.log('멤버가 삭제되었습니다.');
-        getMemberInfo();
+        getMemberInfo(dashboardId);
       }
     } catch (error: any) {
       console.log(error.response.data.message);
     }
   };
 
-  const cancelInvite = async (dashboardId: number = 7073, invitationId: number) => {
+  const cancelInvite = async (dashboardId: number, invitationId: number) => {
     try {
       const response = await api.delete(`dashboards/${dashboardId}/invitations/${invitationId}`);
       if (response.status === 204) {
         console.log('초대가 취소되었습니다.');
-        getInviteInfo();
+        getInviteInfo(dashboardId);
       }
     } catch (error: any) {
       console.log(error.response.data.message);
@@ -77,13 +77,13 @@ const Table = ({ title, userList }: TableType) => {
   };
 
   useEffect(() => {
-    getMemberInfo();
-    getInviteInfo();
+    getMemberInfo(dashboardId);
+    getInviteInfo(dashboardId);
   }, []);
 
   return (
     <S.Table>
-      <TableHeader title={title} userList={userList} />
+      <TableHeader title={title} userList={userList} dashboardId={dashboardId} />
       <S.UserList>
         {title === '구성원' &&
           memberInfo.members.map((member, i) => (
