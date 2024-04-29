@@ -3,8 +3,8 @@ import { SetStateAction } from 'react';
 export interface InviteItemType {
   name: string;
   inviter: string;
-  id: number;
   setInviteData: React.Dispatch<SetStateAction<any>>;
+  id: number;
 }
 
 export interface TableType {

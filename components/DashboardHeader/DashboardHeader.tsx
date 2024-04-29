@@ -9,7 +9,7 @@ import { Membersinfo } from '../card/type';
 interface DashboardHeaderProps {
   isVisible: string;
   children?: React.ReactNode;
-  dashboardId?: string;
+  dashboardId: string;
 }
 interface dashboardInfo {
   id: number;
@@ -144,7 +144,9 @@ const DashboardHeader = ({ isVisible, children, dashboardId }: DashboardHeaderPr
             관리
           </S.SettingButton>
         </Link>
-        {isModalOpen && <ModalInvite title='초대하기' placeholder='' onSubmit={handleInviteSubmit} onClose={handleCloseModal} />}
+        {isModalOpen && (
+          <ModalInvite dashboardId={dashboardId} title='초대하기' placeholder='' onSubmit={handleInviteSubmit} onClose={handleCloseModal} />
+        )}
         <S.InviteButton onClick={handleInviteModal}>
           <img src='/assets/icon/invite_icon.svg' alt='초대 버튼이미지' />
           초대하기

@@ -16,11 +16,11 @@ const UploadInput = styled.input.attrs({ type: 'file', accept: 'image/*' })`
   display: none;
 `;
 interface ModalTodoProps {
-  todoTitle: string;
-  onSubmit: (data: { name: string }) => void;
-  onClose: () => void;
-  dashboardId: string;
-  columninfo: Column;
+  todoTitle?: string;
+  onSubmit?: (data: { name: string }) => void;
+  onClose?: () => void;
+  dashboardId?: string;
+  columninfo?: Column;
 }
 interface TagType {
   id: string;
@@ -34,7 +34,6 @@ const ModalTodo: React.FC<ModalTodoProps> = ({ onClose, todoTitle, dashboardId, 
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState<TagType[]>(['']);
   const [image, setImage] = useState<string | null>('');
-  console.log(tags);
   const handleSelectedMemberChange = (selectedMember: Member | null) => {
     setSelectedMember(selectedMember);
   };

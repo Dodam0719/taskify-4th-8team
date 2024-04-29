@@ -14,7 +14,6 @@ import Noinvited from '../no-invited-dashboard/NoInvited';
 import Link from 'next/link';
 import { BaseDashboard } from '@/hooks/useDashboards';
 
-
 const INVITE_ITEM = [
   ['프로덕트 디자인', '손동희'],
   ['새로운 기획 문서', '안귀영'],
@@ -51,7 +50,6 @@ const InviteDash = () => {
   const [selectedDashboardIndex, setSelectedDashboardIndex] = useState(-1);
   const [inviteData, setInviteData] = useState<ResInviteData>();
   const [searchInput, setSearchInput] = useState('');
-
 
   const handleClick = (id: number) => {
     const queryString = `${id}`;
@@ -91,20 +89,24 @@ const InviteDash = () => {
           <PlusChip />
         </Button>
         {myDashboards.map((dashboard) => (
-        <Link href={`/dashboard/${dashboard.id}`} key={dashboard.id}>
-          <Button onClick={() => handleClick(dashboard.id)} variant='dashboard' $width='33.2rem' $height='7rem'>
-            <div>
-              <S.ButtonColorPointStyle color={dashboard.color} />
-              <Menu  id={dashboard.id}
+          <Link href={`/dashboard/${dashboard.id}`} key={dashboard.id}>
+            <Button onClick={() => handleClick(dashboard.id)} variant='dashboard' $width='33.2rem' $height='7rem'>
+              <div>
+                <S.ButtonColorPointStyle color={dashboard.color} />
+                <Menu
+                  id={dashboard.id}
                   dashboard={dashboard}
                   selectedDashboardIndex={selectedDashboardIndex}
                   setSelectedDashboardIndex={(index) => {
                     setSelectedDashboardIndex(index);
                   }}
-                  type='button' />
-            </div>
-            <Arrow_forward $width='1.8rem' $height='1.8rem' />
-          </Button>
+                  type='button'
+                />
+              </div>
+
+              <Arrow_forward $width='1.8rem' $height='1.8rem' />
+            </Button>
+          </Link>
         ))}
         {inviteDashBoards.map((dashboard) => (
           <Link href={`/dashboard/${dashboard.id}`} key={dashboard.id}>
